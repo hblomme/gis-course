@@ -327,5 +327,38 @@
       "2 Data in GIS (part 1)",
       "2.5 Common file formats in QGIS"
     ]
+  },
+  {
+    "objectID": "basics/importing-vector-raster.html",
+    "href": "basics/importing-vector-raster.html",
+    "title": "3.1 Importing data: vectors and rasters",
+    "section": "",
+    "text": "QGIS lets you import vector and raster files, whether they are stored on your own computer or on a server.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.1 Importing data: vectors and rasters"
+    ]
+  },
+  {
+    "objectID": "basics/importing-vector-raster.html#method-1-drag-and-drop",
+    "href": "basics/importing-vector-raster.html#method-1-drag-and-drop",
+    "title": "3.1 Importing data: vectors and rasters",
+    "section": "Method 1: drag and drop",
+    "text": "Method 1: drag and drop\nThe simplest way to load geodata is to drag the files onto the QGIS interface: pick up the files in a folder on your computer and drop them on the map canvas or the Layers panel. For a shapefile, which consists of several files, you only need to select the one with the extension .shp.\n\n\n\n\n\n\nDrag and drop is quick, but it skips the import window with its extra settings. When you need more control over how a file is imported, use the Data Source Manager instead, as you will see later in this learning path.\n\n\n\nIf you do not want to switch between windows all the time while working in QGIS, you can use the Browser panel instead: it gives you easy access to all the folders and files on your computer.\n\nThe Browser panel has another advantage: it can also hold connections to databases and servers. In this way, you have access not only to your local files but also to all kinds of other data sources, gathered in one handy window.\n\n\n\n\n\n\nGeoPackages. You can load a GeoPackage just like any other file. If it contains one layer, that layer is added immediately; if it contains several layers, QGIS first opens a window in which you select the layers you want to add.\nTo make working with GeoPackages easier, you do not always have to load them as a whole. Instead, you can make a connection to a GeoPackage: in the Browser panel, right-click GeoPackage ▸ New Connection… and choose the .gpkg file. When you unfold the GeoPackage in the Browser panel, you see all its layers and can add exactly the ones you need. QGIS remembers this connection, also in other projects, so you only need to create such a connection once.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.1 Importing data: vectors and rasters"
+    ]
+  },
+  {
+    "objectID": "basics/importing-vector-raster.html#method-2-via-the-data-source-manager",
+    "href": "basics/importing-vector-raster.html#method-2-via-the-data-source-manager",
+    "title": "3.1 Importing data: vectors and rasters",
+    "section": "Method 2: via the Data Source Manager",
+    "text": "Method 2: via the Data Source Manager\nYou can also import data into QGIS through the Data Source Manager. Thanks to its many configuration options, this manager offers a more controlled way to load geo-information. You can open the Data Source Manager by choosing Layer ▸ Data Source Manager in the menu. Alternatively, you can click the first (leftmost) button of the Data Source Manager Toolbar, if this toolbar is shown (see QGIS interface: View ▸ Toolbars).\nIn the Data Source Manager, the navigation column on the left lists all the data source types you can load through the manager. If you click one of these types, the configuration options for this type appear on the right. For some types, such as vector and raster files, these options are limited; for others you will have to configure more. We will give concrete examples of this in a later chapter, Data in GIS (part 2): see for example Delimited text files (CSV).\nThe data source types you find on the left side of the Data Source Manager are also available when you choose Layer ▸ Add Layer in the main menu. Each of these submenu items takes you directly to the right tab of the Data Source Manager.\n\n\nVector data\nTo load locally stored vector data, choose the Vector tab and make sure that Source Type is set to File. Then select your file(s) with the … button next to Vector Dataset(s) and click Add.\n\n\n\n\n\n\nA GeoPackage is a database, but one that is stored as a file on your computer: load it with Source Type ▸ File. The option Database is meant for databases on a server.\n\n\n\n\n\nRaster data\nIn the same way, you can import local raster data through the Raster tab of the Data Source Manager. Vector and raster data are thus loaded in almost the same way, but through a different tab.\nMake sure you always select the right tab. Otherwise QGIS gives an error message and you cannot import the data you want.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.1 Importing data: vectors and rasters"
+    ]
   }
 ]
