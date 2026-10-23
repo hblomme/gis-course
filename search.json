@@ -360,5 +360,38 @@
       "3 QGIS basics",
       "3.1 Importing data: vectors and rasters"
     ]
+  },
+  {
+    "objectID": "basics/layers.html",
+    "href": "basics/layers.html",
+    "title": "3.2 Layers in QGIS",
+    "section": "",
+    "text": "Once you have loaded your data, every dataset you added appears as a separate layer. The Layers panel (C) gives you an overview of all layers in your project, and the map canvas immediately shows their spatial component. The attribute data are not shown in the map canvas straight away, but you can easily consult them (for example with Identify Features, see Navigating the map canvas, or in the attribute table, see chapter 4: The attribute table).",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.2 Layers in QGIS"
+    ]
+  },
+  {
+    "objectID": "basics/layers.html#layers-panel-and-map-canvas",
+    "href": "basics/layers.html#layers-panel-and-map-canvas",
+    "title": "3.2 Layers in QGIS",
+    "section": "Layers panel and map canvas",
+    "text": "Layers panel and map canvas\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nNavigating the map canvas is covered on Map navigation.\n\n\n\n The Layers panel is one of the key panels of the QGIS interface: here you find an overview of all data layers loaded in your project. \n\nThe order in which the layers are shown in the Layers panel determines the drawing order in the map canvas: each layer is drawn on top of the layers below it in the list. This is less trivial than it may seem at first sight. \n\n\n\n\n\n\nSome layers, such as raster or polygon layers, can completely cover the layers below them and so hide them. If a layer seems to be missing from the map canvas, check the layer order first.\n\n\n\nIt is usually a good idea to keep the following order:\n\nat the top, layers with point features\nbelow them, the lines\nbelow them, the polygons\nraster data at the very bottom\n\nYou can easily change the order of the layers by dragging them. The checkbox in front of each layer lets you choose whether it is shown in the map canvas at all.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.2 Layers in QGIS"
+    ]
+  },
+  {
+    "objectID": "basics/layers.html#tiplayer-groups",
+    "href": "basics/layers.html#tiplayer-groups",
+    "title": "3.2 Layers in QGIS",
+    "section": "Layer groups",
+    "text": "Layer groups\nIf you want to bring more structure to your layers, you can add layer groups (with the Add Group button, 1 in panel C).\nLayer groups not only let you organise your layers more clearly in groups that you can expand and collapse; with the checkbox of the group, you can also show or hide all its layers with one click.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.2 Layers in QGIS"
+    ]
   }
 ]
