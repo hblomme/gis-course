@@ -250,5 +250,27 @@
       "2 Data in GIS (part 1)",
       "2.3 Rasters vs. vectors"
     ]
+  },
+  {
+    "objectID": "data-models/data-source-types.html",
+    "href": "data-models/data-source-types.html",
+    "title": "2.4 Data sources",
+    "section": "",
+    "text": "Geodata (both raster and vector data) can be kept on your own computer, or on a server that you reach through a network or the internet. Below we give an overview of the data sources available in both cases.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.4 Data sources"
+    ]
+  },
+  {
+    "objectID": "data-models/data-source-types.html#where-to-find-and-store-geodata",
+    "href": "data-models/data-source-types.html#where-to-find-and-store-geodata",
+    "title": "2.4 Data sources",
+    "section": "Where to find and store geodata",
+    "text": "Where to find and store geodata\n\nLocal files\nWith local files you have your own copy of the data, which you can edit and adjust as much as you like. Because the data are on your computer, you do not need an internet connection. The downside is that this setup is not well suited for several people working on the same dataset at the same time.\n\nLayer files\nIn the introduction you learned that geodata are stored in thematic layers. In its simplest form, a layer is saved as a file (or a group of files) on your computer, for example an image or a simple text file that defines vector objects. When you load such a file into QGIS, you get access to the layer it contains.\n\n\nDatabase files\nA database file can contain multiple layers and tables at once. It allows more complex data models, in which tables are linked to each other. When you load a database file into QGIS, you get access to all the layers it contains.\n\n\nFile formats\nTechnically, layer files and database files exist in several file formats, for both rasters and vectors. These formats are explained on the next page, Common file formats in QGIS. How to open them in QGIS is explained in Importing data.\n\n\n\nServers\nGeodata are often stored on external servers: computers that share data over a network or the internet. Governments and national institutions commonly publish large datasets this way. Many people can use the same data without each downloading their own copy. You can load such data directly into your GIS.\n\nImage and feature providers\nRaster and vector data can be stored on a server and made available to users from there. From QGIS, you can connect to these providers and use their data in your map canvas, without downloading them first. The technical way in which these providers deliver their data is called a service. There are several types of services, which all deliver data but work in different ways. As a GIS user, you don’t need to know the technical details. It is enough to know that services exist and how to use them in QGIS.\nImage services send ready-made map images from the data provider to your computer. Commonly used services for this are WMS (Web Map Service), WMTS (Web Map Tile Service) and XYZ tiles. Services for vector data send the vector objects themselves to your computer, together with their attributes. A widely used vector service is WFS (Web Feature Service).\nAlthough services have clear advantages, as an end user you are limited to the permissions the provider gives you. Most providers only let you view and request data, but some also let you update them.\nYou will learn how to create these connections in practice in the chapter Services.\n\n\nRelational databases\nAs explained above, a database can hold several layers and tables that can be linked to each other: this is called a relational database. A database on a server has extra advantages: many users can work in the same database at the same time, which is useful for teams and for large datasets. Such databases are also often used by web applications. How to connect to a remote database is explained in Databases.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.4 Data sources"
+    ]
   }
 ]
