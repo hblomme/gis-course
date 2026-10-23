@@ -272,5 +272,60 @@
       "2 Data in GIS (part 1)",
       "2.4 Data sources"
     ]
+  },
+  {
+    "objectID": "data-models/file-formats.html",
+    "href": "data-models/file-formats.html",
+    "title": "2.5 Common file formats in QGIS",
+    "section": "",
+    "text": "A format is the way in which geodata are stored in a file or database. You can usually recognise the format of a file by the file extension: the letters after the last dot in the file name (.gpkg, .shp, .tif…).\nThere are many formats for geodata. This page explains four of the formats you will meet most often in QGIS and in this learning path.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.5 Common file formats in QGIS"
+    ]
+  },
+  {
+    "objectID": "data-models/file-formats.html#GeoPackage",
+    "href": "data-models/file-formats.html#GeoPackage",
+    "title": "2.5 Common file formats in QGIS",
+    "section": "GeoPackage: the default for vector data",
+    "text": "GeoPackage: the default for vector data\nQGIS uses the GeoPackage format (.gpkg) as its default format for vector data. A GeoPackage is a single file that can hold several layers (for example the points, lines and polygons of one project), and even rasters and plain tables. You can store not only the data themselves (for example the locations of points), but also how they are shown in GIS (for example as red stars). Because everything is in one file, a GeoPackage is easy to copy or send.\nHow you save several layers in one GeoPackage, convert shapefiles and save how your layers are shown is explained later, in Working with GeoPackages.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.5 Common file formats in QGIS"
+    ]
+  },
+  {
+    "objectID": "data-models/file-formats.html#shapefile-older-but-still-everywhere",
+    "href": "data-models/file-formats.html#shapefile-older-but-still-everywhere",
+    "title": "2.5 Common file formats in QGIS",
+    "section": "Shapefile: older, but still everywhere",
+    "text": "Shapefile: older, but still everywhere\nThe shapefile (or Esri shapefile) dates from the 1990s, but it is still one of the most widely used vector formats: almost every GIS program can read it, and a lot of existing data are offered in it. In this learning path you will often open shapefiles, but when you save or export your own data, we use GeoPackage.\nA shapefile is a combination of several files (at least three).\n\nA shapefile always consists of:\n\nSHP file: spatial data component\nDBF file: attribute information\nSHX file: an index of the geometries in the SHP file\n\nA shapefile can also include several extra files, such as:\n\nPRJ file: information about the coordinate reference system used\nSHP.XML file: metadata\nCPG file: information about character encoding\n\n\n\n\n\n\n\nThe files that form a shapefile must always be stored in the same folder with the same file name (only the extension differs, e.g. us_states.shp, us_states.dbf, us_states.shx). When you copy, move or rename a shapefile, always do it with all its files.\n\n\n\nCompared with a GeoPackage, a shapefile has some limits:\n\nOne shapefile holds only one layer with one geometry type (only points, only lines or only polygons).\nIt stores only the data, not how they are shown in GIS.\n\n\nGeoPackage vs shapefile\n\n\n\n\n\n\n\n\n\nGeoPackage\nShapefile\n\n\n\n\nFiles\none .gpkg file\nseveral files that must stay together\n\n\nLayers\nseveral per file\none per shapefile\n\n\nHow the data are shown\ncan be stored in the file\nnot stored\n\n\nRaster data\nyes\nno\n\n\nCompatibility\nmost modern GIS software\nalmost all GIS software",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.5 Common file formats in QGIS"
+    ]
+  },
+  {
+    "objectID": "data-models/file-formats.html#raster-files-geotiff-and-jpeg-2000-1",
+    "href": "data-models/file-formats.html#raster-files-geotiff-and-jpeg-2000-1",
+    "title": "2.5 Common file formats in QGIS",
+    "section": "Raster files: GeoTIFF and JPEG 2000",
+    "text": "Raster files: GeoTIFF and JPEG 2000\nGeoTIFF (.tif or .tiff) is the most common format for raster data. Besides the pixel values, a GeoTIFF stores where on earth the image belongs: the coordinates of the image and its coordinate system. That is why QGIS places a GeoTIFF in the right position at once.\n\n\n\n\n\n\nNot every .tif file is a georeferenced raster. A scan of an old map saved as TIFF is just an image, without coordinates. You first have to give it a position on the earth yourself; this is explained in the chapter Georeferencing.\n\n\n\nJPEG 2000 (.jp2) files have similar properties to GeoTIFFs for storing raster data, but they are compressed, so the files are much smaller. That is why governments and mapping agencies often use them for large aerial photographs (orthophotos).",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.5 Common file formats in QGIS"
+    ]
+  },
+  {
+    "objectID": "data-models/file-formats.html#other-formats",
+    "href": "data-models/file-formats.html#other-formats",
+    "title": "2.5 Common file formats in QGIS",
+    "section": "Other formats",
+    "text": "Other formats\nThis page discussed the formats you will meet most often, but there are many more. Some of them, such as CSV, GeoJSON, KML and the Esri file geodatabase, are explained in the chapter Data in GIS (part 2).",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.5 Common file formats in QGIS"
+    ]
   }
 ]
