@@ -184,5 +184,71 @@
       "2 Data in GIS (part 1)",
       "2.1 Raster model"
     ]
+  },
+  {
+    "objectID": "data-models/vector-model.html",
+    "href": "data-models/vector-model.html",
+    "title": "2.2 Vector model",
+    "section": "",
+    "text": "The second commonly used data model in GIS is the vector model. It describes geographic information as separate geometric objects (features): points, lines and areas – called polygons. The shape and position of each object are defined by coordinates: a point by one coordinate pair, a line or a polygon by the coordinates of its (corner) points – called vertices. Below, we take a short look at the main characteristics of the vector model and give some examples.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.2 Vector model"
+    ]
+  },
+  {
+    "objectID": "data-models/vector-model.html#points-lines-and-polygons",
+    "href": "data-models/vector-model.html#points-lines-and-polygons",
+    "title": "2.2 Vector model",
+    "section": "Points, lines and polygons",
+    "text": "Points, lines and polygons\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nThe raster model is discussed on Raster model. A comparison of both models is on Rasters vs. vectors.\n\n\n\n\nPoints consist of one coordinate.\nLines consist of at least two coordinates (a start point and an end point).\nAll points of a line, including the start and end points, are called vertices . The parts of the line between two successive vertices are called segments.\nPolygons consist of a line whose start point and end point are the same.\nThe whole area enclosed by this line also belongs to the polygon. A polygon needs at least four coordinates (a triangle): three different points, plus the first point repeated as the end point.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.2 Vector model"
+    ]
+  },
+  {
+    "objectID": "data-models/vector-model.html#very-accurate",
+    "href": "data-models/vector-model.html#very-accurate",
+    "title": "2.2 Vector model",
+    "section": "Very accurate",
+    "text": "Very accurate\nAs you learned on the previous page, data in the raster model are positioned in space by means of a grid of cells. Vector objects, on the other hand, are positioned in space by means of exact coordinates. So, unlike with rasters, there is no generalisation to a grid of cells. In other words, vectors are not resolution-dependent. This also has visual consequences: no matter how far you zoom in on a vector object, the object will always be shown sharply. Technically, there is no limit to the level of detail you can work with. In practice, of course, the accuracy depends on how precisely the data were drawn.\nBecause vector objects have exact positions and sharp boundaries, they are very suitable for storing discrete data, but less suitable for continuous data.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.2 Vector model"
+    ]
+  },
+  {
+    "objectID": "data-models/vector-model.html#attribute-data",
+    "href": "data-models/vector-model.html#attribute-data",
+    "title": "2.2 Vector model",
+    "section": "Attribute data",
+    "text": "Attribute data\nAnother important difference from the raster model is that a variety of attribute data can be linked to vector objects. Besides numbers (whole or decimal), these can also be text or dates, for example. Moreover, while a raster cell in practice usually holds only one value (or a few), vector objects often have many attribute fields.\nThe example below shows a vector file with point objects that represent cities. Each vector object – also called a feature – contains several attribute fields: the city’s name (text), the number of inhabitants (a whole number), the area of its territory (decimal number), and the region it belongs to (text).\n\n In QGIS and similar programs, you can consult the attribute data of a single feature directly in the map. You can also view the attribute data of all features of a layer at once, in the form of a table. This attribute table has one row per feature and one column per attribute field, and you will use it a lot when working in GIS.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nHow to open and use the attribute table in QGIS is explained on The attribute table.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.2 Vector model"
+    ]
+  },
+  {
+    "objectID": "data-models/vector-model.html#complex-but-small-files",
+    "href": "data-models/vector-model.html#complex-but-small-files",
+    "title": "2.2 Vector model",
+    "section": "Complex, but small files",
+    "text": "Complex, but small files\nVector files are usually small in size. After all, only the coordinates of the vertices and the attribute data have to be stored. On the other hand, the vector model is a fairly complex data structure. As a result, some spatial analyses may take a lot of computing power and time.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.2 Vector model"
+    ]
+  },
+  {
+    "objectID": "data-models/raster-vs-vector.html",
+    "href": "data-models/raster-vs-vector.html",
+    "title": "2.3 Rasters vs. vectors",
+    "section": "",
+    "text": "A lot of spatial data can be represented as vector data as well as raster data. The choice between the two types depends on the use case.\n\n\n\n\n\n\n\n\n\n\nRASTER\nVECTOR\n\n\nSpatial definition\nBased on a matrix of cells\nBased on geometric objects\n\n\nSpatial positioning\nEach raster cell is implicitly given coordinates. This is based on the coordinates of the origin, the spatial resolution (real-world size of each cell) and the position of each cell in the matrix (row and column number).\nCoordinates are explicitly stored for each point (or vertex).\n\n\nFile size\nUsually larger files\nUsually smaller files\n\n\nAccuracy\nResolution-dependent, generalisation at cell level (loss of information)\nNo technical limits on accuracy\n\n\nSuitable for\nContinuous and discrete data\nDiscrete data (continuous data only in a simplified form, e.g. contour lines)\n\n\nAttribute information\nRaster cells can only contain numeric values. The number of values per cell is limited to one per image band.\nEach object can have many attribute fields: text, numbers, dates…\n\n\nSpatial analyses\nOften faster because of the simple data structure\nOften slower because of the more complex data structure",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.3 Rasters vs. vectors"
+    ]
   }
 ]
