@@ -124,7 +124,7 @@
     "href": "data-models/raster-model.html",
     "title": "2.1 Raster model",
     "section": "",
-    "text": "In GIS, you work with information that has both a spatial component (defined by coordinates) and a non-spatial component (attribute data). The spatial component of this information can be structured technically in different ways. The two most commonly used spatial data models are the raster model and the vector model. We start with the raster model.\nRasters define geographic information by means of a grid of cells (or pixels) organised in rows and columns. Below, we take a short look at some characteristics and give some examples.",
+    "text": "In GIS, you work with information that has both a spatial component (defined by coordinates) and a non-spatial component (attribute data). This information can be structured technically in different ways. The two most commonly used data models in GIS are the raster model and the vector model. They differ both in how they store the spatial component and in how they link attribute data to it. We start with the raster model.\nRasters define geographic information by means of a grid of cells (or pixels) organised in rows and columns. Below, we take a short look at some characteristics and give some examples.",
     "crumbs": [
       "2 Data in GIS (part 1)",
       "2.1 Raster model"
