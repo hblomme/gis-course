@@ -1,0 +1,159 @@
+/* Notes for the author during revision (callout-warning boxes).
+   Uncomment to hide them on the published site:
+.editor-note { display: none; } */
+
+/* Coloured intro and closing blocks, as on the original Ufora pages */
+.outro-box { background: #eef4fc; font-weight: 600; }
+
+/* Screenshots and other images: a thin border and a light shadow, so it is clear where an
+   image starts and ends (class added by changes.html for images wider than 120 px). */
+main img.framed {
+  border: 1px solid #c9ced6;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+  background: #fff;
+  padding: 4px;
+  margin: 0.4rem 0 0.8rem;
+}
+
+kbd {
+  font-size: 0.85em;
+}
+
+/* Text colours from the original Ufora pages:
+   red = letters/numbers in screenshots, blue = labels and key terms,
+   green = points of attention, orange = cross-references */
+.red { color: #e02020; }
+.blue { color: #1e64c0; }
+
+/* Screenshot references (A, B2, (iii)…) */
+.ref { color: #e02020; font-weight: 600; }
+
+/* Menu paths (View ▸ Toolbars): italic text on a light blue background (class added by menupath.lua) */
+.menu-path {
+  background: #e6eefa;
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.outro-box .menu-path { background: #fff; }
+.del .menu-path, div.del .menu-path { background: none; }
+
+/* Section headings: one subtle accent colour (remove this rule to make them black again) */
+main h2 { color: #1a4f9e; }
+.green { color: #00860d; }
+.orange { color: #d97a00; }
+.mark { background: #ffe599; }
+
+
+/* Former panel names under the QGIS interface table */
+.panel-alias { color: #000; font-size: 0.9em; }
+
+/* Cross-references (See also): light blue with info icon */
+.seealso .callout-note {
+  background: #f4f5f6 !important;
+  border-left: 5px solid #8a9096 !important;  /* same width as the other boxes */
+}
+
+
+
+
+
+/* Wide screens: fixed-width sidebar, and the content (text + "On this page")
+   centred in the remaining space instead of pushed against the sidebar. */
+@media (min-width: 992px) {
+  body.docked .page-columns {
+    grid-template-columns:
+      [screen-start] 2rem
+      [screen-start-inset page-start] 340px
+      [page-start-inset body-start-outset] 1fr
+      [body-start] 2rem
+      [body-content-start] minmax(500px, 1000px)
+      [body-content-end] 2rem
+      [body-end] 40px
+      [body-end-outset] minmax(180px, 260px)
+      [page-end-inset] 32px
+      [page-end] 1fr
+      [screen-end-inset] 2rem
+      [screen-end];
+  }
+  body.docked .sidebar.sidebar-navigation {
+    grid-column: screen-start / body-start-outset;
+  }
+}
+
+/* ---- Update phase: visible changes ----
+   [new text]{.add}   ::: add ... :::     added or rewritten text (purple)
+   [old text]{.del}   ::: del ... :::     removed text (struck through)
+   [text]{.check}                         author: please verify
+   The button "Show final version" (changes.js) hides deletions and markup. */
+.add { color: #6b21a8; background: #f3e8ff; border-radius: 2px; }
+div.add { border-left: 4px solid #a855f7; padding: 0.2rem 0 0.2rem 0.8rem; margin: 0.8rem 0; background: #faf5ff; }
+.del { color: #9ca3af; text-decoration: line-through; }
+div.del { border-left: 4px solid #d1d5db; padding-left: 0.8rem; opacity: 0.75; }
+div.del * { text-decoration: line-through; color: #9ca3af !important; background: none !important; }
+div.del img { opacity: 0.4; }
+.check { text-decoration: underline dotted #e8710a 2px; text-underline-offset: 3px; }
+.check::after { content: " ⚠"; color: #e8710a; font-size: 0.8em; }
+
+body.final-view .del, body.final-view div.del { display: none; }
+body.final-view .add, body.final-view div.add { color: inherit; background: none; border: none; padding: 0; margin: 0; }
+body.final-view .check { text-decoration: none; }
+body.final-view .check::after { content: none; }
+body.final-view .editor-note { display: none; }
+
+#changes-toggle {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 2000;
+  background: #6b21a8; color: #fff; border: none; border-radius: 20px;
+  padding: 0.45rem 1rem; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(0,0,0,.25); cursor: pointer;
+}
+
+/* Click-to-enlarge for images outside Quarto's lightbox */
+img.zoomable { cursor: zoom-in; }
+#img-zoom { display: none; position: fixed; inset: 0; z-index: 3000; background: rgba(0, 0, 0, 0.82);
+  align-items: center; justify-content: center; cursor: zoom-out; padding: 2vh 2vw; }
+#img-zoom.open { display: flex; }
+#img-zoom img { max-width: 96vw; max-height: 96vh; background: #fff; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,.5); }
+
+/* Videos inside a removed block: clearly greyed out (and hidden in the final view) */
+div.del iframe, div.del .quarto-video, div.del video { opacity: 0.3; filter: grayscale(1); pointer-events: none; }
+div.del .quarto-video { position: relative; }
+
+/* ---- Callout boxes: three types only (author, 2026-10-21) --------------------------------------
+   Tip = light brown with lamp (close to the expected yellow); Warning = blue with (!) (important information);
+   See also = neutral grey with an arrow (author, 2026-10-22). Editor notes (.editor-note) keep their own style. */
+div.callout-tip.callout { border-left-color: #a47551 !important; background: #f8f2ec; }
+div.callout-tip.callout-style-default > .callout-header { background-color: #efe3d7 !important; }
+div.callout-tip .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(130, 88, 58)" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/></svg>') !important;
+}
+div.callout-warning.callout:not(.editor-note) { border-left-color: #1e64c8 !important; background: #eef3fb; }
+div.callout-warning.callout-style-default:not(.editor-note) > .callout-header { background-color: #dce7f7 !important; }
+div.callout-warning:not(.editor-note) .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(30, 100, 200)" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>') !important;
+}
+.seealso div.callout-note.callout { border-left-color: #8a9096 !important; background: #f4f5f6 !important; }
+.seealso div.callout-note .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(95, 101, 107)" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>') !important;
+}
+.seealso div.callout-note .callout-title-container { color: #4a5056; }
+
+/* Working view: screenshots still to (re)do (tools/build_pending.py); hidden in the student view */
+main img.pending-shot { outline: 3px dashed #e07b00; outline-offset: 3px; }
+.pending-tag { display: block; width: fit-content; margin: 4px 0 12px; padding: 2px 8px; font-size: 0.85em;
+  background: #fff1dc; color: #8a4b00; border: 1px solid #e0a050; border-radius: 4px; }
+body.final-view main img.pending-shot { outline: none; }
+body.final-view .pending-tag { display: none; }
+/* Student view: hide the temporary Review section of the sidebar */
+body.final-view .sidebar-item-section:has(a[href*="/review/"]) { display: none; }
+
+/* Cover page (index.qmd) */
+.cover { max-width: 640px; margin: 3rem auto 2rem; text-align: center; }
+.cover-sub { font-size: 1.35rem; color: #555; margin-bottom: 2.2rem; }
+.cover-author { font-size: 1.1rem; margin-bottom: 0.8rem; }
+.cover-meta { color: #1e64c8; font-weight: 600; margin-bottom: 2.2rem; }
+.cover-btn { font-size: 1.05rem; padding: 0.6rem 1.4rem; }
+.cover-licence { margin-top: 2.5rem; font-size: 0.85rem; color: #777; }
+.cover-title { display: block; font-size: 2.6rem; font-weight: 700; margin-bottom: 0.6rem; }
+body:has(.cover) #title-block-header, body:has(.cover) header#title-block-header { display: none; }

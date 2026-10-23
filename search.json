@@ -1,0 +1,188 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to QGIS",
+    "section": "",
+    "text": "Introduction to QGIS\n\nA learning path with exercises\n\n\nHans Blomme\nDepartment of History, Ghent University\n\n\n2026 · based on QGIS 4\n\nStart the learning path →\n\nText licensed under CC BY 4.0: you may reuse and adapt it, with attribution.",
+    "crumbs": [
+      "Cover"
+    ]
+  },
+  {
+    "objectID": "introduction/what-is-gis.html",
+    "href": "introduction/what-is-gis.html",
+    "title": "1.1 What is GIS?",
+    "section": "",
+    "text": "The concept of ‘space’ is part of much research in the humanities and in linguistics. Archaeological finds, historical events and linguistic phenomena, among others, are partly defined by their location and distribution. Because of this, these disciplines often need to structure, analyse and visualise information spatially. This can be done in different ways: analogue or digital, with general tools or with specialised tools.\nGeographic information systems (GIS) belong to this last category. These (digital) systems were developed specifically to process geo-information, that is, information with a spatial dimension.\nGeographic information systems offer their users a wide range of tools and functions that can relate to every step of the data processing workflow:\n\n\n\n\n\n\n\n1.\nCreating digital geodata (manually or automatically)\n\n\n2.\nStructuring, modelling, storing and managing spatial information\n\n\n3.\nEditing both the spatial and the non-spatial information\n\n\n4.\nQuerying geographic data\n\n\n5.\nVisualising and exporting maps\n\n\n\nNot every GIS application covers all of the aspects above. There is a great variety of GIS software: some packages specialise in specific aspects (for example storing geodata or creating maps), others take a more integrated approach.\nThere are also large differences in user interaction: some applications have an advanced graphical user interface, others have none at all.\nFinally, there are applications meant for local use (desktop software) as well as server-based systems. The latter offer extra possibilities (for example for collaboration), but they also require a lot of system administration work. For this reason, they are usually out of reach for individual researchers.",
+    "crumbs": [
+      "1 Introduction",
+      "1.1 What is GIS?"
+    ]
+  },
+  {
+    "objectID": "introduction/what-is-gis.html#geographic-information-systems",
+    "href": "introduction/what-is-gis.html#geographic-information-systems",
+    "title": "1.1 What is GIS?",
+    "section": "",
+    "text": "The concept of ‘space’ is part of much research in the humanities and in linguistics. Archaeological finds, historical events and linguistic phenomena, among others, are partly defined by their location and distribution. Because of this, these disciplines often need to structure, analyse and visualise information spatially. This can be done in different ways: analogue or digital, with general tools or with specialised tools.\nGeographic information systems (GIS) belong to this last category. These (digital) systems were developed specifically to process geo-information, that is, information with a spatial dimension.\nGeographic information systems offer their users a wide range of tools and functions that can relate to every step of the data processing workflow:\n\n\n\n\n\n\n\n1.\nCreating digital geodata (manually or automatically)\n\n\n2.\nStructuring, modelling, storing and managing spatial information\n\n\n3.\nEditing both the spatial and the non-spatial information\n\n\n4.\nQuerying geographic data\n\n\n5.\nVisualising and exporting maps\n\n\n\nNot every GIS application covers all of the aspects above. There is a great variety of GIS software: some packages specialise in specific aspects (for example storing geodata or creating maps), others take a more integrated approach.\nThere are also large differences in user interaction: some applications have an advanced graphical user interface, others have none at all.\nFinally, there are applications meant for local use (desktop software) as well as server-based systems. The latter offer extra possibilities (for example for collaboration), but they also require a lot of system administration work. For this reason, they are usually out of reach for individual researchers.",
+    "crumbs": [
+      "1 Introduction",
+      "1.1 What is GIS?"
+    ]
+  },
+  {
+    "objectID": "introduction/what-is-gis.html#desktop-gis",
+    "href": "introduction/what-is-gis.html#desktop-gis",
+    "title": "1.1 What is GIS?",
+    "section": "Desktop GIS",
+    "text": "Desktop GIS\nIn this very diverse GIS landscape, ArcGIS and QGIS are among the most widely used software packages. Both offer a wide range of functions in an integrated, user-friendly graphical interface. Both can also easily be installed as a standalone application on the end user’s computer. Because they are fairly easy to learn, easy to install and offer many possibilities, these packages have helped to make GIS popular in the humanities and in linguistics.\nThe basic principles of ArcGIS and QGIS are the same:\n\nThe map canvas of these GIS applications can be seen as a coordinate system.\nOn this coordinate system, (spatial) information can be positioned based on an x value and a y value (in a geographic coordinate system, these are the longitude and the latitude, expressed in degrees; see the chapter on coordinate systems). So the data we mainly work with in a GIS environment are data that contain coordinates. If they do not, a GIS will not be able to position the data (correctly) in space. By default, the axes and the coordinate grid itself are not visible in the map canvas of these geographic information systems. However, they are still present in the background.\nNon-spatial information can be linked to spatial information.\nFor example, you can have a data object that represents a point with the coordinates 3.723° east longitude and 51.045° north latitude (spatial information). About this point you can say that it is the Book Tower (name), that it was built in the period 1936–1942 (period) and that it is owned by Ghent University (owner). Name, construction period and owner are of course non-spatial data. Both the spatial and the non-spatial dimensions of a dataset can be queried and edited in these geographic information systems.\nIn these GIS environments, data are ideally stored in (one or more) thematic information layers.\nExamples of such layers are roads (and waterways), buildings, boundaries, contour lines… In a GIS environment, different information layers can easily be combined, compared and processed.\n\nBesides these general principles, ArcGIS and QGIS also have more similarities than differences in their user interface and functions. If you know one of these systems well, you will quickly learn the other one, and the other way round. Still, there are of course some (small and larger) differences in use, performance and possibilities. Neither package is better than the other in every respect: both have advantages and disadvantages.\nArcGIS (its current desktop application is called ArcGIS Pro) is a commercial product of the company Esri. To be able to use it, you therefore need to purchase a licence. QGIS, on the other hand, is open source software and completely free to use. For this reason, the practical parts of this learning path will always use QGIS.",
+    "crumbs": [
+      "1 Introduction",
+      "1.1 What is GIS?"
+    ]
+  },
+  {
+    "objectID": "introduction/what-is-gis.html#qgis",
+    "href": "introduction/what-is-gis.html#qgis",
+    "title": "1.1 What is GIS?",
+    "section": "QGIS",
+    "text": "QGIS\nTo follow this learning path properly, we recommend that you install QGIS on your own computer. You can easily download it from the project website https://www.qgis.org. Choose the installer for your operating system (Windows, macOS or Linux).\nThe download page offers two versions: the Long Term Release (LTR), which is the most stable version, and the latest release, which has the newest functions.\nGIS software evolves quickly, and new versions follow one another at a fast pace. This learning path is based on QGIS 4.x (the screenshots were made with QGIS 4.2.3). \n\n\n\n\n\n\nChanges to the functions and the interface are usually small, but even between minor versions (4.0, 4.2, …) differences occur in practice: for example, a button in a slightly different place or with a slightly different name. If your screen does not look exactly like a screenshot, look for a button or menu item with a similar name nearby.",
+    "crumbs": [
+      "1 Introduction",
+      "1.1 What is GIS?"
+    ]
+  },
+  {
+    "objectID": "introduction/qgis-interface.html",
+    "href": "introduction/qgis-interface.html",
+    "title": "1.2 QGIS interface",
+    "section": "",
+    "text": "When you open the software for the first time after installation, you will see the following screen:\nThe main window consists of several elements. Some of them are discussed in more detail later in this learning path; here we give a general overview.",
+    "crumbs": [
+      "1 Introduction",
+      "1.2 QGIS interface"
+    ]
+  },
+  {
+    "objectID": "introduction/qgis-interface.html#a-menu-bar",
+    "href": "introduction/qgis-interface.html#a-menu-bar",
+    "title": "1.2 QGIS interface",
+    "section": "A: Menu bar",
+    "text": "A: Menu bar\nIn the menu bar, hierarchical menus give you access to a wide range of QGIS configuration options and functions: from personalising the interface to running analyses on your data.",
+    "crumbs": [
+      "1 Introduction",
+      "1.2 QGIS interface"
+    ]
+  },
+  {
+    "objectID": "introduction/qgis-interface.html#b-toolbars",
+    "href": "introduction/qgis-interface.html#b-toolbars",
+    "title": "1.2 QGIS interface",
+    "section": "B: Toolbars",
+    "text": "B: Toolbars\nThe toolbars give you direct access to important and frequently used functions. Many of these are also available through the menu bar, but here they are quicker to reach and save you some mouse clicks. GIS is used for a wide variety of purposes, and not everyone needs the same tools: someone who digitises historical maps uses other functions far more often than someone who analyses statistics. That is why you can choose which toolbars are shown and where they are placed: tick the ones you want under View ▸ Toolbars, then drag them with your mouse to where you want them.\nExamples of frequently used toolbars are:\n\n\n\n\n\n\n\nProject toolbar\ne.g. creating a new project and saving it\n\n\nMap navigation toolbar\ne.g. pan tool and zoom options\n\n\nAttributes toolbar\ne.g. looking up attribute information (identifying features, opening the attribute table)\n\n\nSelection toolbar\ne.g. selecting and deselecting features\n\n\nData source manager toolbar\ne.g. adding new data to the project and creating new data layers\n\n\nDigitizing toolbar\ne.g. editing and adding geometries",
+    "crumbs": [
+      "1 Introduction",
+      "1.2 QGIS interface"
+    ]
+  },
+  {
+    "objectID": "introduction/qgis-interface.html#c-panels",
+    "href": "introduction/qgis-interface.html#c-panels",
+    "title": "1.2 QGIS interface",
+    "section": "C: Panels",
+    "text": "C: Panels\nPanels are special widgets (small windows inside the QGIS window that you can show, hide, move or dock) that let you use certain functions in your GIS environment through a visual interface. As with the toolbars, you can choose which panels are visible and where exactly they are shown: under View ▸ Panels you can switch each panel on or off. If a panel you need (for example one from the table below) is not visible on your screen, you can open it there.\n\n\n\n\n\n\n\n\nC1\nBrowser panel\n(Explorer)\nThe Browser panel gives you quick access to all your data sources. With this widget you can easily view and import local files on your computer as well as data on a server or in a database.\n\n\nC2\nLayers panel\n(Table of contents)\nHere you see an overview of all layers that have been imported into your GIS project. You can choose which of these layers are (in)visible in the map canvas and in which order they are shown. The Layers panel gives you access to the advanced configuration options of the different layers.\n\n\nC3\nProcessing toolbox\nIn the Processing Toolbox, the available tools for analysis and data processing are grouped in thematic groups that you can expand.",
+    "crumbs": [
+      "1 Introduction",
+      "1.2 QGIS interface"
+    ]
+  },
+  {
+    "objectID": "introduction/qgis-interface.html#d-map-canvas",
+    "href": "introduction/qgis-interface.html#d-map-canvas",
+    "title": "1.2 QGIS interface",
+    "section": "D: Map canvas",
+    "text": "D: Map canvas\nThe most eye-catching part of the interface is the map canvas. Here you can view a spatial visualisation of your geographic data (layers). The map canvas is an interactive window: as a user, you can zoom in and out, move around the map, look up information about features and select data.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nZooming and panning are explained on Navigating the map canvas.",
+    "crumbs": [
+      "1 Introduction",
+      "1.2 QGIS interface"
+    ]
+  },
+  {
+    "objectID": "introduction/qgis-interface.html#e-status-bar",
+    "href": "introduction/qgis-interface.html#e-status-bar",
+    "title": "1.2 QGIS interface",
+    "section": "E: Status bar",
+    "text": "E: Status bar\nIn the status bar you will find general information about your map (e.g. the coordinates your mouse is hovering over, the coordinate system used, the scale). You can also rotate your map there, so that north is no longer at the top. Finally, this bar also shows status messages about actions that are running or have finished.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nThe status bar is explained in more detail on The status bar.",
+    "crumbs": [
+      "1 Introduction",
+      "1.2 QGIS interface"
+    ]
+  },
+  {
+    "objectID": "data-models/raster-model.html",
+    "href": "data-models/raster-model.html",
+    "title": "2.1 Raster model",
+    "section": "",
+    "text": "In GIS, you work with information that has both a spatial component (defined by coordinates) and a non-spatial component (attribute data). The spatial component of this information can be structured technically in different ways. The two most commonly used spatial data models are the raster model and the vector model. We start with the raster model.\nRasters define geographic information by means of a grid of cells (or pixels) organised in rows and columns. Below, we take a short look at some characteristics and give some examples.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.1 Raster model"
+    ]
+  },
+  {
+    "objectID": "data-models/raster-model.html#grid-of-cells",
+    "href": "data-models/raster-model.html#grid-of-cells",
+    "title": "2.1 Raster model",
+    "section": "Grid of cells",
+    "text": "Grid of cells\nIn a raster file, geographic space is divided into a matrix of cells, each covering a small part of that space. Each cell is implicitly given coordinates. The real-world size of one cell (e.g. 10 by 10 metres) is called the spatial resolution; it differs from raster file to raster file. Within one raster, however, all cells always have the same size and shape.\n\nRaster files are easy to recognise: at first sight you cannot always see the individual cells, but if you zoom in far enough, the matrix of cells becomes clearly visible.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.1 Raster model"
+    ]
+  },
+  {
+    "objectID": "data-models/raster-model.html#numeric-values",
+    "href": "data-models/raster-model.html#numeric-values",
+    "title": "2.1 Raster model",
+    "section": "Numeric values",
+    "text": "Numeric values\nEach cell can be given one or more numeric values, which apply to the whole area covered by the cell. The unit of these values differs from raster to raster, and the options are almost unlimited. Common examples are rasters in which each cell contains the elevation or the temperature.\nAlthough the values of raster cells are always numeric, you can also use a raster file to show textual data, by means of a code system and a legend. Take the example of the official land use map of the Flemish government. Each cell of this raster map contains a number as its value. The legend that comes with it explains that a cell with value 1 corresponds to ‘urban core buildings’, 2 to ‘other buildings’, 3 to ‘industrial and commercial infrastructure’, etc. In this way, the values in the cells are numeric, but their meaning is not.\nThe example below makes the logic of this system clear:\n\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nHow to look up the values of raster cells in QGIS is explained on Cell values: histogram and unique values.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.1 Raster model"
+    ]
+  },
+  {
+    "objectID": "data-models/raster-model.html#single-band-and-multi-band",
+    "href": "data-models/raster-model.html#single-band-and-multi-band",
+    "title": "2.1 Raster model",
+    "section": "Single-band and multi-band",
+    "text": "Single-band and multi-band\nIn the example above, we looked at a simple raster file in which each pixel was given at most one numeric value. Such images are also called single-band images.\nHowever, a raster image can also consist of several image layers (image bands). In that case, each pixel has one value per image band. All bands of one raster share exactly the same grid: the same number of rows and columns, the same cell size and the same position. You can picture them as sheets stacked on top of each other, in which every cell lies exactly above the corresponding cell in the other bands; only the values stored in the cells differ from band to band. Colour scans (e.g. a scanned historical map) and digital colour photos (e.g. aerial photos) are examples of such multi-band raster files. When an image is scanned or photographed, it is converted into a digital raster of pixels, and the scanner or camera gives each pixel a colour in the form of a numeric code. There are different ways to express colour numerically. A common one is ‘RGB’ (red - green - blue): here each pixel is given not one value but three, containing the amounts of red, green and blue that together form the colour.\n\n\n\n\n\n\nA scanned map contains colours, not the values the map shows. If you scan a paper elevation map, for example, the cells of your digital raster will not contain the elevations themselves (a scanner cannot know these), but the numeric codes of the colours used on the original map.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.1 Raster model"
+    ]
+  },
+  {
+    "objectID": "data-models/raster-model.html#continuous-and-discrete-data",
+    "href": "data-models/raster-model.html#continuous-and-discrete-data",
+    "title": "2.1 Raster model",
+    "section": "Continuous and discrete data",
+    "text": "Continuous and discrete data\n\nContinuous data\nThe raster model is very suitable for representing continuous data. Continuous data are data that have no clear geographic boundaries, or only vague ones, such as air quality, temperature or elevation. If you look at the temperature map of Belgium below, you will see that it contains different ‘temperature zones’. This is of course a simplification: in reality, the temperature does not jump at a sharp line from exactly 20°C in one zone to 20.5°C in the next. Phenomena such as temperature change gradually across space and therefore cannot be delimited precisely.\nThe raster model offers a good way of dealing with this difficulty. Space is systematically divided into equal parts and so simplified into a set of small, indivisible cells. This creates a predefined spatial framework in which information can be recorded. In this simplified representation of space, each cell is given a measured or estimated value that applies to the whole cell.\n\n\n\nDiscrete data\nBesides continuous data, rasters can also contain discrete data. These are data that can be clearly delimited, such as buildings, roads, water bodies… Think, for example, of the buildings and roads you can see on an aerial photo. In raster images, the accuracy of discrete data depends on the spatial resolution. The higher the resolution (the smaller the cells), the more detail can be shown and the more accurately boundaries can be drawn.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.1 Raster model"
+    ]
+  },
+  {
+    "objectID": "data-models/raster-model.html#simple-but-large-files",
+    "href": "data-models/raster-model.html#simple-but-large-files",
+    "title": "2.1 Raster model",
+    "section": "Simple, but large files",
+    "text": "Simple, but large files\nBecause the raster model is a very simple data structure, many analyses can be carried out quickly. On the other hand, the files are often large, because information has to be stored for each individual cell.",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.1 Raster model"
+    ]
+  }
+]
