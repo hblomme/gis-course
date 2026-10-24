@@ -536,5 +536,29 @@
       "4 Layer properties and symbology",
       "4.1 The Layer Properties window"
     ]
+  },
+  {
+    "objectID": "visualisation/attribute-table.html",
+    "href": "visualisation/attribute-table.html",
+    "title": "4.2.1 The attribute table",
+    "section": "",
+    "text": "As you saw in The vector model, vector data combine two aspects: the geometry of each feature, which you see on the map, and the attribute data: the information linked to each feature, such as a name or a number of inhabitants. This page shows how to consult the attribute data in the attribute table, which brings together the attribute data of all features of a layer in one overview.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.1 The attribute table"
+    ]
+  },
+  {
+    "objectID": "visualisation/attribute-table.html#attribute-dataopening-the-attribute-table",
+    "href": "visualisation/attribute-table.html#attribute-dataopening-the-attribute-table",
+    "title": "4.2.1 The attribute table",
+    "section": "Opening the attribute table",
+    "text": "Opening the attribute table\nYou open the attribute table through the Layers panel: right-click the layer and choose Open attribute table. Alternatively, select the layer and press F6, or click the Open Attribute Table button on the Attributes Toolbar.\n\nThe attribute table lists all features of the vector layer (B). Each row represents one feature, and each column one attribute field. You can easily sort the rows by any attribute field, numerically or alphabetically, by clicking a column heading.\nBesides sorting, you can also select features in the table: click the number at the start of a row (hold down Ctrl or Shift to select several rows). A row in the attribute table and the corresponding geometry in the map canvas are linked in the background by a shared, unique feature ID. Because the geometric (spatial) and attribute (non-spatial) properties of a feature are inseparably linked, selecting a row in the attribute table also highlights the corresponding geometry in the map canvas, and vice versa.\nEditing attribute data in the table is possible too, but not by default: first switch on editing mode with the Toggle Editing button (the pencil in toolbar A). We come back to this in Editing attribute data.\nA vector dataset can contain many thousands of features, and so just as many rows in the attribute table. By default you see all of them, which can make the table hard to read. That is why the attribute table has a filter function (C), which offers several ways to reduce the number of visible features, for example to only the selected ones.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nThe filter function is explained in detail on Filtering the attribute table.\n\n\n\nBy default, you consult the attributes in a table, as shown above. QGIS also offers a form view. To switch between the two, use the buttons at D.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.1 The attribute table"
+    ]
   }
 ]
