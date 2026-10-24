@@ -393,5 +393,71 @@
       "3 QGIS basics",
       "3.2 Layers in QGIS"
     ]
+  },
+  {
+    "objectID": "basics/map-navigation.html",
+    "href": "basics/map-navigation.html",
+    "title": "3.3 Navigating the map canvas",
+    "section": "",
+    "text": "This page discusses three frequently used toolbars. We only cover the buttons you will use most often.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.3 Navigating the map canvas"
+    ]
+  },
+  {
+    "objectID": "basics/map-navigation.html#a-map-navigation-toolbar-navigating",
+    "href": "basics/map-navigation.html#a-map-navigation-toolbar-navigating",
+    "title": "3.3 Navigating the map canvas",
+    "section": "A: Map navigation toolbar (navigating)",
+    "text": "A: Map navigation toolbar (navigating)\n\n\n\n\nA1\n Pan Map\nThe leftmost button, with the hand-shaped icon, lets you use the Pan Map function. When you start QGIS, this tool is active by default. In this navigation mode you can move around the map canvas with your mouse.\nYou drag the map by holding down the left mouse button and moving your mouse. You can easily zoom in and out with the scroll wheel of your mouse.\nThis tool is widely used and will feel familiar: dragging and scrolling work just as they do in well-known online map viewers such as Google Maps, OpenStreetMap or Geopunt.\n\n\nA2\n Pan Map to Selection\nIf you click this button, the selected features (if there are any) are shown in the centre of the map canvas.\nHowever, the map keeps the same scale (in other words, it does not zoom in or out). We will come back to the concept of scale later in this learning path.\n\n\nA3\nA4\n Zoom In / Zoom Out\n+\nThis tool lets you zoom in on a part of the map canvas. This makes the scale of the map canvas larger. If you click a point in the map canvas, QGIS zooms in with that point in the centre. You do not have to limit yourself to zooming in on one specific point: you can also draw a rectangle while you hold down the left mouse button. QGIS will then zoom in on this rectangle in the same way.\n-\nThe zoom-out tool does the opposite of the zoom-in tool. With a single mouse click or by drawing a rectangle, you can zoom out in the map canvas and so make the scale smaller. The point you clicked (or the centre of the rectangle you drew) becomes the centre of the zoomed-out view. The smaller the rectangle you draw, the more QGIS zooms out.\n\n\nA5\n Zoom Full\nThe map canvas is automatically positioned so that all data fit exactly in the visible map canvas.\n\n\nA6\n Zoom to Selection\nIf you click this button, the map canvas is automatically zoomed and panned so that all selected features (if there are any) just fit in the map canvas.\n\n\nA7\n Zoom to Layer(s)\nIf you click this button, all features of the layer that is selected in the Layers panel C) are shown centred and zoomed in the map canvas.\n\n\nA8\nA9\nZoom Last / Zoom Next\nEvery time you pan or zoom, the extent of the map canvas changes: the part of the map you see. QGIS remembers your previous extents. If you accidentally move the map or zoom in or out too far, Zoom Last takes you back to the previous extent; Zoom Next takes you forward again.\n\n\nA10\nA11\nNew Spatial Bookmark / Show Spatial Bookmark Manager\nWith New Spatial Bookmark you save the current extent under a name. Show Spatial Bookmark Manager gives you a list of your bookmarks: double-click one to go straight to the saved extent.\n\n\nA12\nRefresh\nRedraws all layers in the map canvas, for example when a data source has been updated outside the project but the changes have not been loaded yet.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.3 Navigating the map canvas"
+    ]
+  },
+  {
+    "objectID": "basics/map-navigation.html#selection-toolbar",
+    "href": "basics/map-navigation.html#selection-toolbar",
+    "title": "3.3 Navigating the map canvas",
+    "section": "B: Selection Toolbar (selecting features)",
+    "text": "B: Selection Toolbar (selecting features)\n\n\n\n\n\n\n\n\n\nB1\n Select Features by Area or Single Click\nYou can only use this tool in vector layers. With it, you can select one or more vector features.\nWhen this tool is active, you can click one vector object in the map canvas or select several objects at once by dragging a selection rectangle. You can tell selected features apart from the others because QGIS gives them a yellow colour by default. If you have made a selection and then click a new feature, the previous selection is cancelled and a new one is made. If you want to add extra features to an existing selection, you can do so by selecting them while you hold down the Shift key. You can only select features in the layer that is selected in your Layers panel.\nTo remove a feature from the selection, click it while you hold down the Ctrl key.\n\n\n\n\n\n\nSelections in several layers. A selection belongs to one layer. If you select features in one layer and then select another layer in the Layers panel, you can select features there too, while the first selection stays. To clear the selection in one layer, click somewhere in the map canvas where that layer has no features. To clear the selections in all layers at once, click B3.\n\n\n\nThe button also has a small arrow with other selection tools.\n\n\nB2\nInvert Feature Selection\nInverts the selection: everything that was selected is deselected, and the other way round. The small arrow offers other ways to select features.\n\n\nB3\nDeselect Features\nWith this button you deselect all vector features in all layers. The small arrow offers more ways to deselect.\n\n\nB4\nSelect Features by Location\nSelects features based on their position relative to other features. We discuss this in Automated selections.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.3 Navigating the map canvas"
+    ]
+  },
+  {
+    "objectID": "basics/map-navigation.html#attributes-toolbar",
+    "href": "basics/map-navigation.html#attributes-toolbar",
+    "title": "3.3 Navigating the map canvas",
+    "section": "C: Attributes Toolbar (querying information)",
+    "text": "C: Attributes Toolbar (querying information)\n\n\n\n\nC1\n Identify Features\n Click a raster cell or a vector object in the map canvas to see its attribute values. They appear in the Identify Results panel; click an empty part of the map to clear it.\n \nLeft: a vector feature (a state). Right: a raster cell (a temperature value).\nBy default, QGIS only looks in the layer that is selected in the Layers panel. To include other layers, change the Mode at the bottom of the panel, for example to Top Down (all layers). If you see no results, check this setting first.\n\n\nC2\nOpen Field Calculator\nWith the Field Calculator you can calculate attribute values. See Editing attribute data.\n\n\nC3\nToolbox\nThis button opens the Processing Toolbox: a panel with hundreds of tools to analyse and edit your data. See Vector processing tools and Raster processing tools.\n\n\nC4\nShow Statistical Summary\nOpens a tool to calculate statistics. See Statistical queries.\n\n\nC5\n Open Attribute Table\nThis opens the attribute table of the layer that is selected in the Layers panel.\n Selections are linked: features you select in the map canvas are also selected in the table, and the other way round.\nSee The attribute table.\n\n\nC6\nMeasure\nWith this tool you can measure distances, areas… Click a start point, click the next points and right-click to stop. As soon as you use the tool, a window opens in which you see the result of your measurement.\n\nMeasuring an area. Background map © OpenStreetMap contributors.\n\n\n\nLater we will look more closely at why selections are useful and what you can do with attribute data. \n\n\n\n\n\n\nYou use your mouse in the map canvas both to navigate, in different ways, and to query and select data. The tool that is active determines what clicking and dragging do. Two shortcuts work whichever tool is active: turn the scroll wheel of your mouse to zoom in or out, and hold down the space bar (or the middle mouse button) while you move the mouse to pan the map.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.3 Navigating the map canvas"
+    ]
+  },
+  {
+    "objectID": "basics/status-bar.html",
+    "href": "basics/status-bar.html",
+    "title": "3.4 The status bar",
+    "section": "",
+    "text": "D1\n Coordinate\nShows you the coordinates of the point your mouse is hovering over at that moment. These are two values, one for the position from west to east (x) and one for the position from south to north (y). See the chapter on coordinate systems.\n\n\nD2\nScale\nShows you the scale that is used in the map canvas at that moment.\nThe scale shows how much smaller (or, in exceptional cases, larger) the real world appears in your map canvas.\nScale is usually shown as a ratio (1:…). In the example above, the scale is 1:9280000. This means that one centimetre on your screen corresponds to 9280000 centimetres (or 92.8 km) in the real world. When you zoom in or out, you will see the scale change automatically. You can also change the scale here manually.\n\n\nD3\n Magnifier\nShows how much you magnify your map canvas. By default this is set to 100%. The magnifier enlarges the image in your map canvas, like a magnifying glass, but it does not zoom in: everything simply becomes larger, and you do not see more detail.\n\n\n\n\n\n\nIf you magnify your map canvas to, for example, 200%, the scale shown no longer matches what you see: everything on your screen is twice as large, so a scale of 1:10000 then really looks like 1:5000. Unless you have a specific reason for it, leave the Magnifier at 100%.\n\n\n\n\n\nD4\nRotation\nShows the rotation of your map. By default, north is at the top of the map canvas; the rotation is then 0°.\nIf you want to change this, you can adjust the rotation. If you set 90° here, for example, west will be at the top of the map canvas. In practice, this setting is not often changed, and the convention is that north is at the top of the map.\n\n\nD5\nRender\nWhile you work, QGIS keeps the map canvas up to date: every time you pan or zoom, it works out on the fly what has to be shown and draws the map again. This is called rendering. If you untick this box, QGIS stops redrawing the map canvas. This is handy when you change many settings in a large project, because you do not have to wait for the map each time. Tick it again to see the map.\n\n\nD6\nCurrent CRS\nShows which coordinate system is currently active in your project. See the chapter on coordinate systems, in particular Coordinate system of the QGIS project.\n\n\nD7\nLog Messages\nThis speech-bubble button opens the Log Messages panel, where QGIS posts messages about what it is doing: for example that a task has been completed, or a warning when a layer cannot be loaded.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.4 The status bar"
+    ]
+  },
+  {
+    "objectID": "basics/status-bar.html#d-status-bar-coordinates-scale",
+    "href": "basics/status-bar.html#d-status-bar-coordinates-scale",
+    "title": "3.4 The status bar",
+    "section": "",
+    "text": "D1\n Coordinate\nShows you the coordinates of the point your mouse is hovering over at that moment. These are two values, one for the position from west to east (x) and one for the position from south to north (y). See the chapter on coordinate systems.\n\n\nD2\nScale\nShows you the scale that is used in the map canvas at that moment.\nThe scale shows how much smaller (or, in exceptional cases, larger) the real world appears in your map canvas.\nScale is usually shown as a ratio (1:…). In the example above, the scale is 1:9280000. This means that one centimetre on your screen corresponds to 9280000 centimetres (or 92.8 km) in the real world. When you zoom in or out, you will see the scale change automatically. You can also change the scale here manually.\n\n\nD3\n Magnifier\nShows how much you magnify your map canvas. By default this is set to 100%. The magnifier enlarges the image in your map canvas, like a magnifying glass, but it does not zoom in: everything simply becomes larger, and you do not see more detail.\n\n\n\n\n\n\nIf you magnify your map canvas to, for example, 200%, the scale shown no longer matches what you see: everything on your screen is twice as large, so a scale of 1:10000 then really looks like 1:5000. Unless you have a specific reason for it, leave the Magnifier at 100%.\n\n\n\n\n\nD4\nRotation\nShows the rotation of your map. By default, north is at the top of the map canvas; the rotation is then 0°.\nIf you want to change this, you can adjust the rotation. If you set 90° here, for example, west will be at the top of the map canvas. In practice, this setting is not often changed, and the convention is that north is at the top of the map.\n\n\nD5\nRender\nWhile you work, QGIS keeps the map canvas up to date: every time you pan or zoom, it works out on the fly what has to be shown and draws the map again. This is called rendering. If you untick this box, QGIS stops redrawing the map canvas. This is handy when you change many settings in a large project, because you do not have to wait for the map each time. Tick it again to see the map.\n\n\nD6\nCurrent CRS\nShows which coordinate system is currently active in your project. See the chapter on coordinate systems, in particular Coordinate system of the QGIS project.\n\n\nD7\nLog Messages\nThis speech-bubble button opens the Log Messages panel, where QGIS posts messages about what it is doing: for example that a task has been completed, or a warning when a layer cannot be loaded.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.4 The status bar"
+    ]
   }
 ]
