@@ -135,7 +135,7 @@
     "href": "data-models/raster-model.html#grid-of-cells",
     "title": "2.1 Raster model",
     "section": "Grid of cells",
-    "text": "Grid of cells\nIn a raster file, geographic space is divided into a matrix of cells, each covering a small part of that space. Each cell is implicitly given coordinates. The real-world size of one cell (e.g. 10 by 10 metres) is called the spatial resolution; it differs from raster file to raster file. Within one raster, however, all cells always have the same size and shape.\n\nRaster files are easy to recognise: at first sight you cannot always see the individual cells, but if you zoom in far enough, the matrix of cells becomes clearly visible.",
+    "text": "Grid of cells\nIn a raster file, geographic space is divided into a matrix of cells, each covering a small part of that space. Each cell is implicitly given coordinates. The real-world size of one cell (e.g. 10 by 10 metres) is called the spatial resolution; it differs from raster file to raster file. Within one raster, however, all cells always have the same size and shape.\n\nData: SRTM shaded relief, USGS (public domain).\nRaster files are easy to recognise: at first sight you cannot always see the individual cells, but if you zoom in far enough, the matrix of cells becomes clearly visible.",
     "crumbs": [
       "2 Data in GIS (part 1)",
       "2.1 Raster model"
