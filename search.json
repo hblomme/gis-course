@@ -459,5 +459,49 @@
       "3 QGIS basics",
       "3.4 The status bar"
     ]
+  },
+  {
+    "objectID": "basics/qgis-project.html",
+    "href": "basics/qgis-project.html",
+    "title": "3.5 The QGIS project",
+    "section": "",
+    "text": "QGIS works on the principle that every work session is a project. If you save your project, you can close it and continue later exactly where you left off, without losing any work. The project file stores which data layers you use, how they are visualised, the scale and the part of the map you were looking at, the layouts you made, and so on.\n QGIS projects are saved as .qgz files, which are usually small and are meant to be opened with QGIS. Older projects sometimes have the extension .qgs; QGIS opens both.\nWhen you start QGIS, the welcome screen lets you choose: start a new, empty project or open an existing one.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.5 The QGIS project"
+    ]
+  },
+  {
+    "objectID": "basics/qgis-project.html#qgis-project",
+    "href": "basics/qgis-project.html#qgis-project",
+    "title": "3.5 The QGIS project",
+    "section": "",
+    "text": "QGIS works on the principle that every work session is a project. If you save your project, you can close it and continue later exactly where you left off, without losing any work. The project file stores which data layers you use, how they are visualised, the scale and the part of the map you were looking at, the layouts you made, and so on.\n QGIS projects are saved as .qgz files, which are usually small and are meant to be opened with QGIS. Older projects sometimes have the extension .qgs; QGIS opens both.\nWhen you start QGIS, the welcome screen lets you choose: start a new, empty project or open an existing one.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.5 The QGIS project"
+    ]
+  },
+  {
+    "objectID": "basics/qgis-project.html#project-toolbarproject-menu-and-toolbar",
+    "href": "basics/qgis-project.html#project-toolbarproject-menu-and-toolbar",
+    "title": "3.5 The QGIS project",
+    "section": "Project menu and toolbar",
+    "text": "Project menu and toolbar\n In the menu bar, the Project menu offers everything you need to work with projects: saving your project, starting a new one, opening an existing one, and more. The most frequently used actions are also available in the Project Toolbar.\n\nOf course, there are also more advanced project settings, for example the units used for measuring distances and areas (in Project ▸ Properties…). Later in this learning path, some other project settings will come up, such as the coordinate system of the project and the Layout Manager (see General: layouts).",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.5 The QGIS project"
+    ]
+  },
+  {
+    "objectID": "basics/qgis-project.html#project-data",
+    "href": "basics/qgis-project.html#project-data",
+    "title": "3.5 The QGIS project",
+    "section": "Project ≠ data!",
+    "text": "Project ≠ data!\nIt is essential to repeat here that the data themselves are not saved in the project file: it only remembers the connections to the data sources. \n\n\n\n\n\n\nAfter you have saved a project, you must never delete or rename your data files, otherwise the link to the data source that is stored in the project becomes invalid. If QGIS cannot find a data source when you open a project, it shows a window in which you can point to the new location of the file (Handle Unavailable Layers).\n\n\n\nBy default, QGIS saves the location of a data source as a relative path. This means that QGIS remembers the route from the folder where the project file is saved to the storage location of the data source.\nFor example, if your project file is saved in the folder ‘project X’ and the data source in the subfolder vector data, QGIS will only remember that it has to look for a subfolder vector data in the folder where the qgz file is. Because relative paths are used, you can move the whole folder ‘project X’ on your computer without changing the relative position of the project file and the data sources.\n\nUsing relative paths not only gives you a little more freedom to move whole folders on your computer; it also makes it easier to send QGIS projects together with their data to other people (for example in a zip file), or to share them through a file-sharing system with local synchronisation (for example Dropbox or OneDrive).\n\n\n\n\n\n\nBy default, QGIS saves data sources as relative paths. If you want to change this for a specific reason, you can do so in Project ▸ Properties… ▸ General, under Save paths.",
+    "crumbs": [
+      "3 QGIS basics",
+      "3.5 The QGIS project"
+    ]
   }
 ]
