@@ -572,5 +572,53 @@
       "4.2 Vector layers",
       "4.2.2 Symbology of vector layers"
     ]
+  },
+  {
+    "objectID": "visualisation/single-symbol.html",
+    "href": "visualisation/single-symbol.html",
+    "title": "4.2.3 Configuring a style",
+    "section": "",
+    "text": "By default, all features of a vector layer get the same style (A, Single Symbol): all points get the same marker, all lines the same line style, all polygons the same fill. You can configure in detail what this style looks like. As you saw on the previous page, a symbol consists of one or more overlapping symbol layers. For each symbol layer you choose a type (Symbol layer type). Below we discuss three widely used kinds in more detail:",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.3 Configuring a style"
+    ]
+  },
+  {
+    "objectID": "visualisation/single-symbol.html#style-option-1-simple-standard-symbolssimple-symbols",
+    "href": "visualisation/single-symbol.html#style-option-1-simple-standard-symbolssimple-symbols",
+    "title": "4.2.3 Configuring a style",
+    "section": "Simple symbols",
+    "text": "Simple symbols\nBy selecting a symbol layer in the symbol overview (B in the screenshot below), you get access to its configuration options. The first option (D) sets the type of the symbol layer (Symbol layer type), and the other options at E depend on that type.\nWe first explore the options for the simple symbols: Simple Marker, Simple Line and Simple Fill, for points, lines and polygons respectively. These options differ somewhat between the three geometry types, but the principle is always the same. The best way to get to know them is to try them out. The screenshots below give an overview of the configuration options for each type.\n \nFor a point layer, one of the most eye-catching configuration options is the shape of the icon used to represent a point.\n\nFor line features, besides the colour and line width, the dash pattern is often changed.\n\nFor polygons, you can change both the colour and thickness of the borders and the colour and fill pattern of the area. You can also show only the borders of your polygons and leave the area transparent. This can be useful, for example, if you want to visualise several overlapping polygons together in your map canvas.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.3 Configuring a style"
+    ]
+  },
+  {
+    "objectID": "visualisation/single-symbol.html#style-option-2-svg-symbols-and-imagesimage-symbols",
+    "href": "visualisation/single-symbol.html#style-option-2-svg-symbols-and-imagesimage-symbols",
+    "title": "4.2.3 Configuring a style",
+    "section": "Image symbols",
+    "text": "Image symbols\nSometimes a simple geometric shape is not enough: you want a church, a castle or a battlefield on your map, or a polygon filled with a texture. In that case you use an image instead. For this, QGIS offers, among others, the symbol layer types SVG Marker (for images in SVG format) and Raster Image Marker or Raster Image Fill (for images in raster formats such as PNG or JPG). You choose them in the drop-down list Symbol layer type (D).\n SVG stands for ‘scalable vector graphics’. It is a widely used file format for vector images, such as icons and logos, also outside GIS.\n\nBy default, QGIS offers a large variety of typical map symbols in SVG format. You can browse them by theme in the configuration window (see F). Once you have selected the icon you want, you can also change its colour and size, just as with the simple markers. The image below shows a selection of the SVG symbols that come with QGIS.\n\nHowever, you do not have to limit yourself to the symbols that QGIS offers by default. You can also load your own SVG image (at G). A huge number of SVG icons are available on the internet, but make sure you check the licence before you download and use them.\nIf you choose the option Raster Image Marker or Raster Image Fill under Symbol layer type, you can use images in formats such as PNG, TIF or JPG in your symbology. In this way you can choose an image file on your computer and use it as a point icon or as a fill for an area. For example, you could show a layer that represents the territory of Belgium with an image of the Belgian flag.\n\n\n\n\n\n\nQGIS does not copy the image into your project; it only remembers the path to the image file. If you move, rename or delete the image, the symbol no longer works (just as with data sources, see The QGIS project). To avoid this, you can store the image in the project itself: click the small arrow next to the file path and choose Embed File….\n\n\n\n\nThis raster image option is available for point and polygon layers. For line layers there is a similar symbol layer type, Raster Line.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.3 Configuring a style"
+    ]
+  },
+  {
+    "objectID": "visualisation/single-symbol.html#marker-symbols",
+    "href": "visualisation/single-symbol.html#marker-symbols",
+    "title": "4.2.3 Configuring a style",
+    "section": "Marker symbols",
+    "text": "Marker symbols\nA marker is a point symbol. A Marker Line repeats a marker along a line, and a Point Pattern Fill fills a polygon with markers. You style the marker itself just as you style a point: it can be a Simple Marker, but also an SVG Marker or any other marker type.\nIn the symbol overview (B) the marker appears nested under the Marker Line or Point Pattern Fill. You therefore configure two levels:\n\nIf you select the Marker Line itself, you set where the markers appear along the line, for example at a fixed interval, on every vertex or only at the start or end of the line.\nIf you select the marker nested under it, you set what the markers themselves look like: their shape, size, colour and rotation.\n\nA good example is the default line style topo railway, which shows a railway line as on a topographic map. It combines two symbol layers:\n\na Simple Line: the black line itself;\na Marker Line: its nested marker is a Simple Marker with a short vertical stroke as its shape, and the settings of the Marker Line place this stroke every few millimetres along the line. Together these strokes form the cross ties of the railway.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.3 Configuring a style"
+    ]
   }
 ]
