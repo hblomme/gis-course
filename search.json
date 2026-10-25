@@ -620,5 +620,17 @@
       "4.2 Vector layers",
       "4.2.3 Configuring a style"
     ]
+  },
+  {
+    "objectID": "visualisation/categorized.html",
+    "href": "visualisation/categorized.html",
+    "title": "4.2.4 One style per category",
+    "section": "",
+    "text": "On the previous page all features of a layer got the same symbol (Single Symbol). Sometimes, however, you want to differentiate visually between the features of one layer based on a certain characteristic: for example, show the places in the United States in a different colour depending on their class (city, town, village…).\nTo do this, choose Categorized in the drop-down list at the top of the Symbology tab (A). With Categorized, every value of an attribute field gets its own symbol.\n\nUnder Value (H) you choose the attribute field on which you want to base the categories. The drop-down list shows all fields of the layer: the columns of its attribute table. The attribute table of the places below, for example, contains for each place its name (NAME), its class (CLASS) and its number of inhabitants (POPULATION). In our example we categorise on CLASS.\n\nOnce you have selected the appropriate attribute field under Value (H), you can click Classify (I). QGIS then looks up all unique values of that field in the attribute table and lists them (K, see the second screenshot below). Each value gets its own symbol, based on the symbol set under Symbol and with a colour from the selected Color ramp (J), by default random colours. At the bottom of the list QGIS also adds a category all other values, for features whose value does not appear in the list (for example values added to the data later).\nAfter generating the categories, you can adjust each symbol individually: colour, shape, size… To do this, double-click the symbol you want to change under K. You can also edit the automatically created descriptive legend, which by default contains the name of the field value, by double-clicking the legend text. To delete a category from the list, select it and click the red minus button (I). To hide a category on the map without deleting it, untick the checkbox in front of it.\n\nIn some cases you do not want a separate category for every unique value, but only want to highlight a few values. Suppose, for example, that you want to highlight the places with the class city and show all other places in the same colour.\n\nChoose the field CLASS under Value (H), as before. Do not click Classify this time, but click the green plus symbol (I). QGIS adds a new category to the list (K). Its value is still empty, so QGIS shows it as all other values.\nDouble-click the Value column of this category and type the value you want to highlight, in this case city.\nClick the green plus symbol again to add a second category, and leave its value as it is (all other values). All features with another value, such as town or village, get the symbol of this category.\nGive both categories the symbol you want.\n\n\n\n\n\n\n\nValues must match the attribute table exactly, including upper and lower case: city is not the same as City.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.4 One style per category"
+    ]
   }
 ]
