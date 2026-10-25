@@ -560,5 +560,17 @@
       "4.2 Vector layers",
       "4.2.1 The attribute table"
     ]
+  },
+  {
+    "objectID": "visualisation/vector-general.html",
+    "href": "visualisation/vector-general.html",
+    "title": "4.2.2 Symbology of vector layers",
+    "section": "",
+    "text": "When you add a vector layer, QGIS shows it with a random colour, unless a style is stored with the data. In both cases, you can easily adapt its appearance to your needs.\n You set the symbology per layer, so each layer can have its own style. You do this in the Layer Properties (see The Layer Properties window).\n\nIn the Symbology tab you decide how the layer is displayed on the map. At the top (A) you choose the type of symbology: Single Symbol displays all features in the same way, while other types give features a different style depending on their attribute values (see, for example, One style per category). At B you see which parts, or symbol layers, your symbol is made of. In this part of the window you can add and remove symbol layers and change their order. Selecting a symbol layer here opens its more detailed settings in the lower part of the window.\n\n\n\n\n\n\nOften a symbol consists of a single symbol layer, but combining several symbol layers gives you a lot of freedom. Suppose you want a black square inside a white circle, for example to mark capital cities. There is no ready-made symbol for that, but there are ready-made symbols for a circle and for a square. So you can easily compile the desired marker yourself: make a first symbol layer with a white circle, then a second symbol layer with a smaller black square, and place the square on top of the circle. See Symbols with several layers.\n\n\n\n\nAt C you set the basic properties of your symbol, such as its size, colour and opacity. QGIS also offers a list of predefined symbols that you can choose from.\nPoints, lines and polygons each have their own characteristics, so the styling options differ a little between them: points are displayed with a marker (a symbol or icon), lines with a line style and polygons with a fill. On the whole, however, the configuration works in the same way and the available options are very similar.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nThis chapter covers the general styling techniques. Later in this learning path, once you have the necessary background knowledge, you will learn a more flexible way of styling on Rule-based styling.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.2 Symbology of vector layers"
+    ]
   }
 ]

@@ -258,6 +258,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">4.2.1 The attribute table</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/vector-general.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.2 Symbology of vector layers</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -387,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") overlay.classList.remove("open"); });
   document.body.appendChild(overlay);
   function frame(img) {
+    if (img.classList.contains("noframe")) return;
     if (img.getBoundingClientRect().width >= 120 || img.naturalWidth >= 240) {
       img.classList.add("framed");
       if (!img.closest("a")) {
