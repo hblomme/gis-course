@@ -157,3 +157,7 @@ body.final-view .sidebar-item-section:has(a[href*="/review/"]) { display: none; 
 .cover-licence { margin-top: 2.5rem; font-size: 0.85rem; color: #777; }
 .cover-title { display: block; font-size: 2.6rem; font-weight: 700; margin-bottom: 0.6rem; }
 body:has(.cover) #title-block-header, body:has(.cover) header#title-block-header { display: none; }
+
+.cover-logos { margin: 0 0 2rem; }
+.cover-logos img, .cover-logos img:hover { height: 90px; width: auto; margin: 0 0.8rem; vertical-align: middle; box-shadow: none !important; border: none !important; padding: 0 !important; background: none !important; }
+.footer-logo, .footer-logo:hover { height: 34px; width: auto; vertical-align: middle; margin-right: 0.6rem; box-shadow: none !important; border: none !important; padding: 0 !important; background: none !important; }

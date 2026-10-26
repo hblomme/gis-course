@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4.3.2 Visualising raster data – Historical Cartography &amp; GIS</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../visualisation/raster-cell-values.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-229871c2f6d88ea07c3b9c2b019977c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../visualisation/layer-properties.html">4 Layer properties and symbology</a></li><li class="breadcrumb-item"><a href="../visualisation/raster-cell-values.html">4.3 Raster layers</a></li><li class="breadcrumb-item"><a href="../visualisation/raster.html">4.3.2 Visualising raster data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Historical Cartography &amp; GIS</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cover</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">1 Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/what-is-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 What is GIS?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/qgis-interface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 QGIS interface</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">2 Data in GIS (part 1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/raster-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Raster model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/vector-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Vector model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/raster-vs-vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Rasters vs.&nbsp;vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/data-source-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Data sources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/file-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Common file formats in QGIS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">3 QGIS basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/importing-vector-raster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Importing data: vectors and rasters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Layers in QGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/map-navigation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Navigating the map canvas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/status-bar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4 The status bar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/qgis-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5 The QGIS project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">4 Layer properties and symbology</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/layer-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 The Layer Properties window</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">4.2 Vector layers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/attribute-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.1 The attribute table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/vector-general.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.2 Symbology of vector layers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/single-symbol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.3 Configuring a style</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/categorized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.4 One style per category</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/graduated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.5 Graduated symbology</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/diagrams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.6 Diagrams</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/labels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.7 Text labels</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/style-vs-scale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.8 Style versus scale</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">4.3 Raster layers</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/raster-cell-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 Cell values: histogram and unique values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/raster.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">4.3.2 Visualising raster data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#changing-the-display-style-of-a-raster-layer" id="toc-changing-the-display-style-of-a-raster-layer" class="nav-link active" data-scroll-target="#changing-the-display-style-of-a-raster-layer">Changing the display style of a raster layer</a>
+  <ul class="collapse">
+  <li><a href="#general" id="toc-general" class="nav-link" data-scroll-target="#general">General</a></li>
+  <li><a href="#render-types" id="toc-render-types" class="nav-link" data-scroll-target="#render-types">Render types</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="raster.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../visualisation/layer-properties.html">4 Layer properties and symbology</a></li><li class="breadcrumb-item"><a href="../visualisation/raster-cell-values.html">4.3 Raster layers</a></li><li class="breadcrumb-item"><a href="../visualisation/raster.html">4.3.2 Visualising raster data</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">4.3.2 Visualising raster data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="changing-the-display-style-of-a-raster-layer" class="level2">
+<h2 class="anchored" data-anchor-id="changing-the-display-style-of-a-raster-layer">Changing the display style of a raster layer</h2>
+<section id="general" class="level3">
+<h3 class="anchored" data-anchor-id="general">General</h3>
+<p>You set how your raster is shown in the map canvas on the <em>Symbology</em> (<span class="ref">A</span>) tab.</p>
+<ul>
+<li>Under <strong>Band Rendering</strong> (<span class="ref">B</span>) you decide how the values in your raster cells are translated into colours. For this you choose a <em>render type</em>: the most common ones are explained below.</li>
+<li>Under <strong>‘Layer Rendering’</strong> (<span class="ref">C</span>) you change the overall brightness, saturation or contrast of the colours in your raster layer.</li>
+<li>Click <strong>‘OK’ or ‘Apply’</strong> (<span class="ref">D</span>) to apply your changes.</li>
+</ul>
+<p><a href="../images-v4/visualisation/raster-03.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images-v4/visualisation/raster-03.png" class="img-fluid"></a></p>
+</section>
+<section id="render-types" class="level3">
+<h3 class="anchored" data-anchor-id="render-types">Render types</h3>
+<p>In <a href="../data-models/raster-model.html#numeric-values">2.1 The raster model</a> you learned that raster cells contain numeric values. What these values represent depends on the raster data. They may represent real-world quantities, such as elevation, or codes representing categories, such as soil types. In a scanned map or photograph, however, the values may represent colours rather than the real-world information shown in the image.</p>
+<p>In the map canvas, you do not normally see the numeric values stored in the raster. Instead, each cell is displayed in a colour. To do this, the actual numeric values are translated into colours according to a set of display rules.</p>
+<p>You can control how QGIS does this on the <em>Symbology</em> tab of <em>Layer Properties</em>. Under <em>Band Rendering</em>, you first choose a <em>render type</em> (display style). The appropriate choice depends mainly on the number of image bands in the raster and on the kind of data it contains. Below, we explain three common render types, followed by a short overview of the others.</p>
+<section id="multiband-color" class="level4">
+<h4 class="anchored" data-anchor-id="multiband-color">Multiband color</h4>
+<p>In a colour photo or colour scan, the stored values represent colour information from the photo or scan itself. This information is stored in three image bands: one for red (R), one for green (G) and one for blue (B). Some images also have a fourth band, called the <em>alpha</em> band, which stores transparency information.</p>
+<p>RGB values usually range from 0 to 255. For example, RGB (0, 255, 0) represents bright green, RGB (0, 0, 0) represents black, and RGB (255, 255, 255) represents white.</p>
+<p>The <em>Multiband color</em> renderer combines the red, green and blue bands to display the image in colour. It also allows you to adjust the contrast of each band separately (<span class="ref">B</span>). The screenshot under <em>General</em> above shows these settings for a colour image of the world.</p>
+</section>
+<section id="singleband-gray" class="level4">
+<h4 class="anchored" data-anchor-id="singleband-gray">Singleband gray</h4>
+<p>If your raster layer consists of one image band, the render types <em>Singleband gray</em> and <em>Singleband pseudocolor</em> are often used. The examples below use a digital elevation model (DEM) of northern France and Belgium: each cell contains the height of the ground in metres.</p>
+<p>The render type <em>Singleband gray</em> displays cell values using shades of grey. Under <em>Color gradient</em>, you choose either <em>White to Black</em> (higher values are darker) or <em>Black to White</em> (higher values are lighter) (<span class="ref">1</span>).</p>
+<p>Under <em>Contrast enhancement</em> and <em>Min / Max Value Settings</em> (<span class="ref">2</span>), you set the range of cell values used for the colour gradient. By default, QGIS uses <em>Stretch to MinMax</em> and <em>Min / max</em>. It determines the lowest and highest cell values in the raster and assigns them the two end colours of the gradient (black and white). It estimates these values from a sample of cells. Under <em>Accuracy</em>, you can choose <em>Actual (slower)</em> to use the actual minimum and maximum values.</p>
+<p>Alternatively, you can choose <em>Cumulative count cut</em> (2–98%). This ignores the lowest 2% and highest 2% of values when determining the range, which often increases the contrast. In practice, you often <strong>do not need to change</strong> these defaults.</p>
+<p><a href="../images-v4/visualisation/raster-05.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images-v4/visualisation/raster-05.png" class="img-fluid"></a></p>
+<p>The map below shows the result with the settings in the screenshot (<em>Black to White</em>, minimum 0 m and maximum 806 m): the lowest areas are black, the highest white.</p>
+<p><a href="../images-v4/visualisation/raster-07.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images-v4/visualisation/raster-07.png" class="img-fluid" style="width:70.0%"></a></p>
+<p><span class="small"><em>Elevation data: SRTM (NASA/USGS, public domain).</em></span></p>
+</section>
+<section id="singleband-pseudocolor" class="level4">
+<h4 class="anchored" data-anchor-id="singleband-pseudocolor">Singleband pseudocolor</h4>
+<p>The <em>Singleband pseudocolor</em> render type lets you display a single-band raster using colours other than shades of grey. You choose a <em>Color ramp</em> (<span class="ref">1</span>) and set the minimum and maximum values in the same way as for <em>Singleband gray</em> (<span class="ref">2</span>). However, this render type offers more flexibility in how colours are assigned to cell values.</p>
+<p>You can divide the range of values into classes, either by setting the class boundaries manually or by using a classification mode and specifying the number of classes (<span class="ref">4</span>).</p>
+<p>The available modes include:</p>
+<ul>
+<li><em>Continuous</em> (the default): QGIS creates a reference value for each colour stop in the selected color ramp. The number of colour stops depends on the ramp. For example, the single-hue green, blue and red ramps have nine predefined colour stops, while ramps such as <em>Magma</em> have more than 50.</li>
+<li><em>Equal Interval</em>: You specify the number of classes, and QGIS divides the range between the minimum and maximum values into intervals of equal size.</li>
+<li><em>Quantile</em>: QGIS divides the cells into classes so that each class contains approximately the same number of cells.</li>
+</ul>
+<p>The table (<span class="ref">3</span>) lists the reference values (<em>Value</em>) and their colours (<em>Color</em>). Click <em>Classify</em> to let QGIS calculate the values with the chosen mode, colour ramp and number of classes, or set the values and their colours yourself: double-click a value or colour to change it, and add or remove rows with the plus and minus buttons below the table.</p>
+<p>In addition to defining the classes, this renderer lets you choose how cell values within each class are coloured. You do this using the interpolation method (<span class="ref">5</span>):</p>
+<ul>
+<li><em>Discrete</em>: Each class is displayed using a single colour, determined by the upper boundary of the class. This works in the same way as <em>Graduated</em> symbology for vector layers.</li>
+<li><em>Linear</em>: QGIS creates a colour ramp between the colours assigned to the lower and upper boundaries of each class. Colours change gradually along this ramp, so cells with values between the boundaries receive intermediate colours.</li>
+<li><em>Exact</em>: Only cells whose values match those listed in the table are coloured. Cells with other values receive no colour and are displayed as transparent.</li>
+</ul>
+<p><a href="../images-v4/visualisation/raster-06.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images-v4/visualisation/raster-06.png" class="img-fluid"></a></p>
+<p>In the example above, the reference values (0, 30, 100, 200, 500 and 815 m) are set manually to emphasise differences in elevation. The lower areas are shown in several shades of green, while the higher terrain stands out in shades ranging from orange to red.</p>
+<p><a href="../images-v4/visualisation/raster-08.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images-v4/visualisation/raster-08.png" class="img-fluid" style="width:70.0%"></a></p>
+<p><span class="small"><em>Elevation data: SRTM (NASA/USGS, public domain).</em></span></p>
+</section>
+<section id="other-render-types" class="level4">
+<h4 class="anchored" data-anchor-id="other-render-types">Other render types</h4>
+<p>QGIS 4 has a few more render types, among others:</p>
+<ul>
+<li><em>Paletted/Unique values</em> gives each unique cell value its own colour. It suits discrete data, such as the codes of land use or soil types.</li>
+<li><em>Single color</em> shows all cells that contain data in one colour, for example to show only where a raster has data.</li>
+<li><em>Hillshade</em> adds shading, so that the values look like three-dimensional relief. It is mostly used for elevation models.</li>
+<li><em>Contours</em> displays contour lines. It is also mostly used for elevation models.</li>
+</ul>
+<p>The most suitable render type and its settings depend on the technical nature of your raster, but also on the type of data it stores. </p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Use a colour gradient for a raster layer with <strong>continuous data</strong> (temperature, elevation…). If your raster contains <strong>discrete data</strong>, give each data class a clearly different colour, for example with the render type <em>Paletted/Unique values</em>, or with <em>Singleband pseudocolor</em> and <em>Discrete</em> or <em>Exact</em> interpolation. (Continuous and discrete data are explained in <a href="../data-models/raster-model.html">Raster model</a>.)</p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+// Publish version: image frames and zoom only (no change toggle, no pending-screenshot tags)
+document.addEventListener("DOMContentLoaded", function () {
+  // Frame every content image that is shown wider than 120 px (small inline icons stay as they are)
+  // Simple zoom for framed images that Quarto did not turn into a lightbox (images in lists, tables, text)
+  var overlay = document.createElement("div");
+  overlay.id = "img-zoom";
+  overlay.addEventListener("click", function () { overlay.classList.remove("open"); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") overlay.classList.remove("open"); });
+  document.body.appendChild(overlay);
+  function frame(img) {
+    if (img.classList.contains("noframe")) return;
+    if (img.getBoundingClientRect().width >= 120 || img.naturalWidth >= 240) {
+      img.classList.add("framed");
+      if (!img.closest("a")) {
+        img.classList.add("zoomable");
+        img.addEventListener("click", function () {
+          overlay.innerHTML = "";
+          var big = document.createElement("img");
+          big.src = img.src;
+          overlay.appendChild(big);
+          overlay.classList.add("open");
+        });
+      }
+    }
+  }
+  document.querySelectorAll("main img").forEach(function (img) {
+    if (img.complete) frame(img); else img.addEventListener("load", function () { frame(img); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../visualisation/raster-cell-values.html" class="pagination-link" aria-label="4.3.1 Cell values: histogram and unique values">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4.3.1 Cell values: histogram and unique values</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><img src="../images/logos/ugent.png" class="footer-logo img-fluid" alt="Ghent University"> © Hans Blomme · Department of History · GhentCDH · Ghent University</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Text licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · images and data: see the source given with each item</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

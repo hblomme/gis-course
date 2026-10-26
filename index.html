@@ -47,6 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-d499cb1c54b338134906261a71a7b452.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -313,6 +316,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">4.3.1 Cell values: histogram and unique values</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./visualisation/raster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.2 Visualising raster data</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -340,7 +349,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="cover-author">
 <p><strong>Hans Blomme</strong><br>
-Department of History, Ghent University</p>
+Department of History · Ghent Centre for Digital Humanities<br>
+Ghent University</p>
+</div>
+<div class="cover-logos">
+<p><a href="images/logos/ugent.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="images/logos/ugent.png" alt="Ghent University" height="90"></a></p>
 </div>
 <div class="cover-meta">
 <p>2026 · based on QGIS 4</p>
@@ -798,7 +811,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Hans Blomme · Department of History, Ghent University</p>
+<p><img src="./images/logos/ugent.png" class="footer-logo img-fluid" alt="Ghent University"> © Hans Blomme · Department of History · GhentCDH · Ghent University</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
@@ -808,6 +821,38 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
