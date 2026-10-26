@@ -752,5 +752,41 @@
       "4.2 Vector layers",
       "4.2.8 Style versus scale"
     ]
+  },
+  {
+    "objectID": "visualisation/raster-cell-values.html",
+    "href": "visualisation/raster-cell-values.html",
+    "title": "4.3.1 Cell values: histogram and unique values",
+    "section": "",
+    "text": "Each cell in a band of a raster layer has one numeric value or NoData (see 2.1 The raster model). A raster usually contains thousands or even millions of cells, and a cell rarely stands for a clearly delimited object, such as a building or a parcel. A list of all cells, like the attribute table of a vector layer, would therefore contain an unmanageable number of rows and tell you little. What is useful is an overview of how often each value occurs. You can get such an overview in QGIS in several ways. Below we discuss two of them: a histogram and a report of unique values.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.3 Raster layers",
+      "4.3.1 Cell values: histogram and unique values"
+    ]
+  },
+  {
+    "objectID": "visualisation/raster-cell-values.html#histogram-of-cell-values",
+    "href": "visualisation/raster-cell-values.html#histogram-of-cell-values",
+    "title": "4.3.1 Cell values: histogram and unique values",
+    "section": "Histogram of cell values",
+    "text": "Histogram of cell values\nOpen the Layer Properties window of your raster layer and go to the Histogram tab. If the histogram is still empty, you can compute it by clicking Compute Histogram. The x-axis shows the cell values (Pixel Value), and the y-axis how often each value occurs (Frequency).\n\n\n\n\n\n\n\nIf you drag the mouse over an area of the histogram, QGIS zooms in on that area. To return to the full view, press Esc.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.3 Raster layers",
+      "4.3.1 Cell values: histogram and unique values"
+    ]
+  },
+  {
+    "objectID": "visualisation/raster-cell-values.html#report-of-unique-cell-values",
+    "href": "visualisation/raster-cell-values.html#report-of-unique-cell-values",
+    "title": "4.3.1 Cell values: histogram and unique values",
+    "section": "Report of unique cell values",
+    "text": "Report of unique cell values\nA second way to get an overview is a report that lists every unique value of a band, with the number of cells that have it. You create this report with an analysis tool. QGIS gathers all its processing and analysis tools in the Processing Toolbox, which by default is on the right side of the QGIS window. If it is not visible, open it from the main menu with Processing ▸ Toolbox.\nUnder Raster analysis, double-click the tool Raster layer unique values report. In the window that opens, choose the layer (Input layer) and the band (Band number), and click Run. When the report is ready, QGIS opens the Results Viewer panel with the report in it: click the report to open it. Besides the unique values, the report also gives the number of NoData cells.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.3 Raster layers",
+      "4.3.1 Cell values: histogram and unique values"
+    ]
   }
 ]
