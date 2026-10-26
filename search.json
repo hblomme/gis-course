@@ -716,5 +716,41 @@
       "4.2 Vector layers",
       "4.2.7 Text labels"
     ]
+  },
+  {
+    "objectID": "visualisation/style-vs-scale.html",
+    "href": "visualisation/style-vs-scale.html",
+    "title": "4.2.8 Style versus scale",
+    "section": "",
+    "text": "When you set the width of a line or the size of a symbol, diagram or label, you also choose a unit next to the value. The most commonly used units are Millimeters, Points, Inches and Pixels. With these units, QGIS draws the elements in exactly the size you have set, whatever the scale of the map canvas: a line 1 mm wide stays 1 mm wide, whether you zoom in or out.\nWith these units, lines and symbols therefore look relatively thicker and larger at a smaller scale (when you zoom out). In the overview below, the railroads cover large parts of the eastern United States, while in the detail at the bottom left (a railway junction in Arizona) they are thin, separate lines. Yet they are 0.8 mm wide in both maps.\n\nSome units, however, work the other way round. With Map Units or Meters at Scale, you set the size in real-world units, so the symbol grows and shrinks when you zoom in and out. In the example below, the state names are 20 km high (Map Units). On the zoomed-out map (left), the name Connecticut fills most of the state, but because of the small scale, it is only a small label on the map. On the zoomed-in map (right), the name still covers the same 20 km, but now it fills almost the whole map.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.8 Style versus scale"
+    ]
+  },
+  {
+    "objectID": "visualisation/style-vs-scale.html#independent-of-scale-units-and-scale",
+    "href": "visualisation/style-vs-scale.html#independent-of-scale-units-and-scale",
+    "title": "4.2.8 Style versus scale",
+    "section": "",
+    "text": "When you set the width of a line or the size of a symbol, diagram or label, you also choose a unit next to the value. The most commonly used units are Millimeters, Points, Inches and Pixels. With these units, QGIS draws the elements in exactly the size you have set, whatever the scale of the map canvas: a line 1 mm wide stays 1 mm wide, whether you zoom in or out.\nWith these units, lines and symbols therefore look relatively thicker and larger at a smaller scale (when you zoom out). In the overview below, the railroads cover large parts of the eastern United States, while in the detail at the bottom left (a railway junction in Arizona) they are thin, separate lines. Yet they are 0.8 mm wide in both maps.\n\nSome units, however, work the other way round. With Map Units or Meters at Scale, you set the size in real-world units, so the symbol grows and shrinks when you zoom in and out. In the example below, the state names are 20 km high (Map Units). On the zoomed-out map (left), the name Connecticut fills most of the state, but because of the small scale, it is only a small label on the map. On the zoomed-in map (right), the name still covers the same 20 km, but now it fills almost the whole map.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.8 Style versus scale"
+    ]
+  },
+  {
+    "objectID": "visualisation/style-vs-scale.html#dependent-on-display-level-the-magnifiermagnifier",
+    "href": "visualisation/style-vs-scale.html#dependent-on-display-level-the-magnifiermagnifier",
+    "title": "4.2.8 Style versus scale",
+    "section": "Dependent on the Magnifier",
+    "text": "Dependent on the Magnifier\nThe Magnifier in the status bar (see 3.4 The status bar) is different from zooming. Like a magnifying glass, it enlarges the whole map canvas and its symbology without changing the scale. At 200%, a line 0.8 mm wide is shown 1.6 mm wide on your screen, and the map itself is enlarged by the same factor.\n\n\n\n\n\n\nThe magnifier is useful when you want to look closely at a detail of your map as it will look at the current scale, for example on a printed map. If you zoom in instead, the scale changes and the lines can become relatively thinner. With the magnifier, the proportions between the map and its symbols stay the same.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.8 Style versus scale"
+    ]
   }
 ]
