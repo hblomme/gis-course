@@ -276,6 +276,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">4.2.4 One style per category</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/graduated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.5 Graduated symbology</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -319,7 +325,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p> The second commonly used data model in GIS is the <strong>vector model</strong>. It describes geographic information as separate geometric objects (<em>features</em>): points, lines and areas – called <em>polygons</em>. The shape and position of each object are defined by coordinates: a point by one coordinate pair, a line or a polygon by the coordinates of its (corner) points – called <em>vertices</em>. Below, we take a short look at the main characteristics of the vector model and give some examples.</p>
+<p>The second commonly used data model in GIS is the <strong>vector model</strong>. It describes geographic information as separate geometric objects (<em>features</em>): points, lines and areas – called <em>polygons</em>. The shape and position of each object are defined by coordinates: a point by one coordinate pair, a line or a polygon by the coordinates of its (corner) points – called <em>vertices</em>. Below, we take a short look at the main characteristics of the vector model and give some examples.</p>
 <section id="points-lines-and-polygons" class="level2">
 <h2 class="anchored" data-anchor-id="points-lines-and-polygons">Points, lines and polygons</h2>
 <div class="seealso">
@@ -340,7 +346,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>Points</strong> consist of one coordinate.</p></li>
 <li><p><strong>Lines</strong> consist of at least two coordinates (a start point and an end point).<br>
-All points of a line, including the start and end points, are called <em>vertices</em> . The parts of the line between two successive vertices are called <em>segments</em>.</p></li>
+All points of a line, including the start and end points, are called <em>vertices</em>. The parts of the line between two successive vertices are called <em>segments</em>.</p></li>
 <li><p><strong>Polygons</strong> consist of a line whose start point and end point are the same.<br>
 The whole area enclosed by this line also belongs to the polygon. A polygon needs at least four coordinates (a triangle): three different points, plus the first point repeated as the end point.</p>
 <p><a href="../images/data-models/vector-model-01-en.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images/data-models/vector-model-01-en.png" class="img-fluid"></a></p></li>
@@ -356,7 +362,7 @@ The whole area enclosed by this line also belongs to the polygon. A polygon need
 <p>Another important difference from the raster model is that a <strong>variety of attribute data</strong> can be linked to vector objects. Besides numbers (whole or decimal), these can also be text or dates, for example. Moreover, while a raster cell in practice usually holds only one value (or a few), vector objects often have many attribute fields.</p>
 <p>The example below shows a vector file with point objects that represent cities. Each <strong>vector object</strong> – also called a <strong>feature</strong> – contains several attribute fields: the city’s name (text), the number of inhabitants (a whole number), the area of its territory (decimal number), and the region it belongs to (text).</p>
 <p><a href="../images-v4/data-models/vector-model-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images-v4/data-models/vector-model-02.png" class="img-fluid"></a></p>
-<p> In QGIS and similar programs, you can consult the attribute data of a single feature directly in the map. You can also view the attribute data of all features of a layer at once, in the form of a table. This <strong>attribute table</strong> has one row per feature and one column per attribute field, and you will use it a lot when working in GIS.</p>
+<p>In QGIS and similar programs, you can consult the attribute data of a single feature directly in the map. You can also view the attribute data of all features of a layer at once, in the form of a table. This <strong>attribute table</strong> has one row per feature and one column per attribute field, and you will use it a lot when working in GIS.</p>
 <div class="seealso">
 <div class="callout callout-style-simple callout-note callout-titled" title="See also">
 <div class="callout-header d-flex align-content-center">

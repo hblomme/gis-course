@@ -276,6 +276,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">4.2.4 One style per category</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/graduated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.5 Graduated symbology</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -327,21 +333,21 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><span class="ref">A1</span></td>
-<td> <strong>Pan Map</strong></td>
+<td><strong>Pan Map</strong></td>
 <td><p>The leftmost button, with the hand-shaped icon, lets you use the <em>Pan Map</em> function. When you start QGIS, this tool is active by default. In this navigation mode you can move around the map canvas with your mouse.</p>
 <p>You drag the map by holding down the left mouse button and moving your mouse. You can easily zoom in and out with the scroll wheel of your mouse.</p>
 <p>This tool is widely used and will feel familiar: dragging and scrolling work just as they do in well-known online map viewers such as <a href="https://www.google.com/maps">Google Maps</a>, <a href="https://www.openstreetmap.org">OpenStreetMap</a> or <a href="https://www.geopunt.be">Geopunt</a>.</p></td>
 </tr>
 <tr class="even">
 <td><span class="ref">A2</span></td>
-<td> <strong>Pan Map to Selection</strong></td>
+<td><strong>Pan Map to Selection</strong></td>
 <td><p>If you click this button, the selected features (if there are any) are shown in the centre of the map canvas.</p>
 <p>However, the map keeps the same scale (in other words, it does not zoom in or out). We will come back to the concept of scale later in this learning path.</p></td>
 </tr>
 <tr class="odd">
 <td><p><span class="ref">A3</span></p>
 <p><span class="ref">A4</span></p></td>
-<td> <strong>Zoom In / Zoom Out</strong></td>
+<td><strong>Zoom In / Zoom Out</strong></td>
 <td><p><strong>+</strong></p>
 <p>This tool lets you zoom in on a part of the map canvas. This makes the scale of the map canvas larger. If you click a point in the map canvas, QGIS zooms in with that point in the centre. You do not have to limit yourself to zooming in on one specific point: you can also draw a rectangle while you hold down the left mouse button. QGIS will then zoom in on this rectangle in the same way.</p>
 <p><strong>-</strong></p>
@@ -349,17 +355,17 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><span class="ref">A5</span></td>
-<td> <strong>Zoom Full</strong></td>
+<td><strong>Zoom Full</strong></td>
 <td>The map canvas is automatically positioned so that all data fit exactly in the visible map canvas.</td>
 </tr>
 <tr class="odd">
 <td><span class="ref">A6</span></td>
-<td> <strong>Zoom to Selection</strong></td>
+<td><strong>Zoom to Selection</strong></td>
 <td>If you click this button, the map canvas is automatically zoomed and panned so that all selected features (if there are any) just fit in the map canvas.</td>
 </tr>
 <tr class="even">
 <td><span class="ref">A7</span></td>
-<td> <strong>Zoom to Layer(s)</strong></td>
+<td><strong>Zoom to Layer(s)</strong></td>
 <td>If you click this button, all features of the layer that is selected in the <em>Layers</em> panel <span class="ref">C</span>) are shown centred and zoomed in the map canvas.</td>
 </tr>
 <tr class="odd">
@@ -394,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><span class="ref">B1</span></td>
-<td> <strong>Select Features by Area or Single Click</strong></td>
+<td><strong>Select Features by Area or Single Click</strong></td>
 <td><p>You can only use this tool in vector layers. With it, you can select one or more vector features.</p>
 <p>When this tool is active, you can click one vector object in the map canvas or select several objects at once by dragging a selection rectangle. You can tell selected features apart from the others because QGIS gives them a yellow colour by default. If you have made a selection and then click a new feature, the previous selection is cancelled and a new one is made. If you want to add extra features to an existing selection, you can do so by selecting them while you hold down the Shift key. You can only select features in the layer that is selected in your <em>Layers</em> panel.</p>
 <p>To remove a feature from the selection, click it while you hold down the Ctrl key.</p>
@@ -435,8 +441,8 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><span class="ref">C1</span></td>
-<td> <strong>Identify Features</strong></td>
-<td><p> Click a raster cell or a vector object in the map canvas to see its attribute values. They appear in the <em>Identify Results</em> panel; click an empty part of the map to clear it.</p>
+<td><strong>Identify Features</strong></td>
+<td><p>Click a raster cell or a vector object in the map canvas to see its attribute values. They appear in the <em>Identify Results</em> panel; click an empty part of the map to clear it.</p>
 <p><img src="../images-v4/basics/map-navigation-05.png" class="img-fluid" style="vertical-align:top;width:48.0%"> <img src="../images-v4/basics/map-navigation-06.png" class="img-fluid" style="vertical-align:top;width:48.0%"></p>
 <p><span class="small">Left: a vector feature (a state). Right: a raster cell (a temperature value).</span></p>
 <p>By default, QGIS only looks in the layer that is selected in the <em>Layers</em> panel. To include other layers, change the <em>Mode</em> at the bottom of the panel, for example to <em>Top Down</em> (all layers). If you see no results, check this setting first.</p></td>
@@ -458,9 +464,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td><span class="ref">C5</span></td>
-<td> <strong>Open Attribute Table</strong></td>
+<td><strong>Open Attribute Table</strong></td>
 <td><p>This opens the attribute table of the layer that is selected in the <em>Layers</em> panel.</p>
-<p> Selections are linked: features you select in the map canvas are also selected in the table, and the other way round.</p>
+<p>Selections are linked: features you select in the map canvas are also selected in the table, and the other way round.</p>
 <p>See <a href="../visualisation/attribute-table.html">The attribute table</a>.</p></td>
 </tr>
 <tr class="even">
