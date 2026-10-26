@@ -812,5 +812,53 @@
       "4.3 Raster layers",
       "4.3.2 Visualising raster data"
     ]
+  },
+  {
+    "objectID": "crs/geographic-crs.html",
+    "href": "crs/geographic-crs.html",
+    "title": "5.1.1 Geographic coordinate systems (global)",
+    "section": "",
+    "text": "With coordinate reference systems (CRS) you can specify the location of every place on Earth. The two main types are geographic coordinate reference systems (global coordinate systems, discussed on this page) and projected coordinate reference systems (Cartesian or rectangular coordinate systems, discussed on the next page).",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.1 Geographic vs. projected",
+      "5.1.1 Geographic coordinate systems (global)"
+    ]
+  },
+  {
+    "objectID": "crs/geographic-crs.html#three-dimensional-3d-longitude-and-latitude-longitude-and-latitude",
+    "href": "crs/geographic-crs.html#three-dimensional-3d-longitude-and-latitude-longitude-and-latitude",
+    "title": "5.1.1 Geographic coordinate systems (global)",
+    "section": "Longitude and latitude",
+    "text": "Longitude and latitude\nGeographic coordinate systems start from a three-dimensional representation of the Earth. Positions are defined by a latitude and a longitude, which are expressed as angles (usually in degrees).\n\nLongitude is the angle between the prime meridian of the coordinate system (often the Greenwich meridian) and the meridian on which the measured point lies. Meridians are imaginary lines on the Earth’s surface that run through the two poles and are perpendicular to the equator. Longitude is often expressed as an angle between 0° and 180° east or west of the reference meridian.\nLatitude is the angle between the plane of the equator and the line that goes from the measured point, perpendicular to the surface of the reference ellipsoid (see below), to the plane of the equator. Latitude is often expressed as an angle between 0° and 90° north or south of the equator.\n\n\nA point at 50° north and 40° east.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.1 Geographic vs. projected",
+      "5.1.1 Geographic coordinate systems (global)"
+    ]
+  },
+  {
+    "objectID": "crs/geographic-crs.html#reference-ellipsoids",
+    "href": "crs/geographic-crs.html#reference-ellipsoids",
+    "title": "5.1.1 Geographic coordinate systems (global)",
+    "section": "Reference ellipsoids",
+    "text": "Reference ellipsoids\nA geographic coordinate system describes the Earth as a three-dimensional shape. That raises a complication: there is no simple three-dimensional (mathematical) shape that represents the Earth perfectly, because the Earth’s surface is too irregular (think of the relief).\nStill, many attempts have been made to define a mathematical shape that comes as close as possible to the Earth’s surface. Usually this shape is an ellipsoid, which can be described loosely as ‘a flattened sphere’. That matches the Earth: its circumference at the equator is slightly larger than along the meridians. Ellipsoids designed to represent (part of) the Earth’s surface in a simplified way are called reference ellipsoids. Over time, several reference ellipsoids have been calculated. They differ from each other in size and degree of flattening.\nSome reference ellipsoids try to fit the whole Earth, sometimes at the cost of large local differences. Others were designed to fit the surface of a smaller region (such as a continent or a country) as closely as possible. For other parts of the Earth, they often deviate strongly and are therefore unsuitable there.\n\nA strongly exaggerated cross-section of the Earth. The global ellipsoid of WGS 84 fits the Earth as a whole as well as possible. The ellipsoid used for BD72 (the International 1924 ellipsoid, positioned for Belgium) follows the Earth’s surface closely in Belgium, but deviates more elsewhere.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.1 Geographic vs. projected",
+      "5.1.1 Geographic coordinate systems (global)"
+    ]
+  },
+  {
+    "objectID": "crs/geographic-crs.html#geodetic-datum",
+    "href": "crs/geographic-crs.html#geodetic-datum",
+    "title": "5.1.1 Geographic coordinate systems (global)",
+    "section": "Geodetic datum",
+    "text": "Geodetic datum\nDefining an ellipsoid’s shape and size is not enough to describe locations on Earth unambiguously. You also need to specify how the ellipsoid is positioned and oriented relative to the Earth, and the scale of the geodetic reference system. Together, the reference ellipsoid and these parameters define a geodetic datum.\nA datum is a key part of a geographic coordinate system, but the two are not the same. Geographic coordinate systems can also differ in their prime meridian (which is not necessarily the Greenwich meridian) and their unit of measurement (which is not necessarily degrees).\nOne of the best-known examples of a global best-fit datum is WGS 84 (World Geodetic System 1984), which is used by GPS.\n\n\n\n\n\n\nThe name WGS 84 can refer to the geodetic datum, but it is also used for a geographic coordinate system based on it (in QGIS: WGS 84, EPSG:4326).",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.1 Geographic vs. projected",
+      "5.1.1 Geographic coordinate systems (global)"
+    ]
   }
 ]

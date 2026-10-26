@@ -324,6 +324,34 @@ ul.task-list li input[type="checkbox"] {
   </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">5 Coordinate systems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">5.1 Geographic vs.&nbsp;projected</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/geographic-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1.1 Geographic coordinate systems (global)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -405,7 +433,7 @@ Finally, there are applications meant for local use (desktop software) as well a
 <p>The <strong>basic principles</strong> of ArcGIS and QGIS are the same:</p>
 <ul>
 <li><strong>The map canvas of these GIS applications can be seen as a coordinate system.</strong><br>
-On this coordinate system, (spatial) information can be positioned based on an x value and a y value (in a <em>geographic</em> coordinate system, these are the longitude and the latitude, expressed in degrees; see the chapter on coordinate systems). So the data we mainly work with in a GIS environment are data that <strong>contain coordinates</strong>. If they do not, a GIS will not be able to position the data (correctly) in space. By default, the axes and the coordinate grid itself are not visible in the map canvas of these geographic information systems. However, they are still present in the background.</li>
+On this coordinate system, (spatial) information can be positioned based on an x value and a y value (in a <em>geographic</em> coordinate system, these are the longitude and the latitude, expressed in degrees; see the chapter on <a href="../crs/geographic-crs.html">coordinate systems</a>). So the data we mainly work with in a GIS environment are data that <strong>contain coordinates</strong>. If they do not, a GIS will not be able to position the data (correctly) in space. By default, the axes and the coordinate grid itself are not visible in the map canvas of these geographic information systems. However, they are still present in the background.</li>
 <li><strong>Non-spatial information can be linked to spatial information.</strong><br>
 For example, you can have a data object that represents a point with the coordinates 3.723° east longitude and 51.045° north latitude (spatial information). About this point you can say that it is the <em>Book Tower</em> (name), that it was built in the period 1936–1942 (period) and that it is owned by Ghent University (owner). Name, construction period and owner are of course non-spatial data. Both the spatial and the non-spatial dimensions of a dataset can be queried and edited in these geographic information systems.</li>
 <li><strong>In these GIS environments, data are ideally stored in (one or more) thematic information layers.</strong><br>
