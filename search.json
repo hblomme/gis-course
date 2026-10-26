@@ -668,5 +668,29 @@
       "4.2 Vector layers",
       "4.2.5 Graduated symbology"
     ]
+  },
+  {
+    "objectID": "visualisation/diagrams.html",
+    "href": "visualisation/diagrams.html",
+    "title": "4.2.6 Diagrams",
+    "section": "",
+    "text": "In QGIS you can show information on your map not only through the colour, size or shape of the features themselves, but also with diagrams.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.6 Diagrams"
+    ]
+  },
+  {
+    "objectID": "visualisation/diagrams.html#configuring-diagrams",
+    "href": "visualisation/diagrams.html#configuring-diagrams",
+    "title": "4.2.6 Diagrams",
+    "section": "Configuring diagrams",
+    "text": "Configuring diagrams\nYou set up diagrams in the Diagrams tab of the Layer Properties window. Do not forget to tick Enable diagram at the top of this tab, otherwise the diagrams are not shown on the map canvas.\n\nAt A you choose the diagram type. In QGIS 4 these are Pie Chart, Text Diagram, Histogram, Stacked Bars and Stacked Diagram (an interface to add several diagrams at once). The diagram settings are spread over several tabs (B).\n\nIn the ‘Attributes’ tab you choose which attribute fields the diagram shows. Only numeric fields can be used. To add fields, select them at C and click the green plus symbol. Each added field receives a random colour. To change it, double-click the colour at D.\nIn the ‘Rendering’ tab you set basic display options, such as the bar width of a histogram, the border style of the diagram…\nIn the ‘Size’ tab (see the image below) you set how large the diagrams are drawn. For histograms, for example, this is the length of the bars, and for a pie chart the diameter. The size is either fixed (Fixed size) or scaled (Scaled size).\nWith a scaled size, the size of each diagram depends on the value of an attribute field that you choose (E). Under Size or Bar length (G) you set the maximum size of the diagram (by default in millimetres). Under Maximum value (F) you can type the value that corresponds to this maximum size, or let QGIS look up the largest value of the field for you (click Find). \n\n\n\n\n\n\n\nIf the Maximum value at F is smaller than the real maximum in the data, some diagrams are drawn larger than the maximum size at G.\n\n\n\n\n\nIn the ‘Placement’ tab you configure how each diagram is positioned on the map in relation to its feature (H). With the Over options (Over point, Over line, Over centroid), the diagram is centred on the point, the middle of the line or the centroid of the polygon. With the Around options, QGIS draws it next to that spot, at the distance you set under Distance, for example so that it does not cover a point symbol. For lines, you can also choose whether the diagram is placed above, on or below the line. Polygon layers have two more options: Inside Polygon and Using Perimeter (on the border of the polygon).\n\nIn the ‘Options’ tab you find a few settings that only apply to certain diagram types. For a Histogram, you can for example configure the direction of the bars under Bar Orientation (Up, Down, Right or Left).\nIn the ‘Legend’ tab you choose whether the diagram gets a legend and how it should look. The legend explains the colours, the size, or both. The labels themselves can be updated via the Attributes tab, at D (see above). The image below shows the result: a histogram per state on the map (population in 1990, 2000 and 2010), and a legend in the Layers panel that explains the colours and the bar length.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.2 Vector layers",
+      "4.2.6 Diagrams"
+    ]
   }
 ]
