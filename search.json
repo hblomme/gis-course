@@ -816,121 +816,121 @@
   {
     "objectID": "crs/geographic-crs.html",
     "href": "crs/geographic-crs.html",
-    "title": "5.1.1 Geographic coordinate systems (global)",
+    "title": "5.1.1 Geographic coordinate systems",
     "section": "",
     "text": "With coordinate reference systems (CRS) you can specify the location of every place on Earth. The two main types are geographic coordinate reference systems (global coordinate systems, discussed on this page) and projected coordinate reference systems (Cartesian or rectangular coordinate systems, discussed on the next page).",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.1 Geographic coordinate systems (global)"
+      "5.1.1 Geographic coordinate systems"
     ]
   },
   {
     "objectID": "crs/geographic-crs.html#three-dimensional-3d-longitude-and-latitude-longitude-and-latitude",
     "href": "crs/geographic-crs.html#three-dimensional-3d-longitude-and-latitude-longitude-and-latitude",
-    "title": "5.1.1 Geographic coordinate systems (global)",
+    "title": "5.1.1 Geographic coordinate systems",
     "section": "Longitude and latitude",
     "text": "Longitude and latitude\nGeographic coordinate systems start from a three-dimensional representation of the Earth. Positions are defined by a latitude and a longitude, which are expressed as angles (usually in degrees).\n\nLongitude is the angle between the prime meridian of the coordinate system (often the Greenwich meridian) and the meridian on which the measured point lies. Meridians are imaginary lines on the Earth’s surface that run through the two poles and are perpendicular to the equator. Longitude is often expressed as an angle between 0° and 180° east or west of the reference meridian.\nLatitude is the angle between the plane of the equator and the line that goes from the measured point, perpendicular to the surface of the reference ellipsoid (see below), to the plane of the equator. Latitude is often expressed as an angle between 0° and 90° north or south of the equator.\n\n\nA point at 50° north and 40° east.",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.1 Geographic coordinate systems (global)"
+      "5.1.1 Geographic coordinate systems"
     ]
   },
   {
     "objectID": "crs/geographic-crs.html#reference-ellipsoids",
     "href": "crs/geographic-crs.html#reference-ellipsoids",
-    "title": "5.1.1 Geographic coordinate systems (global)",
+    "title": "5.1.1 Geographic coordinate systems",
     "section": "Reference ellipsoids",
     "text": "Reference ellipsoids\nA geographic coordinate system describes the Earth as a three-dimensional shape. That raises a complication: there is no simple three-dimensional (mathematical) shape that represents the Earth perfectly, because the Earth’s surface is too irregular (think of the relief).\nStill, many attempts have been made to define a mathematical shape that comes as close as possible to the Earth’s surface. Usually this shape is an ellipsoid, which can be described loosely as ‘a flattened sphere’. That matches the Earth: its circumference at the equator is slightly larger than along the meridians. Ellipsoids designed to represent (part of) the Earth’s surface in a simplified way are called reference ellipsoids. Over time, several reference ellipsoids have been calculated. They differ from each other in size and degree of flattening.\nSome reference ellipsoids try to fit the whole Earth, sometimes at the cost of large local differences. Others were designed to fit the surface of a smaller region (such as a continent or a country) as closely as possible. For other parts of the Earth, they often deviate strongly and are therefore unsuitable there.\n\nA strongly exaggerated cross-section of the Earth. The global ellipsoid of WGS 84 fits the Earth as a whole as well as possible. The ellipsoid used for BD72 (the International 1924 ellipsoid, positioned for Belgium) follows the Earth’s surface closely in Belgium, but deviates more elsewhere.",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.1 Geographic coordinate systems (global)"
+      "5.1.1 Geographic coordinate systems"
     ]
   },
   {
     "objectID": "crs/geographic-crs.html#geodetic-datum",
     "href": "crs/geographic-crs.html#geodetic-datum",
-    "title": "5.1.1 Geographic coordinate systems (global)",
+    "title": "5.1.1 Geographic coordinate systems",
     "section": "Geodetic datum",
     "text": "Geodetic datum\nDefining an ellipsoid’s shape and size is not enough to describe locations on Earth unambiguously. You also need to specify how the ellipsoid is positioned and oriented relative to the Earth, and the scale of the geodetic reference system. Together, the reference ellipsoid and these parameters define a geodetic datum.\nA datum is a key part of a geographic coordinate system, but the two are not the same. Geographic coordinate systems can also differ in their prime meridian (which is not necessarily the Greenwich meridian) and their unit of measurement (which is not necessarily degrees).\nOne of the best-known examples of a global best-fit datum is WGS 84 (World Geodetic System 1984), which is used by GPS.\n\n\n\n\n\n\nThe name WGS 84 can refer to the geodetic datum, but it is also used for a geographic coordinate system based on it (in QGIS: WGS 84, EPSG:4326).",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.1 Geographic coordinate systems (global)"
+      "5.1.1 Geographic coordinate systems"
     ]
   },
   {
     "objectID": "crs/projected-crs.html",
     "href": "crs/projected-crs.html",
-    "title": "5.1.2 Projected coordinate systems (Cartesian/rectangular)",
+    "title": "5.1.2 Projected coordinate systems",
     "section": "",
     "text": "As you saw in the part about geographic coordinate systems, the Earth, or part of it, can be represented as a simplified three-dimensional object. You can also show the Earth as a map on a ‘flat’ surface, such as paper or a screen.\nThese flat or two-dimensional representations of the Earth are easier to produce and store. They can also show all sides of a spherical object in one image, whereas a three-dimensional representation always has a hidden side. In addition, geometric calculations (such as distances and areas) are much easier in two dimensions than in three.\n\n\n\n\n\n\nThis video by Vox shows why every flat world map distorts: Why all world maps are wrong.\n\n\n\n\nTo represent the surface of the Earth (and other spherical objects) in two dimensions, you use projections. A map projection uses a mathematical method to convert geographic coordinates on a reference ellipsoid into coordinates on a two-dimensional plane.\nIt is impossible to represent a sphere or ellipsoid in two dimensions without distortion. That is why a wide range of projection methods has been developed. All of them distort, to a greater or lesser degree, at least some of the true shapes, directions, distance ratios and area ratios of the map elements they show.",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.2 Projected coordinate systems (Cartesian/rectangular)"
+      "5.1.2 Projected coordinate systems"
     ]
   },
   {
     "objectID": "crs/projected-crs.html#two-dimensional-projections",
     "href": "crs/projected-crs.html#two-dimensional-projections",
-    "title": "5.1.2 Projected coordinate systems (Cartesian/rectangular)",
+    "title": "5.1.2 Projected coordinate systems",
     "section": "",
     "text": "As you saw in the part about geographic coordinate systems, the Earth, or part of it, can be represented as a simplified three-dimensional object. You can also show the Earth as a map on a ‘flat’ surface, such as paper or a screen.\nThese flat or two-dimensional representations of the Earth are easier to produce and store. They can also show all sides of a spherical object in one image, whereas a three-dimensional representation always has a hidden side. In addition, geometric calculations (such as distances and areas) are much easier in two dimensions than in three.\n\n\n\n\n\n\nThis video by Vox shows why every flat world map distorts: Why all world maps are wrong.\n\n\n\n\nTo represent the surface of the Earth (and other spherical objects) in two dimensions, you use projections. A map projection uses a mathematical method to convert geographic coordinates on a reference ellipsoid into coordinates on a two-dimensional plane.\nIt is impossible to represent a sphere or ellipsoid in two dimensions without distortion. That is why a wide range of projection methods has been developed. All of them distort, to a greater or lesser degree, at least some of the true shapes, directions, distance ratios and area ratios of the map elements they show.",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.2 Projected coordinate systems (Cartesian/rectangular)"
+      "5.1.2 Projected coordinate systems"
     ]
   },
   {
     "objectID": "crs/projected-crs.html#differences-between-projections",
     "href": "crs/projected-crs.html#differences-between-projections",
-    "title": "5.1.2 Projected coordinate systems (Cartesian/rectangular)",
+    "title": "5.1.2 Projected coordinate systems",
     "section": "Differences between projections",
     "text": "Differences between projections\n\nProjection surface\nA projection can be made onto different projection surfaces. Below, we briefly show which ones.\nIn a cylindrical projection, the Earth is projected onto a cylinder placed around it. Afterwards, the cylinder is ‘unrolled’ into a flat surface.\n\nWhen the projection is made onto a cone, it is called a conic projection. Here too, the cone is ‘unrolled’ into a flat surface afterwards. This method is often used for areas between the tropics and the polar circles.\n\nWhen the projection is made directly onto a flat plane, it is called an azimuthal projection.\n\n\n\nStandard line\nThe projection surface can either just touch the Earth’s surface or cut through it. The line or point where the projection surface touches (or cuts) the Earth is called the ‘standard line’ or the ‘standard point’. A cylinder or a cone touches the Earth along one line, and a flat plane touches it at one point. When they cut the Earth, a cylinder or a cone does so along two lines, and a flat plane along one line. Along a standard line or at a standard point, there is no local projection distortion. Distortion generally increases as you move away from these locations.\n\n\n\nOrientation\nThe orientation of the projection surface relative to the Earth can also vary: neither the projection surface nor the base of the cylinder or cone has to be parallel to the equator.\n\n\n\nPosition of the projection centre\nFinally, the position of the projection centre can also differ.\n\n\n\n\n\n\n\nDo not worry if a projection does not fit any of the types described above. In practice, many map projections do not correspond directly to one of these geometric types. They are defined mathematically and may be based on a geometric projection that has been adjusted, for example to reduce certain distortions.",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.2 Projected coordinate systems (Cartesian/rectangular)"
+      "5.1.2 Projected coordinate systems"
     ]
   },
   {
     "objectID": "crs/projected-crs.html#projection-distortions",
     "href": "crs/projected-crs.html#projection-distortions",
-    "title": "5.1.2 Projected coordinate systems (Cartesian/rectangular)",
+    "title": "5.1.2 Projected coordinate systems",
     "section": "Projection distortions",
     "text": "Projection distortions\nAs mentioned above, it is impossible to show a sphere in two dimensions without distortion, so no map projection is perfect. The distortions can affect shape, direction, area and distance, and the amount of distortion varies with the position on the map. Different projection methods cause different distortions, so the best method depends on the context. Projections are often grouped according to the distortions they do (or do not) cause.\n\nConformal projections (angles)\nConformal projections preserve shapes locally: in other words, angles are not distorted.\nThe Mercator projection is probably one of the best-known examples. Gerard Mercator developed it specifically for navigation. Because the Mercator projection preserves angles locally and shows the meridians as parallel straight lines, a straight line on the map represents a route with a constant compass bearing. Navigators could follow this line to reach their destination, but usually not by the shortest route.\n\nConformal projections do not preserve area, and they generally do not preserve distances. In the Mercator projection above, where the standard parallel is the equator, these distortions increase towards the poles.\n\n\n\n\n\n\nTo see how strongly the Mercator projection enlarges areas towards the poles, try https://thetruesize.com: drag a country towards the equator or the poles and watch its size change.\n\n\n\n\n\nEqual-area projections (area)\nEqual-area projections preserve area ratios. This type of projection can be useful for showing the continents and their relative sizes.\nAn example is the Gall-Peters projection, which is used by organisations such as UNESCO and Oxfam.\n\nEqual-area projections generally distort shapes and distances.\n\n\nEquidistant projections (distance)\nEquidistant projections preserve distance ratios, at least in one direction or relative to one or two points. No map can preserve the distance ratios between all points.\nA widely used equidistant projection is the ‘plate carrée’ or ‘equidistant cylindrical projection’. It preserves distance ratios in the north-south direction (along the meridians) and along the equator, but not in other directions.\n\nEquidistant projections are usually neither equal-area nor conformal.\n\n\nCompromise projections\nSome projection methods have none of the three properties above: they distort angles, distance ratios and area ratios. These are sometimes called compromise projections. They usually aim for the best possible aesthetic result and/or the smallest possible distortions of all three, without being fully correct for any one of them.\nA well-known example is the Robinson projection, which National Geographic, among others, used for its world maps for many years.\n\n\n\nAzimuthal\nBecause azimuthal projections use a flat plane as projection surface, they have some useful properties. They preserve the true directions from the central point of the map to every other point, and a straight line from this central point shows the shortest route. In gnomonic azimuthal projections, this last property applies to all points on the map: a straight line between any two points shows the shortest route between them on the real Earth, which is useful for navigation.\n\nAzimuthal projections can also be conformal, equal-area or equidistant, but only one of these at a time.",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.2 Projected coordinate systems (Cartesian/rectangular)"
+      "5.1.2 Projected coordinate systems"
     ]
   },
   {
     "objectID": "crs/projected-crs.html#projected-coordinate-reference-systems",
     "href": "crs/projected-crs.html#projected-coordinate-reference-systems",
-    "title": "5.1.2 Projected coordinate systems (Cartesian/rectangular)",
+    "title": "5.1.2 Projected coordinate systems",
     "section": "Projected coordinate reference systems",
     "text": "Projected coordinate reference systems\nTo place map elements unambiguously on a flat map, you use projected coordinate reference systems. These systems differ from each other in several respects.\n\nA map projection uses a mathematical/geometric formula to convert geographic coordinates on a reference ellipsoid to a flat surface.\n\nSo every projected coordinate system is based on a chosen geodetic datum (and not on the real world, which, as explained on the previous page, cannot be represented exactly by a simple mathematical shape).\nThis formula, in short the projection method, can also vary, as we have seen.\n\nThe result is a two-dimensional representation of the Earth in which a coordinate system positions the map elements with an x and a y coordinate.\n\nThe position of the origin (0, 0) can differ from one CRS to another.\nThe unit of measurement varies between coordinate systems. A widely used unit is the metre: the coordinates then tell you how many metres east/west and north/south of the origin an element lies.\n\n\n\nGlobe: NASA Blue Marble: Next Generation (public domain). Right: Belgian Lambert 72 on Sentinel-2 cloudless 2016 by EOX IT Services GmbH (contains modified Copernicus Sentinel data 2016), CC BY 4.0. Border of Belgium: Atlas van België (NGI, ADSEI, ULiège).\nMany different projected coordinate systems have been developed to limit distortions as much as possible, often specifically for a particular region.\nIn practice, this means choosing:\n\na geodetic datum that fits the real Earth’s surface closely in that area\na projection method that gives the smallest distortions for that specific area\nan origin that gives convenient coordinates in that area (for example, only positive values)",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.2 Projected coordinate systems (Cartesian/rectangular)"
+      "5.1.2 Projected coordinate systems"
     ]
   },
   {
     "objectID": "crs/projected-crs.html#lambert",
     "href": "crs/projected-crs.html#lambert",
-    "title": "5.1.2 Projected coordinate systems (Cartesian/rectangular)",
+    "title": "5.1.2 Projected coordinate systems",
     "section": "Lambert",
     "text": "Lambert\nFor maps of Belgium, two projected coordinate systems are mainly used: Lambert 72 and Lambert 2008. Both are designed specifically for this country and are therefore not suitable for areas far away from it. Much of the data you will come across for Belgium is in the older system, ‘Lambert 72’ (EPSG:31370; in QGIS: BD72 / Belgian Lambert 72): for a long time, it was the standard. However, more and more geographic datasets in Belgium are now managed and published in the newer system, ‘Lambert 2008’ (EPSG:3812; in QGIS: ETRS89 / Belgian Lambert 2008).\nBoth systems:\n\nare based on a conic projection (with a cone that cuts the reference ellipsoid along two standard lines)\nhave an origin outside Belgium, to the south-west (a different one for each system): for Lambert 72 in the north of France (Oise), for Lambert 2008 much further away, in the Atlantic Ocean off the west coast of France\nhave coordinates expressed in metres.\n\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nCoordinate system of the QGIS project explains how to set the coordinate system of your project, for example Lambert 72 or Lambert 2008.\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeft: the cone of Lambert 72 cuts the Earth along the two standard parallels, 49°50’ and 51°10’. Right: Belgium in Lambert 72, to scale. Border of Belgium based on Atlas van België (NGI, ADSEI, ULiège).",
     "crumbs": [
       "5 Coordinate systems",
       "5.1 Geographic vs. projected",
-      "5.1.2 Projected coordinate systems (Cartesian/rectangular)"
+      "5.1.2 Projected coordinate systems"
     ]
   }
 ]
