@@ -1146,7 +1146,7 @@
     "href": "exercises/exercise-roman-empire.html",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "",
-    "text": "Dataset: Roman Empire Infrastructure\nIn this exercise you make two maps of the Roman Empire and a layout with both maps. You practise loading raster and vector data, layer order, raster styling, categorized and graduated styles, labels, pie charts, map themes, coordinate systems and layouts.",
+    "text": "Dataset: Roman Empire Infrastructure\nIn this exercise you make two maps of the Roman Empire and a print layout with both maps. You practise loading raster and vector data, layer order, raster styling, categorized and graduated styles, labels, pie charts, map themes, coordinate systems and print layouts.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
@@ -1158,7 +1158,7 @@
     "href": "exercises/exercise-roman-empire.html#a-map-the-empire-and-its-landscape",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "A) Map the empire and its landscape",
-    "text": "A) Map the empire and its landscape\nYou can do this part after chapters 1–4 of the learning path.\n\nLoad all layers of the dataset. Put them in a logical order.\nShow elevation: low land in green, mountains in brown or red. Use Identify to find the elevation of a city in the Alps.\nShow the provinces with an outline only, so that the elevation stays visible.\nShow the roads with a categorized style: major roads thicker than minor roads.\nShow the cities with a categorized style on type: cities as small dots, legionary fortresses as squares. Label the cities with their name.\nSave the current styles as a map theme.",
+    "text": "A) Map the empire and its landscape\nYou can do this after chapter 4.\n\nLoad all layers of the dataset. Put them in a logical order.\nShow elevation: low land in green, mountains in brown or red. Use Identify to find the elevation of a city in the Alps.\nShow the provinces with an outline only, so that the elevation stays visible.\nShow the roads with a categorized style: major roads thicker than minor roads.\nShow the cities with a categorized style on type: cities as small dots, legionary fortresses as squares. Label the cities with their name.\nSave the current styles as a map theme.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
@@ -1170,7 +1170,7 @@
     "href": "exercises/exercise-roman-empire.html#b-map-the-infrastructure-per-province",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "B) Map the infrastructure per province",
-    "text": "B) Map the infrastructure per province\nYou can do this part after chapters 1–4 (including Saving and reusing styles).\n\nRestyle the provinces. Make sure you don’t lose your previous style: first create a new style, then start configuring.\nColour the provinces with a graduated style on area_km2: the larger the province, the darker the colour. Label the provinces with their name.\nAdd a pie chart to every province with the number of monuments of each type (n_theatres, n_amphitheatres, n_circuses, n_baths, n_temples). The more monuments in total (n_monuments), the larger the pie chart.\nSave the current styles as a map theme. Switch between the two map themes to check that both maps are kept.",
+    "text": "B) Map the infrastructure per province\nYou can do this after chapter 4.\n\nRestyle the provinces. Make sure you don’t lose your previous style: first create a new style, then start configuring.\nColour the provinces with a graduated style on area_km2: the larger the province, the darker the colour. Label the provinces with their name.\nAdd a pie chart to every province with the number of monuments of each type (n_theatres, n_amphitheatres, n_circuses, n_baths, n_temples). The more monuments in total (n_monuments), the larger the pie chart.\nSave the current styles as a map theme. Switch between the two map themes to check that both maps are kept.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
@@ -1182,7 +1182,7 @@
     "href": "exercises/exercise-roman-empire.html#c-prepare-for-finishing",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "C) Prepare for finishing",
-    "text": "C) Prepare for finishing\nYou can do this part after chapter 5 (Coordinate systems).\n\nSet the project to a projected CRS that suits the empire and compare the shapes of the provinces before and after.\nSave the project in the folder of the dataset. Keep it: you need it in the next step.",
+    "text": "C) Prepare for finishing\nYou can do this after chapter 5.\n\nSet the project to a projected CRS that suits the empire and compare the shapes of the provinces before and after.\nSave the project in the folder of the dataset. Keep it: you need it in the next step.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
@@ -1190,11 +1190,11 @@
     ]
   },
   {
-    "objectID": "exercises/exercise-roman-empire.html#d-make-a-layout",
-    "href": "exercises/exercise-roman-empire.html#d-make-a-layout",
+    "objectID": "exercises/exercise-roman-empire.html#d-make-a-print-layout",
+    "href": "exercises/exercise-roman-empire.html#d-make-a-print-layout",
     "title": "Exercise 1: Map the Roman Empire",
-    "section": "D) Make a layout",
-    "text": "D) Make a layout\nYou can do this part after chapter 6 (Layouts).\nMake a finished map, as a PDF, with:\n\nAn overview map of the whole empire, with the style of Map 2 (provinces and pie charts). This is the largest map on the page. It shows a frame with the extent of the detail map.\nA detail map that zooms in on the province of Belgica, with the style of Map 1 (elevation, roads and cities).\nA title, and a legend, a scale bar and a north arrow that are linked to the overview map.",
+    "section": "D) Make a print layout",
+    "text": "D) Make a print layout\nYou can do this after chapter 6.\nMake a finished map, as a PDF, with:\n\nAn overview map of the whole empire, with the style of Map 2 (provinces and pie charts). This is the largest map on the page. It shows a frame with the extent of the detail map.\nA detail map that zooms in on the province of Belgica, with the style of Map 1 (elevation, roads and cities).\nA title, and a legend, a scale bar and a north arrow that are linked to the overview map.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
