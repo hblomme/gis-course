@@ -1107,5 +1107,38 @@
       "4 Layer properties and symbology",
       "4.4 Saving and reusing styles"
     ]
+  },
+  {
+    "objectID": "datasets/roman-empire-infrastructure.html",
+    "href": "datasets/roman-empire-infrastructure.html",
+    "title": "Roman Empire Infrastructure",
+    "section": "",
+    "text": "Download Roman Empire Infrastructure.zip (3 MB)\nUnzip the file in a folder with a short path, for example C:\\GIS\\Roman Empire Infrastructure.",
+    "crumbs": [
+      "Appendix 2: Datasets",
+      "Roman Empire Infrastructure"
+    ]
+  },
+  {
+    "objectID": "datasets/roman-empire-infrastructure.html#download",
+    "href": "datasets/roman-empire-infrastructure.html#download",
+    "title": "Roman Empire Infrastructure",
+    "section": "",
+    "text": "Download Roman Empire Infrastructure.zip (3 MB)\nUnzip the file in a folder with a short path, for example C:\\GIS\\Roman Empire Infrastructure.",
+    "crumbs": [
+      "Appendix 2: Datasets",
+      "Roman Empire Infrastructure"
+    ]
+  },
+  {
+    "objectID": "datasets/roman-empire-infrastructure.html#sources-and-licences",
+    "href": "datasets/roman-empire-infrastructure.html#sources-and-licences",
+    "title": "Roman Empire Infrastructure",
+    "section": "Sources and licences",
+    "text": "Sources and licences\nVersion of this dataset: 27 October 2026. All sources were downloaded on 27 October 2026; later versions of the sources may differ.\n\n\n\nData\nSource\nLicence\n\n\n\n\nprovinces, cities\nDARE, Digital Atlas of the Roman Empire, Johan Åhlfeldt, via https://github.com/klokantech/roman-empire (commit a140f13, 2020)\nCC BY-SA\n\n\nmonuments (and the monument counts in provinces)\nPleiades, https://pleiades.stoa.org (GIS data package)\nCC BY 3.0\n\n\nroads\nAncient World Mapping Center, after the Barrington Atlas of the Greek and Roman World (Talbert, ed., 2000), https://github.com/AWMC/geodata (commit 7ecf8bc, 2024)\nODbL 1.0\n\n\nelevation\nWorldClim 2.1, elevation. Fick, S.E. and R.J. Hijmans (2017), International Journal of Climatology 37 (12): 4302–4315, https://www.worldclim.org\nCC BY 4.0\n\n\n\nChanges made: selection of features and fields, cut to the extent of the empire, names of the Italian regions added, area and counts per province added, roads reprojected to EPSG:3035. The adapted DARE data are shared under CC BY-SA and the adapted roads under ODbL, as these licences require.",
+    "crumbs": [
+      "Appendix 2: Datasets",
+      "Roman Empire Infrastructure"
+    ]
   }
 ]
