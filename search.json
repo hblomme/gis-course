@@ -1102,7 +1102,7 @@
     "href": "visualisation/saving-styles.html#conclusion",
     "title": "4.4 Saving and reusing styles",
     "section": "Conclusion",
-    "text": "Conclusion\nTo create multiple maps with their own styles in the same QGIS project, first give the relevant layers additional styles (Styles ▸ Add…). Then save each map configuration as a separate map theme (Manage Map Themes ▸ Add Theme…). Afterwards, you can switch between the themes to display the different maps, each with its own combination of layer styles and visibility.",
+    "text": "Conclusion\nTo create multiple maps with their own styles in the same QGIS project, first give the relevant layers additional styles (Styles ▸ Add…). Then save each map configuration as a separate map theme (Manage Map Themes ▸ Add Theme…). Afterwards, you can switch between the themes to display the different maps, each with its own combination of layer styles and visibility.\n\n\n\n\n\n\nMake sure you don’t lose your previous style: first create a new style, then start configuring.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.4 Saving and reusing styles"
@@ -1113,7 +1113,7 @@
     "href": "datasets/roman-empire-infrastructure.html",
     "title": "Roman Empire Infrastructure",
     "section": "",
-    "text": "Download Roman Empire Infrastructure.zip (3 MB)\nUnzip the file in a folder with a short path, for example C:\\GIS\\Roman Empire Infrastructure.",
+    "text": "Download Roman Empire Infrastructure.zip (3 MB)",
     "crumbs": [
       "Appendix 2: Datasets",
       "Roman Empire Infrastructure"
@@ -1124,7 +1124,7 @@
     "href": "datasets/roman-empire-infrastructure.html#download",
     "title": "Roman Empire Infrastructure",
     "section": "",
-    "text": "Download Roman Empire Infrastructure.zip (3 MB)\nUnzip the file in a folder with a short path, for example C:\\GIS\\Roman Empire Infrastructure.",
+    "text": "Download Roman Empire Infrastructure.zip (3 MB)",
     "crumbs": [
       "Appendix 2: Datasets",
       "Roman Empire Infrastructure"

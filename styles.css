@@ -161,3 +161,9 @@ body:has(.cover) #title-block-header, body:has(.cover) header#title-block-header
 .cover-logos { margin: 0 0 2rem; }
 .cover-logos img, .cover-logos img:hover { height: 90px; width: auto; margin: 0 0.8rem; vertical-align: middle; box-shadow: none !important; border: none !important; padding: 0 !important; background: none !important; }
 .footer-logo, .footer-logo:hover { height: 34px; width: auto; vertical-align: middle; margin-right: 0.6rem; box-shadow: none !important; border: none !important; padding: 0 !important; background: none !important; }
+
+/* Dataset pages (Appendix 2): sources and licences as in a bibliography, smaller and quieter (author, 2026-10-27) */
+.sources { font-size: 0.82rem; color: #444; }
+.sources h2 { font-size: 1.05rem; }
+.sources table { font-size: 0.8rem; }
+.sources a { color: #444; }
