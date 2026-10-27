@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Solution 1: Map the Roman Empire – Historical Cartography &amp; GIS</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../datasets/roman-empire-infrastructure.html" rel="next">
+<link href="../exercises/exercise-roman-empire.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-229871c2f6d88ea07c3b9c2b019977c2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Appendix 1: Exercises</li><li class="breadcrumb-item"><a href="../exercises/exercise-roman-empire.html">Exercise 1: Map the Roman Empire</a></li><li class="breadcrumb-item"><a href="../exercises/solution-roman-empire.html">Solution</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Historical Cartography &amp; GIS</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cover</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">1 Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/what-is-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 What is GIS?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/qgis-interface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 QGIS interface</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">2 Data in GIS (part 1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/raster-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Raster model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/vector-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Vector model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/raster-vs-vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Rasters vs.&nbsp;vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/data-source-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Data sources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/file-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Common file formats in QGIS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">3 QGIS basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/importing-vector-raster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Importing data: vectors and rasters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Layers in QGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/map-navigation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Navigating the map canvas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/status-bar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4 The status bar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/qgis-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5 The QGIS project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">4 Layer properties and symbology</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/layer-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 The Layer Properties window</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">4.2 Vector layers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/attribute-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.1 The attribute table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/vector-general.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.2 Symbology of vector layers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/single-symbol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.3 Configuring a style</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/categorized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.4 One style per category</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/graduated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.5 Graduated symbology</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/diagrams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.6 Diagrams</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/labels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.7 Text labels</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/style-vs-scale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.8 Style versus scale</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">4.3 Raster layers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/raster-cell-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 Cell values: histogram and unique values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/raster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.2 Visualising raster data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/saving-styles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4 Saving and reusing styles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">5 Coordinate systems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">5.1 Geographic vs.&nbsp;projected</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/geographic-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1.1 Geographic coordinate systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/projected-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1.2 Projected coordinate systems</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">5.2 Coordinate systems in practice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/project-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2.1 Coordinate system of the QGIS project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/data-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2.2 Coordinate system of your geodata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2.3 Transformations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendix 1: Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Exercise 1: Map the Roman Empire</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-roman-empire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/solution-roman-empire.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendix 2: Datasets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../datasets/roman-empire-infrastructure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Roman Empire Infrastructure</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-map-the-empire-and-its-landscape" id="toc-a-map-the-empire-and-its-landscape" class="nav-link active" data-scroll-target="#a-map-the-empire-and-its-landscape">A) Map the empire and its landscape</a></li>
+  <li><a href="#b-map-the-infrastructure-per-province" id="toc-b-map-the-infrastructure-per-province" class="nav-link" data-scroll-target="#b-map-the-infrastructure-per-province">B) Map the infrastructure per province</a></li>
+  <li><a href="#c-prepare-for-finishing" id="toc-c-prepare-for-finishing" class="nav-link" data-scroll-target="#c-prepare-for-finishing">C) Prepare for finishing</a></li>
+  <li><a href="#d-make-a-print-layout" id="toc-d-make-a-print-layout" class="nav-link" data-scroll-target="#d-make-a-print-layout">D) Make a print layout</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="solution-roman-empire.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Appendix 1: Exercises</li><li class="breadcrumb-item"><a href="../exercises/exercise-roman-empire.html">Exercise 1: Map the Roman Empire</a></li><li class="breadcrumb-item"><a href="../exercises/solution-roman-empire.html">Solution</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Solution 1: Map the Roman Empire</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This solution follows the steps of the <a href="../exercises/exercise-roman-empire.html">exercise</a>. Other choices (colours, sizes, classification modes) are fine, as long as the maps show what the exercise asks.</p>
+<section id="a-map-the-empire-and-its-landscape" class="level2">
+<h2 class="anchored" data-anchor-id="a-map-the-empire-and-its-landscape">A) Map the empire and its landscape</h2>
+<ol type="1">
+<li><p><strong>Load the data.</strong> Drag <code>roman_empire.gpkg</code> into QGIS and select the three layers (<code>provinces</code>, <code>cities</code>, <code>monuments</code>). Then drag in <code>roads.gpkg</code> and <code>elevation.tif</code>. See <a href="../basics/importing-vector-raster.html">Importing vector and raster data</a>.</p></li>
+<li><p><strong>Layer order.</strong> In the <em>Layers</em> panel, drag the layers into this order, from top to bottom: <code>monuments</code>, <code>cities</code> (points), <code>roads</code> (lines), <code>provinces</code> (polygons), <code>elevation</code> (raster). The layer at the top is drawn on top. You can untick <code>monuments</code> for now: you do not need it for Map 1.</p></li>
+<li><p><strong>Elevation.</strong> Open the <em>Layer Properties</em> of <code>elevation</code> (double-click the layer) and go to <em>Symbology</em>.</p>
+<ul>
+<li>Set <em>Render type</em> to <em>Singleband pseudocolor</em>.</li>
+<li>Choose a <em>Color ramp</em> that runs from green to red or brown, for example <em>RdYlGn</em>. This ramp runs from red to green, so choose <em>Invert Color Ramp</em> in the drop-down list of the ramp: low land then becomes green and mountains red.</li>
+<li>Click <em>Apply</em>. The sea is NoData and is not drawn.</li>
+<li>With the <em>Identify Features</em> tool <img src="../images-v4/basics/identify-icon.png" class="img-fluid" style="height:1.3em; vertical-align:-0.3em">, click a city in the Alps with <code>elevation</code> selected in the <em>Layers</em> panel, for example <em>Augusta Praetoria</em> (Aosta). QGIS shows the value of the cell. The cells are about 4.6 km wide, so the value is an average for the area around the city, not the exact elevation of the city itself.</li>
+</ul></li>
+<li><p><strong>Provinces as outlines.</strong> In the <em>Symbology</em> of <code>provinces</code>, click <em>Simple Fill</em> and set <em>Fill style</em> to <em>No Brush</em>. Choose a dark grey <em>Stroke color</em>. The elevation now stays visible under the provinces.</p></li>
+<li><p><strong>Roads.</strong> In the <em>Symbology</em> of <code>roads</code>, choose <em>Categorized</em>, set <em>Value</em> to <code>major</code> and click <em>Classify</em>. Double-click the symbol of <code>yes</code> and give it a larger <em>Width</em> (for example 0.6 mm) than the symbol of <code>no</code> (for example 0.2 mm). You can delete the category <em>all other values</em>: every road has <code>yes</code> or <code>no</code>.</p></li>
+<li><p><strong>Cities.</strong> In the <em>Symbology</em> of <code>cities</code>, choose <em>Categorized</em> on <code>type</code> and click <em>Classify</em>. Give <code>city</code> a small dot (<em>Simple Marker</em>, size 1.2 mm) and <code>legionary fortress</code> a square (choose the square shape in the <em>Simple Marker</em> settings, size 2.4 mm).</p>
+<ul>
+<li>Go to <em>Labels</em>, choose <em>Single Labels</em> and set <em>Value</em> to <code>name</code>.</li>
+<li>At the scale of the whole empire, there are too many labels to read. QGIS then leaves out labels that would overlap. Zoom in on a region to see more of them. You can also show the labels only from a certain scale (<span class="menu-path"><em>Rendering</em> ▸ <em>Scale dependent visibility</em></span> in the <em>Labels</em> tab): see <a href="../visualisation/style-vs-scale.html">Style versus scale</a>.</li>
+</ul></li>
+<li><p><strong>Save Map 1 as a map theme.</strong> Click the eye icon at the top of the <em>Layers</em> panel (<em>Manage Map Themes</em>) and choose <em>Add Theme…</em>. Call the theme “Map 1” and click <em>OK</em>. See <a href="../visualisation/saving-styles.html">Saving and reusing styles</a>.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images-v4/exercises/solution-c1-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Map 1: elevation, province borders, roads (major roads thicker) and cities (squares = legionary fortresses), shown in EPSG:3035 (step C)."><img src="../images-v4/exercises/solution-c1-01.png" class="img-fluid figure-img" alt="Map 1: elevation, province borders, roads (major roads thicker) and cities (squares = legionary fortresses), shown in EPSG:3035 (step C)."></a></p>
+<figcaption>Map 1: elevation, province borders, roads (major roads thicker) and cities (squares = legionary fortresses), shown in EPSG:3035 (step C).</figcaption>
+</figure>
+</div>
+</section>
+<section id="b-map-the-infrastructure-per-province" class="level2">
+<h2 class="anchored" data-anchor-id="b-map-the-infrastructure-per-province">B) Map the infrastructure per province</h2>
+<p>You make this map in the same project: untick <code>elevation</code>, <code>roads</code> and <code>cities</code>.</p>
+<ol type="1">
+<li><p><strong>A second style for the provinces.</strong> Right-click <code>provinces</code> and choose <span class="menu-path"><em>Styles ▸ Add…</em></span>. Call the new style “Map 2” and click <em>OK</em>. The new style starts as a copy of the current one (outlines only) and is now the active style: every change you make from now on is stored in “Map 2”, and the style of Map 1 stays as it is.</p></li>
+<li><p><strong>Graduated provinces.</strong> In the <em>Symbology</em> of <code>provinces</code>, choose <em>Graduated</em> and set <em>Value</em> to <code>area_km2</code>.</p>
+<ul>
+<li>Choose a <em>Color ramp</em> in one colour, from light to dark (for example <em>Greens</em>).</li>
+<li>Choose a <em>Mode</em>, for example <em>Natural Breaks (Jenks)</em>, with 5 <em>Classes</em>, and click <em>Classify</em>. See <a href="../visualisation/graduated.html">Graduated symbology</a>.</li>
+<li>Go to <em>Labels</em>, choose <em>Single Labels</em> and set <em>Value</em> to <code>name</code>.</li>
+</ul></li>
+<li><p><strong>Pie charts.</strong> Go to the <em>Diagrams</em> tab of <code>provinces</code> and choose <em>Pie Chart</em>. See <a href="../visualisation/diagrams.html">Diagrams</a>.</p>
+<ul>
+<li>In <em>Attributes</em>, add the fields <code>n_theatres</code>, <code>n_amphitheatres</code>, <code>n_circuses</code>, <code>n_baths</code> and <code>n_temples</code> (double-click each field, or select it and click the plus button). Give each field a clear colour and a legend name (theatres, amphitheatres, circuses, baths, temples).</li>
+<li>In <em>Size</em>, choose <em>Scaled size</em> and set <em>Attribute</em> to <code>n_monuments</code>, the total of the five fields. Click <em>Find</em> to fill in the <em>Maximum value</em>, and set the <em>Size</em> of the largest pie (for example 15 mm).</li>
+<li>In <em>Placement</em>, keep <em>Over Centroid</em>.</li>
+<li>Click <em>OK</em>.</li>
+</ul>
+<p>On a map with many pie charts, QGIS leaves out labels that would overlap with the pies. That is why you may see only a few province names.</p></li>
+<li><p><strong>Save Map 2.</strong> Untick <code>elevation</code>, <code>roads</code> and <code>cities</code> (if you have not done so yet), then eye icon ▸ <em>Add Theme…</em>, called “Map 2”. Now choose eye icon ▸ <em>Map 1</em>: QGIS shows the elevation, roads and cities again, and the provinces as outlines. Eye icon ▸ <em>Map 2</em> brings back the graduated provinces with the pie charts.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images-v4/exercises/solution-c1-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Map 2: provinces coloured by area, with pie charts of the monuments per type (theatres blue, amphitheatres orange, circuses red, baths purple, temples grey); the size shows the total number. Shown in EPSG:3035 (step C)."><img src="../images-v4/exercises/solution-c1-02.png" class="img-fluid figure-img" alt="Map 2: provinces coloured by area, with pie charts of the monuments per type (theatres blue, amphitheatres orange, circuses red, baths purple, temples grey); the size shows the total number. Shown in EPSG:3035 (step C)."></a></p>
+<figcaption>Map 2: provinces coloured by area, with pie charts of the monuments per type (theatres blue, amphitheatres orange, circuses red, baths purple, temples grey); the size shows the total number. Shown in EPSG:3035 (step C).</figcaption>
+</figure>
+</div>
+</section>
+<section id="c-prepare-for-finishing" class="level2">
+<h2 class="anchored" data-anchor-id="c-prepare-for-finishing">C) Prepare for finishing</h2>
+<ol type="1">
+<li><p><strong>A suitable coordinate system.</strong> Choose <span class="menu-path"><em>Project ▸ Properties…</em></span>, go to <em>CRS</em>, type <code>3035</code> in the <em>Filter</em> box, select <em>ETRS89-extended / LAEA Europe</em> and click <em>OK</em>. QGIS now transforms all layers on the fly. The provinces in the north (Britannia, Germania) are no longer stretched in width, as they are in EPSG:4326, and the empire looks as it does on a globe. EPSG:3035 is made for Europe: the provinces furthest away (Aegyptus, Mesopotamia) are a little more distorted, but much less than in EPSG:4326. It is also an equal-area projection, which suits Map 2, where the colours show the area of the provinces. See <a href="../crs/project-crs.html">Coordinate system of the QGIS project</a>. If QGIS asks which transformation to use, keep the proposed one.</p></li>
+<li><p><strong>Save the project.</strong> Choose <span class="menu-path"><em>Project ▸ Save As…</em></span> and save the project in the folder of the dataset, for example as <code>roman_empire.qgz</code>. The project only stores where the data are and how they look, not the data themselves: see <a href="../basics/qgis-project.html">The QGIS project</a>. Keep the project: the next exercise continues with it (layout).</p></li>
+</ol>
+</section>
+<section id="d-make-a-print-layout" class="level2">
+<h2 class="anchored" data-anchor-id="d-make-a-print-layout">D) Make a print layout</h2>
+<p>Open the project of steps A–C. See also the chapter on layouts.</p>
+<ol type="1">
+<li><strong>New layout.</strong> Choose <span class="menu-path"><em>Project ▸ New Print Layout…</em></span> and give the layout a name.</li>
+<li><strong>Overview map.</strong> Choose <span class="menu-path"><em>Add Item ▸ Add Map</em></span> and drag a large rectangle on the page. In the <em>Item Properties</em> of this map, under <em>Layers</em>, tick <em>Follow map theme</em> and choose “Map 2”. Zoom the map to the whole empire.</li>
+<li><strong>Detail map.</strong> Add a second, smaller map in the same way. Let it follow the map theme “Map 1”. In the main QGIS window, zoom in on the province of Belgica. Back in the layout, click <em>Set Map Extent to Match Main Canvas Extent</em> in the <em>Item Properties</em> of the detail map.</li>
+<li><strong>Extent frame.</strong> Select the overview map. Under <em>Overviews</em>, click the plus button, and under <em>Map frame</em> choose the detail map. The overview map now shows a frame around the area of the detail map.</li>
+<li><strong>Title, legend, scale bar and north arrow.</strong>
+<ul>
+<li>Add a title with <span class="menu-path"><em>Add Item ▸ Add Label</em></span>.</li>
+<li>Add a legend with <span class="menu-path"><em>Add Item ▸ Add Legend</em></span>. In its <em>Item Properties</em>, choose the overview map as the map it is linked to. Remove the legend items you do not need, or tick <em>Only show items inside linked map</em>.</li>
+<li>Add a scale bar with <span class="menu-path"><em>Add Item ▸ Add Scale Bar</em></span> and link it to the overview map. If the numbers are long and overlap, set <em>Scalebar units</em> to <em>Kilometers</em>.</li>
+<li>Add a north arrow with <span class="menu-path"><em>Add Item ▸ Add North Arrow</em></span>. Under <em>Image Rotation</em>, tick <em>Sync with map</em> and choose the overview map.</li>
+</ul></li>
+<li><strong>Export.</strong> Choose <span class="menu-path"><em>Layout ▸ Export as PDF…</em></span>.</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Publish version: image frames and zoom only (no change toggle, no pending-screenshot tags)
+document.addEventListener("DOMContentLoaded", function () {
+  // Frame every content image that is shown wider than 120 px (small inline icons stay as they are)
+  // Simple zoom for framed images that Quarto did not turn into a lightbox (images in lists, tables, text)
+  var overlay = document.createElement("div");
+  overlay.id = "img-zoom";
+  overlay.addEventListener("click", function () { overlay.classList.remove("open"); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") overlay.classList.remove("open"); });
+  document.body.appendChild(overlay);
+  function frame(img) {
+    if (img.classList.contains("noframe")) return;
+    if (img.getBoundingClientRect().width >= 120 || img.naturalWidth >= 240) {
+      img.classList.add("framed");
+      if (!img.closest("a")) {
+        img.classList.add("zoomable");
+        img.addEventListener("click", function () {
+          overlay.innerHTML = "";
+          var big = document.createElement("img");
+          big.src = img.src;
+          overlay.appendChild(big);
+          overlay.classList.add("open");
+        });
+      }
+    }
+  }
+  document.querySelectorAll("main img").forEach(function (img) {
+    if (img.complete) frame(img); else img.addEventListener("load", function () { frame(img); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../exercises/exercise-roman-empire.html" class="pagination-link" aria-label="Exercise">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exercise</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../datasets/roman-empire-infrastructure.html" class="pagination-link" aria-label="Roman Empire Infrastructure">
+        <span class="nav-page-text">Roman Empire Infrastructure</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><img src="../images/logos/ugent.png" class="footer-logo img-fluid" alt="Ghent University"> © Hans Blomme · Department of History · GhentCDH · Ghent University</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Text licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · images and data: see the source given with each item</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
