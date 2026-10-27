@@ -547,25 +547,35 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="c-prepare-for-finishing">C) Prepare for finishing</h2>
 <ol type="1">
 <li><p><strong>A suitable coordinate system.</strong> Choose <span class="menu-path"><em>Project ▸ Properties…</em></span>, go to <em>CRS</em>, type <code>3035</code> in the <em>Filter</em> box, select <em>ETRS89-extended / LAEA Europe</em> and click <em>OK</em>. QGIS now transforms all layers on the fly. The provinces in the north (Britannia, Germania) are no longer stretched in width, as they are in EPSG:4326, and the empire looks as it does on a globe. EPSG:3035 is made for Europe: the provinces furthest away (Aegyptus, Mesopotamia) are a little more distorted, but much less than in EPSG:4326. It is also an equal-area projection, which suits Map 2, where the colours show the area of the provinces. See <a href="../crs/project-crs.html">Coordinate system of the QGIS project</a>. If QGIS asks which transformation to use, keep the proposed one.</p></li>
-<li><p><strong>Save the project.</strong> Choose <span class="menu-path"><em>Project ▸ Save As…</em></span> and save the project in the folder of the dataset, for example as <code>roman_empire.qgz</code>. The project only stores where the data are and how they look, not the data themselves: see <a href="../basics/qgis-project.html">The QGIS project</a>. Keep the project: the next exercise continues with it (layout).</p></li>
+<li><p><strong>Save the project.</strong> Choose <span class="menu-path"><em>Project ▸ Save As…</em></span> and save the project in the folder of the dataset, for example as <code>roman_empire.qgz</code>. The project only stores where the data are and how they look, not the data themselves: see <a href="../basics/qgis-project.html">The QGIS project</a>. Keep the project: you need it in part D.</p></li>
 </ol>
 </section>
 <section id="d-make-a-print-layout" class="level2">
 <h2 class="anchored" data-anchor-id="d-make-a-print-layout">D) Make a print layout</h2>
-<p>Open the project of steps A–C. See also the chapter on layouts.</p>
+<p>Open the project of parts A–C. The result can look like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images-v4/exercises/solution-c1-layout.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="An example of the finished layout: the overview map follows the map theme “Map 2”, the detail map follows “Map 1”. The red frame shows the extent of the detail map."><img src="../images-v4/exercises/solution-c1-layout.png" class="img-fluid figure-img" alt="An example of the finished layout: the overview map follows the map theme “Map 2”, the detail map follows “Map 1”. The red frame shows the extent of the detail map."></a></p>
+<figcaption>An example of the finished layout: the overview map follows the map theme “Map 2”, the detail map follows “Map 1”. The red frame shows the extent of the detail map.</figcaption>
+</figure>
+</div>
 <ol type="1">
-<li><strong>New layout.</strong> Choose <span class="menu-path"><em>Project ▸ New Print Layout…</em></span> and give the layout a name.</li>
-<li><strong>Overview map.</strong> Choose <span class="menu-path"><em>Add Item ▸ Add Map</em></span> and drag a large rectangle on the page. In the <em>Item Properties</em> of this map, under <em>Layers</em>, tick <em>Follow map theme</em> and choose “Map 2”. Zoom the map to the whole empire.</li>
-<li><strong>Detail map.</strong> Add a second, smaller map in the same way. Let it follow the map theme “Map 1”. In the main QGIS window, zoom in on the province of Belgica. Back in the layout, click <em>Set Map Extent to Match Main Canvas Extent</em> in the <em>Item Properties</em> of the detail map.</li>
-<li><strong>Extent frame.</strong> Select the overview map. Under <em>Overviews</em>, click the plus button, and under <em>Map frame</em> choose the detail map. The overview map now shows a frame around the area of the detail map.</li>
-<li><strong>Title, legend, scale bar and north arrow.</strong>
+<li><p><strong>New layout.</strong> Choose <span class="menu-path"><em>Project ▸ New Print Layout…</em></span> and give the layout a name.</p></li>
+<li><p><strong>Overview map.</strong> Choose <span class="menu-path"><em>Add Item ▸ Add Map</em></span> and drag a large rectangle on the page. In the <em>Item Properties</em> of this map, under <em>Layers</em>, tick <em>Follow map theme</em> and choose “Map 2”. Zoom the map to the whole empire.</p>
+<p><a href="../images-v4/exercises/solution-c1-layout-follow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images-v4/exercises/solution-c1-layout-follow.png" class="img-fluid" style="width:60.0%"></a></p></li>
+<li><p><strong>Detail map.</strong> Add a second, smaller map in the same way. Let it follow the map theme “Map 1”. In the main QGIS window, zoom in on the province of Belgica. Back in the layout, click <em>Set Map Extent to Match Main Canvas Extent</em> in the <em>Item Properties</em> of the detail map.</p></li>
+<li><p><strong>Extent frame.</strong> Select the overview map. Under <em>Overviews</em>, click the plus button, and under <em>Map frame</em> choose the detail map. The overview map now shows a frame around the area of the detail map.</p>
+<p><a href="../images-v4/exercises/solution-c1-layout-overviews.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images-v4/exercises/solution-c1-layout-overviews.png" class="img-fluid" style="width:60.0%"></a></p></li>
+<li><p><strong>Title, legend, scale bar and north arrow.</strong></p>
 <ul>
-<li>Add a title with <span class="menu-path"><em>Add Item ▸ Add Label</em></span>.</li>
-<li>Add a legend with <span class="menu-path"><em>Add Item ▸ Add Legend</em></span>. In its <em>Item Properties</em>, choose the overview map as the map it is linked to. Remove the legend items you do not need, or tick <em>Only show items inside linked map</em>.</li>
-<li>Add a scale bar with <span class="menu-path"><em>Add Item ▸ Add Scale Bar</em></span> and link it to the overview map. If the numbers are long and overlap, set <em>Scalebar units</em> to <em>Kilometers</em>.</li>
-<li>Add a north arrow with <span class="menu-path"><em>Add Item ▸ Add North Arrow</em></span>. Under <em>Image Rotation</em>, tick <em>Sync with map</em> and choose the overview map.</li>
+<li><p>Add a title with <span class="menu-path"><em>Add Item ▸ Add Label</em></span>.</p></li>
+<li><p>Add a legend with <span class="menu-path"><em>Add Item ▸ Add Legend</em></span>. In its <em>Item Properties</em>, choose the overview map as the map it is linked to. Remove the legend items you do not need, or tick <em>Only show items inside linked maps</em>. To change the text of an item, double-click it.</p>
+<p><a href="../images-v4/exercises/solution-c1-layout-legend.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images-v4/exercises/solution-c1-layout-legend.png" class="img-fluid" style="width:60.0%"></a></p></li>
+<li><p>Add a scale bar with <span class="menu-path"><em>Add Item ▸ Add Scale Bar</em></span> and link it to the overview map. If the numbers are long and overlap, set <em>Scalebar units</em> to <em>Kilometers</em>.</p></li>
+<li><p>Add a north arrow with <span class="menu-path"><em>Add Item ▸ Add North Arrow</em></span>. Under <em>Image Rotation</em>, tick <em>Sync with map</em> and choose the overview map.</p>
+<p><a href="../images-v4/exercises/solution-c1-layout-northarrow.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images-v4/exercises/solution-c1-layout-northarrow.png" class="img-fluid" style="width:60.0%"></a></p></li>
 </ul></li>
-<li><strong>Export.</strong> Choose <span class="menu-path"><em>Layout ▸ Export as PDF…</em></span>.</li>
+<li><p><strong>Export.</strong> Choose <span class="menu-path"><em>Layout ▸ Export as PDF…</em></span>.</p></li>
 </ol>
 
 
