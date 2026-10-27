@@ -121,17 +121,17 @@ div.del iframe, div.del .quarto-video, div.del video { opacity: 0.3; filter: gra
 div.del .quarto-video { position: relative; }
 
 /* ---- Callout boxes: three types only (author, 2026-10-21) --------------------------------------
-   Tip = light brown with lamp (close to the expected yellow); Warning = blue with (!) (important information);
+   Tip = light brown with lamp; Warning = the same light brown with (!) (author, 2026-10-27: blue is kept for click instructions, .menu-path);
    See also = neutral grey with an arrow (author, 2026-10-22). Editor notes (.editor-note) keep their own style. */
 div.callout-tip.callout { border-left-color: #a47551 !important; background: #f8f2ec; }
 div.callout-tip.callout-style-default > .callout-header { background-color: #efe3d7 !important; }
 div.callout-tip .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(130, 88, 58)" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/></svg>') !important;
 }
-div.callout-warning.callout:not(.editor-note) { border-left-color: #1e64c8 !important; background: #eef3fb; }
-div.callout-warning.callout-style-default:not(.editor-note) > .callout-header { background-color: #dce7f7 !important; }
+div.callout-warning.callout:not(.editor-note) { border-left-color: #a47551 !important; background: #f8f2ec; }
+div.callout-warning.callout-style-default:not(.editor-note) > .callout-header { background-color: #efe3d7 !important; }
 div.callout-warning:not(.editor-note) .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(30, 100, 200)" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>') !important;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(130, 88, 58)" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>') !important;
 }
 .seealso div.callout-note.callout { border-left-color: #8a9096 !important; background: #f4f5f6 !important; }
 .seealso div.callout-note .callout-icon::before {
