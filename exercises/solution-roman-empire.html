@@ -546,6 +546,12 @@ ul.task-list li input[type="checkbox"] {
 <section id="c-prepare-for-finishing" class="level2">
 <h2 class="anchored" data-anchor-id="c-prepare-for-finishing">C) Prepare for finishing</h2>
 <ol type="1">
+<li><p><strong>Check the CRS.</strong> Right-click each layer, choose <em>Properties…</em> and look at the <em>Source</em> tab: see <a href="../crs/data-crs.html">Coordinate system of the data</a>. The CRS of the project is shown at the right end of the status bar.</p>
+<ul>
+<li><code>provinces</code>, <code>cities</code>, <code>monuments</code> and <code>elevation</code> are in EPSG:4326 (WGS 84), <code>roads</code> is in EPSG:3035.</li>
+<li>The project is in EPSG:4326 if you loaded <code>roman_empire.gpkg</code> first: by default, QGIS gives a new project the CRS of the first layer you add.</li>
+<li>So the layers do not all have the same CRS, and <code>roads</code> does not match the project. For this map, that does not matter: QGIS transforms <code>roads</code> on the fly, so all layers line up. If you want to analyse layers together, it is better to transform them to one CRS first: see <a href="../crs/transformations.html#why-transform-data-explicitly">Why transform data explicitly?</a>.</li>
+</ul></li>
 <li><p><strong>A suitable coordinate system.</strong> Choose <span class="menu-path"><em>Project ▸ Properties…</em></span>, go to <em>CRS</em>, type <code>3035</code> in the <em>Filter</em> box, select <em>ETRS89-extended / LAEA Europe</em> and click <em>OK</em>. QGIS now transforms all layers on the fly. The provinces in the north (Britannia, Germania) are no longer stretched in width, as they are in EPSG:4326, and the empire looks as it does on a globe. EPSG:3035 is made for Europe: the provinces furthest away (Aegyptus, Mesopotamia) are a little more distorted, but much less than in EPSG:4326. It is also an equal-area projection, which suits Map 2, where the colours show the area of the provinces. See <a href="../crs/project-crs.html">Coordinate system of the QGIS project</a>. If QGIS asks which transformation to use, keep the proposed one.</p></li>
 <li><p><strong>Save the project.</strong> Choose <span class="menu-path"><em>Project ▸ Save As…</em></span> and save the project in the folder of the dataset, for example as <code>roman_empire.qgz</code>. The project only stores where the data are and how they look, not the data themselves: see <a href="../basics/qgis-project.html">The QGIS project</a>. Keep the project: you need it in part D.</p></li>
 </ol>
