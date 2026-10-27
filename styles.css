@@ -167,3 +167,4 @@ body:has(.cover) #title-block-header, body:has(.cover) header#title-block-header
 .sources h2 { font-size: 1.05rem; }
 .sources table { font-size: 0.8rem; }
 .sources a { color: #444; }
+.prereq { font-size: 0.82rem; font-style: italic; color: #666; }
