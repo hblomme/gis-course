@@ -1146,7 +1146,7 @@
     "href": "exercises/exercise-roman-empire.html",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "",
-    "text": "Dataset: Roman Empire Infrastructure\nIn this exercise you make two maps of the Roman Empire and, after the next lesson, a layout with both maps. You practise loading raster and vector data, layer order, raster styling, categorized and graduated styles, labels, pie charts, map themes, coordinate systems and layouts.",
+    "text": "Dataset: Roman Empire Infrastructure\nIn this exercise you make two maps of the Roman Empire and a layout with both maps. You practise loading raster and vector data, layer order, raster styling, categorized and graduated styles, labels, pie charts, map themes, coordinate systems and layouts.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
@@ -1190,11 +1190,11 @@
     ]
   },
   {
-    "objectID": "exercises/exercise-roman-empire.html#d-make-a-layout-after-the-next-lesson",
-    "href": "exercises/exercise-roman-empire.html#d-make-a-layout-after-the-next-lesson",
+    "objectID": "exercises/exercise-roman-empire.html#d-make-a-layout",
+    "href": "exercises/exercise-roman-empire.html#d-make-a-layout",
     "title": "Exercise 1: Map the Roman Empire",
-    "section": "D) Make a layout (after the next lesson)",
-    "text": "D) Make a layout (after the next lesson)\nMake a finished map, as a PDF, with:\n\nAn overview map of the whole empire, with the style of Map 2 (provinces and pie charts). This is the largest map on the page. It shows a frame with the extent of the detail map.\nA detail map that zooms in on the province of Belgica, with the style of Map 1 (elevation, roads and cities).\nA title, and a legend, a scale bar and a north arrow that are linked to the overview map.",
+    "section": "D) Make a layout",
+    "text": "D) Make a layout\nMake a finished map, as a PDF, with:\n\nAn overview map of the whole empire, with the style of Map 2 (provinces and pie charts). This is the largest map on the page. It shows a frame with the extent of the detail map.\nA detail map that zooms in on the province of Belgica, with the style of Map 1 (elevation, roads and cities).\nA title, and a legend, a scale bar and a north arrow that are linked to the overview map.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
