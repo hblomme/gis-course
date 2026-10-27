@@ -1194,7 +1194,7 @@
     "href": "exercises/exercise-roman-empire.html#d-make-a-print-layout",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "D) Make a print layout",
-    "text": "D) Make a print layout\nYou can do this after chapter 6.\nMake a finished map, as a PDF, with:\n\nAn overview map of the whole empire, with the style of Map 2 (provinces and pie charts). This is the largest map on the page. It shows a frame with the extent of the detail map.\nA detail map that zooms in on the province of Belgica, with the style of Map 1 (elevation, roads and cities).\nA title, and a legend, a scale bar and a north arrow that are linked to the overview map.",
+    "text": "D) Make a print layout\nYou can do this after chapter 6.\nMake a finished map, as a PDF, with:\n\nAn overview map of the whole empire, showing the map you made in part B (provinces and pie charts). This is the largest map on the page. It shows a frame with the extent of the detail map.\nA detail map that zooms in on the province of Belgica, showing the map you made in part A (elevation, roads and cities).\nA title, and a legend, a scale bar and a north arrow that are linked to the overview map.",
     "crumbs": [
       "Appendix 1: Exercises",
       "Exercise 1: Map the Roman Empire",
