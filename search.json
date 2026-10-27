@@ -968,5 +968,41 @@
       "5.2 Coordinate systems in practice",
       "5.2.1 Coordinate system of the QGIS project"
     ]
+  },
+  {
+    "objectID": "crs/data-crs.html",
+    "href": "crs/data-crs.html",
+    "title": "5.2.2 Coordinate system of your geodata",
+    "section": "",
+    "text": "Geodata are data with a spatial component, defined by coordinates. However, because there are many different coordinate systems, the same coordinates can point to very different places.\nSuppose you have a data source in which a point is stored with the coordinates 4 and 51. If your data source uses the coordinate system ‘Lambert 72’, this means that the point lies 4 metres east and 51 metres north of the origin in the north of France, near Clermont. If the same data source uses the coordinate system ‘WGS 84’, however, this means that the point lies 4° east of the Greenwich meridian and 51° north of the plane of the equator, near Dendermonde.\nIn other words, coordinates only have a meaning if the coordinate reference system is known.\nThe CRS of a data layer can be different from the project CRS. The next page, Transformations, explains how QGIS deals with this.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.2 Coordinate system of your geodata"
+    ]
+  },
+  {
+    "objectID": "crs/data-crs.html#geodata-and-crs",
+    "href": "crs/data-crs.html#geodata-and-crs",
+    "title": "5.2.2 Coordinate system of your geodata",
+    "section": "",
+    "text": "Geodata are data with a spatial component, defined by coordinates. However, because there are many different coordinate systems, the same coordinates can point to very different places.\nSuppose you have a data source in which a point is stored with the coordinates 4 and 51. If your data source uses the coordinate system ‘Lambert 72’, this means that the point lies 4 metres east and 51 metres north of the origin in the north of France, near Clermont. If the same data source uses the coordinate system ‘WGS 84’, however, this means that the point lies 4° east of the Greenwich meridian and 51° north of the plane of the equator, near Dendermonde.\nIn other words, coordinates only have a meaning if the coordinate reference system is known.\nThe CRS of a data layer can be different from the project CRS. The next page, Transformations, explains how QGIS deals with this.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.2 Coordinate system of your geodata"
+    ]
+  },
+  {
+    "objectID": "crs/data-crs.html#finding-the-crs-of-your-data",
+    "href": "crs/data-crs.html#finding-the-crs-of-your-data",
+    "title": "5.2.2 Coordinate system of your geodata",
+    "section": "Finding the CRS of your data",
+    "text": "Finding the CRS of your data\nOften the information about the coordinate system used is included in the data source itself. A shapefile, for example, can store this information in a separate small file: the .prj file (see Common file formats in QGIS). \nSometimes, however, this information is missing. If so, by default, QGIS loads the layer without a CRS and marks it in the Layers panel with this icon: . QGIS then cannot position the layer correctly on top of the other data. Occasionally, a layer is loaded with the wrong CRS: the data are then shown, but in the wrong place (as in the example at the top of this page). In both cases, you have to set the correct CRS yourself in the Layer Properties. \n\n\n\n\n\n\nIf you use data from an external data provider and the CRS is missing, look in the metadata of the data source: the CRS is often mentioned there.\n\n\n\nTo do so, right-click the layer in the Layers panel and choose Properties…. On the Source tab (A), you can set the CRS in the section Assigned Coordinate Reference System (CRS) (B), or change it if it is wrong.\n\n\n\n\n\n\n\nOnly change the assigned CRS if the system shown is missing or wrong. Changing the drop-down list to another CRS does not convert your data to that system. It only tells QGIS in which system it should interpret the stored coordinates.\nCompare it with an online translator such as Google Translate or DeepL. Imagine you want to translate an English text into Dutch. That only works if you set the input language to English. If you mistakenly set it to Dutch, the text itself does not change (it is still English), but the translator reads it as Dutch and cannot translate it correctly. In the same way, changing the assigned CRS does not change the coordinates stored in your data, only how QGIS interprets them.\nOn the next page, Transformations, you learn how to convert data from one CRS to another.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.2 Coordinate system of your geodata"
+    ]
   }
 ]
