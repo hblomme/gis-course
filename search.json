@@ -932,5 +932,41 @@
       "5.1 Geographic vs. projected",
       "5.1.2 Projected coordinate systems"
     ]
+  },
+  {
+    "objectID": "crs/project-crs.html",
+    "href": "crs/project-crs.html",
+    "title": "5.2.1 Coordinate system of the QGIS project",
+    "section": "",
+    "text": "QGIS offers thousands of coordinate reference systems (CRSs) to choose from. As you have learned on the pages on geographic and projected coordinate systems, the choice of CRS matters: different systems represent the Earth’s surface in different ways. In QGIS, this is not just a theoretical issue. Your choice affects how your map looks and how spatial information is represented.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.1 Coordinate system of the QGIS project"
+    ]
+  },
+  {
+    "objectID": "crs/project-crs.html#changing-the-coordinate-system",
+    "href": "crs/project-crs.html#changing-the-coordinate-system",
+    "title": "5.2.1 Coordinate system of the QGIS project",
+    "section": "Changing the coordinate system",
+    "text": "Changing the coordinate system\nTo change the coordinate system of your project, choose Project ▸ Properties…. You can also click the CRS code at the right end of the status bar (EPSG:31370, for example).\nIn the Project Properties window, open the CRS tab (A).\nSelect the coordinate system you want in the list (C). If it is not visible, type its name or ID in the Filter box (B).\n\n\n\n\n\n\n\nMost coordinate systems have a unique code, the EPSG code. Choosing a system by its code is safer than choosing it by its name: some systems have almost the same name but are not interchangeable, for example BD72 / Belgian Lambert 72 (EPSG:31370) and BD72 / Belge Lambert 72 (EPSG:31300, an older variant with slightly different parameters).\n\n\n\nSome widely used projected systems include:\n\nFor Belgium: BD72 / Belgian Lambert 72 (EPSG:31370) and the newer ETRS89 / Belgian Lambert 2008 (EPSG:3812)\nFor the Netherlands: Amersfoort / RD New (EPSG:28992)\nFor France: RGF93 v1 / Lambert-93 (EPSG:2154)\nFor the United Kingdom: OSGB36 / British National Grid (EPSG:27700)\nFor Europe: ETRS89-extended / LAEA Europe (EPSG:3035), an equal-area system\nFor the world: WGS 84 / Pseudo-Mercator (EPSG:3857), as in Google Maps and OpenStreetMap. It is almost conformal and strongly enlarges areas towards the poles, so do not use it to compare or measure areas.\nFor a region anywhere in the world: a UTM zone. In the UTM (Universal Transverse Mercator) system, the world is divided into 60 zones of 6° of longitude, each with its own projection that has little distortion within the zone. Every zone has two coordinate systems: one for the northern hemisphere (N) and one for the southern hemisphere (S). For Belgium, the most suitable is zone 31N (in QGIS: WGS 84 / UTM zone 31N, EPSG:32631).\n\nThe most widely used geographic systems are WGS 84 (EPSG:4326) for the world, as used by GPS, and ETRS89 (EPSG:4258) for Europe.\nOn epsg.io you can look up a coordinate system by its code, its name or a country. For each system, the website shows the area it is meant for, its unit and its parameters.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.1 Coordinate system of the QGIS project"
+    ]
+  },
+  {
+    "objectID": "crs/project-crs.html#projected-versus-geographic-crs-in-qgis",
+    "href": "crs/project-crs.html#projected-versus-geographic-crs-in-qgis",
+    "title": "5.2.1 Coordinate system of the QGIS project",
+    "section": "Projected versus geographic CRS in QGIS",
+    "text": "Projected versus geographic CRS in QGIS\n\nProjected\nThe projected coordinate system you choose largely determines what your map looks like, as explained on the page on projections.\n\nSelect a coordinate system that is suitable for the region you want to map. Otherwise, the distortions on your map can be large.\nSelect a coordinate system whose distortion properties suit the purpose of the map. If area comparisons are important, an equal-area system is a good choice. For a general-purpose map, a conformal or compromise projection may be more suitable.\n\n\n\nGeographic\nIn theory, setting a geographic coordinate system for your QGIS project poses a challenge. Geographic coordinates describe positions on a curved reference ellipsoid, while the QGIS map canvas is a flat, two-dimensional plane.\nThat is why QGIS also applies a projection to geographic coordinate systems for display. By default, this is a cylindrical equidistant projection (plate carrée). This affects how the data are displayed in the map canvas, but it does not change the underlying coordinates of your data.\n\n\n\n\n\n\nIn practice, geographic coordinate systems are usually not well suited for displaying geodata in QGIS or on a map, but they are well suited for storing spatial information. For map display, choose a projected coordinate system that suits your region and the purpose of your map.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.1 Coordinate system of the QGIS project"
+    ]
   }
 ]
