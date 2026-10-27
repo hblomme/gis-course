@@ -417,16 +417,6 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="two-dimensional-projections">Two-dimensional: projections</h2>
 <p>As you saw in the part about <a href="../crs/geographic-crs.html">geographic coordinate systems</a>, the Earth, or part of it, can be represented as a simplified three-dimensional object. You can also show the Earth as a map on a ‘flat’ surface, such as paper or a screen.</p>
 <p>These flat or two-dimensional representations of the Earth are <strong>easier to produce and store</strong>. They can also show all sides of a spherical object in <strong>one image</strong>, whereas a three-dimensional representation always has a hidden side. In addition, <strong>geometric calculations</strong> (such as distances and areas) are much easier in two dimensions than in three.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>This video by Vox shows why every flat world map distorts: <a href="https://www.youtube.com/watch?v=kIID5FDi2JQ">Why all world maps are wrong</a>.</p>
-</div>
-</div>
-</div>
 <p><a href="../images-v4/crs/projected-crs-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images-v4/crs/projected-crs-01.png" class="img-fluid"></a></p>
 <p>To represent the surface of the Earth (and other spherical objects) in two dimensions, you use <strong>projections</strong>. A map projection uses a mathematical method to convert geographic coordinates on a reference ellipsoid into coordinates on a two-dimensional plane.<br>
 It is <strong>impossible</strong> to represent a sphere or ellipsoid in two dimensions <strong>without distortion</strong>. That is why a wide range of <strong>projection methods</strong> has been developed. All of them distort, to a greater or lesser degree, at least some of the true shapes, directions, distance ratios and area ratios of the map elements they show.</p>
@@ -514,6 +504,16 @@ Equidistant projections are usually neither equal-area nor conformal.</p>
 <p>Because azimuthal projections use a flat plane as projection surface, they have some useful properties. They preserve the <strong>true directions</strong> from the central point of the map to every other point, and a straight line from this central point shows the <strong>shortest route</strong>. In gnomonic azimuthal projections, this last property applies to all points on the map: a straight line between any two points shows the shortest route between them on the real Earth, which is useful for navigation.</p>
 <p><img src="../images-v4/crs/projected-crs-10.png" class="img-fluid" width="427"><br>
 Azimuthal projections can also be conformal, equal-area or equidistant, but only one of these at a time.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>For more on these distortions, watch the video <a href="https://www.youtube.com/watch?v=kIID5FDi2JQ">Why all world maps are wrong</a> by Vox.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="projected-coordinate-reference-systems" class="level2">
