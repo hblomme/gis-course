@@ -462,6 +462,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#general" id="toc-general" class="nav-link" data-scroll-target="#general">General</a></li>
   <li><a href="#render-types" id="toc-render-types" class="nav-link" data-scroll-target="#render-types">Render types</a></li>
   </ul></li>
+  <li><a href="#nodata" id="toc-nodata" class="nav-link" data-scroll-target="#nodata">NoData</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="raster.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
@@ -563,10 +564,35 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-
-
 </section>
 </section>
+</section>
+<section id="nodata" class="level2">
+<h2 class="anchored" data-anchor-id="nodata">NoData</h2>
+<p>Not every cell of a raster contains data. In a temperature raster, for example, there are no measurements for sea areas. Such cells get a special value that the file marks as <strong>NoData</strong>.</p>
+<p>Often, the value representing NoData is a number that cannot occur in the data, such as -9999. Usually, the information identifying NoData cells is stored in the raster file’s metadata, and QGIS recognises it automatically. When QGIS correctly recognises cells as NoData, it does not draw them and excludes them when calculating the minimum and maximum of the raster.</p>
+<p>Sometimes, however, a raster comes without this information. QGIS then treats -9999 erroneously as a normal value: the cells are drawn and affect the colour range drastically. With <em>Min / max</em>, the colour gradient then runs from -9999 to the actual maximum, so all valid values end up in almost the same colour.</p>
+<p>The images below show the same temperature raster, on the left with its NoData value and on the right without it.</p>
+<p><a href="../images-v4/visualisation/raster-nodata-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images-v4/visualisation/raster-nodata-02.png" class="img-fluid"></a></p>
+<p><span class="small"><em>Left: the sea is NoData and is not drawn. Right: the sea has the value -9999, and all land gets the same colour. Temperature data: WorldClim 2.1 (CC BY 4.0).</em></span></p>
+<p>You check and set the NoData value in the <em>Layer Properties</em>, on the <em>Transparency</em> tab, under <em>NoData Value</em>:</p>
+<ul>
+<li><em>NoData value</em> shows the value that is stored in the file. If you untick it, QGIS no longer treats these cells as NoData.</li>
+<li>Under <em>Additional NoData value</em>, you enter extra values that QGIS should treat as NoData, for example -9999 for a raster that comes without NoData information.</li>
+</ul>
+<p><a href="../images-v4/visualisation/raster-nodata-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images-v4/visualisation/raster-nodata-01.png" class="img-fluid"></a></p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Does your raster show strange colours, or a minimum value such as -9999? Check the NoData value first.</p>
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

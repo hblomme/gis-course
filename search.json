@@ -814,6 +814,18 @@
     ]
   },
   {
+    "objectID": "visualisation/raster.html#nodata",
+    "href": "visualisation/raster.html#nodata",
+    "title": "4.3.2 Visualising raster data",
+    "section": "NoData",
+    "text": "NoData\nNot every cell of a raster contains data. In a temperature raster, for example, there are no measurements for sea areas. Such cells get a special value that the file marks as NoData.\nOften, the value representing NoData is a number that cannot occur in the data, such as -9999. Usually, the information identifying NoData cells is stored in the raster file’s metadata, and QGIS recognises it automatically. When QGIS correctly recognises cells as NoData, it does not draw them and excludes them when calculating the minimum and maximum of the raster.\nSometimes, however, a raster comes without this information. QGIS then treats -9999 erroneously as a normal value: the cells are drawn and affect the colour range drastically. With Min / max, the colour gradient then runs from -9999 to the actual maximum, so all valid values end up in almost the same colour.\nThe images below show the same temperature raster, on the left with its NoData value and on the right without it.\n\nLeft: the sea is NoData and is not drawn. Right: the sea has the value -9999, and all land gets the same colour. Temperature data: WorldClim 2.1 (CC BY 4.0).\nYou check and set the NoData value in the Layer Properties, on the Transparency tab, under NoData Value:\n\nNoData value shows the value that is stored in the file. If you untick it, QGIS no longer treats these cells as NoData.\nUnder Additional NoData value, you enter extra values that QGIS should treat as NoData, for example -9999 for a raster that comes without NoData information.\n\n\n\n\n\n\n\n\nDoes your raster show strange colours, or a minimum value such as -9999? Check the NoData value first.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.3 Raster layers",
+      "4.3.2 Visualising raster data"
+    ]
+  },
+  {
     "objectID": "crs/geographic-crs.html",
     "href": "crs/geographic-crs.html",
     "title": "5.1.1 Geographic coordinate systems",
