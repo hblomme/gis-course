@@ -36,6 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../crs/transformations.html" rel="next">
 <link href="../crs/project-crs.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -379,6 +380,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">5.2.2 Coordinate system of your geodata</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2.3 Transformations</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -425,7 +432,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Geodata are data with a spatial component, defined by coordinates. However, because there are many different coordinate systems, the same coordinates can point to very different places.</p>
 <p>Suppose you have a data source in which a point is stored with the coordinates 4 and 51. If your data source uses the coordinate system ‘Lambert 72’, this means that the point lies 4 metres east and 51 metres north of the origin in the north of France, near Clermont. If the same data source uses the coordinate system ‘WGS 84’, however, this means that the point lies 4° east of the Greenwich meridian and 51° north of the plane of the equator, near Dendermonde.</p>
 <p>In other words, <strong>coordinates only have a meaning if the coordinate reference system is known</strong>.</p>
-<p>The CRS of a data layer can be different from the <a href="../crs/project-crs.html">project CRS</a>. The next page, Transformations, explains how QGIS deals with this.</p>
+<p>The CRS of a data layer can be different from the <a href="../crs/project-crs.html">project CRS</a>. The next page, <a href="../crs/transformations.html">Transformations</a>, explains how QGIS deals with this.</p>
 </section>
 <section id="finding-the-crs-of-your-data" class="level2">
 <h2 class="anchored" data-anchor-id="finding-the-crs-of-your-data">Finding the CRS of your data</h2>
@@ -451,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="callout-body-container">
 <p><strong>Only change the assigned CRS if the system shown is missing or wrong.</strong> Changing the drop-down list to another CRS does <strong>not</strong> convert your data to that system. It only tells QGIS in which system it should interpret the stored coordinates.</p>
 <p>Compare it with an online translator such as Google Translate or DeepL. Imagine you want to translate an English text into Dutch. That only works if you set the input language to English. If you mistakenly set it to Dutch, the text itself does not change (it is still English), but the translator reads it as Dutch and cannot translate it correctly. In the same way, changing the assigned CRS does not change the coordinates stored in your data, only how QGIS interprets them.</p>
-<p>On the next page, Transformations, you learn how to convert data from one CRS to another.</p>
+<p>On the next page, <a href="../crs/transformations.html">Transformations</a>, you learn how to convert data from one CRS to another.</p>
 </div>
 </div>
 </div>
@@ -898,6 +905,9 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../crs/transformations.html" class="pagination-link" aria-label="5.2.3 Transformations">
+        <span class="nav-page-text">5.2.3 Transformations</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

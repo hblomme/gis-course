@@ -1004,5 +1004,53 @@
       "5.2 Coordinate systems in practice",
       "5.2.2 Coordinate system of your geodata"
     ]
+  },
+  {
+    "objectID": "crs/transformations.html",
+    "href": "crs/transformations.html",
+    "title": "5.2.3 Transformations",
+    "section": "",
+    "text": "Coordinates in one coordinate reference system can be converted with a mathematical formula into coordinates in another CRS. When this involves changing the map projection, the process is commonly referred to as reprojection in QGIS. More generally, it is called a coordinate transformation. \n\n\nWhen you explicitly reproject a layer using the methods described below, QGIS creates a new layer with the transformed coordinates. The original layer remains unchanged.\nA first common way is to export the layer to a new layer with the new CRS. Right-click the layer in the Layers panel and choose Export ▸ Save Features As…. In the dialog, keep GeoPackage as Format (the default), enter a file name and choose the new CRS under CRS.\n\nAlternatively, you can use the reprojection tools in the Processing Toolbox (Processing ▸ Toolbox). For vector layers, use Vector general ▸ Reproject layer. For raster layers, use GDAL ▸ Raster projections ▸ Warp (reproject). You can also type the tool name in the search box at the top of the toolbox. In the tool, you choose the new CRS under Target CRS (A) and, under Reprojected (B), whether the result is stored as a temporary layer or as a file on your computer.\n\n\n\n\n\n\n\nBy default, a processing tool such as Reproject layer creates a temporary layer: QGIS does not write a file, but keeps the layer in the memory of your work session. If you close your project and open it again, the content of temporary layers is no longer available.\nIn the Layers panel, a temporary layer is marked with this icon: . To save it as a file after all, right-click the layer and choose Make Permanent….\n\n\n\n\n\n\nBesides these explicit transformations, QGIS also uses transformations implicitly. When you load data whose coordinate system differs from the project CRS, QGIS transforms the coordinates on the fly so that the data can be positioned and displayed correctly in the map canvas. This process runs in the background: the original data are not changed, but the coordinates are recalculated for display. Thanks to this, you can load data sources into QGIS and display them together, whatever their CRS.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.3 Transformations"
+    ]
+  },
+  {
+    "objectID": "crs/transformations.html#transformations",
+    "href": "crs/transformations.html#transformations",
+    "title": "5.2.3 Transformations",
+    "section": "",
+    "text": "Coordinates in one coordinate reference system can be converted with a mathematical formula into coordinates in another CRS. When this involves changing the map projection, the process is commonly referred to as reprojection in QGIS. More generally, it is called a coordinate transformation. \n\n\nWhen you explicitly reproject a layer using the methods described below, QGIS creates a new layer with the transformed coordinates. The original layer remains unchanged.\nA first common way is to export the layer to a new layer with the new CRS. Right-click the layer in the Layers panel and choose Export ▸ Save Features As…. In the dialog, keep GeoPackage as Format (the default), enter a file name and choose the new CRS under CRS.\n\nAlternatively, you can use the reprojection tools in the Processing Toolbox (Processing ▸ Toolbox). For vector layers, use Vector general ▸ Reproject layer. For raster layers, use GDAL ▸ Raster projections ▸ Warp (reproject). You can also type the tool name in the search box at the top of the toolbox. In the tool, you choose the new CRS under Target CRS (A) and, under Reprojected (B), whether the result is stored as a temporary layer or as a file on your computer.\n\n\n\n\n\n\n\nBy default, a processing tool such as Reproject layer creates a temporary layer: QGIS does not write a file, but keeps the layer in the memory of your work session. If you close your project and open it again, the content of temporary layers is no longer available.\nIn the Layers panel, a temporary layer is marked with this icon: . To save it as a file after all, right-click the layer and choose Make Permanent….\n\n\n\n\n\n\nBesides these explicit transformations, QGIS also uses transformations implicitly. When you load data whose coordinate system differs from the project CRS, QGIS transforms the coordinates on the fly so that the data can be positioned and displayed correctly in the map canvas. This process runs in the background: the original data are not changed, but the coordinates are recalculated for display. Thanks to this, you can load data sources into QGIS and display them together, whatever their CRS.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.3 Transformations"
+    ]
+  },
+  {
+    "objectID": "crs/transformations.html#transformations-can-lead-to-deviations",
+    "href": "crs/transformations.html#transformations-can-lead-to-deviations",
+    "title": "5.2.3 Transformations",
+    "section": "Transformations can lead to deviations",
+    "text": "Transformations can lead to deviations\nCoordinate transformations are not always exact. Depending on the transformation used and the accuracy of its parameters, they can introduce small positional errors, sometimes amounting to several metres or more.\nSeveral mathematical transformations may be available for converting coordinates between two CRSs, each with its own accuracy. In that case, QGIS asks you which one to use and shows the accuracy of each. Choose the most accurate transformation that is suitable for your area.\nWithin one project, always use the same transformation for the same pair of CRSs. Otherwise, identical features may no longer overlap exactly. Also avoid unnecessary transformations: every transformation can introduce small inaccuracies.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.3 Transformations"
+    ]
+  },
+  {
+    "objectID": "crs/transformations.html#coordinate-systems-are-not-simply-interchangeable",
+    "href": "crs/transformations.html#coordinate-systems-are-not-simply-interchangeable",
+    "title": "5.2.3 Transformations",
+    "section": "Coordinate systems are not simply interchangeable!",
+    "text": "Coordinate systems are not simply interchangeable!\nAlthough you do not need to transform geodata explicitly to visualise them in the map canvas, it is in certain cases advisable to do so.\n\nCRS depending on the analysis\nSpatial analysis tools often use the original data (and therefore the original coordinates), so the CRS of each layer affects the result:\n\nGeographic coordinate systems are generally unsuitable for Cartesian calculations. Some QGIS tools can produce misleading results when used with geographic coordinates: a buffer distance, for example, is then expressed in degrees rather than metres (see Vector processing tools).\nNot all coordinate systems are suitable for all regions. A CRS that gives reliable results for one region can show large distortions for other regions. These distortions carry over into the distances, areas and shapes the software calculates for this layer, and so lead to wrong results.\nThe suitable CRS also depends on the type of analysis. If you want to calculate areas for the features in a layer, a layer that uses an equal-area CRS will give reliable results; other CRSs can distort areas, especially over large regions.\nIf you want to run a spatial analysis on several layers (for example, calculating the overlap between two layers), using the same suitable CRS for all layers can help avoid inconsistencies and improve processing efficiency.\n\n\n\nWhy transform data explicitly?\nYou learned that if a layer does not use the same CRS as the project, QGIS transforms it on the fly to display it in the map canvas. This allows layers with different CRSs to be displayed together, but coordinate transformations can introduce small positional inaccuracies. As a result, the displayed position of a feature may differ slightly from its position in the original data. In addition, many analysis tools work with the coordinates stored in the layer, not with the coordinates as they appear in the map canvas. Transforming your data explicitly to a suitable common CRS can help ensure consistency, particularly when performing spatial analyses.",
+    "crumbs": [
+      "5 Coordinate systems",
+      "5.2 Coordinate systems in practice",
+      "5.2.3 Transformations"
+    ]
   }
 ]
