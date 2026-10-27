@@ -1052,5 +1052,60 @@
       "5.2 Coordinate systems in practice",
       "5.2.3 Transformations"
     ]
+  },
+  {
+    "objectID": "visualisation/saving-styles.html",
+    "href": "visualisation/saving-styles.html",
+    "title": "4.4 Saving and reusing styles",
+    "section": "",
+    "text": "Making a good map takes time: symbols, classes, labels, diagrams… QGIS lets you save the style of a layer, so you can create and switch between different styles for the same layer. It is also possible to copy a style from one layer to another. At a broader level, you can save the current configuration of all layers together as a map theme.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.4 Saving and reusing styles"
+    ]
+  },
+  {
+    "objectID": "visualisation/saving-styles.html#several-styles-for-one-layer",
+    "href": "visualisation/saving-styles.html#several-styles-for-one-layer",
+    "title": "4.4 Saving and reusing styles",
+    "section": "Several styles for one layer",
+    "text": "Several styles for one layer\nWhen you style a layer, you see the changes in the map canvas as soon as you apply them. This includes not only the symbology, but also the labels, the legend, diagrams and other settings. However, you may want to create different maps from the same data, each with its own styling. Rather than having to recreate the settings each time, QGIS lets you save several named styles for the same layer and switch between them whenever you need to.\nYou find the styles of a layer when you right-click it in the Layers panel and choose Styles:\n\nAdd… adds a new style and gives it a name.\nThe list of styles shows all styles of the layer. The active one has a dot in front of it. Click another style to switch to it.\nRename Current… and Remove Current rename or remove the active style.\n\nIn the example below, the layer states has two styles: population (the population in 2010, left) and representatives (the number of representatives in 2010, right). One click in the list switches between them.\n\n\n\n\n\n\n\nOnly one style is active at a time, and every change you make is automatically stored in the active style. When you add a new style, QGIS switches to it immediately. The new style starts as a copy of the previous one, while the original remains unchanged. From then on, your changes are stored in the new style. This lets you experiment with a different look without losing your existing styling.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.4 Saving and reusing styles"
+    ]
+  },
+  {
+    "objectID": "visualisation/saving-styles.html#copying-a-style-to-another-layer",
+    "href": "visualisation/saving-styles.html#copying-a-style-to-another-layer",
+    "title": "4.4 Saving and reusing styles",
+    "section": "Copying a style to another layer",
+    "text": "Copying a style to another layer\nIn the same Styles menu you can copy a style and paste it on another layer:\n\nCopy Current Style copies the active style. You can copy all of it, or only a part (for example only the Symbology or only the Labels).\nOn the other layer, right-click and choose Styles ▸ Paste Style.\n\nThis works best when the other layer has the same geometry type and (if applicable) contains the fields the style refers to.\nA style can also be saved as a file (Save Style…). You can then load it again (Load Style…), also in another project.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.4 Saving and reusing styles"
+    ]
+  },
+  {
+    "objectID": "visualisation/saving-styles.html#map-themes",
+    "href": "visualisation/saving-styles.html#map-themes",
+    "title": "4.4 Saving and reusing styles",
+    "section": "Map themes",
+    "text": "Map themes\nA map theme stores the style configuration of the whole Layers panel at once: for every layer, whether it is visible, and which of its styles is active. A map theme does not store the order of the layers in the Layers panel.\nYou manage the map themes with the eye icon  at the top of the Layers panel (Manage Map Themes):\n\nAdd Theme… saves what you see now as a new map theme.\nClick a map theme in the list to switch to it: QGIS shows and hides the layers, and activates their styles, as they were when you saved the theme.\nReplace Theme overwrites an existing map theme with what you see now.\n\nIn the example below there are two map themes: Population 2010 (style population, with the major cities as orange dots) and Representatives 2010 (style representatives, without the cities). Choosing one of them switches the style of states and the visibility of major_cities at the same time.\n\n\n\n\n\n\n\nA map theme only stores which style of each layer is active, not the style itself. If you change a style after saving the theme, the map theme uses the updated style, not the style as it was when you saved the theme.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.4 Saving and reusing styles"
+    ]
+  },
+  {
+    "objectID": "visualisation/saving-styles.html#conclusion",
+    "href": "visualisation/saving-styles.html#conclusion",
+    "title": "4.4 Saving and reusing styles",
+    "section": "Conclusion",
+    "text": "Conclusion\nTo create multiple maps with their own styles in the same QGIS project, first give the relevant layers additional styles (Styles ▸ Add…). Then save each map configuration as a separate map theme (Manage Map Themes ▸ Add Theme…). Afterwards, you can switch between the themes to display the different maps, each with its own combination of layer styles and visibility.",
+    "crumbs": [
+      "4 Layer properties and symbology",
+      "4.4 Saving and reusing styles"
+    ]
   }
 ]
