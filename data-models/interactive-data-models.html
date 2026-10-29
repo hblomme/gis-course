@@ -344,6 +344,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">4.4 Saving and reusing styles</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/interactive-symbology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Interactive</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -425,7 +431,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Try out what you learned in this chapter. Drag, click and change the settings as much as you like: you can’t break anything!</p>
+<p>Try out what you learned in this chapter. Drag, click and change the settings as much as you like, you can’t break anything!</p>
 <section id="rgb-bands" class="level2">
 <h2 class="anchored" data-anchor-id="rgb-bands">RGB bands</h2>
 <p>A colour photo is a raster with three bands: red, green and blue. Pull the bands apart to see them as separate layers, and click a pixel to read its three values. See the theory: <a href="../data-models/raster-model.html#single-band-and-multi-band">Single-band and multi-band</a>.</p>
@@ -438,19 +444,34 @@ ul.task-list li input[type="checkbox"] {
 <iframe class="tool-frame" src="../interactive/vector-raster.html" title="Raster vs. vector" loading="lazy"></iframe>
 <p><a href="../interactive/vector-raster.html" target="_blank">Open the tool full screen</a></p>
 <script>
-// Interactive pages: hide the scrollbars inside the tools (same site, so the page may style the iframe).
-// Scrolling with the mouse wheel or touch keeps working.
+// Interactive pages: hide the scrollbars inside the tools and make each frame as tall as the tool's panel needs
+// (at least 800 px), measured again after every click or change in the tool. Same site, so the page may do this.
 document.querySelectorAll("iframe.tool-frame").forEach(function (f) {
-  function hide() {
+  var MIN = 800;
+  function fit() {
+    try {
+      var p = f.contentDocument.getElementById("panel");
+      if (!p) return;
+      f.style.height = MIN + "px";                       // measure the panel at the minimum height ...
+      var need = p.scrollHeight + (f.offsetHeight - f.clientHeight);   // + the frame border
+      f.style.height = Math.max(MIN, need) + "px";        // ... and grow the frame when the panel needs more
+    } catch (e) { /* other origin (e.g. opened from file://): keep the default height */ }
+  }
+  function setup() {
     try {
       var d = f.contentDocument, st = d.createElement("style");
       st.textContent = "html, body { overflow: hidden !important; } * { scrollbar-width: none !important; } *::-webkit-scrollbar { display: none !important; }";
       d.head.appendChild(st);
-    } catch (e) { /* other origin (e.g. opened from file://): leave the scrollbars */ }
+      ["click", "change", "input"].forEach(function (ev) { d.addEventListener(ev, function () { setTimeout(fit, 0); }); });
+      fit();
+      if (d.fonts) d.fonts.ready.then(fit);
+    } catch (e) { /* other origin: leave the scrollbars */ }
   }
-  f.addEventListener("load", hide);
-  if (f.contentDocument && f.contentDocument.readyState === "complete") hide();
+  f._fit = fit;
+  f.addEventListener("load", setup);
+  if (f.contentDocument && f.contentDocument.readyState === "complete") setup();
 });
+window.addEventListener("resize", function () { document.querySelectorAll("iframe.tool-frame").forEach(function (f) { if (f._fit) f._fit(); }); });
 </script>
 
 
