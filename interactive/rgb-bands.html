@@ -187,7 +187,7 @@ function update() {
     `<span>${b.name}</span><b>${v[j]}</b><span><i style="width:${Math.max(2, v[j] / 255 * 100)}%;background:${b.color}"></i></span>`).join("");
   document.getElementById("info").innerHTML = colour
     ? `<b>Three bands, one colour image</b><p>Every cell has three values: how much red, green and blue light it contains (0 to 255). Pull the bands apart to see each one separately, and push them together again: the light of the three bands adds up to the colour image.</p>`
-    : `<b>What the file really stores</b><p>Each band is just a grid of numbers from 0 to 255, here shown as grey: dark is a low value, light a high value. Only when QGIS assigns band 1 to red, band 2 to green and band 3 to blue (render type <i>Multiband color</i>) do they become a colour image.</p>`;
+    : `<b>What the file really stores</b><p>Each band is just a grid of numbers from 0 to 255, here shown as grey: dark is a low value, light a high value. In QGIS, you assign each band to the right colour in the render type <i>Multiband color</i>, so the photo shows its true colours.</p>`;
 }
 
 function renderModes() {

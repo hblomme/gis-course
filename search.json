@@ -1119,7 +1119,7 @@
     "href": "data-models/interactive-data-models.html#rgb-bands",
     "title": "2.6 Interactive",
     "section": "RGB bands",
-    "text": "RGB bands\nA colour photo is a raster with three bands: red, green and blue. Pull the bands apart to see them as separate layers, and click a pixel to read its three values. See the theory: Single-band and multi-band.\n\nOpen the tool full screen",
+    "text": "RGB bands\nThe colour photo below is a raster with three bands: red, green and blue. Pull the bands apart to see them as separate layers, and click a pixel to read its three values. See the theory: Single-band and multi-band.\n\nOpen the tool full screen",
     "crumbs": [
       "2 Data in GIS (part 1)",
       "2.6 Interactive"
