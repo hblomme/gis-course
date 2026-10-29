@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to QGIS – Historical Cartography &amp; GIS</title>
+<title>Introduction to QGIS – Learning Path QGIS</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./introduction/what-is-gis.html" rel="next">
+<link href="./before-you-start.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d499cb1c54b338134906261a71a7b452.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3c743e812bb9dee9b5cf9f7b90d5003d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -104,9 +104,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/logos/ugent.png" alt="Ghent University" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/logos/ugent.png" alt="Ghent University" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Historical Cartography &amp; GIS</a> 
+      <a href="./">Learning Path QGIS</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -120,6 +124,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Cover</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./before-you-start.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Before you start</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -398,7 +408,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendix 1: Exercises</span></a>
+ <span class="menu-text">Appendix A: Exercises</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -432,7 +442,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendix 2: Datasets</span></a>
+ <span class="menu-text">Appendix B: Datasets</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -478,7 +488,7 @@ Ghent University</p>
 <div class="cover-meta">
 <p>2026 · based on QGIS 4</p>
 </div>
-<p><a href="./introduction/what-is-gis.html" class="btn btn-primary cover-btn">Start the learning path →</a></p>
+<p><a href="./before-you-start.html" class="btn btn-primary cover-btn">Start the learning path →</a></p>
 <div class="cover-licence">
 <p>Text licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>: you may reuse and adapt it, with attribution.</p>
 </div>
@@ -922,8 +932,8 @@ document.addEventListener("DOMContentLoaded", function () {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./introduction/what-is-gis.html" class="pagination-link" aria-label="1.1 What is GIS?">
-        <span class="nav-page-text">1.1 What is GIS?</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./before-you-start.html" class="pagination-link" aria-label="Before you start">
+        <span class="nav-page-text">Before you start</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

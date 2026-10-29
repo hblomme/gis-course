@@ -3,13 +3,13 @@
 .editor-note { display: none; } */
 
 /* Coloured intro and closing blocks, as on the original Ufora pages */
-.outro-box { background: #eef4fc; font-weight: 600; }
+.outro-box { background: #e9f0fa; font-weight: 600; }
 
 /* Screenshots and other images: a thin border and a light shadow, so it is clear where an
    image starts and ends (class added by changes.html for images wider than 120 px). */
 main img.framed {
   border: 1px solid #c9ced6;
-  border-radius: 4px;
+  border-radius: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
   background: #fff;
   padding: 4px;
@@ -31,8 +31,8 @@ kbd {
 
 /* Menu paths (View ▸ Toolbars): italic text on a light blue background (class added by menupath.lua) */
 .menu-path {
-  background: #e6eefa;
-  border-radius: 4px;
+  background: #e9f0fa;
+  border-radius: 0;
   padding: 0.05em 0.4em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -41,7 +41,7 @@ kbd {
 .del .menu-path, div.del .menu-path { background: none; }
 
 /* Section headings: one subtle accent colour (remove this rule to make them black again) */
-main h2 { color: #1a4f9e; }
+main h2 { color: #1e64c8; }
 .green { color: #00860d; }
 .orange { color: #d97a00; }
 .mark { background: #ffe599; }
@@ -51,10 +51,6 @@ main h2 { color: #1a4f9e; }
 .panel-alias { color: #000; font-size: 0.9em; }
 
 /* Cross-references (See also): light blue with info icon */
-.seealso .callout-note {
-  background: #f4f5f6 !important;
-  border-left: 5px solid #8a9096 !important;  /* same width as the other boxes */
-}
 
 
 
@@ -120,24 +116,32 @@ img.zoomable { cursor: zoom-in; }
 div.del iframe, div.del .quarto-video, div.del video { opacity: 0.3; filter: grayscale(1); pointer-events: none; }
 div.del .quarto-video { position: relative; }
 
-/* ---- Callout boxes: three types only (author, 2026-10-21) --------------------------------------
-   Tip = light brown with lamp; Warning = the same light brown with (!) (author, 2026-10-27: blue is kept for click instructions, .menu-path);
-   See also = neutral grey with an arrow (author, 2026-10-22). Editor notes (.editor-note) keep their own style. */
-div.callout-tip.callout { border-left-color: #a47551 !important; background: #f8f2ec; }
-div.callout-tip.callout-style-default > .callout-header { background-color: #efe3d7 !important; }
+/* ---- Callout boxes (author, 2026-10-29): one colour per meaning --------------------------------
+   Pay attention (warning) = light brown with (!); Tip = indigo with lamp (author, 2026-10-29: grey looked optional);
+   Exercise (.exercise) = teal; Dataset (.dataset) = purple; Interactive (.interactive) = olive. Editor notes (.editor-note) keep their own style.
+   See also: no box any more, the sentence reads as a normal paragraph (the .seealso markup stays, so this is reversible). */
+div.callout-tip.callout { border-left-color: #4b5bbf !important; background: #eef0fa; }
+div.callout-tip.callout-style-default > .callout-header { background-color: #dfe3f5 !important; }
 div.callout-tip .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(130, 88, 58)" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/></svg>') !important;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(75, 91, 191)" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/></svg>') !important;
 }
 div.callout-warning.callout:not(.editor-note) { border-left-color: #a47551 !important; background: #f8f2ec; }
 div.callout-warning.callout-style-default:not(.editor-note) > .callout-header { background-color: #efe3d7 !important; }
 div.callout-warning:not(.editor-note) .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(130, 88, 58)" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>') !important;
 }
-.seealso div.callout-note.callout { border-left-color: #8a9096 !important; background: #f4f5f6 !important; }
-.seealso div.callout-note .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(95, 101, 107)" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/></svg>') !important;
-}
-.seealso div.callout-note .callout-title-container { color: #4a5056; }
+div.callout-note.exercise.callout { border-left-color: #1f8a8a !important; background: #ebf6f6 !important; }
+div.callout-note.exercise.callout-style-default > .callout-header { background-color: #d8eded !important; }
+div.callout-note.exercise .callout-icon::before { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(25, 115, 115)" viewBox="0 0 16 16"><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5z"/></svg>') !important; }
+div.callout-note.dataset.callout { border-left-color: #7b4fa6 !important; background: #f5f0fa !important; }
+div.callout-note.dataset.callout-style-default > .callout-header { background-color: #e9dff3 !important; }
+div.callout-note.dataset .callout-icon::before { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(100, 60, 140)" viewBox="0 0 16 16"><path d="M4.318 2.687C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4c0-.374.356-.875 1.318-1.313zM13 5.698V7c0 .374-.356.875-1.318 1.313C10.766 8.729 9.464 9 8 9s-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777A4.92 4.92 0 0 0 13 5.698zM14 4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13V4zm-1 4.698V10c0 .374-.356.875-1.318 1.313C10.766 11.729 9.464 12 8 12s-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777A4.92 4.92 0 0 0 13 8.698zm0 3V13c0 .374-.356.875-1.318 1.313C10.766 14.729 9.464 15 8 15s-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13s3.022-.289 4.096-.777c.324-.147.633-.323.904-.525z"/></svg>') !important; }
+div.callout-note.interactive.callout { border-left-color: #8aa236 !important; background: #f5f8ea !important; }
+div.callout-note.interactive .callout-icon::before { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(110, 130, 40)" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>') !important; }
+.seealso div.callout-note.callout { border: none !important; background: none !important; box-shadow: none !important; margin: 0 0 1rem; padding: 0 !important; }
+.seealso div.callout-note .callout-icon-container, .seealso div.callout-note .callout-header, .seealso div.callout-note .callout-title-container > strong:first-child { display: none !important; }
+.seealso div.callout-note .callout-body-container, .seealso div.callout-note .callout-body { padding: 0 !important; margin: 0 !important; font-size: inherit !important; }
+.seealso div.callout-note.callout, .seealso div.callout-note .callout-body p { font-size: 1rem !important; }
 
 /* Working view: screenshots still to (re)do (tools/build_pending.py); hidden in the student view */
 main img.pending-shot { outline: 3px dashed #e07b00; outline-offset: 3px; }
@@ -154,8 +158,9 @@ body.final-view .sidebar-item-section:has(a[href*="/review/"]) { display: none; 
 .cover-author { font-size: 1.1rem; margin-bottom: 0.8rem; }
 .cover-meta { color: #1e64c8; font-weight: 600; margin-bottom: 2.2rem; }
 .cover-btn { font-size: 1.05rem; padding: 0.6rem 1.4rem; }
+.cover-btn.btn-primary, .cover-btn.btn-primary:hover { background: #ffd200; border-color: #ffd200; color: #174e9c; }
 .cover-licence { margin-top: 2.5rem; font-size: 0.85rem; color: #777; }
-.cover-title { display: block; font-size: 2.6rem; font-weight: 700; margin-bottom: 0.6rem; }
+.cover-title { display: block; font-size: 2.6rem; font-weight: 700; margin-bottom: 0.6rem; color: #1e64c8; }
 body:has(.cover) #title-block-header, body:has(.cover) header#title-block-header { display: none; }
 
 .cover-logos { margin: 0 0 2rem; }
@@ -168,3 +173,24 @@ body:has(.cover) #title-block-header, body:has(.cover) header#title-block-header
 .sources table { font-size: 0.8rem; }
 .sources a { color: #444; }
 .prereq { font-size: 0.82rem; font-style: italic; color: #666; }
+
+/* ---- UGent house style (author, 2026-10-28) ------------------------------------------------------------
+   Sidebar title as the blue UGent block, uppercase headings in the sidebar, page title in UGent blue. */
+.sidebar-header { margin: 0 0 0.8rem; }
+.sidebar.sidebar-navigation, #quarto-sidebar { background-color: #fff; }
+.sidebar-header .sidebar-logo-link { display: block; margin: 0 0 0.9rem; }
+.sidebar-header img.sidebar-logo { max-height: 78px; width: auto; padding: 0; }
+.sidebar-header .sidebar-title { background: #1e64c8; padding: 1.1rem 1rem 1rem !important; }
+.sidebar-header .sidebar-title a, .sidebar-header .sidebar-title { color: #fff !important; }
+.sidebar-title { font-family: "UGent Panno Text Medium", "PannoTextMedium", "UGent Panno Text", Arial, sans-serif; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .01em; font-size: 1.15rem; line-height: 1.2; }
+.sidebar-header .sidebar-tools-main a, .sidebar-header .quarto-navigation-tool { color: #fff !important; }
+.sidebar-navigation .sidebar-item-section > .sidebar-item-container .sidebar-item-text { color: #1e64c8; }
+.sidebar-navigation .sidebar-link.active, .sidebar-navigation .sidebar-link.active .menu-text { color: #1e64c8; font-weight: 600; }
+#quarto-sidebar .sidebar-search .aa-Form, #quarto-search .aa-Form { border-radius: 0; }
+#title-block-header h1.title { color: #1e64c8; }
+main h3 { color: #174e9c; }
+.callout { border-radius: 0 !important; }
+.table { --bs-table-striped-bg: #f4f7fc; }
+thead th { color: #1e64c8; }
+.unreleased { outline: 2px dashed #e0a050; outline-offset: 4px; }  /* dev only: publish.lua drops .unreleased */

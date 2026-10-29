@@ -1058,7 +1058,7 @@
     "href": "crs/transformations.html#coordinate-systems-are-not-simply-interchangeable",
     "title": "5.2.3 Transformations",
     "section": "Coordinate systems are not simply interchangeable!",
-    "text": "Coordinate systems are not simply interchangeable!\nAlthough you do not need to transform geodata explicitly to visualise them in the map canvas, it is in certain cases advisable to do so.\n\nCRS depending on the analysis\nSpatial analysis tools often use the original data (and therefore the original coordinates), so the CRS of each layer affects the result:\n\nGeographic coordinate systems are generally unsuitable for Cartesian calculations. Some QGIS tools can produce misleading results when used with geographic coordinates: a buffer distance, for example, is then expressed in degrees rather than metres (see Vector processing tools).\nNot all coordinate systems are suitable for all regions. A CRS that gives reliable results for one region can show large distortions for other regions. These distortions carry over into the distances, areas and shapes the software calculates for this layer, and so lead to wrong results.\nThe suitable CRS also depends on the type of analysis. If you want to calculate areas for the features in a layer, a layer that uses an equal-area CRS will give reliable results; other CRSs can distort areas, especially over large regions.\nIf you want to run a spatial analysis on several layers (for example, calculating the overlap between two layers), using the same suitable CRS for all layers can help avoid inconsistencies and improve processing efficiency.\n\n\n\nWhy transform data explicitly?\nYou learned that if a layer does not use the same CRS as the project, QGIS transforms it on the fly to display it in the map canvas. This allows layers with different CRSs to be displayed together, but coordinate transformations can introduce small positional inaccuracies. As a result, the displayed position of a feature may differ slightly from its position in the original data. In addition, many analysis tools work with the coordinates stored in the layer, not with the coordinates as they appear in the map canvas. Transforming your data explicitly to a suitable common CRS can help ensure consistency, particularly when performing spatial analyses.",
+    "text": "Coordinate systems are not simply interchangeable!\nAlthough you do not need to transform geodata explicitly to visualise them in the map canvas, it is in certain cases advisable to do so.\n\nCRS depending on the analysis\nSpatial analysis tools often use the original data (and therefore the original coordinates), so the CRS of each layer affects the result:\n\nGeographic coordinate systems are generally unsuitable for Cartesian calculations. Some QGIS tools can produce misleading results when used with geographic coordinates: a buffer distance, for example, is then expressed in degrees rather than metres (see Vector processing tools).\nNot all coordinate systems are suitable for all regions. A CRS that gives reliable results for one region can show large distortions for other regions. These distortions carry over into the distances, areas and shapes the software calculates for this layer, and so lead to wrong results.\nThe suitable CRS also depends on the type of analysis. If you want to calculate areas for the features in a layer, a layer that uses an equal-area CRS will give reliable results; other CRSs can distort areas, especially over large regions.\nIf you want to run a spatial analysis on several layers (for example, calculating the overlap between two layers), using the same suitable CRS for all layers can help avoid inconsistencies and improve processing efficiency.\n\n\n\nWhy transform data explicitly?\nYou learned that if a layer does not use the same CRS as the project, QGIS transforms it on the fly to display it in the map canvas. This allows layers with different CRSs to be displayed together, but coordinate transformations can introduce small positional inaccuracies. As a result, the displayed position of a feature may differ slightly from its position in the original data. In addition, many analysis tools work with the coordinates stored in the layer, not with the coordinates as they appear in the map canvas. Transforming your data explicitly to a suitable common CRS can help ensure consistency, particularly when performing spatial analyses.\n\n\n\n\n\n\nYou can now do Exercise 1, part C.",
     "crumbs": [
       "5 Coordinate systems",
       "5.2 Coordinate systems in practice",
@@ -1114,7 +1114,7 @@
     "href": "visualisation/saving-styles.html#conclusion",
     "title": "4.4 Saving and reusing styles",
     "section": "Conclusion",
-    "text": "Conclusion\nTo create multiple maps with their own styles in the same QGIS project, first give the relevant layers additional styles (Styles ▸ Add…). Then save each map configuration as a separate map theme (Manage Map Themes ▸ Add Theme…). Afterwards, you can switch between the themes to display the different maps, each with its own combination of layer styles and visibility.\n\n\n\n\n\n\nMake sure you don’t lose your previous style: first create a new style, then start configuring.",
+    "text": "Conclusion\nTo create multiple maps with their own styles in the same QGIS project, first give the relevant layers additional styles (Styles ▸ Add…). Then save each map configuration as a separate map theme (Manage Map Themes ▸ Add Theme…). Afterwards, you can switch between the themes to display the different maps, each with its own combination of layer styles and visibility.\n\n\n\n\n\n\nMake sure you don’t lose your previous style: first create a new style, then start configuring.\n\n\n\n\n\n\n\n\n\nYou can now do Exercise 1, parts A and B.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.4 Saving and reusing styles"
@@ -1127,7 +1127,7 @@
     "section": "",
     "text": "Download Roman Empire Infrastructure.zip (3 MB)",
     "crumbs": [
-      "Appendix 2: Datasets",
+      "Appendix B: Datasets",
       "Roman Empire Infrastructure"
     ]
   },
@@ -1138,7 +1138,7 @@
     "section": "",
     "text": "Download Roman Empire Infrastructure.zip (3 MB)",
     "crumbs": [
-      "Appendix 2: Datasets",
+      "Appendix B: Datasets",
       "Roman Empire Infrastructure"
     ]
   },
@@ -1149,7 +1149,7 @@
     "section": "Sources and licences",
     "text": "Sources and licences\nVersion of this dataset: 27 October 2026. All sources were downloaded on 27 October 2026; later versions of the sources may differ.\n\n\n\nData\nSource\nLicence\n\n\n\n\nprovinces, cities\nDARE, Digital Atlas of the Roman Empire, Johan Åhlfeldt, via https://github.com/klokantech/roman-empire (commit a140f13, 2020)\nCC BY-SA\n\n\nmonuments (and the monument counts in provinces)\nPleiades, https://pleiades.stoa.org (GIS data package)\nCC BY 3.0\n\n\nroads\nAncient World Mapping Center, after the Barrington Atlas of the Greek and Roman World (Talbert, ed., 2000), https://github.com/AWMC/geodata (commit 7ecf8bc, 2024)\nODbL 1.0\n\n\nelevation\nWorldClim 2.1, elevation. Fick, S.E. and R.J. Hijmans (2017), International Journal of Climatology 37 (12): 4302–4315, https://www.worldclim.org\nCC BY 4.0\n\n\n\nChanges made: selection of features and fields, cut to the extent of the empire, names of the Italian regions added, area and counts per province added, roads reprojected to EPSG:3035. The adapted DARE data are shared under CC BY-SA and the adapted roads under ODbL, as these licences require.",
     "crumbs": [
-      "Appendix 2: Datasets",
+      "Appendix B: Datasets",
       "Roman Empire Infrastructure"
     ]
   },
@@ -1160,7 +1160,7 @@
     "section": "",
     "text": "Dataset: Roman Empire Infrastructure\nIn this exercise you make two maps of the Roman Empire and a print layout with both maps. You practise loading raster and vector data, layer order, raster styling, categorized and graduated styles, labels, pie charts, map themes, coordinate systems and print layouts.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Exercise"
     ]
@@ -1172,7 +1172,7 @@
     "section": "A) Map the empire and its landscape",
     "text": "A) Map the empire and its landscape\nYou can do this after chapter 4.\n\nLoad all layers of the dataset. Put them in a logical order.\nShow elevation: low land in green, mountains in brown or red. Use Identify to find the elevation of a city in the Alps.\nShow the provinces with an outline only, so that the elevation stays visible.\nShow the roads with a categorized style: major roads thicker than minor roads.\nShow the cities with a categorized style on type: cities as small dots, legionary fortresses as squares. Label the cities with their name.\nSave the current styles as a map theme.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Exercise"
     ]
@@ -1182,9 +1182,9 @@
     "href": "exercises/exercise-roman-empire.html#b-map-the-infrastructure-per-province",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "B) Map the infrastructure per province",
-    "text": "B) Map the infrastructure per province\nYou can do this after chapter 4.\n\nRestyle the provinces. Make sure you don’t lose your previous style: first create a new style, then start configuring.\nColour the provinces with a graduated style on area_km2: the larger the province, the darker the colour. Label the provinces with their name.\nAdd a pie chart to every province with the number of monuments of each type (n_theatres, n_amphitheatres, n_circuses, n_baths, n_temples). The more monuments in total (n_monuments), the larger the pie chart.\nSave the current styles as a map theme. Switch between the two map themes to check that both maps are kept.",
+    "text": "B) Map the infrastructure per province\nYou can do this after chapter 4.\n\nRestyle the provinces. Make sure you don’t lose your previous style: first create a new style, then start configuring.\nColour the provinces with a graduated style on area_km2: the larger the province, the darker the colour. Label the provinces with their name.\nAdd a pie chart to every province with the number of monuments of each type (n_theatres, n_amphitheatres, n_circuses, n_baths, n_temples). The more monuments in total (n_monuments), the larger the pie chart.\nSave the current styles as a map theme. Switch between the two map themes to check that both maps are kept.\nSave the project in the folder of the dataset.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Exercise"
     ]
@@ -1194,9 +1194,9 @@
     "href": "exercises/exercise-roman-empire.html#c-prepare-for-finishing",
     "title": "Exercise 1: Map the Roman Empire",
     "section": "C) Prepare for finishing",
-    "text": "C) Prepare for finishing\nYou can do this after chapter 5.\n\nCheck the CRS of every layer and of the project. Do all layers have the same CRS? Do they match the CRS of the project? What does this mean for your map?\nSet the project to a projected CRS that suits the empire and compare the shapes of the provinces before and after.\nSave the project in the folder of the dataset. Keep it: you need it in the next step.",
+    "text": "C) Prepare for finishing\nYou can do this after chapter 5.\n\nOpen your project of parts A and B again.\nCheck the CRS of every layer and of the project. Do all layers have the same CRS? Do they match the CRS of the project? What does this mean for your map?\nSet the project to a projected CRS that suits the empire and compare the shapes of the provinces before and after.\nSave the project again. Keep it: you need it in the next step.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Exercise"
     ]
@@ -1208,7 +1208,7 @@
     "section": "D) Make a print layout",
     "text": "D) Make a print layout\nYou can do this after chapter 6.\nMake a finished map, as a PDF, with:\n\nAn overview map of the whole empire, showing the map you made in part B (provinces and pie charts). This is the largest map on the page. It shows a frame with the extent of the detail map.\nA detail map that zooms in on the province of Belgica, showing the map you made in part A (elevation, roads and cities).\nA title, and a legend, a scale bar and a north arrow that are linked to the overview map.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Exercise"
     ]
@@ -1220,7 +1220,7 @@
     "section": "",
     "text": "This solution follows the steps of the exercise. Other choices (colours, sizes, classification modes) are fine, as long as the maps show what the exercise asks.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Solution"
     ]
@@ -1232,7 +1232,7 @@
     "section": "A) Map the empire and its landscape",
     "text": "A) Map the empire and its landscape\n\nLoad the data. Drag roman_empire.gpkg into QGIS and select the three layers (provinces, cities, monuments). Then drag in roads.gpkg and elevation.tif. See Importing vector and raster data.\nLayer order. In the Layers panel, drag the layers into this order, from top to bottom: monuments, cities (points), roads (lines), provinces (polygons), elevation (raster). The layer at the top is drawn on top. You can untick monuments for now: you do not need it for Map 1.\nElevation. Open the Layer Properties of elevation (double-click the layer) and go to Symbology.\n\nSet Render type to Singleband pseudocolor.\nChoose a Color ramp that runs from green to red or brown, for example RdYlGn. This ramp runs from red to green, so choose Invert Color Ramp in the drop-down list of the ramp: low land then becomes green and mountains red.\nClick Apply. The sea is NoData and is not drawn.\nWith the Identify Features tool , click a city in the Alps with elevation selected in the Layers panel, for example Augusta Praetoria (Aosta). QGIS shows the value of the cell. The cells are about 4.6 km wide, so the value is an average for the area around the city, not the exact elevation of the city itself.\n\nProvinces as outlines. In the Symbology of provinces, click Simple Fill and set Fill style to No Brush. Choose a dark grey Stroke color. The elevation now stays visible under the provinces.\nRoads. In the Symbology of roads, choose Categorized, set Value to major and click Classify. Double-click the symbol of yes and give it a larger Width (for example 0.6 mm) than the symbol of no (for example 0.2 mm). You can delete the category all other values: every road has yes or no.\nCities. In the Symbology of cities, choose Categorized on type and click Classify. Give city a small dot (Simple Marker, size 1.2 mm) and legionary fortress a square (choose the square shape in the Simple Marker settings, size 2.4 mm).\n\nGo to Labels, choose Single Labels and set Value to name.\nAt the scale of the whole empire, there are too many labels to read. QGIS then leaves out labels that would overlap. Zoom in on a region to see more of them. You can also show the labels only from a certain scale (Rendering ▸ Scale dependent visibility in the Labels tab): see Style versus scale.\n\nSave Map 1 as a map theme. Click the eye icon at the top of the Layers panel (Manage Map Themes) and choose Add Theme…. Call the theme “Map 1” and click OK. See Saving and reusing styles.\n\n\n\n\nMap 1: elevation, province borders, roads (major roads thicker) and cities (squares = legionary fortresses), shown in EPSG:3035 (step C).",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Solution"
     ]
@@ -1242,9 +1242,9 @@
     "href": "exercises/solution-roman-empire.html#b-map-the-infrastructure-per-province",
     "title": "Solution 1: Map the Roman Empire",
     "section": "B) Map the infrastructure per province",
-    "text": "B) Map the infrastructure per province\nYou make this map in the same project: untick elevation, roads and cities.\n\nA second style for the provinces. Right-click provinces and choose Styles ▸ Add…. Call the new style “Map 2” and click OK. The new style starts as a copy of the current one (outlines only) and is now the active style: every change you make from now on is stored in “Map 2”, and the style of Map 1 stays as it is.\nGraduated provinces. In the Symbology of provinces, choose Graduated and set Value to area_km2.\n\nChoose a Color ramp in one colour, from light to dark (for example Greens).\nChoose a Mode, for example Natural Breaks (Jenks), with 5 Classes, and click Classify. See Graduated symbology.\nGo to Labels, choose Single Labels and set Value to name.\n\nPie charts. Go to the Diagrams tab of provinces and choose Pie Chart. See Diagrams.\n\nIn Attributes, add the fields n_theatres, n_amphitheatres, n_circuses, n_baths and n_temples (double-click each field, or select it and click the plus button). Give each field a clear colour and a legend name (theatres, amphitheatres, circuses, baths, temples).\nIn Size, choose Scaled size and set Attribute to n_monuments, the total of the five fields. Click Find to fill in the Maximum value, and set the Size of the largest pie (for example 15 mm).\nIn Placement, keep Over Centroid.\nClick OK.\n\nOn a map with many pie charts, QGIS leaves out labels that would overlap with the pies. That is why you may see only a few province names.\nSave Map 2. Untick elevation, roads and cities (if you have not done so yet), then eye icon ▸ Add Theme…, called “Map 2”. Now choose eye icon ▸ Map 1: QGIS shows the elevation, roads and cities again, and the provinces as outlines. Eye icon ▸ Map 2 brings back the graduated provinces with the pie charts.\n\n\n\n\nMap 2: provinces coloured by area, with pie charts of the monuments per type (theatres blue, amphitheatres orange, circuses red, baths purple, temples grey); the size shows the total number. Shown in EPSG:3035 (step C).",
+    "text": "B) Map the infrastructure per province\nYou make this map in the same project: untick elevation, roads and cities.\n\nA second style for the provinces. Right-click provinces and choose Styles ▸ Add…. Call the new style “Map 2” and click OK. The new style starts as a copy of the current one (outlines only) and is now the active style: every change you make from now on is stored in “Map 2”, and the style of Map 1 stays as it is.\nGraduated provinces. In the Symbology of provinces, choose Graduated and set Value to area_km2.\n\nChoose a Color ramp in one colour, from light to dark (for example Greens).\nChoose a Mode, for example Natural Breaks (Jenks), with 5 Classes, and click Classify. See Graduated symbology.\nGo to Labels, choose Single Labels and set Value to name.\n\nPie charts. Go to the Diagrams tab of provinces and choose Pie Chart. See Diagrams.\n\nIn Attributes, add the fields n_theatres, n_amphitheatres, n_circuses, n_baths and n_temples (double-click each field, or select it and click the plus button). Give each field a clear colour and a legend name (theatres, amphitheatres, circuses, baths, temples).\nIn Size, choose Scaled size and set Attribute to n_monuments, the total of the five fields. Click Find to fill in the Maximum value, and set the Size of the largest pie (for example 15 mm).\nIn Placement, keep Over Centroid.\nClick OK.\n\nOn a map with many pie charts, QGIS leaves out labels that would overlap with the pies. That is why you may see only a few province names.\nSave Map 2. Untick elevation, roads and cities (if you have not done so yet), then eye icon ▸ Add Theme…, called “Map 2”. Now choose eye icon ▸ Map 1: QGIS shows the elevation, roads and cities again, and the provinces as outlines. Eye icon ▸ Map 2 brings back the graduated provinces with the pie charts.\n\n\n\n\nMap 2: provinces coloured by area, with pie charts of the monuments per type (theatres blue, amphitheatres orange, circuses red, baths purple, temples grey); the size shows the total number. Shown in EPSG:3035 (step C).\n\n\n\nSave the project. Choose Project ▸ Save As… and save the project in the folder of the dataset, for example as roman_empire.qgz. The project only stores where the data are and how they look, not the data themselves: see The QGIS project.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Solution"
     ]
@@ -1254,9 +1254,9 @@
     "href": "exercises/solution-roman-empire.html#c-prepare-for-finishing",
     "title": "Solution 1: Map the Roman Empire",
     "section": "C) Prepare for finishing",
-    "text": "C) Prepare for finishing\n\nCheck the CRS. Right-click each layer, choose Properties… and look at the Source tab: see Coordinate system of your geodata. The CRS of the project is shown at the right end of the status bar.\n\nprovinces, cities, monuments and elevation are in EPSG:4326 (WGS 84), roads is in EPSG:3035.\nThe project is in EPSG:4326 if you loaded roman_empire.gpkg first: by default, QGIS gives a new project the CRS of the first layer you add.\nSo the layers do not all have the same CRS, and roads does not match the project. For this map, that does not matter: QGIS transforms roads on the fly, so all layers line up. If you want to analyse layers together, it is better to transform them to one CRS first: see Why transform data explicitly?.\n\nA suitable coordinate system. Choose Project ▸ Properties…, go to CRS, type 3035 in the Filter box, select ETRS89-extended / LAEA Europe and click OK. QGIS now transforms all layers on the fly. The provinces in the north (Britannia, Germania) are no longer stretched in width, as they are in EPSG:4326, and the empire looks as it does on a globe. EPSG:3035 is made for Europe: the provinces furthest away (Aegyptus, Mesopotamia) are a little more distorted, but much less than in EPSG:4326. It is also an equal-area projection, which suits Map 2, where the colours show the area of the provinces. See Coordinate system of the QGIS project. If QGIS asks which transformation to use, keep the proposed one.\nSave the project. Choose Project ▸ Save As… and save the project in the folder of the dataset, for example as roman_empire.qgz. The project only stores where the data are and how they look, not the data themselves: see The QGIS project. Keep the project: you need it in part D.",
+    "text": "C) Prepare for finishing\n\nOpen the project. Choose Project ▸ Open… and open the project you saved in part B, or pick it from Project ▸ Open Recent.\nCheck the CRS. Right-click each layer, choose Properties… and look at the Source tab: see Coordinate system of your geodata. The CRS of the project is shown at the right end of the status bar.\n\nprovinces, cities, monuments and elevation are in EPSG:4326 (WGS 84), roads is in EPSG:3035.\nThe project is in EPSG:4326 if you loaded roman_empire.gpkg first: by default, QGIS gives a new project the CRS of the first layer you add.\nSo the layers do not all have the same CRS, and roads does not match the project. For this map, that does not matter: QGIS transforms roads on the fly, so all layers line up. If you want to analyse layers together, it is better to transform them to one CRS first: see Why transform data explicitly?.\n\nA suitable coordinate system. Choose Project ▸ Properties…, go to CRS, type 3035 in the Filter box, select ETRS89-extended / LAEA Europe and click OK. QGIS now transforms all layers on the fly. The provinces in the north (Britannia, Germania) are no longer stretched in width, as they are in EPSG:4326, and the empire looks as it does on a globe. EPSG:3035 is made for Europe: the provinces furthest away (Aegyptus, Mesopotamia) are a little more distorted, but much less than in EPSG:4326. It is also an equal-area projection, which suits Map 2, where the colours show the area of the provinces. See Coordinate system of the QGIS project. If QGIS asks which transformation to use, keep the proposed one.\nSave the project again. Choose Project ▸ Save (Ctrl+S). Keep the project: you need it in part D.",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Solution"
     ]
@@ -1268,9 +1268,69 @@
     "section": "D) Make a print layout",
     "text": "D) Make a print layout\nOpen the project of parts A–C. The result can look like this:\n\n\n\nAn example of the finished layout: the overview map follows the map theme “Map 2”, the detail map follows “Map 1”. The red frame shows the extent of the detail map.\n\n\n\nNew layout. Choose Project ▸ New Print Layout… and give the layout a name.\nOverview map. Choose Add Item ▸ Add Map and drag a large rectangle on the page. In the Item Properties of this map, under Layers, tick Follow map theme and choose “Map 2”. Zoom the map to the whole empire.\n\nDetail map. Add a second, smaller map in the same way. Let it follow the map theme “Map 1”. In the main QGIS window, zoom in on the province of Belgica. Back in the layout, click Set Map Extent to Match Main Canvas Extent in the Item Properties of the detail map.\nExtent frame. Select the overview map. Under Overviews, click the plus button, and under Map frame choose the detail map. The overview map now shows a frame around the area of the detail map.\n\nTitle, legend, scale bar and north arrow.\n\nAdd a title with Add Item ▸ Add Label.\nAdd a legend with Add Item ▸ Add Legend. In its Item Properties, choose the overview map as the map it is linked to. Remove the legend items you do not need, or tick Only show items inside linked maps. To change the text of an item, double-click it.\n\nAdd a scale bar with Add Item ▸ Add Scale Bar and link it to the overview map. If the numbers are long and overlap, set Scalebar units to Kilometers.\n\nAdd a north arrow with Add Item ▸ Add North Arrow. Under Image Rotation, tick Sync with map and choose the overview map.\n\n\nExport. Choose Layout ▸ Export as PDF….",
     "crumbs": [
-      "Appendix 1: Exercises",
+      "Appendix A: Exercises",
       "Exercise 1: Map the Roman Empire",
       "Solution"
+    ]
+  },
+  {
+    "objectID": "before-you-start.html",
+    "href": "before-you-start.html",
+    "title": "Before you start",
+    "section": "",
+    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
+    "crumbs": [
+      "Before you start"
+    ]
+  },
+  {
+    "objectID": "before-you-start.html#a-learning-path-not-documentation",
+    "href": "before-you-start.html#a-learning-path-not-documentation",
+    "title": "Before you start",
+    "section": "",
+    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
+    "crumbs": [
+      "Before you start"
+    ]
+  },
+  {
+    "objectID": "before-you-start.html#finding-your-way",
+    "href": "before-you-start.html#finding-your-way",
+    "title": "Before you start",
+    "section": "Finding your way",
+    "text": "Finding your way\n\nImages: click an image to enlarge it.\nLinks: where a topic is also covered on another page, the text links to that page.\nSearch: use the search box at the top of the menu to find a term.",
+    "crumbs": [
+      "Before you start"
+    ]
+  },
+  {
+    "objectID": "before-you-start.html#styles-in-the-text",
+    "href": "before-you-start.html#styles-in-the-text",
+    "title": "Before you start",
+    "section": "Styles in the text",
+    "text": "Styles in the text\n\nMenu paths have a light blue background. Project ▸ Save As… means: in the Project menu, choose Save As…\nButtons, tabs and other items in the QGIS window are in italics.\nNames of layers and fields and values in a field are in a code font.",
+    "crumbs": [
+      "Before you start"
+    ]
+  },
+  {
+    "objectID": "before-you-start.html#tips-and-points-of-attention",
+    "href": "before-you-start.html#tips-and-points-of-attention",
+    "title": "Before you start",
+    "section": "Tips and points of attention",
+    "text": "Tips and points of attention\nSome information is shown in a coloured box:\n\n\n\n\n\n\nA tip: a handy shortcut, a useful option or an extra explanation.\n\n\n\n\n\n\n\n\n\nPay attention: a common mistake, or something that is easy to miss.",
+    "crumbs": [
+      "Before you start"
+    ]
+  },
+  {
+    "objectID": "before-you-start.html#exercises-and-datasets",
+    "href": "before-you-start.html#exercises-and-datasets",
+    "title": "Before you start",
+    "section": "Exercises and datasets",
+    "text": "Exercises and datasets\nYou find the exercises and the datasets in a separate part at the end of the learning path: appendix A (Exercises) and appendix B (Datasets).\nExercises: as soon as you have learned enough to do an exercise, the learning path points you to it with this box:\n\n\n\n\n\n\nYou can now do Exercise 1, parts A and B.\n\n\n\nLarger exercises are split into parts (A, B, …). At the top of each part you see after which chapter you can do it.\nEvery exercise also has a solution: a model answer on a separate page, right under the exercise in the menu. Use it to check your work, or to get going again when you are stuck.\nDatasets: each dataset has its own page, with a download link or a reference to the data on the website of the data provider. A purple box shows which dataset you need, for example at the top of an exercise:\n\n\n\n\n\n\nDataset: Roman Empire Infrastructure",
+    "crumbs": [
+      "Before you start"
     ]
   }
 ]
