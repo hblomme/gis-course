@@ -1068,7 +1068,7 @@
     "href": "before-you-start.html#styles-in-the-text",
     "title": "Before you start",
     "section": "Styles in the text",
-    "text": "Styles in the text\n\nMenu paths have a light blue background. Project ▸ Save As… means: in the Project menu, choose Save As…\nButtons, tabs and other items in the QGIS window are in italics.\nNames of layers and fields and values in a field are in a code font.",
+    "text": "Styles in the text\n\nRed letters, such as A or B2, match a label on a screenshot on the same page.\nMenu paths have a light blue background. Project ▸ Save As… means: in the Project menu, choose Save As…\nButtons, tabs and other items in the QGIS window are in italics.\nNames of layers and fields and values in a field are in a code font.",
     "crumbs": [
       "Before you start"
     ]
