@@ -157,7 +157,7 @@
     "href": "data-models/raster-model.html#single-band-and-multi-band",
     "title": "2.1 Raster model",
     "section": "Single-band and multi-band",
-    "text": "Single-band and multi-band\nIn the example above, we looked at a simple raster file in which each pixel was given at most one numeric value. Such images are also called single-band images.\nHowever, a raster image can also consist of several image layers (image bands). In that case, each pixel has one value per image band. All bands of one raster share exactly the same grid: the same number of rows and columns, the same cell size and the same position. You can picture them as sheets stacked on top of each other, in which every cell lies exactly above the corresponding cell in the other bands; only the values stored in the cells differ from band to band. Colour scans (e.g. a scanned historical map) and digital colour photos (e.g. aerial photos) are examples of such multi-band raster files. When an image is scanned or photographed, it is converted into a digital raster of pixels, and the scanner or camera gives each pixel a colour in the form of a numeric code. There are different ways to express colour numerically. A common one is ‘RGB’ (red - green - blue): here each pixel is given not one value but three, containing the amounts of red, green and blue that together form the colour.\n\n\n\n\n\n\nA scanned map contains colours, not the values the map shows. If you scan a paper elevation map, for example, the cells of your digital raster will not contain the elevations themselves (a scanner cannot know these), but the numeric codes of the colours used on the original map.\n\n\n\n\nAn aerial photo (orthophoto) is a typical multi-band raster: three bands with the red, green and blue values of each cell together form the colour image. Orthophoto: Digitaal Vlaanderen, orthophoto mosaic 2025 (Ghent, Gravensteen).",
+    "text": "Single-band and multi-band\nIn the example above, we looked at a simple raster file in which each pixel was given at most one numeric value. Such images are also called single-band images.\nHowever, a raster image can also consist of several image layers (image bands). In that case, each pixel has one value per image band. All bands of one raster share exactly the same grid: the same number of rows and columns, the same cell size and the same position. You can picture them as sheets stacked on top of each other, in which every cell lies exactly above the corresponding cell in the other bands; only the values stored in the cells differ from band to band. Colour scans (e.g. a scanned historical map) and digital colour photos (e.g. aerial photos) are examples of such multi-band raster files. When an image is scanned or photographed, it is converted into a digital raster of pixels, and the scanner or camera gives each pixel a colour in the form of a numeric code. There are different ways to express colour numerically. A common one is ‘RGB’ (red - green - blue): here each pixel is given not one value but three, containing the amounts of red, green and blue that together form the colour.\n\n\n\n\n\n\nA scanned map contains colours, not the values the map shows. If you scan a paper elevation map, for example, the cells of your digital raster will not contain the elevations themselves (a scanner cannot know these), but the numeric codes of the colours used on the original map.\n\n\n\n\nAn aerial photo (orthophoto) is a typical multi-band raster: three bands with the red, green and blue values of each cell together form the colour image. Orthophoto: Digitaal Vlaanderen, orthophoto mosaic 2025 (Ghent, Gravensteen).\n\n\n\n\n\n\nTry it yourself: RGB bands",
     "crumbs": [
       "2 Data in GIS (part 1)",
       "2.1 Raster model"
@@ -245,7 +245,7 @@
     "href": "data-models/raster-vs-vector.html",
     "title": "2.3 Rasters vs. vectors",
     "section": "",
-    "text": "A lot of spatial data can be represented as vector data as well as raster data. The choice between the two types depends on the use case.\nA map with, for example, a boundary stone (point), a road (line) and a lake (polygon) would look like this as vector data (left) and as raster data (right):\n\n\n\n\n\n\n\n\n\n\nRASTER\nVECTOR\n\n\nSpatial definition\nBased on a matrix of cells\nBased on geometric objects\n\n\nSpatial positioning\nEach raster cell is implicitly given coordinates. This is based on the coordinates of the origin, the spatial resolution (real-world size of each cell) and the position of each cell in the matrix (row and column number).\nCoordinates are explicitly stored for each point (or vertex).\n\n\nFile size\nUsually larger files\nUsually smaller files\n\n\nAccuracy\nResolution-dependent, generalisation at cell level (loss of information)\nNo technical limits on accuracy\n\n\nSuitable for\nContinuous and discrete data\nDiscrete data (continuous data only in a simplified form, e.g. contour lines)\n\n\nAttribute information\nRaster cells can only contain numeric values. The number of values per cell is limited to one per image band.\nEach object can have many attribute fields: text, numbers, dates…\n\n\nSpatial analyses\nOften faster because of the simple data structure\nOften slower because of the more complex data structure",
+    "text": "A lot of spatial data can be represented as vector data as well as raster data. The choice between the two types depends on the use case.\nA map with, for example, a boundary stone (point), a road (line) and a lake (polygon) would look like this as vector data (left) and as raster data (right):\n\n\n\n\n\n\n\n\n\n\nRASTER\nVECTOR\n\n\nSpatial definition\nBased on a matrix of cells\nBased on geometric objects\n\n\nSpatial positioning\nEach raster cell is implicitly given coordinates. This is based on the coordinates of the origin, the spatial resolution (real-world size of each cell) and the position of each cell in the matrix (row and column number).\nCoordinates are explicitly stored for each point (or vertex).\n\n\nFile size\nUsually larger files\nUsually smaller files\n\n\nAccuracy\nResolution-dependent, generalisation at cell level (loss of information)\nNo technical limits on accuracy\n\n\nSuitable for\nContinuous and discrete data\nDiscrete data (continuous data only in a simplified form, e.g. contour lines)\n\n\nAttribute information\nRaster cells can only contain numeric values. The number of values per cell is limited to one per image band.\nEach object can have many attribute fields: text, numbers, dates…\n\n\nSpatial analyses\nOften faster because of the simple data structure\nOften slower because of the more complex data structure\n\n\n\n\n\n\n\n\n\nTry it yourself: Raster vs. vector",
     "crumbs": [
       "2 Data in GIS (part 1)",
       "2.3 Rasters vs. vectors"
@@ -841,7 +841,7 @@
     "href": "visualisation/saving-styles.html#several-styles-for-one-layer",
     "title": "4.4 Saving and reusing styles",
     "section": "Several styles for one layer",
-    "text": "Several styles for one layer\nWhen you style a layer, you see the changes in the map canvas as soon as you apply them. This includes not only the symbology, but also the labels, the legend, diagrams and other settings. However, you may want to create different maps from the same data, each with its own styling. Rather than having to recreate the settings each time, QGIS lets you save several named styles for the same layer and switch between them whenever you need to.\nYou find the styles of a layer when you right-click it in the Layers panel and choose Styles:\n\nAdd… adds a new style and gives it a name.\nThe list of styles shows all styles of the layer. The active one has a dot in front of it. Click another style to switch to it.\nRename Current… and Remove Current rename or remove the active style.\n\nIn the example below, the layer states has two styles: population (the population in 2010, left) and representatives (the number of representatives in 2010, right). One click in the list switches between them.\n\n\n\n\n\n\n\nOnly one style is active at a time, and every change you make is automatically stored in the active style. When you add a new style, QGIS switches to it immediately. The new style starts as a copy of the previous one, while the original remains unchanged. From then on, your changes are stored in the new style. This lets you experiment with a different look without losing your existing styling.",
+    "text": "Several styles for one layer\nWhen you style a layer, you see the changes in the map canvas as soon as you apply them. This includes not only the symbology, but also the labels, the legend, diagrams and other settings. However, you may want to create different maps from the same data, each with its own styling. Rather than having to recreate the settings each time, QGIS lets you save several named styles for the same layer and switch between them whenever you need to.\nOnly one style is active at a time, and every change you make is automatically stored in the active style. When you add a new style, QGIS switches to it immediately. The new style starts as a copy of the previous one, while the original remains unchanged. From then on, your changes are stored in the new style. This lets you experiment with a different look without losing your existing styling.\n\n\n\n\n\n\nMake sure you don’t lose your previous style: first create a new style, then start configuring.\n\n\n\nYou find the styles of a layer when you right-click it in the Layers panel and choose Styles:\n\nAdd… adds a new style and gives it a name.\nThe list of styles shows all styles of the layer. The active one has a dot in front of it. Click another style to switch to it.\nRename Current… and Remove Current rename or remove the active style.\n\nIn the example below, the layer states has two styles: population (the population in 2010, left) and representatives (the number of representatives in 2010, right). One click in the list switches between them.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.4 Saving and reusing styles"
@@ -863,18 +863,18 @@
     "href": "visualisation/saving-styles.html#map-themes",
     "title": "4.4 Saving and reusing styles",
     "section": "Map themes",
-    "text": "Map themes\nA map theme stores the style configuration of the whole Layers panel at once: for every layer, whether it is visible, and which of its styles is active. A map theme does not store the order of the layers in the Layers panel.\nYou manage the map themes with the eye icon  at the top of the Layers panel (Manage Map Themes):\n\nAdd Theme… saves what you see now as a new map theme.\nClick a map theme in the list to switch to it: QGIS shows and hides the layers, and activates their styles, as they were when you saved the theme.\nReplace Theme overwrites an existing map theme with what you see now.\n\nIn the example below there are two map themes: Population 2010 (style population, with the major cities as orange dots) and Representatives 2010 (style representatives, without the cities). Choosing one of them switches the style of states and the visibility of major_cities at the same time.\n\n\n\n\n\n\n\nA map theme only stores which style of each layer is active, not the style itself. If you change a style after saving the theme, the map theme uses the updated style, not the style as it was when you saved the theme. A map theme also cannot bring back a layer that you removed from the project: it only works with the layers that are still in the Layers panel.",
+    "text": "Map themes\nA map theme stores the style configuration of the whole Layers panel at once: for every layer, whether it is visible, and which of its styles is active.\n\n\n\n\n\n\nA map theme only stores which style of each layer is active, not the style itself. If you change a style after saving the theme, the map theme uses the updated style, not the style as it was when you saved the theme. A map theme also does not store the order of the layers in the Layers panel, and it cannot bring back a layer that you removed from the project: it only works with the layers that are still in the Layers panel.\n\n\n\nYou manage the map themes with the eye icon  at the top of the Layers panel (Manage Map Themes):\n\nAdd Theme… saves what you see now as a new map theme.\nClick a map theme in the list to switch to it: QGIS shows and hides the layers, and activates their styles, as they were when you saved the theme.\nReplace Theme overwrites an existing map theme with what you see now.\n\nIn the example below there are two map themes: Population 2010 (style population, with the major cities as orange dots) and Representatives 2010 (style representatives, without the cities). Choosing one of them switches the style of states and the visibility of major_cities at the same time.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.4 Saving and reusing styles"
     ]
   },
   {
-    "objectID": "visualisation/saving-styles.html#conclusion",
-    "href": "visualisation/saving-styles.html#conclusion",
+    "objectID": "visualisation/saving-styles.html#in-practice",
+    "href": "visualisation/saving-styles.html#in-practice",
     "title": "4.4 Saving and reusing styles",
-    "section": "Conclusion",
-    "text": "Conclusion\nTo create multiple maps with their own styles in the same QGIS project, first give the relevant layers additional styles (Styles ▸ Add…). Then save each map configuration as a separate map theme (Manage Map Themes ▸ Add Theme…). Afterwards, you can switch between the themes to display the different maps, each with its own combination of layer styles and visibility.\n\n\n\n\n\n\nMake sure you don’t lose your previous style: first create a new style, then start configuring.\n\n\n\n\n\n\n\n\n\nYou can now do Exercise 1, parts A and B.",
+    "section": "In practice",
+    "text": "In practice\nTo make several maps with their own styles in the same QGIS project:\n\nGive the layers you need a new style for each map (Styles ▸ Add…), and configure it.\nShow the layers you need for the map, and save the map as a map theme (Manage Map Themes ▸ Add Theme…).\nRepeat for every map theme. Then switch between them via Manage Map Themes.\n\n\n\n\n\n\n\nYou can now do Exercise 1, parts A and B.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.4 Saving and reusing styles"
@@ -1084,6 +1084,16 @@
     ]
   },
   {
+    "objectID": "before-you-start.html#interactive-tools",
+    "href": "before-you-start.html#interactive-tools",
+    "title": "Before you start",
+    "section": "Interactive tools",
+    "text": "Interactive tools\nThroughout the learning path, you will find pages with the title Interactive. On these pages, interactive tools demonstrate what you have just learned. In the text, this box points you to such a tool:\n\n\n\n\n\n\nTry it yourself: Raster vs. vector",
+    "crumbs": [
+      "Before you start"
+    ]
+  },
+  {
     "objectID": "before-you-start.html#exercises-and-datasets",
     "href": "before-you-start.html#exercises-and-datasets",
     "title": "Before you start",
@@ -1091,6 +1101,39 @@
     "text": "Exercises and datasets\nYou find the exercises and the datasets in a separate part at the end of the learning path: appendix A (Exercises) and appendix B (Datasets).\nExercises: as soon as you have learned enough to do an exercise, the learning path points you to it with this box:\n\n\n\n\n\n\nYou can now do Exercise 1, parts A and B.\n\n\n\nLarger exercises are split into parts (A, B, …). At the top of each part you see after which chapter you can do it.\nEvery exercise also has a solution: a model answer on a separate page, right under the exercise in the menu. Use it to check your work, or to get going again when you are stuck.\nDatasets: each dataset has its own page, with a download link or a reference to the data on the website of the data provider. A purple box shows which dataset you need, for example at the top of an exercise:\n\n\n\n\n\n\nDataset: Roman Empire Infrastructure",
     "crumbs": [
       "Before you start"
+    ]
+  },
+  {
+    "objectID": "data-models/interactive-data-models.html",
+    "href": "data-models/interactive-data-models.html",
+    "title": "2.6 Interactive",
+    "section": "",
+    "text": "Try out what you learned in this chapter. Drag, click and change the settings as much as you like: you can’t break anything!",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.6 Interactive"
+    ]
+  },
+  {
+    "objectID": "data-models/interactive-data-models.html#rgb-bands",
+    "href": "data-models/interactive-data-models.html#rgb-bands",
+    "title": "2.6 Interactive",
+    "section": "RGB bands",
+    "text": "RGB bands\nA colour photo is a raster with three bands: red, green and blue. Pull the bands apart to see them as separate layers, and click a pixel to read its three values. See the theory: Single-band and multi-band.\n\nOpen the tool full screen",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.6 Interactive"
+    ]
+  },
+  {
+    "objectID": "data-models/interactive-data-models.html#vector-raster",
+    "href": "data-models/interactive-data-models.html#vector-raster",
+    "title": "2.6 Interactive",
+    "section": "Raster vs. vector",
+    "text": "Raster vs. vector\nThe same map as vector data and as raster cells. Change the number of cells across the map and see what happens to the lake, the road and the villages. See the theory: Rasters vs. vectors.\n\nOpen the tool full screen",
+    "crumbs": [
+      "2 Data in GIS (part 1)",
+      "2.6 Interactive"
     ]
   }
 ]

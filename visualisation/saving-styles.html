@@ -195,6 +195,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">2.5 Common file formats in QGIS</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/interactive-data-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Interactive</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -407,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#several-styles-for-one-layer" id="toc-several-styles-for-one-layer" class="nav-link active" data-scroll-target="#several-styles-for-one-layer">Several styles for one layer</a></li>
   <li><a href="#copying-a-style-to-another-layer" id="toc-copying-a-style-to-another-layer" class="nav-link" data-scroll-target="#copying-a-style-to-another-layer">Copying a style to another layer</a></li>
   <li><a href="#map-themes" id="toc-map-themes" class="nav-link" data-scroll-target="#map-themes">Map themes</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#in-practice" id="toc-in-practice" class="nav-link" data-scroll-target="#in-practice">In practice</a></li>
   </ul>
 </nav>
     </div>
@@ -437,6 +443,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="several-styles-for-one-layer" class="level2">
 <h2 class="anchored" data-anchor-id="several-styles-for-one-layer">Several styles for one layer</h2>
 <p>When you style a layer, you see the changes in the map canvas as soon as you apply them. This includes not only the symbology, but also the labels, the legend, diagrams and other settings. However, you may want to create different maps from the same data, each with its own styling. Rather than having to recreate the settings each time, QGIS lets you save <strong>several named styles</strong> for the same layer and switch between them whenever you need to.</p>
+<p>Only one style is active at a time, and every change you make is <strong>automatically stored in the active style</strong>. When you add a new style, QGIS switches to it immediately. The new style starts as a copy of the previous one, while the original remains unchanged. From then on, your changes are stored in the new style. This lets you experiment with a different look without losing your existing styling.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Make sure you don’t lose your previous style: first create a new style, then start configuring.</p>
+</div>
+</div>
+</div>
 <p>You find the styles of a layer when you right-click it in the <em>Layers</em> panel and choose <em>Styles</em>:</p>
 <ul>
 <li><em>Add…</em> adds a new style and gives it a name.</li>
@@ -445,16 +462,6 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>In the example below, the layer <code>states</code> has two styles: <code>population</code> (the population in 2010, left) and <code>representatives</code> (the number of representatives in 2010, right). One click in the list switches between them.</p>
 <p><a href="../images-v4/visualisation/saving-styles-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images-v4/visualisation/saving-styles-01.png" class="img-fluid"></a></p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Only one style is active at a time, and every change you make is <strong>automatically stored in the active style</strong>. When you add a new style, QGIS switches to it immediately. The new style starts as a copy of the previous one, while the original remains unchanged. From then on, your changes are stored in the new style. This lets you experiment with a different look without losing your existing styling.</p>
-</div>
-</div>
-</div>
 </section>
 <section id="copying-a-style-to-another-layer" class="level2">
 <h2 class="anchored" data-anchor-id="copying-a-style-to-another-layer">Copying a style to another layer</h2>
@@ -468,7 +475,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="map-themes" class="level2">
 <h2 class="anchored" data-anchor-id="map-themes">Map themes</h2>
-<p>A <strong>map theme</strong> stores the style configuration of the whole <em>Layers</em> panel at once: for every layer, whether it is <strong>visible</strong>, and which of its styles is <strong>active</strong>. A map theme does not store the order of the layers in the <em>Layers</em> panel.</p>
+<p>A <strong>map theme</strong> stores the style configuration of the whole <em>Layers</em> panel at once: for every layer, whether it is <strong>visible</strong>, and which of its styles is <strong>active</strong>.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A map theme only stores <strong>which</strong> style of each layer is active, not the style itself. If you change a style after saving the theme, the map theme uses the updated style, not the style as it was when you saved the theme. A map theme also does not store the order of the layers in the <em>Layers</em> panel, and it cannot bring back a layer that you removed from the project: it only works with the layers that are still in the <em>Layers</em> panel.</p>
+</div>
+</div>
+</div>
 <p>You manage the map themes with the eye icon <img src="../images-v4/visualisation/map-themes-icon.png" class="img-fluid" style="height:1.3em; vertical-align:-0.3em" alt="eye icon"> at the top of the <em>Layers</em> panel (<em>Manage Map Themes</em>):</p>
 <ul>
 <li><em>Add Theme…</em> saves what you see now as a new map theme.</li>
@@ -477,30 +494,15 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>In the example below there are two map themes: <em>Population 2010</em> (style <code>population</code>, with the major cities as orange dots) and <em>Representatives 2010</em> (style <code>representatives</code>, without the cities). Choosing one of them switches the style of <code>states</code> and the visibility of <code>major_cities</code> at the same time.</p>
 <p><a href="../images-v4/visualisation/saving-styles-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images-v4/visualisation/saving-styles-02.png" class="img-fluid"></a></p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>A map theme only stores <strong>which</strong> style of each layer is active, not the style itself. If you change a style after saving the theme, the map theme uses the updated style, not the style as it was when you saved the theme. A map theme also cannot bring back a layer that you removed from the project: it only works with the layers that are still in the <em>Layers</em> panel.</p>
-</div>
-</div>
-</div>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>To create multiple maps with their own styles in the same QGIS project, first give the relevant layers additional styles (<span class="menu-path"><em>Styles ▸ Add…</em></span>). Then save each map configuration as a separate map theme (<span class="menu-path"><em>Manage Map Themes ▸ Add Theme…</em></span>). Afterwards, you can switch between the themes to display the different maps, each with its own combination of layer styles and visibility.</p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Make sure you don’t lose your previous style: first create a new style, then start configuring.</p>
-</div>
-</div>
-</div>
+<section id="in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="in-practice">In practice</h2>
+<p>To make several maps with their own styles in the same QGIS project:</p>
+<ol type="1">
+<li>Give the layers you need a new style for each map (<span class="menu-path"><em>Styles ▸ Add…</em></span>), and configure it.</li>
+<li>Show the layers you need for the map, and save the map as a map theme (<span class="menu-path"><em>Manage Map Themes ▸ Add Theme…</em></span>).</li>
+<li>Repeat for every map theme. Then switch between them via <em>Manage Map Themes</em>.</li>
+</ol>
 <div class="exercise callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">

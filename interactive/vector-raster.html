@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raster vs. vector</title>
+<style>/* Shared look of the interactive tools, after the UGent house style (ugent.be sites such as medievalmodern.ugent.be):
+   UGent blue, light blue panels, yellow action buttons, square corners, UGent Panno Text where it is installed (Arial otherwise).
+   The Panno font is not bundled: it is only used when the computer has it. */
+:root {
+  --ug-blue: #1e64c8; --ug-blue-dark: #174e9c; --ug-blue-light: #e9f0fa; --ug-yellow: #ffd200;
+  --bg: #f4f7fc; --panel: #ffffff; --ink: #202020; --muted: #5b6573; --line: #c9d7ee;
+  --font: "UGent Panno Text", "PannoTextNormal", Arial, Helvetica, sans-serif;
+  --font-medium: "UGent Panno Text Medium", "PannoTextMedium", "UGent Panno Text", Arial, Helvetica, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 16px/1.45 var(--font); }
+#app { display: flex; height: 100%; }
+#view { flex: 1; position: relative; min-width: 0; touch-action: none; cursor: grab; }
+#view:active { cursor: grabbing; }
+#view canvas { display: block; }
+#hint { position: absolute; left: 12px; bottom: 10px; font-size: 13px; color: var(--muted); pointer-events: none; }
+#panel { width: 330px; flex: none; overflow-y: auto; display: flex; flex-direction: column; background: var(--panel); border-left: 1px solid var(--line); }
+#panel > header { background: var(--ug-blue); color: #fff; padding: 18px 18px 16px; }
+#panel > header h1 { margin: 0; font: 22px/1.15 var(--font-medium); text-transform: uppercase; letter-spacing: .01em; }
+#panel > header p { margin: 4px 0 0; font-size: 13px; opacity: .9; }
+#panel > header { flex: none; }
+#panel > .body { padding: 4px 18px 16px; flex: 1 0 auto; display: flex; flex-direction: column; }
+h2 { font: 14px/1.2 var(--font-medium); text-transform: uppercase; letter-spacing: .03em; color: var(--ug-blue); margin: 18px 0 7px; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button, .row button { font: 15px/1.25 var(--font); padding: 7px 10px; border: 1px solid var(--ug-blue); border-radius: 0; background: #fff; color: var(--ug-blue); cursor: pointer; }
+.seg button { flex: 1 1 auto; }
+.seg button:hover, .row button:hover { background: var(--ug-blue-light); }
+.seg button.on { background: var(--ug-blue); color: #fff; }
+.seg.col { flex-direction: column; }
+.seg.col button { text-align: left; }
+.row { display: flex; align-items: center; gap: 10px; }
+.row button.play { background: var(--ug-yellow); border-color: var(--ug-yellow); color: var(--ug-blue-dark); font-family: var(--font-medium); padding: 7px 16px; }
+.row button.play:hover { background: #ffe14d; }
+input[type=range] { width: 100%; accent-color: var(--ug-blue); }
+input[type=checkbox] { accent-color: var(--ug-blue); }
+label.chk, div.chk { display: flex; gap: 8px; align-items: center; margin: 4px 0; font-size: 15px; cursor: pointer; }
+.chk .sw { display: inline-block; width: 18px; height: 4px; }
+.chk.sel { font-family: var(--font-medium); color: var(--ug-blue); }
+.val { font-size: 14px; color: var(--muted); }
+#info { margin-top: 20px; background: var(--ug-blue-light); border-top: 4px solid var(--ug-blue); padding: 12px 14px; }
+#info b { display: block; font: 17px/1.25 var(--font-medium); color: var(--ug-blue); margin-bottom: 5px; }
+#info p { margin: 0; font-size: 14.5px; }
+#info p + p { margin-top: 6px; }
+#info table { font-size: 13.5px; border-collapse: collapse; margin-top: 4px; }
+#info td { padding: 1px 10px 1px 0; vertical-align: top; }
+.credit { margin-top: auto; margin-bottom: 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+.body > .credit { margin-top: auto; } .body > :nth-last-child(2) { margin-bottom: 22px; }
+.note, .legend { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+.legend span { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+[hidden] { display: none !important; }
+@media (max-width: 760px) {
+  #app { flex-direction: column; }
+  #view { flex: 1 1 55%; }
+  #panel { width: auto; flex: 1 1 45%; border-left: 0; border-top: 1px solid var(--line); }
+}
+#panel > .body > .seg:first-child { margin-top: 16px; }
+</style>
+<style>
+  #view { cursor: crosshair; }
+  #view canvas { position: absolute; left: 0; top: 0; }
+  #hint { font-size: 14px; color: var(--ink); }
+  #counts { font-size: 15px; }
+  #sizes { flex-wrap: nowrap; }
+  #sizes button { padding: 7px 2px; min-width: 0; }
+  .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
+  #counts p { margin: 2px 0; }
+  #counts .res { font-family: var(--font-medium); font-weight: 700; }
+  #counts b { font-family: var(--font-medium); color: var(--ug-blue); }
+  #classes { border-collapse: collapse; font-size: 14px; margin-top: 8px; width: 100%; }
+  #classes td { padding: 2px 6px 2px 0; }
+  #classes td.n { text-align: right; color: var(--muted); }
+  h2 { margin: 12px 0 5px; }
+  #panel > header { padding: 14px 18px 12px; }
+  .chk, label.chk { margin: 2px 0; }
+  label.chk.off { opacity: .4; cursor: default; }
+  #counts p { margin: 0; }
+  #info { margin-top: 12px; padding: 10px 12px; }
+  #info b { margin-bottom: 3px; }
+  #info p { font-size: 14px; line-height: 1.35; }
+  #classes { margin-top: 12px; }
+  #picked { font-size: 15px; }
+  #picked p { margin: 0; }
+  #picked i { display: inline-block; width: 14px; height: 14px; border: 1px solid #0003; vertical-align: -2px; margin-right: 6px; }
+  #classes i { display: inline-block; width: 14px; height: 14px; border: 1px solid #0003; vertical-align: -2px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="view"><canvas id="map"></canvas><div id="hint">Hover over a cell to see its value, click it to keep it</div></div>
+  <div id="panel">
+    <header><h1>Raster vs. vector</h1></header>
+    <div class="body">
+    <h2>Cells across the map</h2>
+    <div class="seg" id="sizes"></div>
+    <h2>Counts</h2>
+    <div id="counts"></div>
+    <h2>Show</h2>
+    <div class="checks">
+    <label class="chk"><input type="checkbox" id="c-vector"> Vector data</label>
+    <label class="chk"><input type="checkbox" id="c-raster"> Raster cells</label>
+    <label class="chk"><input type="checkbox" id="c-vertices"> Vertices</label>
+    <label class="chk"><input type="checkbox" id="c-grid"> Grid lines</label>
+    </div>
+    <div id="info"><b>Detail</b>
+      <p>Vector data can, in principle, show any level of detail. In a raster, the detail depends on the spatial resolution.</p>
+    </div>
+    <table id="classes"></table>
+    <div class="val" id="found"></div>
+    <h2>Click values</h2>
+    <div id="picked"></div>
+      <footer class="credit">© Hans Blomme · Department of History · GhentCDH · Ghent University</footer>
+    </div>
+  </div>
+</div>
+<script>
+window.onerror = (m) => { document.getElementById("hint").textContent = "ERROR: " + m; };
+"use strict";
+// Fictional map, 1000 × 1000 map units (the map is 2 km wide). y runs downwards.
+const MAP_KM = 2;
+const LAKE = [[676,560],[679,600],[639,632],[618,668],[597,709],[529,712],[463,691],[420,690],[379,693],[333,701],[256,729],[178,728],[161,678],[164,631],[58,603],[176,580],[190,530],[182,494],[214,468],[262,456],[279,418],[308,368],[368,352],[432,355],[487,377],[581,347],[613,399],[565,478],[621,493],[646,524]];
+const ROAD = [[0,250],[44,290],[97,295],[151,283],[205,283],[258,305],[312,328],[366,323],[419,278],[473,212],[527,162],[581,150],[634,164],[688,175],[742,165],[795,145],[849,144],[903,181],[956,245],[1000,296]];
+const VILLAGES = [[145,123],[690,262],[735,305],[846,757]];   // two villages close together share a cell at 8 and 16 cells
+const NV = LAKE.length + ROAD.length + VILLAGES.length;
+// value, name, colour (each colour has one meaning)
+const CLASSES = [
+  { v: 0, name: "land", label: "Land (background)", color: "#dcebcb" },
+  { v: 1, name: "lake", label: "Lake (polygon)", color: "#7fa6e0" },
+  { v: 2, name: "road", label: "Road (line)", color: "#5e3a1a" },
+  { v: 3, name: "village", label: "Village (point)", color: "#f28c00" },
+];
+const SIZES = [8, 16, 32, 64, 128, 256];
+
+const hp = new URLSearchParams(location.hash.slice(1));
+const flag = (k, d) => hp.has(k) ? hp.get(k) !== "0" : d;
+const state = {
+  n: SIZES.includes(+hp.get("cells")) ? +hp.get("cells") : 16,
+  vector: flag("vector", true), raster: flag("raster", true), grid: flag("grid", false), vertices: flag("vertices", true),
+  hover: null,
+  picked: null,   // last clicked cell [row, column]
+};
+
+// --- rasterisation, as GDAL / QGIS do it: polygon by cell centre, line in every cell it touches, point in the cell that contains it ---
+function inPolygon(x, y, poly) {
+  let inside = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const [xi, yi] = poly[i], [xj, yj] = poly[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+const cellOf = (x, y, n) => Math.min(n - 1, Math.floor(y / (1000 / n))) * n + Math.min(n - 1, Math.floor(x / (1000 / n)));
+function rasterise(n) {
+  const c = 1000 / n, grid = new Uint8Array(n * n);
+  for (let r = 0; r < n; r++) for (let col = 0; col < n; col++)   // lowest priority first, later classes overwrite
+    if (inPolygon((col + 0.5) * c, (r + 0.5) * c, LAKE)) grid[r * n + col] = 1;
+  for (let i = 1; i < ROAD.length; i++) {   // walk each segment in steps of 1/50 cell and mark every cell it crosses
+    const [ax, ay] = ROAD[i - 1], [bx, by] = ROAD[i], steps = Math.ceil(Math.hypot(bx - ax, by - ay) / (c / 50));
+    for (let k = 0; k <= steps; k++) grid[cellOf(ax + (bx - ax) * k / steps, ay + (by - ay) * k / steps, n)] = 2;
+  }
+  for (const [x, y] of VILLAGES) grid[cellOf(x, y, n)] = 3;
+  return grid;
+}
+const cache = {};
+const gridFor = n => cache[n] || (cache[n] = rasterise(n));
+
+// --- drawing ---
+const hint = document.getElementById("hint");
+const view = document.getElementById("view"), cv = document.getElementById("map"), g = cv.getContext("2d");
+let box = { x: 0, y: 0, s: 1 };   // map square on screen (CSS pixels)
+const off = document.createElement("canvas"), og = off.getContext("2d");
+const rgb = CLASSES.map(k => [1, 3, 5].map(i => parseInt(k.color.slice(i, i + 2), 16)));
+
+function draw() {
+  const dpr = Math.min(2, window.devicePixelRatio || 1), w = view.clientWidth, h = view.clientHeight;
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); cv.style.width = w + "px"; cv.style.height = h + "px"; }
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.clearRect(0, 0, w, h);
+  const s = Math.max(50, Math.min(w - 32, h - 52)); box = { x: Math.round((w - s) / 2), y: 16, s };
+  hint.style.left = box.x + "px";
+  const n = state.n, grid = gridFor(n), k = s / 1000, X = x => box.x + x * k, Y = y => box.y + y * k;
+  g.fillStyle = CLASSES[0].color; g.fillRect(box.x, box.y, s, s);
+  if (state.raster) {
+    off.width = off.height = n;
+    const img = og.createImageData(n, n);
+    for (let i = 0; i < n * n; i++) { const c = rgb[grid[i]]; img.data.set([c[0], c[1], c[2], 255], 4 * i); }
+    og.putImageData(img, 0, 0);
+    g.imageSmoothingEnabled = false;
+    g.globalAlpha = state.vector ? 0.6 : 1;   // paler under the vector data, so both stay readable
+    g.drawImage(off, box.x, box.y, s, s);
+    g.globalAlpha = 1;
+  }
+  const dense = n >= 256 || s / n < 4;   // lines closer than 4 px only make the map grey
+  // too dense: grey out the Grid lines option instead of drawing a grey map (author, 2026-10-29)
+  const cg = document.getElementById("c-grid"); cg.disabled = dense; cg.parentElement.classList.toggle("off", dense);
+  cg.parentElement.title = dense ? "At this cell size the grid lines are too close together to draw." : "";
+  if (state.grid && !dense) {
+    const c = s / n; g.strokeStyle = n > 64 ? "rgba(0,0,0,.12)" : "rgba(0,0,0,.28)"; g.lineWidth = 1; g.beginPath();
+    for (let i = 1; i < n; i++) { const p = Math.round(box.x + i * c) + 0.5, q = Math.round(box.y + i * c) + 0.5; g.moveTo(p, box.y); g.lineTo(p, box.y + s); g.moveTo(box.x, q); g.lineTo(box.x + s, q); }
+    g.stroke();
+  }
+  if (state.vector) {
+    g.globalAlpha = 0.85; g.lineJoin = g.lineCap = "round";
+    g.beginPath(); LAKE.forEach(([x, y], i) => i ? g.lineTo(X(x), Y(y)) : g.moveTo(X(x), Y(y))); g.closePath();
+    g.fillStyle = "rgba(30,100,200,.25)"; g.fill(); g.strokeStyle = "#1e64c8"; g.lineWidth = 2.5; g.stroke();  // lake outline in UGent blue, cells in a tint of it
+    g.beginPath(); ROAD.forEach(([x, y], i) => i ? g.lineTo(X(x), Y(y)) : g.moveTo(X(x), Y(y)));
+    g.strokeStyle = CLASSES[2].color; g.lineWidth = 3; g.stroke();
+    for (const [x, y] of VILLAGES) { g.beginPath(); g.arc(X(x), Y(y), 6, 0, 2 * Math.PI); g.fillStyle = CLASSES[3].color; g.fill(); g.strokeStyle = "#fff"; g.lineWidth = 1.5; g.stroke(); }
+    g.globalAlpha = 1;
+  }
+  if (state.vertices) {
+    g.fillStyle = "#202020";
+    for (const [x, y] of [...LAKE, ...ROAD, ...VILLAGES]) { g.beginPath(); g.arc(X(x), Y(y), 2.6, 0, 2 * Math.PI); g.fill(); }
+  }
+  if (state.picked) {
+    const c = s / n, [r, col] = state.picked;
+    g.strokeStyle = "#1e64c8"; g.lineWidth = 3; g.strokeRect(box.x + col * c, box.y + r * c, c, c);
+  }
+  if (state.hover) {
+    const c = s / n, [r, col] = state.hover;
+    g.strokeStyle = "#202020"; g.lineWidth = 2; g.strokeRect(box.x + col * c, box.y + r * c, c, c);
+  }
+  g.strokeStyle = "#8a96a8"; g.lineWidth = 1; g.strokeRect(box.x + 0.5, box.y + 0.5, s - 1, s - 1);
+  // scale bar under the map, right: line style (ticks, numbers above), the 500 m tick ends exactly at the right edge of the map
+  const m = s / (MAP_KM * 1000), bw = 500 * m, bx = box.x + s - bw, by = box.y + s + 26;
+  g.strokeStyle = "#202020"; g.lineWidth = 1.5; g.beginPath(); g.moveTo(bx, by); g.lineTo(bx + bw, by);
+  for (let i = 0; i <= 10; i++) { const x = Math.min(Math.round(bx + i * bw / 10) + 0.5, bx + bw - 0.75), len = i % 5 === 0 ? 9 : 5; g.moveTo(x, by - len); g.lineTo(x, by); }
+  g.stroke();
+  g.fillStyle = "#202020"; g.font = "12px " + getComputedStyle(document.body).fontFamily; g.textAlign = "center"; g.textBaseline = "bottom";
+  for (const [d, t] of [[0, "0"], [250, "250"], [500, "500"]]) g.fillText(t, bx + d * m, by - 10);
+  g.textAlign = "left"; g.fillText(" m", bx + bw + g.measureText("500").width / 2, by - 10);
+}
+
+// --- panel ---
+const fmt = v => v.toLocaleString("en-GB");
+function updatePanel() {
+  const n = state.n, grid = gridFor(n), m = MAP_KM * 1000 / n;
+  const res = (() => { const e = Math.round(m * 100) === m * 100, t = e ? String(m) : m.toFixed(1); return `<span style="white-space:nowrap">${e ? "" : "about "}<b>${t} × ${t}</b> m</span>`; })();
+  document.getElementById("counts").innerHTML =
+    `<p><span class="res">Spatial resolution:</span> ${res}</p><p>Raster: <b>${n} × ${n} = ${fmt(n * n)}</b> cells</p><p>Vector: <b>${NV}</b> vertices</p>`;
+  const cnt = [0, 0, 0, 0]; for (const v of grid) cnt[v]++;
+  document.getElementById("classes").innerHTML = `<tr><td></td><td>Value</td><td>Class</td><td class="n">Cells</td></tr>` + CLASSES.map(k =>
+    `<tr><td><i style="background:${k.color}"></i></td><td>${k.v}</td><td>${k.label}</td><td class="n">${fmt(cnt[k.v])}</td></tr>`).join("") +
+    "";
+  document.getElementById("found").textContent = `Village cells: ${cnt[3]} (${VILLAGES.length} villages)`;
+  document.querySelectorAll(".nv").forEach(e => e.textContent = NV);
+  setPicked();
+  const el = document.getElementById("sizes"); el.innerHTML = "";
+  for (const s of SIZES) {
+    const b = document.createElement("button"); b.textContent = s; if (s === n) b.className = "on";
+    b.title = `${s} × ${s} cells`;
+    b.onclick = () => { state.n = s; state.hover = null; state.picked = null; setHint(); refresh(); }; el.appendChild(b);
+  }
+}
+for (const k of ["vector", "raster", "grid", "vertices"]) {
+  const c = document.getElementById("c-" + k); c.checked = state[k];
+  c.onchange = () => { state[k] = c.checked; refresh(); };
+}
+function writeHash() {
+  const h = `cells=${state.n}&vector=${+state.vector}&raster=${+state.raster}&grid=${+state.grid}&vertices=${+state.vertices}`;
+  try { history.replaceState(null, "", "#" + h); } catch (e) { /* not allowed in some embeds */ }
+}
+function refresh() { updatePanel(); draw(); writeHash(); }
+
+// --- hover: row, column and value of the cell ---
+function setHint() {
+  if (!state.hover) { hint.textContent = "Hover over a cell to see its value, click it to keep it"; return; }
+  const [r, col] = state.hover, v = gridFor(state.n)[r * state.n + col];
+  hint.textContent = `Row ${r + 1}, column ${col + 1} (of ${state.n}): value ${v}, ${CLASSES[v].name}`;
+}
+view.addEventListener("pointermove", e => {
+  const rect = view.getBoundingClientRect(), x = e.clientX - rect.left - box.x, y = e.clientY - rect.top - box.y;
+  const c = box.s / state.n, inside = x >= 0 && y >= 0 && x < box.s && y < box.s;
+  const hov = inside ? [Math.floor(y / c), Math.floor(x / c)] : null;
+  if (String(hov) !== String(state.hover)) { state.hover = hov; setHint(); draw(); }
+});
+// --- click: keep the value of the last clicked cell in the panel ---
+function setPicked() {
+  const el = document.getElementById("picked");
+  if (!state.picked) { el.innerHTML = "<p>Click a cell on the map.</p>"; return; }
+  const [r, col] = state.picked, v = gridFor(state.n)[r * state.n + col], k = CLASSES[v];
+  el.innerHTML = `<p>Row ${r + 1}, column ${col + 1} (of ${state.n})</p><p><i style="background:${k.color}"></i>Value <b>${v}</b>: ${k.label}</p>`;
+}
+view.addEventListener("click", e => {
+  const rect = view.getBoundingClientRect(), x = e.clientX - rect.left - box.x, y = e.clientY - rect.top - box.y;
+  const c = box.s / state.n;
+  if (x < 0 || y < 0 || x >= box.s || y >= box.s) return;
+  state.picked = [Math.floor(y / c), Math.floor(x / c)]; setPicked(); draw();
+});
+view.addEventListener("pointerleave", () => { state.hover = null; setHint(); draw(); });
+window.addEventListener("hashchange", () => {
+  const p = new URLSearchParams(location.hash.slice(1));
+  if (SIZES.includes(+p.get("cells")) && +p.get("cells") !== state.n) { state.n = +p.get("cells"); state.picked = null; }
+  for (const k of ["vector", "raster", "grid", "vertices"]) if (p.has(k)) { state[k] = p.get(k) !== "0"; document.getElementById("c-" + k).checked = state[k]; }
+  updatePanel(); draw();
+});
+let raf = 0;
+new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); }).observe(view);
+refresh();
+</script>
+</body>
+</html>

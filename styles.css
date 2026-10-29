@@ -195,3 +195,9 @@ main h3 { color: #174e9c; }
 .table { --bs-table-striped-bg: #f4f7fc; }
 thead th { color: #1e64c8; }
 .unreleased { outline: 2px dashed #e0a050; outline-offset: 4px; }  /* dev only: publish.lua drops .unreleased */
+
+/* Interactive pages (author, 2026-10-29): one tool per iframe, full page width */
+.tool-frame { width: 100%; height: 800px; border: 2px solid #a5c1e9; border-radius: 4px; background: #a5c1e9; }
+@media (min-width: 992px) { body.interactive-page .tool-frame { width: min(1150px, calc(100vw - 460px)); max-width: none; } }
+/* Interactive pages: more room between the tool sections (author, 2026-10-29) */
+body.interactive-page main section.level2 ~ section.level2 > h2 { margin-top: 5rem; }  /* every tool after the first */
