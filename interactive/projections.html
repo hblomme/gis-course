@@ -611,7 +611,7 @@ function renderPresets() {   // dropdown; presets with mathematical corrections 
   };
   const warn = document.getElementById("warn");
   warn.hidden = !(cur && isCalc(cur));
-  warn.innerHTML = '<b>Attention<span class="ast">*</span></b>This projection is not purely geometric: <strong>mathematical adjustments</strong> are applied. Unroll the surface to see them as arrows.';
+  warn.innerHTML = '<b>Attention<span class="ast">*</span></b>This projection is not purely geometric: <strong>mathematical formulas</strong> define the result. Unroll the surface to see the difference as arrows.';
 }
 document.addEventListener("click", e => { const dd = document.getElementById("presetDD"); if (!dd.contains(e.target)) dd.querySelector("ul")?.remove(); });
 function renderControls() {
