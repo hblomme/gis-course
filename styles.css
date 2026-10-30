@@ -206,3 +206,11 @@ thead th { color: #1e64c8; }
 @media (min-width: 992px) { body.interactive-page .tool-frame { width: min(1150px, calc(100vw - 460px)); max-width: none; } }
 /* Interactive pages: more room between the tool sections (author, 2026-10-29) */
 body.interactive-page main section.level2 ~ section.level2 > h2 { margin-top: 5rem; }  /* every tool after the first */
+/* button icons in tables (6.1 Toolbox toolbar): fixed size, column only as wide as the icon */
+img.btn-icon { width: 24px; height: 24px; max-width: none; margin: 0; }
+td:has(> p > img.btn-icon), td:has(> img.btn-icon) { width: 40px; }
+img.btn-icon.inline { width: 20px; height: 20px; vertical-align: -4px; margin: 0 1px; }
+/* crops of status bar widgets in the 3.4 table: same height, column as wide as the widest crop */
+img.sb-crop { height: 26px; width: auto; max-width: none; margin: 0; }
+td:has(> p > img.sb-crop), td:has(> img.sb-crop) { width: 175px; white-space: nowrap; }
+td:has(> p > img.sb-crop) + td, td:has(> img.sb-crop) + td { white-space: nowrap; }   /* names on one line (author) */
