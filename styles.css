@@ -41,7 +41,12 @@ kbd {
 .del .menu-path, div.del .menu-path { background: none; }
 
 /* Section headings: one subtle accent colour (remove this rule to make them black again) */
-main h2 { color: #1e64c8; }
+/* titles clearly apart from the text (the font is light): bold, larger steps, more room above; bold in the text bold too (author: semibold did not stand out) */
+b, strong { font-weight: 700; }
+main h2 { color: #1e64c8; font-size: 1.85rem; margin-top: 2.6rem; }
+main h3 { font-size: 1.4rem; margin-top: 2rem; }
+main h4 { font-size: 1.15rem; margin-top: 1.6rem; }
+#title-block-header h1.title { font-size: 2.5rem; }
 .green { color: #00860d; }
 .orange { color: #d97a00; }
 .mark { background: #ffe599; }
@@ -183,7 +188,7 @@ body:has(.cover) #title-block-header, body:has(.cover) header#title-block-header
 .sidebar-header img.sidebar-logo { max-height: 78px; width: auto; padding: 0; }
 .sidebar-header .sidebar-title { background: #1e64c8; padding: 1.1rem 1rem 1rem !important; }
 .sidebar-header .sidebar-title a, .sidebar-header .sidebar-title { color: #fff !important; }
-.sidebar-title { font-family: "UGent Panno Text Medium", "PannoTextMedium", "UGent Panno Text", Arial, sans-serif; font-weight: 500;
+.sidebar-title { font-family: "Source Sans 3", Arial, sans-serif; font-weight: 500;
   text-transform: uppercase; letter-spacing: .01em; font-size: 1.15rem; line-height: 1.2; }
 .sidebar-header .sidebar-tools-main a, .sidebar-header .quarto-navigation-tool { color: #fff !important; }
 .sidebar-navigation .sidebar-item-section > .sidebar-item-container .sidebar-item-text { color: #1e64c8; }
