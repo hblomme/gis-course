@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Introduction to QGIS",
+    "title": "Introduction to GIS",
     "section": "",
-    "text": "Introduction to QGIS\n\nA learning path with exercises\n\n\nHans Blomme\nDepartment of History · Ghent Centre for Digital Humanities\nGhent University\n\n\n\n\n\n2026 · based on QGIS 4\n\nStart the learning path →\n\nText licensed under CC BY 4.0: you may reuse and adapt it, with attribution.",
+    "text": "Introduction to GIS\n\nA learning path for QGIS 4\n\n\nTheory, interactive tools, step-by-step instructions, examples and exercises focused mainly on history and the humanities\n\n\nHans Blomme\nDepartment of History · Ghent Centre for Digital Humanities\nGhent University\n\n\n\n\n\n2026\n\nStart the learning path →\n\nText licensed under CC BY 4.0: you may reuse and adapt it, with attribution.",
     "crumbs": [
       "Cover"
     ]
@@ -1038,7 +1038,7 @@
     "href": "before-you-start.html",
     "title": "Before you start",
     "section": "",
-    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
+    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS. The examples and exercises focus mainly on use cases from history and the humanities, but anyone who wants to learn QGIS can use it.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
     "crumbs": [
       "Before you start"
     ]
@@ -1048,7 +1048,7 @@
     "href": "before-you-start.html#a-learning-path-not-documentation",
     "title": "Before you start",
     "section": "",
-    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
+    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS. The examples and exercises focus mainly on use cases from history and the humanities, but anyone who wants to learn QGIS can use it.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
     "crumbs": [
       "Before you start"
     ]
