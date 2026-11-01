@@ -215,3 +215,27 @@ img.btn-icon.inline { width: 20px; height: 20px; vertical-align: -4px; margin: 0
 img.sb-crop { height: 26px; width: auto; max-width: none; margin: 0; }
 td:has(> p > img.sb-crop), td:has(> img.sb-crop) { width: 175px; white-space: nowrap; }
 td:has(> p > img.sb-crop) + td, td:has(> img.sb-crop) + td { white-space: nowrap; }   /* names on one line (author) */
+
+/* table heading over two columns: no line under the spanning row */
+table thead th[colspan] {
+  border-bottom: 0 !important;
+  padding-bottom: 0;
+}
+table thead tr:has(th[colspan]) {
+  border-bottom: 0 !important;
+}
+table thead tr:has(th[colspan]) + tr th {
+  border-top: 0 !important;
+}
+
+/* clearer difference between subheadings */
+#quarto-content main h4 {
+  font-size: 1.25rem;
+}
+#quarto-content main h5 {
+  font-size: 1.02rem;
+  color: #3a4750;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 1.4em;
+}

@@ -1463,5 +1463,295 @@
       "5 Coordinate systems",
       "5.3 Interactive"
     ]
+  },
+  {
+    "objectID": "layouts/layouts-general.html",
+    "href": "layouts/layouts-general.html",
+    "title": "6.1 General: layouts",
+    "section": "",
+    "text": "So far, you have worked with the interactive map canvas in QGIS. This is an ideal environment for exploring, querying and editing your spatial data. However, when you want to publish a map, for example as a printed document or an image file, you need a static map rather than an interactive view.\nThe map canvas is not designed to produce finished maps for publication. Although it displays your data, it lacks some of the essential elements needed to provide context, such as a legend. Moreover, it does not allow you to compose an appealing layout in which different elements, such as a map title, a north arrow or a scale bar, can be arranged alongside the map.\nTo create maps that are ready for publication, QGIS provides a dedicated environment: the Print Layout. It allows you to combine your map with all the necessary cartographic elements and arrange them into a finished composition.\n\n\n\n\n\n\nA large part of the classic QGIS interface is taken up by the map canvas.\n\n\n\n\n\n\n\nA map with a finished layout, made in QGIS.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.1 General: layouts"
+    ]
+  },
+  {
+    "objectID": "layouts/layouts-general.html#layouts",
+    "href": "layouts/layouts-general.html#layouts",
+    "title": "6.1 General: layouts",
+    "section": "",
+    "text": "So far, you have worked with the interactive map canvas in QGIS. This is an ideal environment for exploring, querying and editing your spatial data. However, when you want to publish a map, for example as a printed document or an image file, you need a static map rather than an interactive view.\nThe map canvas is not designed to produce finished maps for publication. Although it displays your data, it lacks some of the essential elements needed to provide context, such as a legend. Moreover, it does not allow you to compose an appealing layout in which different elements, such as a map title, a north arrow or a scale bar, can be arranged alongside the map.\nTo create maps that are ready for publication, QGIS provides a dedicated environment: the Print Layout. It allows you to combine your map with all the necessary cartographic elements and arrange them into a finished composition.\n\n\n\n\n\n\nA large part of the classic QGIS interface is taken up by the map canvas.\n\n\n\n\n\n\n\nA map with a finished layout, made in QGIS.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.1 General: layouts"
+    ]
+  },
+  {
+    "objectID": "layouts/layouts-general.html#layout-tool",
+    "href": "layouts/layouts-general.html#layout-tool",
+    "title": "6.1 General: layouts",
+    "section": "Print Layout",
+    "text": "Print Layout\nTo create a new (empty) Print Layout, choose Project ▸ New Print Layout… from the menu bar. QGIS first asks you to enter a name, after which a blank Print Layout window opens.\nYou can create as many layouts as you like. Each has its own name and is saved in the QGIS project, so make sure you save your project!\nYou can manage your existing layouts in the Layout Manager (Project ▸ Layout Manager…). Here, they are all listed in a single overview, and you can easily open, duplicate, rename or delete them.\n\n\nLayout window\nThe layout window is organised in a similar way to the main QGIS window. It has:\n\na menu bar (A)\ncustomisable toolbars (B → D)\ncustomisable panels (F → J)\na layout page in the centre (E). Here you arrange your items. The layout page can contain one or more maps, but it is not a map canvas itself.\n\n\n\n\nToolbars\nThe layout window has several toolbars (B, C, D). Most of their buttons work in the same way as the corresponding buttons in the main QGIS window, for example for saving, zooming, refreshing or undoing changes. However, they now apply specifically to the Print Layout. Keep in mind that zooming does not change your map: you only look closer at the layout page. The scale of the map itself stays the same.\nBelow, we focus on the toolbar that stands out: the Toolbox toolbar (D). By default this toolbar runs vertically along the far left of the window. To save space, we show it horizontally here.\n\nWe do not discuss every button. The table follows the order of the toolbar.\n\n\n\n\nPan tool\nMoves your view of the layout page. Like the zoom buttons, it only affects your view of the page, not the content shown in a map item.\n\n\n\nSelection arrow\nBelow, you will see how you can add items to your layout. With this tool you can select these items, so you can move or change them.\n\n\n\nMove item content\nWith this tool selected, you can pan the content inside a map item. When your mouse does not hover over a map item, nothing happens.\n\n\n\nMap\nAdds a map item to the layout page. You can add multiple maps to a single layout. By default a map is centred on what is visible in the map canvas of the main QGIS window. On the next page, Configuring layout items, we explain how you can change this. To use this tool, draw a rectangle on the layout page while you hold down the left mouse button.\n\n\n\nImage\nAdds an image.\n\n\n\nLabel\nAdds a label: a text box. By default it contains the sample text ‘Lorem ipsum’.\n\n\n\nLegend\nAdds a legend.\n\n\n\nScale bar\nAdds a scale bar.\n\n\n\nNorth arrow\nAdds a north arrow.\n\n\n\nShape\nDraws a geometrical shape, such as a rectangle, ellipse or triangle.\n\n\n\nArrow\nDraws a line, with or without an arrow.\n\n\n\nAttribute table\nAdds an attribute table item.\n\n\n\n\n\n\n\n\n\nWith both the pan tool  and Move item content  you pan through your content by dragging with your mouse. However, they work on different levels. With the pan tool, you move your view of the layout page. At this level, a map is just an item like any other. With Move item content selected, you dive into the map itself: you adjust the extent shown in the map item, the part of the world that it shows.\n\n\n\nButton icons: QGIS project (GNU GPL).\n\n\nItems and item properties\n\nEvery building block of your layout is an item. An item can be large (a map) or small (a title, a north arrow, etc.). On the layout page, you can select an item and drag it to exactly the place where you want it.\nThe Items panel (F) lists all items in the layout. If you select an item on the layout page (E) using the selection arrow  in D, it is also selected in the Items panel and vice versa. In the Items panel you can, among other things, decide which items are visible or hidden (using the checkbox under ). You can also lock items (using the checkbox under ): on the layout page, a locked item can no longer be selected, moved or resized, and you can no longer move the content of a locked map item. This prevents accidental changes. As in the Layers panel, the order determines which item appears on top when they overlap. You can also give each item a name here, so you can easily tell them apart.\nYou set the content and appearance of each item in the Item Properties panel (I), rather than directly on the layout page. For example, you first place a label on the layout page. Next, you can adjust its text in the Item Properties panel. The panel always shows the properties of the selected item.\n\n\n\n\n\n\nIf you have made an unwanted change to your layout, the Undo History panel (G) lists your changes in chronological order, so you can easily undo one or more of them.\n\n\n\nOn the next page, Configuring layout items, we look at the most important items and their properties in more detail.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.1 General: layouts"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items.html",
+    "href": "layouts/layout-items.html",
+    "title": "6.2.1 Basic item properties",
+    "section": "",
+    "text": "Each item in your layout has its own properties. When you select an item, the Item Properties panel (I) displays them. This is where you configure its content and how it looks.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.1 Basic item properties"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items.html#item-properties",
+    "href": "layouts/layout-items.html#item-properties",
+    "title": "6.2.1 Basic item properties",
+    "section": "",
+    "text": "Each item in your layout has its own properties. When you select an item, the Item Properties panel (I) displays them. This is where you configure its content and how it looks.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.1 Basic item properties"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items.html#configuring-basic-item-properties",
+    "href": "layouts/layout-items.html#configuring-basic-item-properties",
+    "title": "6.2.1 Basic item properties",
+    "section": "Configuring basic item properties",
+    "text": "Configuring basic item properties\nEvery item has a set of properties. Some are common to all items, while others depend on the type of item. The most important of these common properties is Position and Size. Here, you can specify the item’s exact position on the layout page with micron-level precision, as well as its height and width independently.\nOther general properties include:\n\nFrame: add a frame around the item and customise its appearance.\nBackground: set a background for the item.\nRendering: adjust the item’s transparency, making it (partly) transparent.\n\nIn addition to these common settings, each item type has some specific properties. For example:\n\nLabel item: edit the text under Main Properties (by default, this is ‘Lorem ipsum’). You can adjust the font family, size, colour and other text formatting options under Appearance.\nImage item: a new image item starts as an empty frame, a placeholder for your image. To choose which image to display, you can use the file browser in the Item Properties panel to select an image from your computer, or choose an SVG image from the QGIS library.\nShape item: choose the shape (rectangle, ellipse or triangle) and configure its appearance under Main Properties.\nArrow item: configure the line’s colour, thickness and dash pattern under Main Properties. You can also add arrows at either end under Line Markers.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.1 Basic item properties"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items.html#more-advanced-items",
+    "href": "layouts/layout-items.html#more-advanced-items",
+    "title": "6.2.1 Basic item properties",
+    "section": "More advanced items",
+    "text": "More advanced items\nThe item types listed above are simple and have few configuration options. On the next pages we discuss more advanced ones: map items and legends, scale bars and north arrows.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.1 Basic item properties"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-maps.html",
+    "href": "layouts/layout-items-maps.html",
+    "title": "6.2.2 Map items",
+    "section": "",
+    "text": "As you learned in General: layouts, a Print Layout is simply a page on which you can add items. This means you also have to add the map frame itself as an item. When you add a new map item, it initially reflects the map as it appears in the map canvas of the main QGIS window: it displays the same area (adjusted to fit the shape of the map item) and uses the same layer visibility and styles.\nFrom that moment on, by default, map items in the layout continue to reflect changes to layer visibility and symbology in the main QGIS window. However, changes to the map canvas extent do not affect them. Panning or zooming in the main QGIS window, for example, does not change the area or scale displayed in the maps on your layout.\nThe following examples illustrate this distinction:\n\n\n\n\n\n\n\nBy default, map items in the layout…\n\n\nare updated (follow the map canvas) when you:\nremain unchanged (do NOT follow the map canvas) when you:\n\n\n\n\nmake a layer (in)visible in the Layers panel\npan the map (by dragging or re-centring it)\n\n\nchange the symbology of a layer, for example its colour\nzoom in or out, thereby changing the scale\n\n\nadd labels or change their appearance (font…)\nmake a selection\n\n\nadd diagrams to your layer\n\n\n\nremove a layer or add a new layer to your project\n\n\n\nupdate a layer’s data\n\n\n\n\n\n\n\n\n\n\nSometimes the automatic updates only become visible in your layout after you have clicked refresh  or Update Preview.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.2 Map items"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-maps.html#what-a-map-item-shows",
+    "href": "layouts/layout-items-maps.html#what-a-map-item-shows",
+    "title": "6.2.2 Map items",
+    "section": "",
+    "text": "As you learned in General: layouts, a Print Layout is simply a page on which you can add items. This means you also have to add the map frame itself as an item. When you add a new map item, it initially reflects the map as it appears in the map canvas of the main QGIS window: it displays the same area (adjusted to fit the shape of the map item) and uses the same layer visibility and styles.\nFrom that moment on, by default, map items in the layout continue to reflect changes to layer visibility and symbology in the main QGIS window. However, changes to the map canvas extent do not affect them. Panning or zooming in the main QGIS window, for example, does not change the area or scale displayed in the maps on your layout.\nThe following examples illustrate this distinction:\n\n\n\n\n\n\n\nBy default, map items in the layout…\n\n\nare updated (follow the map canvas) when you:\nremain unchanged (do NOT follow the map canvas) when you:\n\n\n\n\nmake a layer (in)visible in the Layers panel\npan the map (by dragging or re-centring it)\n\n\nchange the symbology of a layer, for example its colour\nzoom in or out, thereby changing the scale\n\n\nadd labels or change their appearance (font…)\nmake a selection\n\n\nadd diagrams to your layer\n\n\n\nremove a layer or add a new layer to your project\n\n\n\nupdate a layer’s data\n\n\n\n\n\n\n\n\n\n\nSometimes the automatic updates only become visible in your layout after you have clicked refresh  or Update Preview.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.2 Map items"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-maps.html#turning-off-automatic-updates",
+    "href": "layouts/layout-items-maps.html#turning-off-automatic-updates",
+    "title": "6.2.2 Map items",
+    "section": "Turning off automatic updates",
+    "text": "Turning off automatic updates\nAutomatic updates of your map in the layout environment can be useful, but in certain cases they are not desirable.\nFor example, suppose you want to display two maps on your layout page: one showing a wider area for an overview, and another zooming in on a specific region to show more detail. Some layers containing detailed information should appear on the detail map only, while the overview map should show more general labels. In this case, you need two different map configurations at the same time.\n\nLock layers and Lock styles for layers\nIn such cases, you can turn off automatic updates in the layout environment. To do so, map items have two options under the Layers group (I2) in their Item Properties: Lock layers and Lock styles for layers.\n\nWhen you select Lock layers, the map item retains the layer visibility as it is at that moment. Subsequent changes to layer visibility (using the checkboxes in the Layers panel) will no longer be reflected in the map item.\nSimilarly, Lock styles for layers preserves the layer styles as they are when you enable the option. Any later changes to symbology (such as colours and shapes), labels or diagrams will not be applied to the map item. This option is only available once Lock layers is ticked.\n\n\n\n\n\n\nYou cannot edit the styles of a locked map item. As soon as you untick Lock layers or Lock styles for layers, the map item is synchronised with the current settings in the map canvas. This means that any custom configuration you have locked in is lost.\n\n\n\n\n\nFollow map theme\nA more flexible way to keep your layout maps independent of the active map canvas is to use map themes. As you saw in Saving and reusing styles, a map theme stores which layers are visible and which style is active for each. QGIS allows you to assign such a theme to a map item in the print layout. This way, you can both control the map item’s display independently of the map canvas and easily update its appearance by editing the corresponding map theme.\n\nThe example layout in the image above was created using two separate map themes. The detail map follows the map theme Detail map, the overview map follows the map theme Overview map.\nThe Overview map theme shows the towns of Flanders, using circles to represent their population. To make the Liberty of Bruges stand out, it is displayed in dark red without an outline, while the Low Countries are shown in blue-grey with region names.\nThe Detail map theme, on the other hand, shows the towns within the Liberty of Bruges. Here, the Liberty of Bruges is displayed in a soft clay colour, while the Low Countries are light grey without region names, making the town names easier to read.\nTo do this:\n\nIn your main QGIS window, give each layer that should look different a style for each map (right-click the layer in the Layers panel, Styles ▸ Add…) and configure it as desired.\nAt the top of the Layers panel in your main QGIS window, choose Manage Map Themes ▸ Add Theme… to save a map theme for each map.\nIn your Print Layout window, select a map item and go to its Item Properties. Under Layers, tick Follow map theme and choose the map theme of this map.\nDo the same for the other map item.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.2 Map items"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-maps.html#scale-and-extent",
+    "href": "layouts/layout-items-maps.html#scale-and-extent",
+    "title": "6.2.2 Map items",
+    "section": "Scale and extent",
+    "text": "Scale and extent\nTo set the desired scale and extent of a map item, go to the Item Properties panel and adjust the settings under Main Properties (I1, Scale) and Extents (I3), respectively. You can also move the map content within the item using the Move item content tool , as explained in General: layouts.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.2 Map items"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-maps.html#coordinate-reference-system",
+    "href": "layouts/layout-items-maps.html#coordinate-reference-system",
+    "title": "6.2.2 Map items",
+    "section": "Coordinate reference system",
+    "text": "Coordinate reference system\nEach map item also has its own CRS setting under Main Properties (I1). By default, it is set to Use Project CRS. The map item then follows the CRS that is active in your QGIS project (see Coordinate system of the QGIS project). You can also choose a different CRS here, separately for each map item. This allows you to combine maps in different projections within a single layout. For example, you could use a national CRS such as Belgian Lambert 72 for a detail map and ETRS89-extended / LCC Europe for an overview map of Europe. Choosing a suitable projection for each map helps to minimise distortions at both scales.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.2 Map items"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-maps.html#overview-of-another-map",
+    "href": "layouts/layout-items-maps.html#overview-of-another-map",
+    "title": "6.2.2 Map items",
+    "section": "Overview of another map",
+    "text": "Overview of another map\nYou might have noticed that the overview map in the example layout above shows a frame around the area that is covered by the detail map. QGIS can draw this frame automatically, so that it always matches the extent of the detail map exactly. Changing the scale of the detail map or moving its content updates the frame accordingly. \n\n\n\n\n\n\nTry it yourself: Overview map and extent frame\n\n\n\nYou can easily add an overview through the Item Properties of the overview map:\n\nGo to the Overviews section (I5) and click the green plus symbol.\nA new overview is created and appears in the list below the plus and minus buttons. You can select an overview in this list to configure its properties.\nUnder Map frame, select the map whose extent you want to display (in this case, the detail map).\nUnder Frame style, configure the appearance of the frame. By default, this is a semi-transparent pink fill. In the example above, it was changed to a dark outline without a fill.\n\n\nA layout can contain more than two maps. You can therefore add several overviews to a single map. It then shows several frames, each of which can be configured independently.\n\n\n\n\n\n\nIn the example layout above, two dashed lines connect the overview frame to the detail map itself. QGIS does not draw these lines automatically. They were added manually as arrow items, to make the map easier to read.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.2 Map items"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-maps.html#grids",
+    "href": "layouts/layout-items-maps.html#grids",
+    "title": "6.2.2 Map items",
+    "section": "Grids",
+    "text": "Grids\nThe Item Properties of a map also allow you to add one or more fully customisable grids (Grids, I4). These can be, for example, longitude and latitude lines or a grid in metres for a projected CRS.\n\n\n\nThe overview map of the example layout with a grid of longitude and latitude lines, every 1°.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.2 Map items"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-legend.html",
+    "href": "layouts/layout-items-legend.html",
+    "title": "6.2.3 Legend, scale bar and north arrow",
+    "section": "",
+    "text": "A legend helps readers understand what the symbols on your map represent. It shows each layer with its name and associated symbology. For categorized or graduated layers, each class is listed separately.\nIf your layout contains several maps, first make sure that the legend is linked to the right map. You set this under Main Properties (I1) in the legend’s Item Properties (Map). In the same section, you also set the arrangement of the legend: should the text labels appear before or after the symbols? If Resize to fit contents is ticked, the width and height of the legend are adapted automatically, so that all legend items just fit in. This is important if you want to show a background or a frame around the legend.\n\nIn the other sections of a legend’s Item Properties, you can further configure its appearance and choose which layers should be mentioned. For the latter, you will find three options under Legend Items (I2):\n\nSynchronize to All Project Layers: the legend shows all layers of your project, also the layers you have switched off in the Layers panel.\nSynchronize to Visible Layers: the legend only shows the layers that are switched on in your project. If the legend is linked to a map that follows a map theme, it shows the layers that are active in this theme instead. With this option, the inactive layers are still listed in the Item Properties under Legend Items (I3), but they no longer appear in the legend on the layout itself.\n\nWith both synchronize options, the legend is updated automatically when you change the style or the name of a layer.\n\nManual: the list of layers shown in the legend is no longer kept in sync with your project. You decide yourself which layers the legend shows, by adding and removing items with the plus and minus buttons (I4). By default, the names and styles of these layers still follow the changes in your project or map theme. With Manual, however, you can override both: double-click a legend item, or select it and click Edit selected item properties , to change its label (I6) or to set a Custom Symbol (I7). Once you have done this, your manual settings always overrule later changes to the style or name.\n\n\nTo fine-tune your legend further, QGIS offers the option to Only show items inside linked maps (I5). QGIS then removes every layer, or class of a layer, of which no features are visible in the linked map. That way your legend never shows unnecessary items.\n\n\n\n\n\n\nPay attention to the labels in your legend. By default, a legend item shows the layer name as it appears in the Layers panel, and these are not always suitable for a published map (for example file or system names). When working with legends, make sure your layers have clear names. If your legend needs a label other than the layer name, you can easily set it with Manual. With the synchronize options this is possible too, but you have to use the expression builder.\n\n\n\nFor the appearance of the legend, you set, for example, the font and font size under Fonts and Text Formatting, the number of columns under Columns, the size of the symbols under Symbol, and the space between legend items and between text and symbols under Spacing.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.3 Legend, scale bar and north arrow"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-legend.html#legend",
+    "href": "layouts/layout-items-legend.html#legend",
+    "title": "6.2.3 Legend, scale bar and north arrow",
+    "section": "",
+    "text": "A legend helps readers understand what the symbols on your map represent. It shows each layer with its name and associated symbology. For categorized or graduated layers, each class is listed separately.\nIf your layout contains several maps, first make sure that the legend is linked to the right map. You set this under Main Properties (I1) in the legend’s Item Properties (Map). In the same section, you also set the arrangement of the legend: should the text labels appear before or after the symbols? If Resize to fit contents is ticked, the width and height of the legend are adapted automatically, so that all legend items just fit in. This is important if you want to show a background or a frame around the legend.\n\nIn the other sections of a legend’s Item Properties, you can further configure its appearance and choose which layers should be mentioned. For the latter, you will find three options under Legend Items (I2):\n\nSynchronize to All Project Layers: the legend shows all layers of your project, also the layers you have switched off in the Layers panel.\nSynchronize to Visible Layers: the legend only shows the layers that are switched on in your project. If the legend is linked to a map that follows a map theme, it shows the layers that are active in this theme instead. With this option, the inactive layers are still listed in the Item Properties under Legend Items (I3), but they no longer appear in the legend on the layout itself.\n\nWith both synchronize options, the legend is updated automatically when you change the style or the name of a layer.\n\nManual: the list of layers shown in the legend is no longer kept in sync with your project. You decide yourself which layers the legend shows, by adding and removing items with the plus and minus buttons (I4). By default, the names and styles of these layers still follow the changes in your project or map theme. With Manual, however, you can override both: double-click a legend item, or select it and click Edit selected item properties , to change its label (I6) or to set a Custom Symbol (I7). Once you have done this, your manual settings always overrule later changes to the style or name.\n\n\nTo fine-tune your legend further, QGIS offers the option to Only show items inside linked maps (I5). QGIS then removes every layer, or class of a layer, of which no features are visible in the linked map. That way your legend never shows unnecessary items.\n\n\n\n\n\n\nPay attention to the labels in your legend. By default, a legend item shows the layer name as it appears in the Layers panel, and these are not always suitable for a published map (for example file or system names). When working with legends, make sure your layers have clear names. If your legend needs a label other than the layer name, you can easily set it with Manual. With the synchronize options this is possible too, but you have to use the expression builder.\n\n\n\nFor the appearance of the legend, you set, for example, the font and font size under Fonts and Text Formatting, the number of columns under Columns, the size of the symbols under Symbol, and the space between legend items and between text and symbols under Spacing.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.3 Legend, scale bar and north arrow"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-legend.html#scale-bar",
+    "href": "layouts/layout-items-legend.html#scale-bar",
+    "title": "6.2.3 Legend, scale bar and north arrow",
+    "section": "Scale bar",
+    "text": "Scale bar\nIf you add a scale bar to your map, QGIS automatically makes sure that it shows the correct scale. If you later change the scale of your map item, the scale bar adapts automatically.\n\n\n\n\n\n\nMake sure that the map the scale bar is linked to uses a suitable coordinate system (see Coordinate reference system), so that the scale bar is as reliable as possible for the whole map.\n\n\n\n\nQGIS calculates the width of the scale bar for you, but you still choose how it looks:\n\nIn the Item Properties of the scale bar, under Main Properties (I8), you first choose which map you want to show the scale of (important if your layout contains several maps). You can also choose a general scale bar style there. The image below gives an overview of the options.\n\nUnder Units (I9), you choose the unit of the scale bar (Scalebar units, for example ‘Kilometers’) and its label on the scale bar (Label for units, for example ‘km’). Normally, the Label unit multiplier is 1. On the rare occasion that the unit you want is not in the list, you can use the multiplier. For hectometres, for example, choose Meters with a multiplier of 100. Under Method, you choose where on the map the scale bar distance is measured. In a projected CRS, the scale can differ across the map.\nUnder Segments (I10) you then decide how many parts (or segments) your scale bar has and how many of them are shown to the left and right of the zero point. You also set how wide each segment is.\n\nFinally, under  Appearance (I11) you can adjust some stylistic elements (for example position of the labels, font and font size, line and fill symbols…).\n\n\n\n\n\n\n\nTry it yourself: Scale bar and coordinate system",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.3 Legend, scale bar and north arrow"
+    ]
+  },
+  {
+    "objectID": "layouts/layout-items-legend.html#north-arrow",
+    "href": "layouts/layout-items-legend.html#north-arrow",
+    "title": "6.2.3 Legend, scale bar and north arrow",
+    "section": "North arrow",
+    "text": "North arrow\nThe last item type discussed here is the north arrow. When you add a north arrow, QGIS adds an image of an arrow to your layout. You can replace this image with any other: QGIS offers a wide range of arrow images in its SVG library (SVG browser), but in principle you can choose any image at all, for example one from your computer.\n\nWhat makes a north arrow useful is that its rotation can be linked to a map item. Under Image Rotation, make sure that Sync with map is ticked and choose the map it should follow. For example, if you rotate the map 90° clockwise (so that west is at the top), the north arrow turns too and points to the right instead of up.\nUnder North alignment, you choose where the arrow should point to: Grid North (the direction of the map’s vertical grid lines) or True North (the direction of the geographic North Pole).\n\n\n\n\n\n\nOn smaller-scale maps the direction of true north can differ substantially from place to place. In that case, a single north arrow is an approximation: it is only correct for the centre of the map. While grid north can diverge from true north, it is the same everywhere on the map.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.2 Configuring layout items",
+      "6.2.3 Legend, scale bar and north arrow"
+    ]
+  },
+  {
+    "objectID": "layouts/composition-export.html",
+    "href": "layouts/composition-export.html",
+    "title": "6.3 Composition and export",
+    "section": "",
+    "text": "On the previous pages, you learned how to configure the items on your map. This section covers the layout as a whole: the layout page itself, the export of your map, and some general tips for designing a map.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.3 Composition and export"
+    ]
+  },
+  {
+    "objectID": "layouts/composition-export.html#the-layout-page",
+    "href": "layouts/composition-export.html#the-layout-page",
+    "title": "6.3 Composition and export",
+    "section": "1. The layout page",
+    "text": "1. The layout page\n\nSize\nBy default, a new layout page is A4 landscape (29.7 cm wide and 21 cm high). To use another size, right-click the layout page and choose Page Properties…, or choose Layout ▸ Page Properties… in the menu. There you can choose from a list of standard paper sizes (A3, A5, Letter…), or enter a custom width and height.\n\n\nGuides and helper grids\n\nQGIS offers a few helper tools to finish the composition of your layout down to the last detail. Guides help you place items neatly on the layout page. You create vertical and horizontal guides in the Guides panel (J), or by dragging them from the ruler at the top or left of the layout page. For items to snap to these guides when you move them, make sure that View ▸ Snap to Guides is ticked.\nA second tool is the helper grid, which you can enable with View ▸ Show Grid. In the Layout panel (H), under Guides and Grid, you set the spacing of this grid (H1). As with guides, QGIS can snap your items to this grid (View ▸ Snap to Grid).\nIn the Layout panel, under Guides and Grid, you can adjust the Snap tolerance (H2): how close an item has to come to a guide or grid line before it snaps.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.3 Composition and export"
+    ]
+  },
+  {
+    "objectID": "layouts/composition-export.html#export-formats",
+    "href": "layouts/composition-export.html#export-formats",
+    "title": "6.3 Composition and export",
+    "section": "2. Export formats",
+    "text": "2. Export formats\nWhen your layout is ready, you can export it. In the Layout menu (A) or on the Layout toolbar, QGIS offers three export options:\n\n\n\n\n\n\n\n\n\nExport as Image…\nA raster image, for example PNG, JPG or TIFF.\n\n\n\nExport as SVG…\nA vector drawing that you can edit further in a drawing program.\n\n\n\nExport as PDF…\nA PDF document, for example to print or to share.\n\n\n\nAfter choosing Export as Image…, you first choose a file name and the file format (for example PNG, JPG or TIFF). A second window then shows the resolution. QGIS fills it in from Export resolution in the Layout panel (H3), but you can still change it here. Choose the format and resolution with the use of your map in mind. TIFF files are suitable for printing, but usually too large for online use.\n\n\n\n\n\n\nFor printing, a minimum resolution of 300 dpi is often recommended. Keep in mind that a dpi value only makes sense in relation to the printed size: if the map is printed smaller or larger than your layout page, the effective resolution changes too. For a screen or a web page, file size usually matters more, so a lower resolution is often preferred.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.3 Composition and export"
+    ]
+  },
+  {
+    "objectID": "layouts/composition-export.html#other-tips",
+    "href": "layouts/composition-export.html#other-tips",
+    "title": "6.3 Composition and export",
+    "section": "3. Other tips",
+    "text": "3. Other tips\nThere are no fixed rules for the graphic design of a map: aesthetics is subjective, and good choices depend on the context. The recommendations below can still serve as general tips when you design your map.\n\nSome more tips:\n\nPrint size: design your map at the size at which it will be published, because that determines the font size, the size of the symbols, the resolution (dpi)…\nColour: if your map will only be published in black and white, design it in black and white as well. That way you can judge whether the shades of grey are distinct enough.\nAmount of information: avoid maps with too much information. Too much text or too many layers make a map unclear. Move information to the legend, or spread it over several maps.\nUniform positioning: use Position and Size and the guides to place all elements precisely and in line with each other.\n\n\n\n\n\n\n\nYou can now do Exercise 1, part D.",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.3 Composition and export"
+    ]
+  },
+  {
+    "objectID": "layouts/interactive-layouts.html",
+    "href": "layouts/interactive-layouts.html",
+    "title": "6.4 Interactive",
+    "section": "",
+    "text": "Try out what you learned in this chapter. Drag, click and change the settings as much as you like, you can’t break anything!",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.4 Interactive"
+    ]
+  },
+  {
+    "objectID": "layouts/interactive-layouts.html#overview-extent",
+    "href": "layouts/interactive-layouts.html#overview-extent",
+    "title": "6.4 Interactive",
+    "section": "Overview map and extent frame",
+    "text": "Overview map and extent frame\nMove and zoom the detail map, and watch its frame on the overview map. Then change the coordinate system of one of the maps: the frame changes shape. See the theory: Map items.\n\nOpen the tool full screen",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.4 Interactive"
+    ]
+  },
+  {
+    "objectID": "layouts/interactive-layouts.html#scalebar-crs",
+    "href": "layouts/interactive-layouts.html#scalebar-crs",
+    "title": "6.4 Interactive",
+    "section": "Scale bar and coordinate system",
+    "text": "Scale bar and coordinate system\nChoose a map extent, a coordinate system and the way QGIS calculates the scale bar. Then drag the ruler across the map and compare the length the scale bar shows with the real length on the ground. See the theory: Scale bar and Projection distortions.\n\nOpen the tool full screen",
+    "crumbs": [
+      "6 Publishing maps",
+      "6.4 Interactive"
+    ]
   }
 ]
