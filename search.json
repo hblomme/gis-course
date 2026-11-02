@@ -322,7 +322,7 @@
     "href": "data-models/file-formats.html#other-formats",
     "title": "2.5 Common file formats in QGIS",
     "section": "Other formats",
-    "text": "Other formats\nThis page discussed the formats you will meet most often, but there are many more. Some of them, such as CSV, GeoJSON, KML and the Esri file geodatabase, are explained in the chapter Data in GIS (part 2).",
+    "text": "Other formats\nThis page discussed the formats you will meet most often, but there are many more. Some of them, such as CSV, GeoJSON and KML, are explained in the chapter Data in GIS (part 2).",
     "crumbs": [
       "2 Data in GIS (part 1)",
       "2.5 Common file formats in QGIS"
