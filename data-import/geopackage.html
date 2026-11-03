@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7.1 Working with GeoPackages – Learning Path QGIS</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../data-import/delimited-text.html" rel="next">
+<link href="../layouts/interactive-layouts.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9fe02f54e64d752855352c2e516a32fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Data in GIS (part 2)</a></li><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7.1 Working with GeoPackages</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/logos/ugent.png" alt="Ghent University" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/logos/ugent.png" alt="Ghent University" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Learning Path QGIS</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cover</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../before-you-start.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Before you start</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">1 Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/what-is-gis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 What is GIS?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introduction/qgis-interface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 QGIS interface</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">2 Data in GIS (part 1)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/raster-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Raster model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/vector-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Vector model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/raster-vs-vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Rasters vs.&nbsp;vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/data-source-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Data sources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/file-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Common file formats in QGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-models/interactive-data-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Interactive</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">3 QGIS basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/importing-vector-raster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Importing data: vectors and rasters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Layers in QGIS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/map-navigation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Navigating the map canvas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/status-bar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4 The status bar</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/qgis-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5 The QGIS project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">4 Layer properties and symbology</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/layer-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 The Layer Properties window</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">4.2 Vector layers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/attribute-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.1 The attribute table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/vector-general.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.2 Symbology of vector layers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/single-symbol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.3 Configuring a style</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/categorized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.4 One style per category</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/graduated.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.5 Graduated symbology</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/diagrams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.6 Diagrams</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/labels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.7 Text labels</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/style-vs-scale.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2.8 Style versus scale</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">4.3 Raster layers</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/raster-cell-values.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.1 Cell values: histogram and unique values</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/raster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3.2 Visualising raster data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/saving-styles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4 Saving and reusing styles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../visualisation/interactive-symbology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Interactive</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">5 Coordinate systems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false">
+ <span class="menu-text">5.1 Geographic vs.&nbsp;projected</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/geographic-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1.1 Geographic coordinate systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/projected-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1.2 Projected coordinate systems</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false">
+ <span class="menu-text">5.2 Coordinate systems in practice</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/project-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2.1 Coordinate system of the QGIS project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/data-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2.2 Coordinate system of your geodata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/transformations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2.3 Transformations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../crs/interactive-crs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3 Interactive</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">6 Publishing maps</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../layouts/layouts-general.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.1 General: layouts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false">
+ <span class="menu-text">6.2 Configuring layout items</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../layouts/layout-items.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.2.1 Basic item properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../layouts/layout-items-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.2.2 Map items</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../layouts/layout-items-legend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.2.3 Legend, scale bar and north arrow</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../layouts/composition-export.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3 Composition and export</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../layouts/interactive-layouts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4 Interactive</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
+ <span class="menu-text">7 Data in GIS (part 2)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/geopackage.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7.1 Working with GeoPackages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/delimited-text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 Delimited text files (CSV)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/web-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3 Web formats: GeoJSON and KML</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/services.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4 Services</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5 Databases</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/interactive-data-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6 Interactive</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendix A: Exercises</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+ <span class="menu-text">Exercise 1: Map the Roman Empire</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-roman-empire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/solution-roman-empire.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
+ <span class="menu-text">Exercise 2: Transport in Belgium (1770–1880)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/exercise-railways.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercise</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/solution-railways.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solution</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendix B: Datasets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../datasets/belgian-railways.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transport in Belgium (1770–1880)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../datasets/roman-empire-infrastructure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Roman Empire Infrastructure</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#creating-a-geopackage" id="toc-creating-a-geopackage" class="nav-link active" data-scroll-target="#creating-a-geopackage">Creating a GeoPackage</a></li>
+  <li><a href="#saving-layers-in-a-geopackage" id="toc-saving-layers-in-a-geopackage" class="nav-link" data-scroll-target="#saving-layers-in-a-geopackage">Saving layers in a GeoPackage</a>
+  <ul class="collapse">
+  <li><a href="#new-layers" id="toc-new-layers" class="nav-link" data-scroll-target="#new-layers">New layers</a></li>
+  <li><a href="#existing-layers" id="toc-existing-layers" class="nav-link" data-scroll-target="#existing-layers">Existing layers</a></li>
+  <li><a href="#using-the-geopackage-layers-in-your-project" id="toc-using-the-geopackage-layers-in-your-project" class="nav-link" data-scroll-target="#using-the-geopackage-layers-in-your-project">Using the GeoPackage layers in your project</a></li>
+  </ul></li>
+  <li><a href="#storing-styles-in-a-geopackage" id="toc-storing-styles-in-a-geopackage" class="nav-link" data-scroll-target="#storing-styles-in-a-geopackage">Storing styles in a GeoPackage</a></li>
+  <li><a href="#renaming-and-deleting-layers-in-a-geopackage" id="toc-renaming-and-deleting-layers-in-a-geopackage" class="nav-link" data-scroll-target="#renaming-and-deleting-layers-in-a-geopackage">Renaming and deleting layers in a GeoPackage</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Data in GIS (part 2)</a></li><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7.1 Working with GeoPackages</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">7.1 Working with GeoPackages</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>On <a href="../data-models/file-formats.html#GeoPackage">Common file formats in QGIS</a> you learned what a GeoPackage is: a single <strong>database</strong> file that can hold several layers. This section shows how to use a GeoPackage in practice:</p>
+<ul>
+<li>how to <strong>create</strong> a GeoPackage</li>
+<li>how to save <strong>layers</strong> in a GeoPackage</li>
+<li>how to store layer <strong>styles</strong> in a GeoPackage</li>
+<li>how to <strong>rename</strong> or <strong>delete</strong> layers in a GeoPackage</li>
+</ul>
+<p>The image below shows where you find most of these options in QGIS. The letters are used in the text below.</p>
+<p><a href="../images-v4/data-import/geopackage-overview.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images-v4/data-import/geopackage-overview.png" class="img-fluid"></a></p>
+<section id="creating-a-geopackage" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-geopackage">Creating a GeoPackage</h2>
+<p>You already know how to save a layer as a GeoPackage. This is the default format in QGIS when creating a new vector layer. In fact, when you do this, you create not only a new layer but also an entirely new database that stores it.</p>
+<p>You can also start with an empty GeoPackage database and add layers to it later. One way to do this is to right-click <em>GeoPackage</em> in the <em>Browser</em> panel (<span class="ref">B</span>) and choose <em>Create Database…</em>.</p>
+</section>
+<section id="saving-layers-in-a-geopackage" class="level2">
+<h2 class="anchored" data-anchor-id="saving-layers-in-a-geopackage">Saving layers in a GeoPackage</h2>
+<section id="new-layers" class="level3">
+<h3 class="anchored" data-anchor-id="new-layers">New layers</h3>
+<p>You can add a <strong>new</strong>, empty layer to a GeoPackage with the <em>New GeoPackage Layer</em> button <img src="../images-v4/basics/icons/mActionNewGeoPackageLayer.svg" class="btn-icon inline no-lightbox img-fluid"> on the <em>Data Source Manager Toolbar</em> (<span class="ref">A</span>) (or <span class="menu-path"><em>Layer ▸ Create Layer ▸ New GeoPackage Layer…</em></span>). Next to <em>File name</em>, select your existing GeoPackage and give the layer a name under <em>Table name</em>. Then click <em>OK</em> and choose <em>Add New Layer</em>. You will learn how to fill a new empty layer from scratch in Manual vectorising.</p>
+</section>
+<section id="existing-layers" class="level3">
+<h3 class="anchored" data-anchor-id="existing-layers">Existing layers</h3>
+<p>There are several ways to save <strong>existing</strong> layers in a GeoPackage.</p>
+<section id="geopackage-section-in-the-browser-panel" class="level4">
+<h4 class="anchored" data-anchor-id="geopackage-section-in-the-browser-panel">GeoPackage section in the Browser panel</h4>
+<p>The easiest method is to drag one or more layers onto your GeoPackage in the <em>Browser</em> panel (<span class="ref">B</span>). Alternatively, you can right-click your GeoPackage there and choose <em>Import Vector Layer…</em>. An import window will pop up where you can set the <em>Table name</em>, the <em>Output CRS</em> and the fields to include.</p>
+</section>
+<section id="save-features-as" class="level4">
+<h4 class="anchored" data-anchor-id="save-features-as">Save Features As…</h4>
+<p>Another option is to export an existing layer into a GeoPackage. Right-click it in the <em>Layers</em> panel (<span class="ref">C</span>) and choose <span class="menu-path"><em>Export ▸ Save Features As…</em></span> (<strong>vector</strong>) or <span class="menu-path"><em>Export ▸ Save As…</em></span> (<strong>raster</strong>). Pay attention: for rasters, GeoPackage is not the default export format.</p>
+<p><a href="../images-v4/data-import/geopackage-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="../images-v4/data-import/geopackage-02.png" class="img-fluid" width="430"></a></p>
+<ol type="1">
+<li>Under <em>Format</em>, select <em>GeoPackage</em>.</li>
+<li>Next to <em>File name</em>, click the <em>…</em> button and select your <strong>existing</strong> GeoPackage, or type a name for a new one.</li>
+<li>Under <em>Layer name</em>, type a <strong>new</strong> name for this layer.</li>
+<li>Click <em>OK</em>. QGIS adds the layer to the existing file. Only if a layer with the same name already exists in the file does QGIS ask what to do (for vector layers, the options are <em>Overwrite File</em>, <em>Overwrite Layer</em> or <em>Append to Layer</em>).</li>
+</ol>
+<p><a href="../images-v4/data-import/geopackage-01.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images-v4/data-import/geopackage-01.png" class="img-fluid" width="430"></a></p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Be careful when choosing <strong><em>Overwrite File</em></strong>: QGIS deletes the entire GeoPackage, including all its layers, and creates a new one containing only the layer you are saving. <strong><em>Overwrite Layer</em></strong>, on the other hand, replaces only the layer with the same name. <strong><em>Append to Layer</em></strong> adds all features of the layer as new features. QGIS does not check whether they are already in the layer, so appending twice gives duplicates.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="package-layers" class="level4">
+<h4 class="anchored" data-anchor-id="package-layers">Package layers</h4>
+<p>With the processing tool <em>Package layers</em>, you can store one or more layers at once in a new or an existing GeoPackage, together with their active style. This tool only works for vector layers.</p>
+<ol type="1">
+<li>Load the layers into your project.</li>
+<li>Open the <em>Processing Toolbox</em> (<span class="ref">D</span>) (<span class="menu-path"><em>Processing ▸ Toolbox</em></span>) and choose <span class="menu-path"><em>Database ▸ Package layers</em></span> (or type <em>package</em> in the search box).</li>
+<li>Under <em>Input layers</em>, click the <em>…</em> button and select all the layers you want to store.</li>
+<li>Leave <em>Overwrite existing GeoPackage</em> unticked if you want to add the layers to an existing GeoPackage. If a layer with the same name already exists, it will be replaced. If you do tick this option, QGIS first deletes the existing database, including all the layers it contains.</li>
+<li>Leave <em>Save layer styles into GeoPackage</em> ticked to store the active style of each layer along with its data. Only the active style is packed, the others are not stored with it.</li>
+<li>Under <em>Destination GeoPackage</em>, choose <em>Save to File…</em> and select a new or an existing GeoPackage.</li>
+<li>Click <em>Run</em>.</li>
+</ol>
+<p><a href="../images-v4/data-import/geopackage-03.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images-v4/data-import/geopackage-03.png" class="img-fluid" width="520"></a></p>
+</section>
+</section>
+<section id="using-the-geopackage-layers-in-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-geopackage-layers-in-your-project">Using the GeoPackage layers in your project</h3>
+<p>QGIS does not change your original layers. It only makes copies of them in GeoPackage format. If one of the originals was loaded in your QGIS project, it stays there. The copies are not loaded, unless <em>Add saved file to map</em> was ticked in the export window.</p>
+<p>If you want to use your newly created GeoPackage layers in your project, you have to replace the originals:</p>
+<ul>
+<li>Remove the original layers from the <em>Layers</em> panel and add the corresponding layers from the GeoPackage in the <em>Browser</em> panel (<span class="ref">B</span>).</li>
+<li>Alternatively, right-click the original layer and choose <em>Change Data Source…</em> to point it to the corresponding layer in the GeoPackage. This preserves the layer’s style and other settings.</li>
+</ul>
+<p><a href="../images-v4/data-import/geopackage-datasource.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images-v4/data-import/geopackage-datasource.png" class="img-fluid" width="340"></a></p>
+</section>
+</section>
+<section id="storing-styles-in-a-geopackage" class="level2">
+<h2 class="anchored" data-anchor-id="storing-styles-in-a-geopackage">Storing styles in a GeoPackage</h2>
+<p>Normally, how a layer is styled is stored in your <strong>project file</strong>, not with the data itself. If you add a GeoPackage layer to another project, or send the GeoPackage to someone else, the layer appears with a random default style. You can avoid this by storing the style <strong>inside the GeoPackage</strong>.</p>
+<p>For any layer in your GeoPackage, you can do this as follows (see also <a href="../visualisation/saving-styles.html">Saving and reusing styles</a>):</p>
+<ol type="1">
+<li>Right-click the layer in the <em>Layers</em> panel and choose <span class="menu-path"><em>Styles ▸ Save Style…</em></span>.</li>
+<li>Under <em>Save style</em>, choose <strong><em>In datasource database</em></strong>.</li>
+<li>Give the style a <strong>name</strong>. Optionally, tick <em>Use as default style for this layer</em> if you want QGIS to use this style when the layer is imported. Then click <em>OK</em>.</li>
+</ol>
+<p>You can save <strong>several styles</strong> for the same layer in your GeoPackage.</p>
+</section>
+<section id="renaming-and-deleting-layers-in-a-geopackage" class="level2">
+<h2 class="anchored" data-anchor-id="renaming-and-deleting-layers-in-a-geopackage">Renaming and deleting layers in a GeoPackage</h2>
+<p>In the <em>Browser</em> panel (<span class="ref">B</span>), open the GeoPackage (small arrow in front of it) and right-click a layer. Under <em>Manage</em>, you find the options to rename and to delete the layer. You can rename fields there too: open the layer and its <em>Fields</em>, and right-click a field. </p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A layer that you delete from a GeoPackage cannot be recovered, so be careful.</p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Publish version: image frames and zoom only (no change toggle, no pending-screenshot tags)
+document.addEventListener("DOMContentLoaded", function () {
+  // Frame every content image that is shown wider than 120 px (small inline icons stay as they are)
+  // Simple zoom for framed images that Quarto did not turn into a lightbox (images in lists, tables, text)
+  var overlay = document.createElement("div");
+  overlay.id = "img-zoom";
+  overlay.addEventListener("click", function () { overlay.classList.remove("open"); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") overlay.classList.remove("open"); });
+  document.body.appendChild(overlay);
+  function frame(img) {
+    if (img.classList.contains("noframe")) return;
+    if (img.getBoundingClientRect().width >= 120 || img.naturalWidth >= 240) {
+      img.classList.add("framed");
+      if (!img.closest("a")) {
+        img.classList.add("zoomable");
+        img.addEventListener("click", function () {
+          overlay.innerHTML = "";
+          var big = document.createElement("img");
+          big.src = img.src;
+          overlay.appendChild(big);
+          overlay.classList.add("open");
+        });
+      }
+    }
+  }
+  document.querySelectorAll("main img").forEach(function (img) {
+    if (img.complete) frame(img); else img.addEventListener("load", function () { frame(img); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../layouts/interactive-layouts.html" class="pagination-link" aria-label="6.4 Interactive">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6.4 Interactive</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../data-import/delimited-text.html" class="pagination-link" aria-label="7.2 Delimited text files (CSV)">
+        <span class="nav-page-text">7.2 Delimited text files (CSV)</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><img src="../images/logos/ugent.png" class="footer-logo img-fluid" alt="Ghent University"> © Hans Blomme · Department of History · GhentCDH · Ghent University</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Text licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · images and data: see the source given with each item</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

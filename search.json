@@ -1753,5 +1753,339 @@
       "6 Publishing maps",
       "6.4 Interactive"
     ]
+  },
+  {
+    "objectID": "data-import/geopackage.html",
+    "href": "data-import/geopackage.html",
+    "title": "7.1 Working with GeoPackages",
+    "section": "",
+    "text": "On Common file formats in QGIS you learned what a GeoPackage is: a single database file that can hold several layers. This section shows how to use a GeoPackage in practice:\nThe image below shows where you find most of these options in QGIS. The letters are used in the text below.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.1 Working with GeoPackages"
+    ]
+  },
+  {
+    "objectID": "data-import/geopackage.html#creating-a-geopackage",
+    "href": "data-import/geopackage.html#creating-a-geopackage",
+    "title": "7.1 Working with GeoPackages",
+    "section": "Creating a GeoPackage",
+    "text": "Creating a GeoPackage\nYou already know how to save a layer as a GeoPackage. This is the default format in QGIS when creating a new vector layer. In fact, when you do this, you create not only a new layer but also an entirely new database that stores it.\nYou can also start with an empty GeoPackage database and add layers to it later. One way to do this is to right-click GeoPackage in the Browser panel (B) and choose Create Database….",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.1 Working with GeoPackages"
+    ]
+  },
+  {
+    "objectID": "data-import/geopackage.html#saving-layers-in-a-geopackage",
+    "href": "data-import/geopackage.html#saving-layers-in-a-geopackage",
+    "title": "7.1 Working with GeoPackages",
+    "section": "Saving layers in a GeoPackage",
+    "text": "Saving layers in a GeoPackage\n\nNew layers\nYou can add a new, empty layer to a GeoPackage with the New GeoPackage Layer button  on the Data Source Manager Toolbar (A) (or Layer ▸ Create Layer ▸ New GeoPackage Layer…). Next to File name, select your existing GeoPackage and give the layer a name under Table name. Then click OK and choose Add New Layer. You will learn how to fill a new empty layer from scratch in Manual vectorising.\n\n\nExisting layers\nThere are several ways to save existing layers in a GeoPackage.\n\nGeoPackage section in the Browser panel\nThe easiest method is to drag one or more layers onto your GeoPackage in the Browser panel (B). Alternatively, you can right-click your GeoPackage there and choose Import Vector Layer…. An import window will pop up where you can set the Table name, the Output CRS and the fields to include.\n\n\nSave Features As…\nAnother option is to export an existing layer into a GeoPackage. Right-click it in the Layers panel (C) and choose Export ▸ Save Features As… (vector) or Export ▸ Save As… (raster). Pay attention: for rasters, GeoPackage is not the default export format.\n\n\nUnder Format, select GeoPackage.\nNext to File name, click the … button and select your existing GeoPackage, or type a name for a new one.\nUnder Layer name, type a new name for this layer.\nClick OK. QGIS adds the layer to the existing file. Only if a layer with the same name already exists in the file does QGIS ask what to do (for vector layers, the options are Overwrite File, Overwrite Layer or Append to Layer).\n\n\n\n\n\n\n\n\nBe careful when choosing Overwrite File: QGIS deletes the entire GeoPackage, including all its layers, and creates a new one containing only the layer you are saving. Overwrite Layer, on the other hand, replaces only the layer with the same name. Append to Layer adds all features of the layer as new features. QGIS does not check whether they are already in the layer, so appending twice gives duplicates.\n\n\n\n\n\nPackage layers\nWith the processing tool Package layers, you can store one or more layers at once in a new or an existing GeoPackage, together with their active style. This tool only works for vector layers.\n\nLoad the layers into your project.\nOpen the Processing Toolbox (D) (Processing ▸ Toolbox) and choose Database ▸ Package layers (or type package in the search box).\nUnder Input layers, click the … button and select all the layers you want to store.\nLeave Overwrite existing GeoPackage unticked if you want to add the layers to an existing GeoPackage. If a layer with the same name already exists, it will be replaced. If you do tick this option, QGIS first deletes the existing database, including all the layers it contains.\nLeave Save layer styles into GeoPackage ticked to store the active style of each layer along with its data. Only the active style is packed, the others are not stored with it.\nUnder Destination GeoPackage, choose Save to File… and select a new or an existing GeoPackage.\nClick Run.\n\n\n\n\n\nUsing the GeoPackage layers in your project\nQGIS does not change your original layers. It only makes copies of them in GeoPackage format. If one of the originals was loaded in your QGIS project, it stays there. The copies are not loaded, unless Add saved file to map was ticked in the export window.\nIf you want to use your newly created GeoPackage layers in your project, you have to replace the originals:\n\nRemove the original layers from the Layers panel and add the corresponding layers from the GeoPackage in the Browser panel (B).\nAlternatively, right-click the original layer and choose Change Data Source… to point it to the corresponding layer in the GeoPackage. This preserves the layer’s style and other settings.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.1 Working with GeoPackages"
+    ]
+  },
+  {
+    "objectID": "data-import/geopackage.html#storing-styles-in-a-geopackage",
+    "href": "data-import/geopackage.html#storing-styles-in-a-geopackage",
+    "title": "7.1 Working with GeoPackages",
+    "section": "Storing styles in a GeoPackage",
+    "text": "Storing styles in a GeoPackage\nNormally, how a layer is styled is stored in your project file, not with the data itself. If you add a GeoPackage layer to another project, or send the GeoPackage to someone else, the layer appears with a random default style. You can avoid this by storing the style inside the GeoPackage.\nFor any layer in your GeoPackage, you can do this as follows (see also Saving and reusing styles):\n\nRight-click the layer in the Layers panel and choose Styles ▸ Save Style….\nUnder Save style, choose In datasource database.\nGive the style a name. Optionally, tick Use as default style for this layer if you want QGIS to use this style when the layer is imported. Then click OK.\n\nYou can save several styles for the same layer in your GeoPackage.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.1 Working with GeoPackages"
+    ]
+  },
+  {
+    "objectID": "data-import/geopackage.html#renaming-and-deleting-layers-in-a-geopackage",
+    "href": "data-import/geopackage.html#renaming-and-deleting-layers-in-a-geopackage",
+    "title": "7.1 Working with GeoPackages",
+    "section": "Renaming and deleting layers in a GeoPackage",
+    "text": "Renaming and deleting layers in a GeoPackage\nIn the Browser panel (B), open the GeoPackage (small arrow in front of it) and right-click a layer. Under Manage, you find the options to rename and to delete the layer. You can rename fields there too: open the layer and its Fields, and right-click a field. \n\n\n\n\n\n\nA layer that you delete from a GeoPackage cannot be recovered, so be careful.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.1 Working with GeoPackages"
+    ]
+  },
+  {
+    "objectID": "data-import/delimited-text.html",
+    "href": "data-import/delimited-text.html",
+    "title": "7.2 Delimited text files (CSV)",
+    "section": "",
+    "text": "Geographic information is not always available as a GIS file. It is often provided in the form of a table, such as an Excel spreadsheet containing place names and coordinates. This page explains how to load these tables into QGIS using delimited text files.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.2 Delimited text files (CSV)"
+    ]
+  },
+  {
+    "objectID": "data-import/delimited-text.html#delimited-text-fileswhat-is-a-delimited-text-file",
+    "href": "data-import/delimited-text.html#delimited-text-fileswhat-is-a-delimited-text-file",
+    "title": "7.2 Delimited text files (CSV)",
+    "section": "What is a delimited text file?",
+    "text": "What is a delimited text file?\nA delimited text file is a simple and widely used file format for storing tabular data. The principle is straightforward: each line in the file represents one table row, and the columns are separated by a specific character. This is usually a comma or a semicolon, but it can also be a tab, a space or another character.\n\n\n\n\n\n\n\n\n\n\nThe same table of battles of the American Revolutionary War, in Excel (left) and as a delimited text file in a text editor (right).\nPopular programs for working with tabular data, such as MS Excel, can easily read and create such delimited text files. By default, however, Excel uses its own format. When saving a spreadsheet, you can choose a different file format from the Save as type list. To create a delimited text file, select CSV (comma-separated values). It is advisable to choose the UTF-8 version, CSV UTF-8 (Comma delimited), as this is the default encoding in QGIS. This ensures that accents and other special characters (é, ë, ç, etc.) are preserved correctly.\n\n\n\n\n\n\n\nDespite their name, CSV files do not always use a comma as the delimiter. In fact, if your computer’s regional settings are set to Belgium, the default delimiter is usually a semicolon. This is because Belgian settings use a comma as the decimal separator (51,05 rather than 51.05).\n\n\n\n\n\n\n\n\n\nAlthough QGIS can also open Excel files directly, using a delimited text file is particularly useful when your table contains spatial information: QGIS can turn its coordinates into geometries straight away.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.2 Delimited text files (CSV)"
+    ]
+  },
+  {
+    "objectID": "data-import/delimited-text.html#importing-delimited-text-files",
+    "href": "data-import/delimited-text.html#importing-delimited-text-files",
+    "title": "7.2 Delimited text files (CSV)",
+    "section": "Importing delimited text files",
+    "text": "Importing delimited text files\nTo add a delimited text file in QGIS, open the Data Source Manager (menu Layer ▸ Data Source Manager, or Ctrl+L) on the Delimited Text tab. A large configuration window opens.\n\nFirst, select the file you want to load (A). Next, indicate the delimiter (B). By default, CSV (comma separated values) is selected. If you select Custom delimiters, QGIS shows checkboxes for common alternatives (Semicolon, Tab, Space…). Simply select the delimiter your file uses. If it is not in the list, you can enter it yourself next to Others.\nAt the bottom, under Sample Data (E), you can preview how QGIS interprets your data with the current import settings. This preview is useful throughout the configuration process, as it shows whether the data are split into columns correctly.\nThe image below shows what happens when you choose the wrong delimiter. The comma has been selected, although the file uses semicolons. As a result, several fields end up in a single column. The decimal commas, on the other hand, split numbers across two columns.\n\nUnder Record and Fields Options (C), you specify various properties of the file you want to load. For example:\n\nAre there any lines at the top of the file that should be skipped? If so, enter the number under Number of header lines to discard.\nDoes the first row contain column names?\nAre decimal numbers written with a comma or a point? If they use a comma, tick Decimal separator is comma. In that case, the delimiter is usually a semicolon, as in our example.\nShould spaces before and after text strings be removed? If so, tick Trim fields.\nDo you want to remove empty fields?\n\nIt is best to go through the available checkboxes to make sure the import is correct. Here too, the Sample Data (E) section is very useful.\n\n\n\n\n\n\nIf you select Discard empty fields, empty fields are removed completely and all following fields in the row move one column to the left. As a result, they can end up under the wrong column name. In many cases, you therefore do not want to turn this on.\n\n\n\nUnder Geometry Definition (D) you describe the spatial component of your data.\n\nIf your file contains no coordinates and only attributes, choose No geometry (attribute only table).\nIf your file contains point coordinates and the X and Y values are stored in separate columns, choose Point coordinates. In our example, the X field is LONGITUDE and the Y field is LATITUDE. If the coordinates are written as degrees, minutes and seconds (DMS), tick DMS coordinates. Pay attention: if, as in our example, the coordinates are in degrees but written as decimal numbers, do not tick this box. For example, 51° 3’ 0’’ is a DMS coordinate, whereas 51.05° is not.\nIf the geometries in your text file are described using a Well known text notation (WKT), choose this option. WKT is a standard notation for describing vector geometries. It specifies the geometry type, followed by the coordinates in brackets. Some examples:\nPOINT (-71.06 42.36)\nLINESTRING (-71.06 42.36, -74.01 40.71, -77.04 38.90)\nPOLYGON ((-109.05 41.00, -102.05 41.00, -102.05 37.00, -109.05 37.00, -109.05 41.00))\nSet the Geometry CRS (if applicable): the coordinate reference system in which the coordinates in your file are written. If you choose the wrong CRS, your data end up in the wrong place. See Coordinate system of your geodata.\n\n\n\n\n\n\n\nTry it yourself: From map to text\n\n\n\nWe already mentioned the Sample Data section (E). Don’t forget to check whether QGIS has detected the correct field type for each column. If not, adjust it in the drop-down list above the column.\nOnce you have configured all the settings, you can add the text file to your QGIS project.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.2 Delimited text files (CSV)"
+    ]
+  },
+  {
+    "objectID": "data-import/delimited-text.html#converting-a-csv-file-to-a-shapefileconverting-a-csv-file-to-a-geopackage",
+    "href": "data-import/delimited-text.html#converting-a-csv-file-to-a-shapefileconverting-a-csv-file-to-a-geopackage",
+    "title": "7.2 Delimited text files (CSV)",
+    "section": "Converting a CSV file to a GeoPackage",
+    "text": "Converting a CSV file to a GeoPackage\n\n\n\n\n\n\nCSV files offer far fewer possibilities in QGIS than GIS files such as GeoPackages or shapefiles. For example, you cannot simply edit the data from a CSV file. It is therefore usually a good idea to convert the imported CSV file to a GeoPackage.\n\n\n\nHow to do this is explained in Working with GeoPackages.\nThe list of battles was derived from Wikipedia, List of American Revolutionary War battles, October 2026 (CC BY-SA 4.0).",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.2 Delimited text files (CSV)"
+    ]
+  },
+  {
+    "objectID": "data-import/web-formats.html",
+    "href": "data-import/web-formats.html",
+    "title": "7.3 Web formats: GeoJSON and KML",
+    "section": "",
+    "text": "Some GIS formats are mainly used in a web context. They might not be the preferred format for working in QGIS, but you can import and use them. This comes in handy because some data providers only give you the option to download their data in these formats. Two examples are GeoJSON and KML. Both are text files describing geographic datasets using a certain syntax. Unlike CSV files, these are real GIS files: the geometry is already described in the file, so QGIS can show it on the map at once.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.3 Web formats: GeoJSON and KML"
+    ]
+  },
+  {
+    "objectID": "data-import/web-formats.html#characteristics-of-geojson-and-kml",
+    "href": "data-import/web-formats.html#characteristics-of-geojson-and-kml",
+    "title": "7.3 Web formats: GeoJSON and KML",
+    "section": "Characteristics of GeoJSON and KML",
+    "text": "Characteristics of GeoJSON and KML\nGeoJSON (.geojson) and KML (Keyhole Markup Language, .kml) share the following characteristics:\n\nA file contains a collection of features. It may contain different geometry types (for example points and polygons). QGIS shows them as separate layers when you import the file and asks which ones you want to add.\nThey use longitude and latitude in WGS 84 (EPSG:4326).\nThey are text files, so working with large files in QGIS can be slow.\n\nThe main difference is the syntax: GeoJSON uses JSON, while KML uses XML. A compressed KML file is called a KMZ file (.kmz).\nThis is what a file with a point (Ghent) and a polygon (the Vrijdagmarkt, a square in Ghent) looks like in GeoJSON:\n{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [3.7174, 51.0543]\n      },\n      \"properties\": { \"name\": \"Ghent\" }\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [[[3.7250, 51.0569], [3.7259, 51.0565], [3.7266, 51.0570], [3.7257, 51.0574], [3.7250, 51.0569]]]\n      },\n      \"properties\": { \"name\": \"Vrijdagmarkt\" }\n    }\n  ]\n}\n\n\n\n\n\n\nTry it yourself: From map to text",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.3 Web formats: GeoJSON and KML"
+    ]
+  },
+  {
+    "objectID": "data-import/web-formats.html#opening-geojson-and-kml-in-qgis",
+    "href": "data-import/web-formats.html#opening-geojson-and-kml-in-qgis",
+    "title": "7.3 Web formats: GeoJSON and KML",
+    "section": "Opening GeoJSON and KML in QGIS",
+    "text": "Opening GeoJSON and KML in QGIS\nYou open these files in exactly the same way as a shapefile or a GeoPackage: drag the file into QGIS, or use the Vector tab of the Data Source Manager (see Importing data into QGIS).\n\n\n\n\n\n\nAs with a CSV file, it is a good idea to save the layer as a GeoPackage before you start working with it (Export ▸ Save Features As…, see Working with GeoPackages). Editing is then faster and safer, and you can store a style with the layer.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.3 Web formats: GeoJSON and KML"
+    ]
+  },
+  {
+    "objectID": "data-import/web-formats.html#saving-as-geojson-or-kml",
+    "href": "data-import/web-formats.html#saving-as-geojson-or-kml",
+    "title": "7.3 Web formats: GeoJSON and KML",
+    "section": "Saving as GeoJSON or KML",
+    "text": "Saving as GeoJSON or KML\nSometimes you need your data in one of these formats yourself. QGIS can also export to them: right-click the layer, choose Export ▸ Save Features As… and under Format choose GeoJSON or Keyhole Markup Language [KML]. Set the CRS to EPSG:4326 - WGS 84, the coordinate system these formats expect.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.3 Web formats: GeoJSON and KML"
+    ]
+  },
+  {
+    "objectID": "data-import/services.html",
+    "href": "data-import/services.html",
+    "title": "7.4 Services",
+    "section": "",
+    "text": "So far, you have always imported local files into QGIS: data that you had on your own computer. You often get such files as a download from a data provider, such as a government.\nHowever, geodata (especially raster data) can be large files that you do not always want to store on your computer (imagine, for example, that you had to download the whole of Google Maps). Moreover, data providers are sometimes willing to make their information available for (restricted) use, but not for download. For these reasons, among others, it is sometimes useful or necessary to load data into your QGIS project from the servers of data providers. Technically, there are several services that make this possible, including:\n\nWMS (Web Map Service)\nWMTS (Web Map Tile Service)\nXYZ Tile Service\n\nAs already mentioned in Data sources, you do not need to know exactly how these services work to use them well, but this is the main difference:\nWMTS and XYZ services tend to be faster than WMS. They send tiles, small square pieces of the map that fit together and can be pre-rendered on the provider’s servers. A WMS, on the other hand, generates a new image each time you pan or zoom and sends this custom map to your computer. With all three, what you receive is an image (a raster), even if the server made it from vector data. You can look at it, but you cannot edit the features on it or use them in analyses.\n\n\n\n\n\n\nEach zoom level of a tiled map has its own tiles, which can show different information: when you are zoomed out, you see only countries and major cities; when you zoom in, you see streets and buildings. The provider can pre-render all these tiles. When you look at a map, your computer only receives the tiles it needs for that zoom level and that area. Both make loading the map fast.\n\n\n\nIn fact, ‘loading’ data from external servers is not fundamentally different from importing local files. You already learned earlier that data are never stored in QGIS itself: when you import data, QGIS only creates a connection to the data source. In principle, it does not matter whether this source is on your computer or elsewhere. In practice, having your own copy often gives you more freedom, because data providers usually limit what you can do with their data.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.4 Services"
+    ]
+  },
+  {
+    "objectID": "data-import/services.html#external-data-providerswhat-are-services",
+    "href": "data-import/services.html#external-data-providerswhat-are-services",
+    "title": "7.4 Services",
+    "section": "",
+    "text": "So far, you have always imported local files into QGIS: data that you had on your own computer. You often get such files as a download from a data provider, such as a government.\nHowever, geodata (especially raster data) can be large files that you do not always want to store on your computer (imagine, for example, that you had to download the whole of Google Maps). Moreover, data providers are sometimes willing to make their information available for (restricted) use, but not for download. For these reasons, among others, it is sometimes useful or necessary to load data into your QGIS project from the servers of data providers. Technically, there are several services that make this possible, including:\n\nWMS (Web Map Service)\nWMTS (Web Map Tile Service)\nXYZ Tile Service\n\nAs already mentioned in Data sources, you do not need to know exactly how these services work to use them well, but this is the main difference:\nWMTS and XYZ services tend to be faster than WMS. They send tiles, small square pieces of the map that fit together and can be pre-rendered on the provider’s servers. A WMS, on the other hand, generates a new image each time you pan or zoom and sends this custom map to your computer. With all three, what you receive is an image (a raster), even if the server made it from vector data. You can look at it, but you cannot edit the features on it or use them in analyses.\n\n\n\n\n\n\nEach zoom level of a tiled map has its own tiles, which can show different information: when you are zoomed out, you see only countries and major cities; when you zoom in, you see streets and buildings. The provider can pre-render all these tiles. When you look at a map, your computer only receives the tiles it needs for that zoom level and that area. Both make loading the map fast.\n\n\n\nIn fact, ‘loading’ data from external servers is not fundamentally different from importing local files. You already learned earlier that data are never stored in QGIS itself: when you import data, QGIS only creates a connection to the data source. In principle, it does not matter whether this source is on your computer or elsewhere. In practice, having your own copy often gives you more freedom, because data providers usually limit what you can do with their data.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.4 Services"
+    ]
+  },
+  {
+    "objectID": "data-import/services.html#openstreetmapexample-xyz-tiles",
+    "href": "data-import/services.html#openstreetmapexample-xyz-tiles",
+    "title": "7.4 Services",
+    "section": "Example: XYZ Tiles",
+    "text": "Example: XYZ Tiles\nSeveral organisations have created base maps and provide access to them. Some of these are governments, others are commercial companies, such as Google or Esri. Others again are open, community-driven projects, such as OpenStreetMap: a detailed, up-to-date map of the world, created and maintained by volunteers.\nSuch base maps are usually provided via one of the services we discussed above. Creating a connection to them in QGIS is easy: all it takes is often just a URL. Data providers publish these URLs in their documentation. Take OpenStreetMap as an example. Its wiki has a list of raster tile providers, each with its own URL to make the connection:\n\nPart of the table of base maps on the OpenStreetMap wiki page ‘Raster tile providers’ (consulted 16 October 2026; OpenStreetMap Wiki, CC BY-SA 2.0; map tiles © OpenStreetMap contributors). The red box shows the tile URL of the standard OpenStreetMap map.\nIn the documentation, you see that the tile URL of OpenStreetMap’s standard layer is:\nhttps://tile.openstreetmap.org/{z}/{x}/{y}.png\nThe structure of the URL clearly shows that this is an XYZ service. To create such a connection in your QGIS window, right-click XYZ Tiles in the Browser panel, choose New Connection…, give the connection a name (e.g. OpenStreetMap), paste the URL you’ve found in the documentation and click OK.\n\n\n\n\n\n\n{z} stands for the zoom level, {x} and {y} for the column and row of a tile. QGIS fills these in automatically.\n\n\n\nOnce you have created the connection, the layer becomes available under XYZ Tiles in the Browser panel. In the case of an XYZ service there is always just one layer, but other services can contain more. All you need to do is drag it into your project.\n\n\n\n\n\n\n\n\n\n\nThe OpenStreetMap layer is not stored in the software itself, nor is it on your computer: a connection is made to the data on the OpenStreetMap servers through the XYZ Tiles service. Background map © OpenStreetMap contributors.\n\n\n\n\n\n\nDepending on the version and your settings, QGIS may already have a predefined connection to OpenStreetMap under XYZ Tiles in the Browser panel. This connection is no different from the one we made manually above.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.4 Services"
+    ]
+  },
+  {
+    "objectID": "data-import/services.html#other-examplesexample-wms",
+    "href": "data-import/services.html#other-examplesexample-wms",
+    "title": "7.4 Services",
+    "section": "Example: WMS",
+    "text": "Example: WMS\nFor the second example, we use open data provided by the Flemish government. Its metadata catalogue lists, among others, hundreds of WMS, WMTS and WFS services. The record of each of these services gives its address.\nWe open the record of the service for historical cartography. The following link is listed as its WMS access point:\nhttps://geo.api.vlaanderen.be/histcart/wms\nTo use it, right-click WMS/WMTS in the Browser panel, choose New Connection…, give the connection a name, paste the address and click OK.\n\n\n\n\n\n\n\n\n\n\nYour Browser panel now shows a connection to the data on the server of the Flemish government. You can browse through several folders containing various layers with geographic information. Drag the layers you want to add into your project (or double-click them). \n\n\n\n\n\n\n\nQGIS remembers service connections for future projects. To remove a connection, right-click it in the Browser panel and choose Remove Connection….\n\n\n\nThe examples above show XYZ and WM(T)S services, but you create WFS, WCS and ArcGIS REST connections in a similar way. A WFS is different in one respect: you receive the features themselves, not an image.\n\n\n\n\n\n\nYou can now do Exercise 2.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.4 Services"
+    ]
+  },
+  {
+    "objectID": "data-import/databases.html",
+    "href": "data-import/databases.html",
+    "title": "7.5 Databases",
+    "section": "",
+    "text": "You already know one kind of spatial database: the GeoPackage, a single file on your computer (see Working with GeoPackages). This page is about something else: database servers. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.\nUsing databases has several advantages for data management. For example, it is much easier to work on the same dataset as a team. Moreover, the data are easier to use in a wide range of applications other than specialised GIS software. A database also makes it easier to integrate your geodata into a more advanced data model. On the other hand, setting up and maintaining a database system requires some technical knowledge.\nThere are several database systems that are suitable for processing geographic data, such as\n\nPostgreSQL (with the PostGIS extension, which adds support for geographic data)\nMS SQL (Structured Query Language) Server\nOracle\n…\n\nIn QGIS you can easily connect to one of these systems through the Browser panel or the Data Source Manager. Although each database type has its own configuration window, the connection process is similar for all of them.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.5 Databases"
+    ]
+  },
+  {
+    "objectID": "data-import/databases.html#databasesdatabase-servers",
+    "href": "data-import/databases.html#databasesdatabase-servers",
+    "title": "7.5 Databases",
+    "section": "",
+    "text": "You already know one kind of spatial database: the GeoPackage, a single file on your computer (see Working with GeoPackages). This page is about something else: database servers. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.\nUsing databases has several advantages for data management. For example, it is much easier to work on the same dataset as a team. Moreover, the data are easier to use in a wide range of applications other than specialised GIS software. A database also makes it easier to integrate your geodata into a more advanced data model. On the other hand, setting up and maintaining a database system requires some technical knowledge.\nThere are several database systems that are suitable for processing geographic data, such as\n\nPostgreSQL (with the PostGIS extension, which adds support for geographic data)\nMS SQL (Structured Query Language) Server\nOracle\n…\n\nIn QGIS you can easily connect to one of these systems through the Browser panel or the Data Source Manager. Although each database type has its own configuration window, the connection process is similar for all of them.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.5 Databases"
+    ]
+  },
+  {
+    "objectID": "data-import/databases.html#exampleconnecting-to-postgresql",
+    "href": "data-import/databases.html#exampleconnecting-to-postgresql",
+    "title": "7.5 Databases",
+    "section": "Connecting to PostgreSQL",
+    "text": "Connecting to PostgreSQL\nAs an example, we connect to a PostgreSQL database called USA. In the Browser panel, right-click PostgreSQL and choose New Connection….\nA new window opens in which you have to enter some connection details, such as a name for the connection, the host, the port, the name of the database, your user name and your password… After you have filled in all the necessary details, click OK.\n\n\n\n\n\n\n\n\n\n\nThe connection now appears under PostgreSQL in the Browser panel. Open it to see the tables that contain geometries, and drag the ones you want into your project.",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.5 Databases"
+    ]
+  },
+  {
+    "objectID": "data-import/interactive-data-import.html",
+    "href": "data-import/interactive-data-import.html",
+    "title": "7.6 Interactive",
+    "section": "",
+    "text": "Try out what you learned in this chapter. Drag, click and change the settings as much as you like, you can’t break anything!",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.6 Interactive"
+    ]
+  },
+  {
+    "objectID": "data-import/interactive-data-import.html#text-formats",
+    "href": "data-import/interactive-data-import.html#text-formats",
+    "title": "7.6 Interactive",
+    "section": "From map to text",
+    "text": "From map to text\nDraw points, lines or polygons on the map and see how they are written as text in GeoJSON, in KML and in a CSV file with WKT. You can download the result and open it in QGIS. A file can hold points, lines and polygons together, but a layer in QGIS holds only one geometry type:\n\nGeoJSON and KML: QGIS asks which types you want to add and makes one layer per type.\nCSV: choose WGS 84 as Geometry CRS and pick one Geometry type. QGIS loads only the features of that type, the rest are left out.\n\nSee the theory: Delimited text files and Web formats.\n\nOpen the tool full screen",
+    "crumbs": [
+      "7 Data in GIS (part 2)",
+      "7.6 Interactive"
+    ]
+  },
+  {
+    "objectID": "exercises/exercise-railways.html",
+    "href": "exercises/exercise-railways.html",
+    "title": "Exercise 2: Transport in Belgium (1770–1880)",
+    "section": "",
+    "text": "Dataset: Transport in Belgium (1770–1880)\nAround 1880, Belgium was one of the most industrialised countries in the world. In this exercise you map some of the infrastructure projects of that time: railways and stations, and the canals and docks that were built between 1770 and 1880. You then compare it with a 19th-century map that you load from the servers of the Flemish and the Walloon government. You practise importing data in several formats (Excel, CSV with coordinates and with WKT, GeoJSON, KML), saving them in a GeoPackage with their style, and connecting to WMS services.",
+    "crumbs": [
+      "Appendix A: Exercises",
+      "Exercise 2: Transport in Belgium (1770–1880)",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "exercises/exercise-railways.html#transport-in-belgium-around-1880",
+    "href": "exercises/exercise-railways.html#transport-in-belgium-around-1880",
+    "title": "Exercise 2: Transport in Belgium (1770–1880)",
+    "section": "Transport in Belgium around 1880",
+    "text": "Transport in Belgium around 1880\nYou can do this after chapter 7.\n\nAdd all vector data of the dataset to a new project and display them on the map canvas.\nMake sure that only the railway stations opened between 1832 and 1880 are shown.\nSave all data that are in a less suitable format in one GeoPackage, transport_1880.gpkg, together with the style you gave them.\nAdd the Vandermaelen map (1846–1854) as a background layer, for both Flanders and Wallonia.",
+    "crumbs": [
+      "Appendix A: Exercises",
+      "Exercise 2: Transport in Belgium (1770–1880)",
+      "Exercise"
+    ]
+  },
+  {
+    "objectID": "exercises/solution-railways.html",
+    "href": "exercises/solution-railways.html",
+    "title": "Solution 2: Transport in Belgium (1770–1880)",
+    "section": "",
+    "text": "This solution follows the steps of the exercise.",
+    "crumbs": [
+      "Appendix A: Exercises",
+      "Exercise 2: Transport in Belgium (1770–1880)",
+      "Solution"
+    ]
+  },
+  {
+    "objectID": "exercises/solution-railways.html#transport-in-belgium-around-1880",
+    "href": "exercises/solution-railways.html#transport-in-belgium-around-1880",
+    "title": "Solution 2: Transport in Belgium (1770–1880)",
+    "section": "Transport in Belgium around 1880",
+    "text": "Transport in Belgium around 1880\n\n1. All vector data on the map\nRailways. QGIS cannot read WKT from an Excel sheet. In Excel, choose File ▸ Save As with file type CSV UTF-8 and save the sheet as railways_1880.csv. Then open the Data Source Manager ▸ Delimited Text. WKT always uses a point as the decimal separator, whatever your settings.\n\nStations. The file uses a semicolon between the columns and a comma as the decimal separator. About 100 stations have no coordinates. They are in the attribute table, but not on the map.\n\nCanals, docks and seaports. Drag waterways_1880.geojson into QGIS. The file holds lines (canals and docks) and points (the seaports), and a layer can only hold one geometry type. QGIS therefore asks which layers to add. Add both.\n\nRivers and Belgium. Drag navigable_rivers.kml and belgium.gpkg into QGIS. Show Belgium with an outline only (Simple Fill ▸ Fill style No Brush).\nSee Delimited text files (CSV) and Web formats: GeoJSON and KML.\n\n\n2. Stations opened between 1832 and 1880\nChoose a Graduated style on opened with 2 classes, and change the values of the classes by hand (double-click them). Untick the second class. QGIS has no separate manual mode: after you change the values by hand, Mode still shows the method you started from. Stations without a year in opened belong to no class and are not shown either: for those, the year is not known. See Graduated symbology.\n\n\n\n3. Everything in one GeoPackage\nThe CSV files, the GeoJSON and the KML are good for exchanging data, but less suitable for working with them.\n\nIn the Browser panel, right-click GeoPackage ▸ Create Database… and create transport_1880.gpkg.\nIn the Processing Toolbox, open Database ▸ Package layers, select the five layers and the new GeoPackage, and click Run. Save layer styles into GeoPackage stores the style of each layer as well.\nReplace the original layers in your project by the layers from the GeoPackage.\n\n\nOther ways work as well, for example Export ▸ Save Features As… per layer, followed by Styles ▸ Save Style… ▸ In datasource database. See Working with GeoPackages.\n\n\n4. Vandermaelen map for Flanders and Wallonia\nThe map exists as two services, one per region (see Services):\n\nFlanders: search for Vandermaelen in the metadata catalogue of the Flemish government (https://metadata.vlaanderen.be). The record of the service for historical cartography gives the address https://geo.api.vlaanderen.be/histcart/wms. Add the layer Topografische kaart Vandermaelen (1846-1854), Vlaanderen.\nWallonia: search for Vandermaelen on the Géoportail de la Wallonie (https://geoportail.wallonie.be). The record of Cartes de Vandermaelen (1846-1854) gives the address https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/VDML/MapServer/WMSServer.\n\nFor each, create a connection (Browser ▸ right-click WMS/WMTS ▸ New Connection…) and drag the map into your project, at the bottom of the Layers panel.",
+    "crumbs": [
+      "Appendix A: Exercises",
+      "Exercise 2: Transport in Belgium (1770–1880)",
+      "Solution"
+    ]
+  },
+  {
+    "objectID": "datasets/belgian-railways.html",
+    "href": "datasets/belgian-railways.html",
+    "title": "Transport in Belgium (1770–1880)",
+    "section": "",
+    "text": "Download Transport in Belgium.zip (0.3 MB)",
+    "crumbs": [
+      "Appendix B: Datasets",
+      "Transport in Belgium (1770–1880)"
+    ]
+  },
+  {
+    "objectID": "datasets/belgian-railways.html#download",
+    "href": "datasets/belgian-railways.html#download",
+    "title": "Transport in Belgium (1770–1880)",
+    "section": "",
+    "text": "Download Transport in Belgium.zip (0.3 MB)",
+    "crumbs": [
+      "Appendix B: Datasets",
+      "Transport in Belgium (1770–1880)"
+    ]
+  },
+  {
+    "objectID": "datasets/belgian-railways.html#contents",
+    "href": "datasets/belgian-railways.html#contents",
+    "title": "Transport in Belgium (1770–1880)",
+    "section": "Contents",
+    "text": "Contents\nAll layers are clipped to the present-day territory of Belgium. Coordinates in WGS 84 (EPSG:4326).\n\n\n\n\n\n\n\nFile\nContents\n\n\n\n\nrailways_1880.xlsx\nthe railway network around 1880, with id, length_km and the geometry as WKT (geometry). The division into features is arbitrary: a feature is not a historical railway line.\n\n\nstations.csv\nrailway stations of all periods, in use and closed, with lat and lng (semicolon as separator, decimal comma) and the years opened and closed (from Wikidata, where known); some stations have no coordinates\n\n\nwaterways_1880.geojson\ncanals and docks built between 1770 and 1880 (lines) and the seaports of Antwerp, Ghent and Ostend (points): name, kind, period, built\n\n\nnavigable_rivers.kml\nthe rivers that were (partly) navigable around 1880, one line per river: name\n\n\nbelgium.gpkg\nthe territory of Belgium today",
+    "crumbs": [
+      "Appendix B: Datasets",
+      "Transport in Belgium (1770–1880)"
+    ]
+  },
+  {
+    "objectID": "datasets/belgian-railways.html#sources-and-licences",
+    "href": "datasets/belgian-railways.html#sources-and-licences",
+    "title": "Transport in Belgium (1770–1880)",
+    "section": "Sources and licences",
+    "text": "Sources and licences\nVersion of this dataset: 3 November 2026.\n\n\n\nData\nSource\nLicence\n\n\n\n\nrailways, canals, docks, seaports\n© Hans Blomme, after his own research.\nCC BY 4.0\n\n\nnavigable rivers\nriver courses: © OpenStreetMap contributors (https://www.openstreetmap.org/copyright); navigable stretches around 1880 after research by Hans Blomme\nODbL 1.0\n\n\nstations\nHistorical Railway Data, Peter Aspeslagh, https://www.historicraildata.eu, downloaded on 3 November 2026; years opened and closed from Wikidata\nreused with attribution, as the website allows; Wikidata: CC0\n\n\nBelgium\n© EuroGeographics for the administrative boundaries; Eurostat GISCO, Countries 2024\n\n\n\n\nChanges made: all layers clipped to Belgium; only the canals and docks of 1770–1880; names and fields in English; coordinates of the stations with a decimal comma; years added from Wikidata.",
+    "crumbs": [
+      "Appendix B: Datasets",
+      "Transport in Belgium (1770–1880)"
+    ]
   }
 ]
