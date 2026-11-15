@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7.3 Web formats: GeoJSON and KML – Learning Path QGIS</title>
+<title>7.3 Web formats – Learning Path QGIS</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9fe02f54e64d752855352c2e516a32fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ef4d32e2d213c0d1cab0444e62b45808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Data in GIS (part 2)</a></li><li class="breadcrumb-item"><a href="../data-import/web-formats.html">7.3 Web formats: GeoJSON and KML</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Data in GIS (part 2)</a></li><li class="breadcrumb-item"><a href="../data-import/web-formats.html">7.3 Web formats</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -538,7 +538,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-import/web-formats.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">7.3 Web formats: GeoJSON and KML</span></a>
+ <span class="menu-text">7.3 Web formats</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -651,18 +651,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#characteristics-of-geojson-and-kml" id="toc-characteristics-of-geojson-and-kml" class="nav-link active" data-scroll-target="#characteristics-of-geojson-and-kml">Characteristics of GeoJSON and KML</a></li>
-  <li><a href="#opening-geojson-and-kml-in-qgis" id="toc-opening-geojson-and-kml-in-qgis" class="nav-link" data-scroll-target="#opening-geojson-and-kml-in-qgis">Opening GeoJSON and KML in QGIS</a></li>
-  <li><a href="#saving-as-geojson-or-kml" id="toc-saving-as-geojson-or-kml" class="nav-link" data-scroll-target="#saving-as-geojson-or-kml">Saving as GeoJSON or KML</a></li>
+  <li><a href="#geojson-and-kml" id="toc-geojson-and-kml" class="nav-link active" data-scroll-target="#geojson-and-kml">GeoJSON and KML</a>
+  <ul class="collapse">
+  <li><a href="#characteristics" id="toc-characteristics" class="nav-link" data-scroll-target="#characteristics">Characteristics</a></li>
+  <li><a href="#in-qgis" id="toc-in-qgis" class="nav-link" data-scroll-target="#in-qgis">In QGIS</a></li>
+  </ul></li>
+  <li><a href="#gpx" id="toc-gpx" class="nav-link" data-scroll-target="#gpx">GPX</a>
+  <ul class="collapse">
+  <li><a href="#characteristics-1" id="toc-characteristics-1" class="nav-link" data-scroll-target="#characteristics-1">Characteristics</a></li>
+  <li><a href="#in-qgis-1" id="toc-in-qgis-1" class="nav-link" data-scroll-target="#in-qgis-1">In QGIS</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Data in GIS (part 2)</a></li><li class="breadcrumb-item"><a href="../data-import/web-formats.html">7.3 Web formats: GeoJSON and KML</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Data in GIS (part 2)</a></li><li class="breadcrumb-item"><a href="../data-import/web-formats.html">7.3 Web formats</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">7.3 Web formats: GeoJSON and KML</h1>
+<h1 class="title">7.3 Web formats</h1>
 </div>
 
 
@@ -679,11 +686,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Some GIS formats are mainly used in a <strong>web</strong> context. They might not be the preferred format for working in QGIS, but you can import and use them. This comes in handy because some data providers only give you the option to download their data in these formats. Two examples are <strong>GeoJSON</strong> and <strong>KML</strong>. Both are text files describing geographic datasets using a certain syntax. Unlike CSV files, these are real GIS files: the geometry is already described in the file, so QGIS can show it on the map at once.</p>
-<section id="characteristics-of-geojson-and-kml" class="level2">
-<h2 class="anchored" data-anchor-id="characteristics-of-geojson-and-kml">Characteristics of GeoJSON and KML</h2>
+<p>Some GIS formats are mainly used in a <strong>web</strong> context. They are not the first choice for working in QGIS, but QGIS can import and use them. This comes in handy because some data providers only offer their data in this way. Two of them are used particularly often: <strong>GeoJSON</strong> and <strong>KML</strong>. Both are text files describing geographic datasets using a certain syntax. Unlike CSV files, these are real GIS files: the geometry is already described in the file, so QGIS can show it on the map at once.</p>
+<p>Another related format that you have probably heard of is <strong>GPX</strong> (<em>GPS Exchange Format</em>). It also describes geographic data, but it has a different purpose: exchanging GPS data between devices and apps.</p>
+<section id="geojson-and-kml" class="level2">
+<h2 class="anchored" data-anchor-id="geojson-and-kml">GeoJSON and KML</h2>
+<section id="characteristics" class="level3">
+<h3 class="anchored" data-anchor-id="characteristics">Characteristics</h3>
 <p><strong>GeoJSON</strong> (<code>.geojson</code>) and <strong>KML</strong> (<em>Keyhole Markup Language</em>, <code>.kml</code>) share the following characteristics:</p>
 <ul>
+<li>They work with the <strong>geometry types</strong> you already know, such as points, lines and polygons.</li>
 <li>A file contains a <strong>collection of features</strong>. It may contain different geometry types (for example points and polygons). QGIS shows them as separate layers when you import the file and asks which ones you want to add.</li>
 <li>They use <strong>longitude and latitude in WGS 84</strong> (<em>EPSG:4326</em>).</li>
 <li>They are text files, so working with large files in QGIS can be <strong>slow</strong>.</li>
@@ -722,8 +733,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="opening-geojson-and-kml-in-qgis" class="level2">
-<h2 class="anchored" data-anchor-id="opening-geojson-and-kml-in-qgis">Opening GeoJSON and KML in QGIS</h2>
+<section id="in-qgis" class="level3">
+<h3 class="anchored" data-anchor-id="in-qgis">In QGIS</h3>
 <p>You open these files in exactly the same way as a shapefile or a GeoPackage: drag the file into QGIS, or use the <em>Vector</em> tab of the <em>Data Source Manager</em> (see <a href="../basics/importing-vector-raster.html">Importing data into QGIS</a>).</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
@@ -735,12 +746,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>Sometimes you need GeoJSON or KML yourself. QGIS can also export to them: right-click the layer, choose <span class="menu-path"><em>Export ▸ Save Features As…</em></span> and under <em>Format</em> choose <em>GeoJSON</em> or <em>Keyhole Markup Language [KML]</em>. Set the <em>CRS</em> to <em>EPSG:4326 - WGS 84</em>, the coordinate system these formats expect.</p>
 </section>
-<section id="saving-as-geojson-or-kml" class="level2">
-<h2 class="anchored" data-anchor-id="saving-as-geojson-or-kml">Saving as GeoJSON or KML</h2>
-<p>Sometimes you need your data in one of these formats yourself. QGIS can also export to them: right-click the layer, choose <span class="menu-path"><em>Export ▸ Save Features As…</em></span> and under <em>Format</em> choose <em>GeoJSON</em> or <em>Keyhole Markup Language [KML]</em>. Set the <em>CRS</em> to <em>EPSG:4326 - WGS 84</em>, the coordinate system these formats expect.</p>
+</section>
+<section id="gpx" class="level2">
+<h2 class="anchored" data-anchor-id="gpx">GPX</h2>
+<section id="characteristics-1" class="level3">
+<h3 class="anchored" data-anchor-id="characteristics-1">Characteristics</h3>
+<p><strong>GPX</strong> (<code>.gpx</code>) is meant for <strong>storing and exchanging GPS data</strong>: what a GPS device or app records or needs for navigation. It is not suitable for describing complex geographic features. A GPX file consists of three main elements:</p>
+<ul>
+<li><strong>waypoints</strong> (<code>wpt</code>): single points, for example the places you marked.</li>
+<li><strong>routes</strong> (<code>rte</code>): a planned route.</li>
+<li><strong>tracks</strong> (<code>trk</code>): the path that you covered and that was recorded by your GPS device.</li>
+</ul>
+<p>Every point, including the points of routes and tracks, can also store an elevation and a time. Like KML, GPX is a text file in XML, with <strong>longitude and latitude in WGS 84</strong>.</p>
+</section>
+<section id="in-qgis-1" class="level3">
+<h3 class="anchored" data-anchor-id="in-qgis-1">In QGIS</h3>
+<p>QGIS opens a GPX file like any other vector file: drag it into the map canvas. QGIS first shows a list of the layers in the file, including the empty ones. Choose the ones you need. Waypoints are loaded as a point layer, routes and tracks as line layers.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

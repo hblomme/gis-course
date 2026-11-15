@@ -239,3 +239,6 @@ table thead tr:has(th[colspan]) + tr th {
   font-weight: 600;
   margin-top: 1.4em;
 }
+
+/* placeholders in inline code, like the arguments in the QGIS help: `distance(‹geometry1›, …)` */
+code em.code-arg { font-style: italic; color: #a31515; }
