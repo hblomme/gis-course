@@ -651,6 +651,16 @@ ul.task-list li input[type="checkbox"] {
 <p>You open the <strong>attribute table</strong> through the <em>Layers</em> panel: right-click the layer and choose <em>Open attribute table</em>. Alternatively, select the layer and press F6, or click the <em>Open Attribute Table</em> button on the <a href="../basics/map-navigation.html#attributes-toolbar"><em>Attributes Toolbar</em></a>.</p>
 <p><a href="../images-v4/basics/layers-07.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images-v4/basics/layers-07.png" class="img-fluid"></a></p>
 <p>The attribute table lists all features of the <strong>vector layer</strong> (<span class="ref">B</span>). Each row represents one feature, and each column one attribute field. You can easily sort the rows by any attribute field, numerically or alphabetically, by clicking a column heading.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>With many columns, the table quickly becomes hard to read. With <em>Organize Columns</em> <img src="../images-v4/basics/icons/mActionEditTable.svg" class="btn-icon inline no-lightbox img-fluid"> (in toolbar <span class="ref">A</span>) you can hide columns or change their order. This only changes how the table is shown: the data themselves stay the same.</p>
+</div>
+</div>
+</div>
 <p>Besides sorting, you can also select features in the table: click the number at the start of a row (hold down Ctrl or Shift to select several rows). A row in the attribute table and the corresponding geometry in the map canvas are linked in the background by a shared, unique <strong>feature ID</strong>. Because the geometric (spatial) and attribute (non-spatial) properties of a feature are inseparably linked, selecting a row in the attribute table also highlights the corresponding geometry in the map canvas, and vice versa.</p>
 <p><strong>Editing</strong> attribute data in the table is possible too, but not by default: first switch on editing mode with the <em>Toggle Editing</em> button (the pencil in toolbar <span class="ref">A</span>). We come back to this in Editing attribute data.</p>
 <p>A vector dataset can contain many thousands of features, and so just as many rows in the attribute table. By default you see all of them, which can make the table hard to read. That is why the attribute table has a <strong>filter function</strong> (<span class="ref">C</span>), which offers several ways to reduce the number of visible features, for example to only the selected ones.</p>

@@ -242,3 +242,6 @@ table thead tr:has(th[colspan]) + tr th {
 
 /* placeholders in inline code, like the arguments in the QGIS help: `distance(‹geometry1›, …)` */
 code em.code-arg { font-style: italic; color: #a31515; }
+
+/* long expressions: wrap instead of a horizontal scroll bar (author 2026-11-16) */
+pre.code-overflow-wrap, pre.code-overflow-wrap code { white-space: pre-wrap; overflow-wrap: anywhere; }
