@@ -854,9 +854,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#geometric-propertieswhat-is-a-geometry" id="toc-geometric-propertieswhat-is-a-geometry" class="nav-link active" data-scroll-target="#geometric-propertieswhat-is-a-geometry">What is a geometry?</a></li>
   <li><a href="#geometric-functionsbuilding-blocks" id="toc-geometric-functionsbuilding-blocks" class="nav-link" data-scroll-target="#geometric-functionsbuilding-blocks">Building blocks</a>
   <ul class="collapse">
-  <li><a href="#the-variable-geometry" id="toc-the-variable-geometry" class="nav-link" data-scroll-target="#the-variable-geometry">1. The variable @geometry</a></li>
-  <li><a href="#area-length-and-perimeter" id="toc-area-length-and-perimeter" class="nav-link" data-scroll-target="#area-length-and-perimeter">2. $area, $length and $perimeter</a></li>
-  <li><a href="#functionargument3.-other-functions" id="toc-functionargument3.-other-functions" class="nav-link" data-scroll-target="#functionargument3.-other-functions">3. Other functions</a></li>
+  <li><a href="#the-variable-geometry" id="toc-the-variable-geometry" class="nav-link" data-scroll-target="#the-variable-geometry">The variable @geometry</a></li>
+  <li><a href="#area-length-and-perimeter" id="toc-area-length-and-perimeter" class="nav-link" data-scroll-target="#area-length-and-perimeter">$area, $length and $perimeter</a></li>
+  <li><a href="#functionargumentother-functions" id="toc-functionargumentother-functions" class="nav-link" data-scroll-target="#functionargumentother-functions">Other functions</a></li>
   </ul></li>
   <li><a href="#give-the-input-yourself-in-the-form-of-argumentssyntax-and-arguments" id="toc-give-the-input-yourself-in-the-form-of-argumentssyntax-and-arguments" class="nav-link" data-scroll-target="#give-the-input-yourself-in-the-form-of-argumentssyntax-and-arguments">Syntax and arguments</a>
   <ul class="collapse">
@@ -915,13 +915,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Below we discuss each of these in turn.</p>
 <section id="the-variable-geometry" class="level3">
-<h3 class="anchored" data-anchor-id="the-variable-geometry">1. The variable @geometry</h3>
+<h3 class="anchored" data-anchor-id="the-variable-geometry">The variable @geometry</h3>
 <p><code>@geometry</code> retrieves the geometry of the current feature. It works in a similar way to a field name between double quotation marks: a field name retrieves the attribute value of each feature, while <code>@geometry</code> retrieves its geometry.</p>
 <p>In QGIS the <strong>@</strong> sign identifies variables. You can find <code>@geometry</code> in the list of <em>Variables</em> (<span class="ref">B</span>) in the expression builder.</p>
 <p><a href="../images-v4/querying/geometric-properties-06.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images-v4/querying/geometric-properties-06.png" class="img-fluid"></a></p>
 </section>
 <section id="area-length-and-perimeter" class="level3">
-<h3 class="anchored" data-anchor-id="area-length-and-perimeter">2. $area, $length and $perimeter</h3>
+<h3 class="anchored" data-anchor-id="area-length-and-perimeter">$area, $length and $perimeter</h3>
 <ul>
 <li><code>$area</code>: the area of a polygon</li>
 <li><code>$length</code>: the length of a line</li>
@@ -933,8 +933,8 @@ ul.task-list li input[type="checkbox"] {
 <p>These functions take the Earth’s curvature into account by using the reference ellipsoid defined in the project properties (<span class="menu-path"><em>Project ▸ Properties… ▸ General</em></span>). They also return their result in the units set there (by default square metres and metres), even when the layer uses a geographic CRS such as WGS 84, where coordinates are expressed in degrees.</p>
 <p>The expression shown above, <code>$area &gt; 300000000000</code>, selects all states with an area larger than 300&nbsp;000&nbsp;000&nbsp;000 m² (300&nbsp;000 km²). For each feature, QGIS calculates its area using the reference ellipsoid and checks whether it exceeds this threshold. Only five states are selected: Alaska, Texas, California, Montana and New Mexico.</p>
 </section>
-<section id="functionargument3.-other-functions" class="level3">
-<h3 class="anchored" data-anchor-id="functionargument3.-other-functions">3. Other functions</h3>
+<section id="functionargumentother-functions" class="level3">
+<h3 class="anchored" data-anchor-id="functionargumentother-functions">Other functions</h3>
 <p>QGIS offers a wide range of functions to query geometries, to check how they relate to each other in space, or even to create new geometries on the fly. All these functions work in the same way: you write the function name and give the input it needs as <strong>arguments</strong> between brackets. If there are several arguments, you separate them with commas, as in <code><em class="code-arg">function_name</em>(<em class="code-arg">argument_1</em>, <em class="code-arg">argument_2</em>)</code>. You find these functions in the central list (<span class="ref">B</span>), under <em>Geometry</em>. Most of them expect one or more geometries as arguments. In the examples below, words in italics such as <em>geometry1</em> or <em>number1</em> are placeholders: you replace them with actual values, such as a geometry or a number. Some examples:</p>
 <ul>
 <li><code>distance(<em class="code-arg">geometry1</em>, <em class="code-arg">geometry2</em>)</code>: calculates the minimum distance between two geometries.</li>
