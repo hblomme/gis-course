@@ -99,6 +99,9 @@ div.del img { opacity: 0.4; }
 .check::after { content: " ⚠"; color: #e8710a; font-size: 0.8em; }
 
 body.final-view .del, body.final-view div.del { display: none; }
+/* a heading whose whole text is deleted would stay as an empty heading (and an empty TOC entry) in the student view */
+body.final-view :is(h2, h3, h4, h5):has(> .del):not(:has(> :not(.del, .anchorjs-link))) { display: none; }
+body.final-view #TOC li:has(> a > .del):not(:has(> a > :not(.del))) { display: none; }
 body.final-view .add, body.final-view div.add { color: inherit; background: none; border: none; padding: 0; margin: 0; }
 body.final-view .check { text-decoration: none; }
 body.final-view .check::after { content: none; }
@@ -245,3 +248,18 @@ code em.code-arg { font-style: italic; color: #a31515; }
 
 /* long expressions: wrap instead of a horizontal scroll bar (author 2026-11-16) */
 pre.code-overflow-wrap, pre.code-overflow-wrap code { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* two screenshots side by side with exactly the same height (author 2026-11-16): use
+   ::: {.same-height layout="[w1,w2]"} with w = image width / image height (the cells then scale proportionally) */
+.same-height .quarto-layout-row { align-items: flex-start; }
+.same-height .quarto-layout-cell figure, .same-height .quarto-layout-cell > p { margin: 0 !important; }
+.same-height .quarto-layout-cell img { width: 100%; height: auto; }
+.same-height .quarto-layout-cell img.framed { padding: 0; border: none; outline: 1px solid #c9ced6; }   /* no padding/border: they would break the equal height */
+
+/* more white space around and between screenshots placed side by side (author 2026-11-16) */
+main .quarto-layout-panel { margin: 1rem 0 1.4rem; }
+main .quarto-layout-row .quarto-layout-cell:not(:last-child) { margin-right: 2.2rem; }
+
+/* screenshots side by side at a fixed size, allowed to use the right margin (author 2026-11-16) */
+.side-by-side { display: flex; gap: 2.2rem; align-items: flex-start; flex-wrap: wrap; margin: 1rem 0 1.4rem; }
+.side-by-side > p { margin: 0; }
