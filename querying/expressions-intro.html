@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8.3.1 Why and what? – Learning Path QGIS</title>
+<title>8.4.1 Expressions: why and what? – Learning Path QGIS</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../querying/expression-editor.html" rel="next">
-<link href="../querying/filtering-attribute-table.html" rel="prev">
+<link href="../querying/automated-selections.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.3 Working with expressions</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.3.1 Why and what?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.4 Working with expressions</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.4.1 Expressions: why and what?</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -330,7 +330,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../visualisation/raster-cell-values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4.3.1 Cell values: histogram and unique values</span></a>
+ <span class="menu-text">4.3.1 Raster cell values</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -411,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../crs/transformations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5.2.3 Transformations</span></a>
+ <span class="menu-text">5.2.3 Coordinate transformations</span></a>
   </div>
 </li>
       </ul>
@@ -451,13 +451,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../layouts/layout-items.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6.2.1 Basic item properties</span></a>
+ <span class="menu-text">6.2.1 Layout items: basic properties</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../layouts/layout-items-maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6.2.2 Map items</span></a>
+ <span class="menu-text">6.2.2 Map items in a layout</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -552,47 +552,70 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
- <span class="menu-text">8.3 Working with expressions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
+ <span class="menu-text">8.3 Selections</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../querying/selecting-features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3.1 Selecting features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../querying/automated-selections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3.2 Automated selections</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
+ <span class="menu-text">8.4 Working with expressions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/expressions-intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">8.3.1 Why and what?</span></a>
+ <span class="menu-text">8.4.1 Expressions: why and what?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/expression-editor.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.3.2 Expression editor</span></a>
+ <span class="menu-text">8.4.2 Expression builder</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/expressions-attribute-values.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.3.3 Expressions with attribute values</span></a>
+ <span class="menu-text">8.4.3 Expressions with attribute values</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/logical-operators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.3.4 Logical operators</span></a>
+ <span class="menu-text">8.4.4 Logical operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/geometric-properties.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.3.5 Using geometric properties</span></a>
+ <span class="menu-text">8.4.5 Geometric properties in expressions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/specific-layers-features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.3.6 Retrieving features</span></a>
+ <span class="menu-text">8.4.6 Retrieving features from other layers</span></a>
   </div>
 </li>
       </ul>
@@ -600,32 +623,9 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/rule-based-styling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.4 Rule-based styling</span></a>
+ <span class="menu-text">8.5 Rule-based styling</span></a>
   </div>
 </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false">
- <span class="menu-text">8.5 Selections</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../querying/selecting-features.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.5.1 Selecting features</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../querying/automated-selections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.5.2 Automated selections</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
@@ -661,13 +661,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/statistical-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.7.1 Vector data</span></a>
+ <span class="menu-text">8.7.1 Statistics of vector data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/raster-statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.7.2 Raster data</span></a>
+ <span class="menu-text">8.7.2 Statistics of raster data</span></a>
   </div>
 </li>
       </ul>
@@ -859,9 +859,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.3 Working with expressions</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.3.1 Why and what?</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.4 Working with expressions</a></li><li class="breadcrumb-item"><a href="../querying/expressions-intro.html">8.4.1 Expressions: why and what?</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">8.3.1 Why and what?</h1>
+<h1 class="title">8.4.1 Expressions: why and what?</h1>
 </div>
 
 
@@ -881,15 +881,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
 <p>QGIS has a very well-developed graphical user interface: it translates complex functionality into simple menus and configuration windows. Because of this, you can carry out many operations without understanding the processes behind them. However, these interfaces sometimes limit how precisely you can define what you want to do. This is where <strong>expressions</strong> become useful.</p>
-<p>Consider a layer containing the major cities of the United States (<code>major_cities</code>), with the fields <code>STATE_ABBR</code> (the state abbreviation) and <code>POPULATION</code>. Suppose you want to see all cities in Texas with more than 500&nbsp;000 inhabitants. The standard <em>Field Filter</em> does not allow you to combine these two conditions, but you can achieve this using an <strong>expression</strong> in the <em>Advanced Filter (Expression)</em>.</p>
-<p>Here we use filtering as an example. However, expressions can be used for many other purposes in QGIS, such as styling and labelling, updating attribute values and running processing tools. The way you write expressions is the same, regardless of where you use them.</p>
+<p>Consider a layer containing the major cities of the United States (<code>major_cities</code>), with the fields <code>STATE_ABBR</code> (the state abbreviation) and <code>POPULATION</code>. Suppose you want to select all cities in Texas with more than 500&nbsp;000 inhabitants. <em>Select by attribute</em> can only check one condition at a time. With an <strong>expression</strong> in the <em>Select by expression</em> tool you can combine both.</p>
+<p>Here we use selecting as an example. However, expressions can be used for many other purposes in QGIS, such as filtering, styling and labelling, updating attribute values and running processing tools. The way you write expressions is the same, regardless of where you use them.</p>
 </section>
 <section id="what" class="level2">
 <h2 class="anchored" data-anchor-id="what">What?</h2>
 <p>Expressions are formulas that follow certain <strong>syntax rules</strong>. They are built from fields, values, operators (such as &gt; or AND), functions and variables. Functions are ready-made commands that perform a specific task using a value or geometry, such as <code>area()</code> for the area of a geometry or <code>upper()</code> to convert text to uppercase. Variables are values that QGIS provides about the current feature, layer or project, such as the geometry of a feature or the name of a layer.</p>
 <p>A very simple example of an expression in QGIS is:</p>
 <p><a href="../images-v4/querying/expressions-intro-02.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="../images-v4/querying/expressions-intro-02.png" class="img-fluid"></a></p>
-<p>When you apply an expression to a layer (for example as a filter), QGIS <strong>evaluates it for each feature, one by one</strong>. In this example, it checks whether the value in the <code>POPULATION</code> field is greater than <code>1000000</code>. If the condition is true, the feature remains visible after filtering. If not, it is hidden.</p>
+<p>When you apply an expression to a layer (for example to select features), QGIS <strong>evaluates it for each feature, one by one</strong>. In this example, it checks whether the value in the <code>POPULATION</code> field is greater than <code>1000000</code>. If the condition is true, the feature is selected. If not, it is not selected.</p>
 
 
 </section>
@@ -1328,13 +1328,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../querying/filtering-attribute-table.html" class="pagination-link" aria-label="8.2 Filtering the attribute table">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8.2 Filtering the attribute table</span>
+      <a href="../querying/automated-selections.html" class="pagination-link" aria-label="8.3.2 Automated selections">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8.3.2 Automated selections</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../querying/expression-editor.html" class="pagination-link" aria-label="8.3.2 Expression editor">
-        <span class="nav-page-text">8.3.2 Expression editor</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../querying/expression-editor.html" class="pagination-link" aria-label="8.4.2 Expression builder">
+        <span class="nav-page-text">8.4.2 Expression builder</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

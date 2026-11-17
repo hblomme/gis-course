@@ -756,37 +756,37 @@
   {
     "objectID": "visualisation/raster-cell-values.html",
     "href": "visualisation/raster-cell-values.html",
-    "title": "4.3.1 Cell values: histogram and unique values",
+    "title": "4.3.1 Raster cell values",
     "section": "",
     "text": "Each cell in a band of a raster layer has one numeric value or NoData (see 2.1 The raster model). A raster usually contains thousands or even millions of cells, and a cell rarely stands for a clearly delimited object, such as a building or a parcel. A list of all cells, like the attribute table of a vector layer, would therefore contain an unmanageable number of rows and tell you little. What is useful is an overview of how often each value occurs. You can get such an overview in QGIS in several ways. Below we discuss two of them: a histogram and a report of unique values.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.3 Raster layers",
-      "4.3.1 Cell values: histogram and unique values"
+      "4.3.1 Raster cell values"
     ]
   },
   {
     "objectID": "visualisation/raster-cell-values.html#histogram-of-cell-values",
     "href": "visualisation/raster-cell-values.html#histogram-of-cell-values",
-    "title": "4.3.1 Cell values: histogram and unique values",
+    "title": "4.3.1 Raster cell values",
     "section": "Histogram of cell values",
     "text": "Histogram of cell values\nOpen the Layer Properties window of your raster layer and go to the Histogram tab. If the histogram is still empty, you can compute it by clicking Compute Histogram. The x-axis shows the cell values (Pixel Value), and the y-axis how often each value occurs (Frequency).\n\n\n\n\n\n\n\nIf you drag the mouse over an area of the histogram, QGIS zooms in on that area. To return to the full view, press Esc.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.3 Raster layers",
-      "4.3.1 Cell values: histogram and unique values"
+      "4.3.1 Raster cell values"
     ]
   },
   {
     "objectID": "visualisation/raster-cell-values.html#report-of-unique-cell-values",
     "href": "visualisation/raster-cell-values.html#report-of-unique-cell-values",
-    "title": "4.3.1 Cell values: histogram and unique values",
+    "title": "4.3.1 Raster cell values",
     "section": "Report of unique cell values",
     "text": "Report of unique cell values\nA second way to get an overview is a report that lists every unique value of a band, with the number of cells that have it. You create this report with an analysis tool. QGIS gathers all its processing and analysis tools in the Processing Toolbox, which by default is on the right side of the QGIS window. If it is not visible, open it from the main menu with Processing ▸ Toolbox.\nUnder Raster analysis, double-click the tool Raster layer unique values report. In the window that opens, choose the layer (Input layer) and the band (Band number), and click Run. When the report is ready, QGIS opens the Results Viewer panel with the report in it: click the report to open it. Besides the unique values, the report also gives the number of NoData cells.",
     "crumbs": [
       "4 Layer properties and symbology",
       "4.3 Raster layers",
-      "4.3.1 Cell values: histogram and unique values"
+      "4.3.1 Raster cell values"
     ]
   },
   {
@@ -1353,49 +1353,49 @@
   {
     "objectID": "crs/transformations.html",
     "href": "crs/transformations.html",
-    "title": "5.2.3 Transformations",
+    "title": "5.2.3 Coordinate transformations",
     "section": "",
     "text": "Coordinates in one coordinate reference system can be converted with a mathematical formula into coordinates in another CRS. When this involves changing the map projection, the process is commonly referred to as reprojection in QGIS. More generally, it is called a coordinate transformation. \n\n\nWhen you explicitly reproject a layer using the methods described below, QGIS creates a new layer with the transformed coordinates. The original layer remains unchanged.\nA first common way is to export the layer to a new layer with the new CRS. Right-click the layer in the Layers panel and choose Export ▸ Save Features As…. In the dialog, keep GeoPackage as Format (the default), enter a file name and choose the new CRS under CRS.\n\nAlternatively, you can use the reprojection tools in the Processing Toolbox (Processing ▸ Toolbox). For vector layers, use Vector general ▸ Reproject layer. For raster layers, use GDAL ▸ Raster projections ▸ Warp (reproject). You can also type the tool name in the search box at the top of the toolbox. In the tool, you choose the new CRS under Target CRS (A) and, under Reprojected (B), whether the result is stored as a temporary layer or as a file on your computer.\n\n\n\n\n\n\n\nBy default, a processing tool such as Reproject layer creates a temporary layer: QGIS does not write a file, but keeps the layer in the memory of your work session. If you close your project and open it again, the content of temporary layers is no longer available.\nIn the Layers panel, a temporary layer is marked with this icon: . To save it as a file after all, right-click the layer and choose Make Permanent….\n\n\n\n\n\n\nBesides these explicit transformations, QGIS also uses transformations implicitly. When you load data whose coordinate system differs from the project CRS, QGIS transforms the coordinates on the fly so that the data can be positioned and displayed correctly in the map canvas. This process runs in the background: the original data are not changed, but the coordinates are recalculated for display. Thanks to this, you can load data sources into QGIS and display them together, whatever their CRS.",
     "crumbs": [
       "5 Coordinate systems",
       "5.2 Coordinate systems in practice",
-      "5.2.3 Transformations"
+      "5.2.3 Coordinate transformations"
     ]
   },
   {
     "objectID": "crs/transformations.html#transformations",
     "href": "crs/transformations.html#transformations",
-    "title": "5.2.3 Transformations",
+    "title": "5.2.3 Coordinate transformations",
     "section": "",
     "text": "Coordinates in one coordinate reference system can be converted with a mathematical formula into coordinates in another CRS. When this involves changing the map projection, the process is commonly referred to as reprojection in QGIS. More generally, it is called a coordinate transformation. \n\n\nWhen you explicitly reproject a layer using the methods described below, QGIS creates a new layer with the transformed coordinates. The original layer remains unchanged.\nA first common way is to export the layer to a new layer with the new CRS. Right-click the layer in the Layers panel and choose Export ▸ Save Features As…. In the dialog, keep GeoPackage as Format (the default), enter a file name and choose the new CRS under CRS.\n\nAlternatively, you can use the reprojection tools in the Processing Toolbox (Processing ▸ Toolbox). For vector layers, use Vector general ▸ Reproject layer. For raster layers, use GDAL ▸ Raster projections ▸ Warp (reproject). You can also type the tool name in the search box at the top of the toolbox. In the tool, you choose the new CRS under Target CRS (A) and, under Reprojected (B), whether the result is stored as a temporary layer or as a file on your computer.\n\n\n\n\n\n\n\nBy default, a processing tool such as Reproject layer creates a temporary layer: QGIS does not write a file, but keeps the layer in the memory of your work session. If you close your project and open it again, the content of temporary layers is no longer available.\nIn the Layers panel, a temporary layer is marked with this icon: . To save it as a file after all, right-click the layer and choose Make Permanent….\n\n\n\n\n\n\nBesides these explicit transformations, QGIS also uses transformations implicitly. When you load data whose coordinate system differs from the project CRS, QGIS transforms the coordinates on the fly so that the data can be positioned and displayed correctly in the map canvas. This process runs in the background: the original data are not changed, but the coordinates are recalculated for display. Thanks to this, you can load data sources into QGIS and display them together, whatever their CRS.",
     "crumbs": [
       "5 Coordinate systems",
       "5.2 Coordinate systems in practice",
-      "5.2.3 Transformations"
+      "5.2.3 Coordinate transformations"
     ]
   },
   {
     "objectID": "crs/transformations.html#transformations-can-lead-to-deviations",
     "href": "crs/transformations.html#transformations-can-lead-to-deviations",
-    "title": "5.2.3 Transformations",
+    "title": "5.2.3 Coordinate transformations",
     "section": "Transformations can lead to deviations",
     "text": "Transformations can lead to deviations\nCoordinate transformations are not always exact. Depending on the transformation used and the accuracy of its parameters, they can introduce small positional errors, sometimes amounting to several metres or more.\nSeveral mathematical transformations may be available for converting coordinates between two CRSs, each with its own accuracy. In that case, QGIS asks you which one to use and shows the accuracy of each. Choose the most accurate transformation that is suitable for your area.\nWithin one project, always use the same transformation for the same pair of CRSs. Otherwise, identical features may no longer overlap exactly. Also avoid unnecessary transformations: every transformation can introduce small inaccuracies.",
     "crumbs": [
       "5 Coordinate systems",
       "5.2 Coordinate systems in practice",
-      "5.2.3 Transformations"
+      "5.2.3 Coordinate transformations"
     ]
   },
   {
     "objectID": "crs/transformations.html#coordinate-systems-are-not-simply-interchangeable",
     "href": "crs/transformations.html#coordinate-systems-are-not-simply-interchangeable",
-    "title": "5.2.3 Transformations",
+    "title": "5.2.3 Coordinate transformations",
     "section": "Coordinate systems are not simply interchangeable!",
     "text": "Coordinate systems are not simply interchangeable!\nAlthough you do not need to transform geodata explicitly to visualise them in the map canvas, it is in certain cases advisable to do so.\n\nCRS depending on the analysis\nSpatial analysis tools often use the original data (and therefore the original coordinates), so the CRS of each layer affects the result:\n\nGeographic coordinate systems are generally unsuitable for Cartesian calculations. Some QGIS tools can produce misleading results when used with geographic coordinates: a buffer distance, for example, is then expressed in degrees rather than metres (see Buffers and new geometries).\nNot all coordinate systems are suitable for all regions. A CRS that gives reliable results for one region can show large distortions for other regions. These distortions carry over into the distances, areas and shapes the software calculates for this layer, and so lead to wrong results.\nThe suitable CRS also depends on the type of analysis. If you want to calculate areas for the features in a layer, a layer that uses an equal-area CRS will give reliable results; other CRSs can distort areas, especially over large regions.\nIf you want to run a spatial analysis on several layers (for example, calculating the overlap between two layers), using the same suitable CRS for all layers can help avoid inconsistencies and improve processing efficiency.\n\n\n\nWhy transform data explicitly?\nYou learned that if a layer does not use the same CRS as the project, QGIS transforms it on the fly to display it in the map canvas. This allows layers with different CRSs to be displayed together, but coordinate transformations can introduce small positional inaccuracies. As a result, the displayed position of a feature may differ slightly from its position in the original data. In addition, many analysis tools work with the coordinates stored in the layer, not with the coordinates as they appear in the map canvas. Transforming your data explicitly to a suitable common CRS can help ensure consistency, particularly when performing spatial analyses.\n\n\n\n\n\n\nYou can now do Exercise 1, part C.",
     "crumbs": [
       "5 Coordinate systems",
       "5.2 Coordinate systems in practice",
-      "5.2.3 Transformations"
+      "5.2.3 Coordinate transformations"
     ]
   },
   {
@@ -1500,133 +1500,133 @@
   {
     "objectID": "layouts/layout-items.html",
     "href": "layouts/layout-items.html",
-    "title": "6.2.1 Basic item properties",
+    "title": "6.2.1 Layout items: basic properties",
     "section": "",
     "text": "Each item in your layout has its own properties. When you select an item, the Item Properties panel (I) displays them. This is where you configure its content and how it looks.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.1 Basic item properties"
+      "6.2.1 Layout items: basic properties"
     ]
   },
   {
     "objectID": "layouts/layout-items.html#item-properties",
     "href": "layouts/layout-items.html#item-properties",
-    "title": "6.2.1 Basic item properties",
+    "title": "6.2.1 Layout items: basic properties",
     "section": "",
     "text": "Each item in your layout has its own properties. When you select an item, the Item Properties panel (I) displays them. This is where you configure its content and how it looks.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.1 Basic item properties"
+      "6.2.1 Layout items: basic properties"
     ]
   },
   {
     "objectID": "layouts/layout-items.html#configuring-basic-item-properties",
     "href": "layouts/layout-items.html#configuring-basic-item-properties",
-    "title": "6.2.1 Basic item properties",
+    "title": "6.2.1 Layout items: basic properties",
     "section": "Configuring basic item properties",
     "text": "Configuring basic item properties\nEvery item has a set of properties. Some are common to all items, while others depend on the type of item. The most important of these common properties is Position and Size. Here, you can specify the item’s exact position on the layout page with micron-level precision, as well as its height and width independently.\nOther general properties include:\n\nFrame: add a frame around the item and customise its appearance.\nBackground: set a background for the item.\nRendering: adjust the item’s transparency, making it (partly) transparent.\n\nIn addition to these common settings, each item type has some specific properties. For example:\n\nLabel item: edit the text under Main Properties (by default, this is ‘Lorem ipsum’). You can adjust the font family, size, colour and other text formatting options under Appearance.\nImage item: a new image item starts as an empty frame, a placeholder for your image. To choose which image to display, you can use the file browser in the Item Properties panel to select an image from your computer, or choose an SVG image from the QGIS library.\nShape item: choose the shape (rectangle, ellipse or triangle) and configure its appearance under Main Properties.\nArrow item: configure the line’s colour, thickness and dash pattern under Main Properties. You can also add arrows at either end under Line Markers.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.1 Basic item properties"
+      "6.2.1 Layout items: basic properties"
     ]
   },
   {
     "objectID": "layouts/layout-items.html#more-advanced-items",
     "href": "layouts/layout-items.html#more-advanced-items",
-    "title": "6.2.1 Basic item properties",
+    "title": "6.2.1 Layout items: basic properties",
     "section": "More advanced items",
     "text": "More advanced items\nThe item types listed above are simple and have few configuration options. On the next pages we discuss more advanced ones: map items and legends, scale bars and north arrows.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.1 Basic item properties"
+      "6.2.1 Layout items: basic properties"
     ]
   },
   {
     "objectID": "layouts/layout-items-maps.html",
     "href": "layouts/layout-items-maps.html",
-    "title": "6.2.2 Map items",
+    "title": "6.2.2 Map items in a layout",
     "section": "",
     "text": "As you learned in General: layouts, a Print Layout is simply a page on which you can add items. This means you also have to add the map frame itself as an item. When you add a new map item, it initially reflects the map as it appears in the map canvas of the main QGIS window: it displays the same area (adjusted to fit the shape of the map item) and uses the same layer visibility and styles.\nFrom that moment on, by default, map items in the layout continue to reflect changes to layer visibility and symbology in the main QGIS window. However, changes to the map canvas extent do not affect them. Panning or zooming in the main QGIS window, for example, does not change the area or scale displayed in the maps on your layout.\nThe following examples illustrate this distinction:\n\n\n\n\n\n\n\nBy default, map items in the layout…\n\n\nare updated (follow the map canvas) when you:\nremain unchanged (do NOT follow the map canvas) when you:\n\n\n\n\nmake a layer (in)visible in the Layers panel\npan the map (by dragging or re-centring it)\n\n\nchange the symbology of a layer, for example its colour\nzoom in or out, thereby changing the scale\n\n\nadd labels or change their appearance (font…)\nmake a selection\n\n\nadd diagrams to your layer\n\n\n\nremove a layer or add a new layer to your project\n\n\n\nupdate a layer’s data\n\n\n\n\n\n\n\n\n\n\nSometimes the automatic updates only become visible in your layout after you have clicked refresh  or Update Preview.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.2 Map items"
+      "6.2.2 Map items in a layout"
     ]
   },
   {
     "objectID": "layouts/layout-items-maps.html#what-a-map-item-shows",
     "href": "layouts/layout-items-maps.html#what-a-map-item-shows",
-    "title": "6.2.2 Map items",
+    "title": "6.2.2 Map items in a layout",
     "section": "",
     "text": "As you learned in General: layouts, a Print Layout is simply a page on which you can add items. This means you also have to add the map frame itself as an item. When you add a new map item, it initially reflects the map as it appears in the map canvas of the main QGIS window: it displays the same area (adjusted to fit the shape of the map item) and uses the same layer visibility and styles.\nFrom that moment on, by default, map items in the layout continue to reflect changes to layer visibility and symbology in the main QGIS window. However, changes to the map canvas extent do not affect them. Panning or zooming in the main QGIS window, for example, does not change the area or scale displayed in the maps on your layout.\nThe following examples illustrate this distinction:\n\n\n\n\n\n\n\nBy default, map items in the layout…\n\n\nare updated (follow the map canvas) when you:\nremain unchanged (do NOT follow the map canvas) when you:\n\n\n\n\nmake a layer (in)visible in the Layers panel\npan the map (by dragging or re-centring it)\n\n\nchange the symbology of a layer, for example its colour\nzoom in or out, thereby changing the scale\n\n\nadd labels or change their appearance (font…)\nmake a selection\n\n\nadd diagrams to your layer\n\n\n\nremove a layer or add a new layer to your project\n\n\n\nupdate a layer’s data\n\n\n\n\n\n\n\n\n\n\nSometimes the automatic updates only become visible in your layout after you have clicked refresh  or Update Preview.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.2 Map items"
+      "6.2.2 Map items in a layout"
     ]
   },
   {
     "objectID": "layouts/layout-items-maps.html#turning-off-automatic-updates",
     "href": "layouts/layout-items-maps.html#turning-off-automatic-updates",
-    "title": "6.2.2 Map items",
+    "title": "6.2.2 Map items in a layout",
     "section": "Turning off automatic updates",
     "text": "Turning off automatic updates\nAutomatic updates of your map in the layout environment can be useful, but in certain cases they are not desirable.\nFor example, suppose you want to display two maps on your layout page: one showing a wider area for an overview, and another zooming in on a specific region to show more detail. Some layers containing detailed information should appear on the detail map only, while the overview map should show more general labels. In this case, you need two different map configurations at the same time.\n\nLock layers and Lock styles for layers\nIn such cases, you can turn off automatic updates in the layout environment. To do so, map items have two options under the Layers group (I2) in their Item Properties: Lock layers and Lock styles for layers.\n\nWhen you select Lock layers, the map item retains the layer visibility as it is at that moment. Subsequent changes to layer visibility (using the checkboxes in the Layers panel) will no longer be reflected in the map item.\nSimilarly, Lock styles for layers preserves the layer styles as they are when you enable the option. Any later changes to symbology (such as colours and shapes), labels or diagrams will not be applied to the map item. This option is only available once Lock layers is ticked.\n\n\n\n\n\n\nYou cannot edit the styles of a locked map item. As soon as you untick Lock layers or Lock styles for layers, the map item is synchronised with the current settings in the map canvas. This means that any custom configuration you have locked in is lost.\n\n\n\n\n\nFollow map theme\nA more flexible way to keep your layout maps independent of the active map canvas is to use map themes. As you saw in Saving and reusing styles, a map theme stores which layers are visible and which style is active for each. QGIS allows you to assign such a theme to a map item in the print layout. This way, you can both control the map item’s display independently of the map canvas and easily update its appearance by editing the corresponding map theme.\n\nThe example layout in the image above was created using two separate map themes. The detail map follows the map theme Detail map, the overview map follows the map theme Overview map.\nThe Overview map theme shows the towns of Flanders, using circles to represent their population. To make the Liberty of Bruges stand out, it is displayed in dark red without an outline, while the Low Countries are shown in blue-grey with region names.\nThe Detail map theme, on the other hand, shows the towns within the Liberty of Bruges. Here, the Liberty of Bruges is displayed in a soft clay colour, while the Low Countries are light grey without region names, making the town names easier to read.\nTo do this:\n\nIn your main QGIS window, give each layer that should look different a style for each map (right-click the layer in the Layers panel, Styles ▸ Add…) and configure it as desired.\nAt the top of the Layers panel in your main QGIS window, choose Manage Map Themes ▸ Add Theme… to save a map theme for each map.\nIn your Print Layout window, select a map item and go to its Item Properties. Under Layers, tick Follow map theme and choose the map theme of this map.\nDo the same for the other map item.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.2 Map items"
+      "6.2.2 Map items in a layout"
     ]
   },
   {
     "objectID": "layouts/layout-items-maps.html#scale-and-extent",
     "href": "layouts/layout-items-maps.html#scale-and-extent",
-    "title": "6.2.2 Map items",
+    "title": "6.2.2 Map items in a layout",
     "section": "Scale and extent",
     "text": "Scale and extent\nTo set the desired scale and extent of a map item, go to the Item Properties panel and adjust the settings under Main Properties (I1, Scale) and Extents (I3), respectively. You can also move the map content within the item using the Move item content tool , as explained in General: layouts.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.2 Map items"
+      "6.2.2 Map items in a layout"
     ]
   },
   {
     "objectID": "layouts/layout-items-maps.html#coordinate-reference-system",
     "href": "layouts/layout-items-maps.html#coordinate-reference-system",
-    "title": "6.2.2 Map items",
+    "title": "6.2.2 Map items in a layout",
     "section": "Coordinate reference system",
     "text": "Coordinate reference system\nEach map item also has its own CRS setting under Main Properties (I1). By default, it is set to Use Project CRS. The map item then follows the CRS that is active in your QGIS project (see Coordinate system of the QGIS project). You can also choose a different CRS here, separately for each map item. This allows you to combine maps in different projections within a single layout. For example, you could use a national CRS such as Belgian Lambert 72 for a detail map and ETRS89-extended / LCC Europe for an overview map of Europe. Choosing a suitable projection for each map helps to minimise distortions at both scales.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.2 Map items"
+      "6.2.2 Map items in a layout"
     ]
   },
   {
     "objectID": "layouts/layout-items-maps.html#overview-of-another-map",
     "href": "layouts/layout-items-maps.html#overview-of-another-map",
-    "title": "6.2.2 Map items",
+    "title": "6.2.2 Map items in a layout",
     "section": "Overview of another map",
     "text": "Overview of another map\nYou might have noticed that the overview map in the example layout above shows a frame around the area that is covered by the detail map. QGIS can draw this frame automatically, so that it always matches the extent of the detail map exactly. Changing the scale of the detail map or moving its content updates the frame accordingly. \n\n\n\n\n\n\nTry it yourself: Overview map and extent frame\n\n\n\nYou can easily add an overview through the Item Properties of the overview map:\n\nGo to the Overviews section (I5) and click the green plus symbol.\nA new overview is created and appears in the list below the plus and minus buttons. You can select an overview in this list to configure its properties.\nUnder Map frame, select the map whose extent you want to display (in this case, the detail map).\nUnder Frame style, configure the appearance of the frame. By default, this is a semi-transparent pink fill. In the example above, it was changed to a dark outline without a fill.\n\n\nA layout can contain more than two maps. You can therefore add several overviews to a single map. It then shows several frames, each of which can be configured independently.\n\n\n\n\n\n\nIn the example layout above, two dashed lines connect the overview frame to the detail map itself. QGIS does not draw these lines automatically. They were added manually as arrow items, to make the map easier to read.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.2 Map items"
+      "6.2.2 Map items in a layout"
     ]
   },
   {
     "objectID": "layouts/layout-items-maps.html#grids",
     "href": "layouts/layout-items-maps.html#grids",
-    "title": "6.2.2 Map items",
+    "title": "6.2.2 Map items in a layout",
     "section": "Grids",
     "text": "Grids\nThe Item Properties of a map also allow you to add one or more fully customisable grids (Grids, I4). These can be, for example, longitude and latitude lines or a grid in metres for a projected CRS.\n\n\n\nThe overview map of the example layout with a grid of longitude and latitude lines, every 1°.",
     "crumbs": [
       "6 Publishing maps",
       "6.2 Configuring layout items",
-      "6.2.2 Map items"
+      "6.2.2 Map items in a layout"
     ]
   },
   {
@@ -2104,7 +2104,7 @@
     "href": "querying/querying-intro.html#ii.-querying-data-in-practicequerying-data-in-practice",
     "title": "8.1 Querying data: introduction",
     "section": "Querying data in practice",
-    "text": "Querying data in practice\nIn QGIS querying data can have different goals. The following pages cover them:\n\nFiltering the attribute table: you only show the records that meet certain conditions.\nRule-based styling: you give features a different symbol or label depending on whether they meet certain conditions.\nSelecting and extracting data: you select the features of a layer that meet certain conditions, or extract them straight into a new layer.\nEditing attribute data: you edit the attribute table by hand, or let QGIS calculate field values based on an expression with the Field Calculator.\nStatistical queries: you calculate statistical values for your vector or raster data.\n\nQGIS provides several querying tools with a configuration window: you simply click the settings you want. That makes them easy to use but also limits what you can ask. For more complex questions you can query your data with expressions. These are explained in section 8.3 Working with expressions.",
+    "text": "Querying data in practice\nIn QGIS querying data can have different goals. The following pages cover them:\n\nFiltering the attribute table: you only show the records that meet certain conditions.\nSelecting and extracting data: you select the features of a layer that meet certain conditions, or extract them straight into a new layer.\nRule-based styling: you give features a different symbol or label depending on whether they meet certain conditions.\nEditing attribute data: you edit the attribute table by hand, or let QGIS calculate field values based on an expression with the Field Calculator.\nStatistical queries: you calculate statistical values for your vector or raster data.\n\nQGIS provides several querying tools with a configuration window: you simply click the settings you want. That makes them easy to use but also limits what you can ask. For more complex questions you can query your data with expressions. These are explained in section 8.4 Working with expressions.",
     "crumbs": [
       "8 Querying data",
       "8.1 Querying data: introduction"
@@ -2137,7 +2137,7 @@
     "href": "querying/filtering-attribute-table.html#filtering-by-values",
     "title": "8.2 Filtering the attribute table",
     "section": "Filtering by values",
-    "text": "Filtering by values\nWith Field Filter you filter on one field: choose the field in the submenu, type a value in the box that appears below the table and press Enter. For a text field QGIS shows all rows that contain this text. For a number field the value must match exactly.\n\n\n\n\n\n\n\nAt the top of the attribute table you can always see how many rows there are in total (Total) and how many are still shown after filtering (Filtered).\n\n\n\nFor more complex filters, on several fields or with spatial conditions, you use Advanced Filter (Expression). How to write such expressions is explained in section 8.3 Working with expressions.",
+    "text": "Filtering by values\nWith Field Filter you filter on one field: choose the field in the submenu, type a value in the box that appears below the table and press Enter. For a text field QGIS shows all rows that contain this text. For a number field the value must match exactly.\n\n\n\n\n\n\n\nAt the top of the attribute table you can always see how many rows there are in total (Total) and how many are still shown after filtering (Filtered).\n\n\n\nFor more complex filters, on several fields or with spatial conditions, you use Advanced Filter (Expression). How to write such expressions is explained in section 8.4 Working with expressions.",
     "crumbs": [
       "8 Querying data",
       "8.2 Filtering the attribute table"
@@ -2146,379 +2146,355 @@
   {
     "objectID": "querying/expressions-intro.html",
     "href": "querying/expressions-intro.html",
-    "title": "8.3.1 Why and what?",
+    "title": "8.4.1 Expressions: why and what?",
     "section": "",
-    "text": "QGIS has a very well-developed graphical user interface: it translates complex functionality into simple menus and configuration windows. Because of this, you can carry out many operations without understanding the processes behind them. However, these interfaces sometimes limit how precisely you can define what you want to do. This is where expressions become useful.\nConsider a layer containing the major cities of the United States (major_cities), with the fields STATE_ABBR (the state abbreviation) and POPULATION. Suppose you want to see all cities in Texas with more than 500 000 inhabitants. The standard Field Filter does not allow you to combine these two conditions, but you can achieve this using an expression in the Advanced Filter (Expression).\nHere we use filtering as an example. However, expressions can be used for many other purposes in QGIS, such as styling and labelling, updating attribute values and running processing tools. The way you write expressions is the same, regardless of where you use them.",
+    "text": "QGIS has a very well-developed graphical user interface: it translates complex functionality into simple menus and configuration windows. Because of this, you can carry out many operations without understanding the processes behind them. However, these interfaces sometimes limit how precisely you can define what you want to do. This is where expressions become useful.\nConsider a layer containing the major cities of the United States (major_cities), with the fields STATE_ABBR (the state abbreviation) and POPULATION. Suppose you want to select all cities in Texas with more than 500 000 inhabitants. Select by attribute can only check one condition at a time. With an expression in the Select by expression tool you can combine both.\nHere we use selecting as an example. However, expressions can be used for many other purposes in QGIS, such as filtering, styling and labelling, updating attribute values and running processing tools. The way you write expressions is the same, regardless of where you use them.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.1 Why and what?"
+      "8.4 Working with expressions",
+      "8.4.1 Expressions: why and what?"
     ]
   },
   {
     "objectID": "querying/expressions-intro.html#context",
     "href": "querying/expressions-intro.html#context",
-    "title": "8.3.1 Why and what?",
+    "title": "8.4.1 Expressions: why and what?",
     "section": "",
-    "text": "QGIS has a very well-developed graphical user interface: it translates complex functionality into simple menus and configuration windows. Because of this, you can carry out many operations without understanding the processes behind them. However, these interfaces sometimes limit how precisely you can define what you want to do. This is where expressions become useful.\nConsider a layer containing the major cities of the United States (major_cities), with the fields STATE_ABBR (the state abbreviation) and POPULATION. Suppose you want to see all cities in Texas with more than 500 000 inhabitants. The standard Field Filter does not allow you to combine these two conditions, but you can achieve this using an expression in the Advanced Filter (Expression).\nHere we use filtering as an example. However, expressions can be used for many other purposes in QGIS, such as styling and labelling, updating attribute values and running processing tools. The way you write expressions is the same, regardless of where you use them.",
+    "text": "QGIS has a very well-developed graphical user interface: it translates complex functionality into simple menus and configuration windows. Because of this, you can carry out many operations without understanding the processes behind them. However, these interfaces sometimes limit how precisely you can define what you want to do. This is where expressions become useful.\nConsider a layer containing the major cities of the United States (major_cities), with the fields STATE_ABBR (the state abbreviation) and POPULATION. Suppose you want to select all cities in Texas with more than 500 000 inhabitants. Select by attribute can only check one condition at a time. With an expression in the Select by expression tool you can combine both.\nHere we use selecting as an example. However, expressions can be used for many other purposes in QGIS, such as filtering, styling and labelling, updating attribute values and running processing tools. The way you write expressions is the same, regardless of where you use them.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.1 Why and what?"
+      "8.4 Working with expressions",
+      "8.4.1 Expressions: why and what?"
     ]
   },
   {
     "objectID": "querying/expressions-intro.html#what",
     "href": "querying/expressions-intro.html#what",
-    "title": "8.3.1 Why and what?",
+    "title": "8.4.1 Expressions: why and what?",
     "section": "What?",
-    "text": "What?\nExpressions are formulas that follow certain syntax rules. They are built from fields, values, operators (such as &gt; or AND), functions and variables. Functions are ready-made commands that perform a specific task using a value or geometry, such as area() for the area of a geometry or upper() to convert text to uppercase. Variables are values that QGIS provides about the current feature, layer or project, such as the geometry of a feature or the name of a layer.\nA very simple example of an expression in QGIS is:\n\nWhen you apply an expression to a layer (for example as a filter), QGIS evaluates it for each feature, one by one. In this example, it checks whether the value in the POPULATION field is greater than 1000000. If the condition is true, the feature remains visible after filtering. If not, it is hidden.",
+    "text": "What?\nExpressions are formulas that follow certain syntax rules. They are built from fields, values, operators (such as &gt; or AND), functions and variables. Functions are ready-made commands that perform a specific task using a value or geometry, such as area() for the area of a geometry or upper() to convert text to uppercase. Variables are values that QGIS provides about the current feature, layer or project, such as the geometry of a feature or the name of a layer.\nA very simple example of an expression in QGIS is:\n\nWhen you apply an expression to a layer (for example to select features), QGIS evaluates it for each feature, one by one. In this example, it checks whether the value in the POPULATION field is greater than 1000000. If the condition is true, the feature is selected. If not, it is not selected.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.1 Why and what?"
+      "8.4 Working with expressions",
+      "8.4.1 Expressions: why and what?"
     ]
   },
   {
     "objectID": "querying/expression-editor.html",
     "href": "querying/expression-editor.html",
-    "title": "8.3.2 Expression editor",
+    "title": "8.4.2 Expression builder",
     "section": "",
-    "text": "Writing expressions is not always easy for new GIS users. Fortunately, the QGIS expression editor provides several tools that make it easier to write a valid expression.\nWhen you open the expression editor (for example, using Advanced Filter at the bottom of the attribute table), you see the window below.\n\n\nIn the left part of the editor (A), you write the expression itself. This expression must follow certain syntax rules so that QGIS can process it. You learn these rules on the following pages.\nIn the central part of the window (B), you will find an expandable list of fields and values, operators, functions and variables. You can use the search bar at the top of this list to find the option you want more quickly. If you double-click an option, it is automatically inserted into the expression window on the left (A). This helps you avoid typing errors.\nIn the right part of the editor (C), you can read the documentation for the options in the central list. To do this, first select the option you want more information about with a single click in B.\nAt the bottom left, under Preview (D), the software shows the result of the expression for the first feature in the attribute table by default. For example, if your expression calculates the area of a polygon, the preview shows the calculated area for the first polygon. You can use the arrow buttons to preview the result for the next or previous one, or select a different feature from the drop-down list. This helps you check immediately whether your expression gives the expected output. If your expression contains a comparison (for example, checking whether an attribute value equals x or is smaller than y), the preview shows 1 if the comparison is true and 0 if it is false. If the expression contains an error, the preview instead shows Expression is invalid. Click (more info) to see what went wrong.",
+    "text": "To get started with expressions, open Processing Toolbox ▸ Vector selection ▸ Select by expression. In the tool window, first select the layer to which you want to apply the selection. You can then enter an expression in the field below.\n\nWriting expressions is not always easy for new GIS users. Fortunately, QGIS has a separate window, the Expression Builder, with several tools that make it easier to write a valid expression. You open it with the button  next to the field.\n\n\nIn the left part of the editor (A), you write the expression itself. This expression must follow certain syntax rules so that QGIS can process it. You learn these rules on the following pages.\nIn the central part of the window (B), you will find an expandable list of fields and values, operators, functions and variables. You can use the search bar at the top of this list to find the option you want more quickly. If you double-click an option, it is automatically inserted into the expression window on the left (A). This helps you avoid typing errors.\nIn the right part of the editor (C), you can read the documentation for the options in the central list. To do this, first select the option you want more information about with a single click in B.\nAt the bottom left, under Preview (D), the software shows the result of the expression for the first feature in the attribute table by default. For example, if your expression calculates the area of a polygon, the preview shows the calculated area for the first polygon. You can use the arrow buttons to preview the result for the next or previous one, or select a different feature from the drop-down list. This helps you check immediately whether your expression gives the expected output. If your expression contains a comparison (for example, checking whether an attribute value equals x or is smaller than y), the preview shows 1 if the comparison is true and 0 if it is false. If the expression contains an error, the preview instead shows Expression is invalid. Click (more info) to see what went wrong.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.2 Expression editor"
-    ]
-  },
-  {
-    "objectID": "querying/expression-editor.html#writing-expressions-the-editor",
-    "href": "querying/expression-editor.html#writing-expressions-the-editor",
-    "title": "8.3.2 Expression editor",
-    "section": "",
-    "text": "Writing expressions is not always easy for new GIS users. Fortunately, the QGIS expression editor provides several tools that make it easier to write a valid expression.\nWhen you open the expression editor (for example, using Advanced Filter at the bottom of the attribute table), you see the window below.\n\n\nIn the left part of the editor (A), you write the expression itself. This expression must follow certain syntax rules so that QGIS can process it. You learn these rules on the following pages.\nIn the central part of the window (B), you will find an expandable list of fields and values, operators, functions and variables. You can use the search bar at the top of this list to find the option you want more quickly. If you double-click an option, it is automatically inserted into the expression window on the left (A). This helps you avoid typing errors.\nIn the right part of the editor (C), you can read the documentation for the options in the central list. To do this, first select the option you want more information about with a single click in B.\nAt the bottom left, under Preview (D), the software shows the result of the expression for the first feature in the attribute table by default. For example, if your expression calculates the area of a polygon, the preview shows the calculated area for the first polygon. You can use the arrow buttons to preview the result for the next or previous one, or select a different feature from the drop-down list. This helps you check immediately whether your expression gives the expected output. If your expression contains a comparison (for example, checking whether an attribute value equals x or is smaller than y), the preview shows 1 if the comparison is true and 0 if it is false. If the expression contains an error, the preview instead shows Expression is invalid. Click (more info) to see what went wrong.",
-    "crumbs": [
-      "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.2 Expression editor"
+      "8.4 Working with expressions",
+      "8.4.2 Expression builder"
     ]
   },
   {
     "objectID": "querying/expressions-attribute-values.html",
     "href": "querying/expressions-attribute-values.html",
-    "title": "8.3.3 Expressions with attribute values",
+    "title": "8.4.3 Expressions with attribute values",
     "section": "",
-    "text": "Example: You have a layer with the major cities of the United States (major_cities), and you want to filter the cities with more than 1 000 000 inhabitants. The number of inhabitants is in the field POPULATION, so you will have to use this field in your expression. Below we show how to do that.\n\nWhen you open the expression editor, you will find an overview of all available attribute fields under Fields and Values (B). If you insert the field POPULATION by double-clicking it, note that it is written between double quotation marks: \"POPULATION\". The double quotation marks tell QGIS that POPULATION is a field name. In certain cases QGIS recognises field names without them, but it is good practice to always use double quotation marks.\nWe want to test for each feature whether the number of inhabitants is greater than 1 000 000. Under Operators (B) you can find and double-click the greater-than sign. Then complete the expression yourself so that you get \"POPULATION\" &gt; 1000000.\nThis expression is evaluated for every feature in the layer. Each time \"POPULATION\" is replaced with the actual value that the feature has in that field. For Chicago, the expression therefore becomes 2746388 &gt; 1000000. The result is 1 (= TRUE). For Alabaster, on the other hand, it becomes 33284 &gt; 1000000. The result is 0 (= FALSE), as you can also see in the preview above (D).\nWhen you then click OK, only the features for which the result of the expression is 1 pass the filter: 10 of the 4186 rows remain. In the result below you can see that they all do indeed have more than 1 000 000 inhabitants.",
+    "text": "Example: You have a layer with the major cities of the United States (major_cities), and you want to select the cities with more than 1 000 000 inhabitants. The number of inhabitants is in the field POPULATION, so you will have to use this field in your expression. Below we show how to do that.\n\nWhen you open the expression builder, you will find an overview of all available attribute fields under Fields and Values (B). If you insert the field POPULATION by double-clicking it, note that it is written between double quotation marks: \"POPULATION\". The double quotation marks tell QGIS that POPULATION is a field name. In certain cases QGIS recognises field names without them, but it is good practice to always use double quotation marks.\nWe want to test for each feature whether the number of inhabitants is greater than 1 000 000. Under Operators (B) you can find and double-click the greater-than sign. Then complete the expression yourself so that you get \"POPULATION\" &gt; 1000000.\nThis expression is evaluated for every feature in the layer. Each time \"POPULATION\" is replaced with the actual value that the feature has in that field. For Chicago, the expression therefore becomes 2746388 &gt; 1000000. The result is 1 (= TRUE). For Alabaster, on the other hand, it becomes 33284 &gt; 1000000. The result is 0 (= FALSE), as you can also see in the preview above (D).\nWhen you then click Select Features, only the features for which the result of the expression is 1 are selected: 10 of the 4186 cities. In the result below you can see that they all do indeed have more than 1 000 000 inhabitants.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.3 Expressions with attribute values"
+      "8.4 Working with expressions",
+      "8.4.3 Expressions with attribute values"
     ]
   },
   {
     "objectID": "querying/expressions-attribute-values.html#numeric-attribute-fields",
     "href": "querying/expressions-attribute-values.html#numeric-attribute-fields",
-    "title": "8.3.3 Expressions with attribute values",
+    "title": "8.4.3 Expressions with attribute values",
     "section": "",
-    "text": "Example: You have a layer with the major cities of the United States (major_cities), and you want to filter the cities with more than 1 000 000 inhabitants. The number of inhabitants is in the field POPULATION, so you will have to use this field in your expression. Below we show how to do that.\n\nWhen you open the expression editor, you will find an overview of all available attribute fields under Fields and Values (B). If you insert the field POPULATION by double-clicking it, note that it is written between double quotation marks: \"POPULATION\". The double quotation marks tell QGIS that POPULATION is a field name. In certain cases QGIS recognises field names without them, but it is good practice to always use double quotation marks.\nWe want to test for each feature whether the number of inhabitants is greater than 1 000 000. Under Operators (B) you can find and double-click the greater-than sign. Then complete the expression yourself so that you get \"POPULATION\" &gt; 1000000.\nThis expression is evaluated for every feature in the layer. Each time \"POPULATION\" is replaced with the actual value that the feature has in that field. For Chicago, the expression therefore becomes 2746388 &gt; 1000000. The result is 1 (= TRUE). For Alabaster, on the other hand, it becomes 33284 &gt; 1000000. The result is 0 (= FALSE), as you can also see in the preview above (D).\nWhen you then click OK, only the features for which the result of the expression is 1 pass the filter: 10 of the 4186 rows remain. In the result below you can see that they all do indeed have more than 1 000 000 inhabitants.",
+    "text": "Example: You have a layer with the major cities of the United States (major_cities), and you want to select the cities with more than 1 000 000 inhabitants. The number of inhabitants is in the field POPULATION, so you will have to use this field in your expression. Below we show how to do that.\n\nWhen you open the expression builder, you will find an overview of all available attribute fields under Fields and Values (B). If you insert the field POPULATION by double-clicking it, note that it is written between double quotation marks: \"POPULATION\". The double quotation marks tell QGIS that POPULATION is a field name. In certain cases QGIS recognises field names without them, but it is good practice to always use double quotation marks.\nWe want to test for each feature whether the number of inhabitants is greater than 1 000 000. Under Operators (B) you can find and double-click the greater-than sign. Then complete the expression yourself so that you get \"POPULATION\" &gt; 1000000.\nThis expression is evaluated for every feature in the layer. Each time \"POPULATION\" is replaced with the actual value that the feature has in that field. For Chicago, the expression therefore becomes 2746388 &gt; 1000000. The result is 1 (= TRUE). For Alabaster, on the other hand, it becomes 33284 &gt; 1000000. The result is 0 (= FALSE), as you can also see in the preview above (D).\nWhen you then click Select Features, only the features for which the result of the expression is 1 are selected: 10 of the 4186 cities. In the result below you can see that they all do indeed have more than 1 000 000 inhabitants.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.3 Expressions with attribute values"
+      "8.4 Working with expressions",
+      "8.4.3 Expressions with attribute values"
     ]
   },
   {
     "objectID": "querying/expressions-attribute-values.html#text-attribute-fields",
     "href": "querying/expressions-attribute-values.html#text-attribute-fields",
-    "title": "8.3.3 Expressions with attribute values",
+    "title": "8.4.3 Expressions with attribute values",
     "section": "Text attribute fields",
-    "text": "Text attribute fields\n\nAbove you saw how to write an expression that uses a numeric attribute field. You can also use text fields in an expression. We show this with an example based on the same vector layer of US cities.\n\nExact matches\nExample: The field STATE_ABBR gives the state of each city as an abbreviation (e.g. TX for Texas). To filter features based on this field, double-click it under Fields and Values (B), similar to the example above.\nWhen you select a field, you can retrieve all unique values of that field from the attribute table (All Unique), or a sample of them (10 Samples) (C). These values are displayed in an overview, and you can double-click a value to add it to the expression. This is useful: it avoids typing errors. In our example we want to filter all cities in Texas, so we add an = sign after the field name and then double-click TX. This gives \"STATE_ABBR\" = 'TX'. When we apply the filter, 263 cities remain.\nNotice that TX is written between quotation marks: text values always have to be written between single quotation marks in QGIS expressions. Without them the expression is not valid and you get an error message. Remember that a word between double quotation marks refers to a field, while a word between single quotation marks is a text value. Numbers do not need quotation marks.\n\n\n\n\n\n\nAlways use straight quotation marks (\" and '), as on your keyboard. Curly quotation marks (“ ” ‘ ’), which word processors insert automatically, do not work in QGIS.\n\n\n\nWhen you use an equals sign (=), you only keep the features whose value matches the given value exactly. Below you can see how to search more freely.\n\n\nSearching more freely\nQGIS lets you use wildcards or ignore the difference between upper and lower case. For this you do not use an equals sign in the expression but the operator LIKE, which takes upper and lower case into account, or ILIKE, which ignores them.\nA wildcard is a special character that can be used as a substitute for other characters in a text. When you use a wildcard in a query, it means that any character (or combination of characters) can appear at that position.\nFor example, Google uses * as a wildcard. However, this does not work in QGIS. Instead, QGIS uses two different wildcard characters:\n\nThe percent sign (%) stands for any number of characters, including none.\nThe underscore (_) stands for exactly one character.\n\nThe wildcards are written within the text string, that is, within the single quotation marks.\nSome examples:\n\n\n\"NAME\" LIKE '___' (three consecutive underscores) returns every city whose name consists of exactly three characters (e.g. Ada, Roy, Rye).\n\"NAME\" LIKE 'San %' returns all cities whose name starts with ‘San’ and a space (e.g. San Antonio, San Jose). It does not matter how many characters follow.\n\"NAME\" LIKE '%ville' works the other way round: it returns all cities whose name ends in ‘ville’ (e.g. Jacksonville, Louisville).\n\"CLASS\" LIKE 'city%' returns all places whose class starts with ‘city’ (the field CLASS gives the type of place: city, town, village…). That can be just ‘city’, but also ‘city and borough’ (Juneau, Alaska). In this way you also find variants that you would miss with =.\n\"NAME\" LIKE '%port%' returns the cities with ‘port’ in their name (e.g. Bridgeport, Newport Beach).\n\"NAME\" ILIKE '%port%' also finds the names with a capital P (e.g. Port Hueneme, Porterville).\n\"NAME\" LIKE '__n%ville' combines both wildcards: it returns all cities whose third character is an n and whose name ends in ‘ville’ (e.g. Danville, Huntsville). It does not matter which two characters come first, nor how many characters come between the n and ‘ville’.\n\n\n\n\n\n\n\n\nFor text fields, the Field Filter of the attribute table (section 8.2) uses ILIKE with a % wildcard on both sides. When you type port in the filter box of the field NAME, QGIS filters with \"NAME\" ILIKE '%port%'. That is why it ignores upper and lower case and also finds names that only contain the text.",
+    "text": "Text attribute fields\n\nAbove you saw how to write an expression that uses a numeric attribute field. You can also use text fields in an expression. We show this with an example based on the same vector layer of US cities.\n\nExact matches\nExample: The field STATE_ABBR gives the state of each city as an abbreviation (e.g. TX for Texas). To select features based on this field, double-click it under Fields and Values (B), similar to the example above.\nWhen you select a field, you can retrieve all unique values of that field from the attribute table (All Unique), or a sample of them (10 Samples) (C). These values are displayed in an overview, and you can double-click a value to add it to the expression. This is useful: it avoids typing errors. In our example we want to select all cities in Texas, so we add an = sign after the field name and then double-click TX. This gives \"STATE_ABBR\" = 'TX'. When we run the selection, 263 cities are selected.\nNotice that TX is written between quotation marks: text values always have to be written between single quotation marks in QGIS expressions. Without them the expression is not valid and you get an error message. Remember that a word between double quotation marks refers to a field, while a word between single quotation marks is a text value. Numbers do not need quotation marks.\n\n\n\n\n\n\nAlways use straight quotation marks (\" and '), as on your keyboard. Curly quotation marks (“ ” ‘ ’), which word processors insert automatically, do not work in QGIS.\n\n\n\nWhen you use an equals sign (=), you only keep the features whose value matches the given value exactly. Below you can see how to search more freely.\n\n\nSearching more freely\nQGIS lets you use wildcards or ignore the difference between upper and lower case. For this you do not use an equals sign in the expression but the operator LIKE, which takes upper and lower case into account, or ILIKE, which ignores them.\nA wildcard is a special character that can be used as a substitute for other characters in a text. When you use a wildcard in a query, it means that any character (or combination of characters) can appear at that position.\nFor example, Google uses * as a wildcard. However, this does not work in QGIS. Instead, QGIS uses two different wildcard characters:\n\nThe percent sign (%) stands for any number of characters, including none.\nThe underscore (_) stands for exactly one character.\n\nThe wildcards are written within the text string, that is, within the single quotation marks.\nSome examples:\n\n\n\"NAME\" LIKE '___' (three consecutive underscores) returns every city whose name consists of exactly three characters (e.g. Ada, Roy, Rye).\n\"NAME\" LIKE 'San %' returns all cities whose name starts with ‘San’ and a space (e.g. San Antonio, San Jose). It does not matter how many characters follow.\n\"NAME\" LIKE '%ville' works the other way round: it returns all cities whose name ends in ‘ville’ (e.g. Jacksonville, Louisville).\n\"CLASS\" LIKE 'city%' returns all places whose class starts with ‘city’ (the field CLASS gives the type of place: city, town, village…). That can be just ‘city’, but also ‘city and borough’ (Juneau, Alaska). In this way you also find variants that you would miss with =.\n\"NAME\" LIKE '%port%' returns the cities with ‘port’ in their name (e.g. Bridgeport, Newport Beach).\n\"NAME\" ILIKE '%port%' also finds the names with a capital P (e.g. Port Hueneme, Porterville).\n\"NAME\" LIKE '__n%ville' combines both wildcards: it returns all cities whose third character is an n and whose name ends in ‘ville’ (e.g. Danville, Huntsville). It does not matter which two characters come first, nor how many characters come between the n and ‘ville’.\n\n\n\n\n\n\n\n\nFor text fields, the Field Filter of the attribute table (section 8.2) uses ILIKE with a % wildcard on both sides. When you type port in the filter box of the field NAME, QGIS filters with \"NAME\" ILIKE '%port%'. That is why it ignores upper and lower case and also finds names that only contain the text.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.3 Expressions with attribute values"
+      "8.4 Working with expressions",
+      "8.4.3 Expressions with attribute values"
     ]
   },
   {
     "objectID": "querying/logical-operators.html",
     "href": "querying/logical-operators.html",
-    "title": "8.3.4 Logical operators",
+    "title": "8.4.4 Logical operators",
     "section": "",
-    "text": "The AND operator makes it easy to give a query several conditions that must all be met. For example, if you only want to filter the cities that both lie in California (condition 1) and have more than 500 000 inhabitants (condition 2), you use the following expression:\n\nIf you use the OR operator, at least one of the given conditions must be met. For example, if you want to filter all cities that lie either in California or in Texas, you use the following expression:\n\nThe NOT operator lets you invert a condition. If you want to filter all cities with more than 500 000 inhabitants except those in California, you can use the following expression:",
+    "text": "The AND operator makes it easy to give a query several conditions that must all be met. For example, if you only want to select the cities that both lie in California (condition 1) and have more than 500 000 inhabitants (condition 2), you use the following expression:\n\nIf you use the OR operator, at least one of the given conditions must be met. For example, if you want to select all cities that lie either in California or in Texas, you use the following expression:\n\nThe NOT operator lets you invert a condition. If you want to select all cities with more than 500 000 inhabitants except those in California, you can use the following expression:",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.4 Logical operators"
+      "8.4 Working with expressions",
+      "8.4.4 Logical operators"
     ]
   },
   {
     "objectID": "querying/logical-operators.html#and-or-not",
     "href": "querying/logical-operators.html#and-or-not",
-    "title": "8.3.4 Logical operators",
+    "title": "8.4.4 Logical operators",
     "section": "",
-    "text": "The AND operator makes it easy to give a query several conditions that must all be met. For example, if you only want to filter the cities that both lie in California (condition 1) and have more than 500 000 inhabitants (condition 2), you use the following expression:\n\nIf you use the OR operator, at least one of the given conditions must be met. For example, if you want to filter all cities that lie either in California or in Texas, you use the following expression:\n\nThe NOT operator lets you invert a condition. If you want to filter all cities with more than 500 000 inhabitants except those in California, you can use the following expression:",
+    "text": "The AND operator makes it easy to give a query several conditions that must all be met. For example, if you only want to select the cities that both lie in California (condition 1) and have more than 500 000 inhabitants (condition 2), you use the following expression:\n\nIf you use the OR operator, at least one of the given conditions must be met. For example, if you want to select all cities that lie either in California or in Texas, you use the following expression:\n\nThe NOT operator lets you invert a condition. If you want to select all cities with more than 500 000 inhabitants except those in California, you can use the following expression:",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.4 Logical operators"
+      "8.4 Working with expressions",
+      "8.4.4 Logical operators"
     ]
   },
   {
     "objectID": "querying/logical-operators.html#points-to-note",
     "href": "querying/logical-operators.html#points-to-note",
-    "title": "8.3.4 Logical operators",
+    "title": "8.4.4 Logical operators",
     "section": "Points to note",
     "text": "Points to note\n\nOn both sides of an AND or OR operator QGIS always expects a complete expression that can stand on its own and whose result can be true (TRUE / 1) or false (FALSE / 0). This also applies if both conditions refer to the same field. In other words, \"STATE_ABBR\" = 'CA' OR 'TX' will not give you the desired result, while \"STATE_ABBR\" = 'CA' OR \"STATE_ABBR\" = 'TX' will.\nIf you use the NOT operator in combination with an AND or OR operator, the inversion only applies to the part of the expression directly after NOT, not to the whole expression. To keep your expression clear, it helps to put that part between brackets. If you want to invert the whole expression, the brackets are required. For example, NOT (\"STATE_ABBR\" = 'CA') AND \"POPULATION\" &gt; 500000 inverts only the state condition, while NOT (\"STATE_ABBR\" = 'CA' AND \"POPULATION\" &gt; 500000) inverts the whole expression.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.4 Logical operators"
+      "8.4 Working with expressions",
+      "8.4.4 Logical operators"
     ]
   },
   {
     "objectID": "querying/geometric-properties.html",
     "href": "querying/geometric-properties.html",
-    "title": "8.3.5 Using geometric properties",
+    "title": "8.4.5 Geometric properties in expressions",
     "section": "",
     "text": "On the previous pages you learned how to query features by their attribute values. Here we show how to query their geometry.\nBefore we start, it is important to define clearly what we mean by a geometry in GIS. A geometry describes the location and shape of a feature. It consists of a geometry type ((multi-)point, line or polygon) on the one hand and coordinates on the other: one pair of coordinates for a point, several pairs for a line or polygon. \n\n\n\n\n\n\nA multi-geometry consists of several separate parts. A country with islands for example can be represented as one feature with a multipolygon geometry: one polygon for the mainland and one for each island. All parts of a multi-geometry have the same geometry type.\n\n\n\nIn an expression you can calculate various properties of a geometry, such as its area, length or number of parts.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.5 Using geometric properties"
+      "8.4 Working with expressions",
+      "8.4.5 Geometric properties in expressions"
     ]
   },
   {
     "objectID": "querying/geometric-properties.html#geometric-propertieswhat-is-a-geometry",
     "href": "querying/geometric-properties.html#geometric-propertieswhat-is-a-geometry",
-    "title": "8.3.5 Using geometric properties",
+    "title": "8.4.5 Geometric properties in expressions",
     "section": "",
     "text": "On the previous pages you learned how to query features by their attribute values. Here we show how to query their geometry.\nBefore we start, it is important to define clearly what we mean by a geometry in GIS. A geometry describes the location and shape of a feature. It consists of a geometry type ((multi-)point, line or polygon) on the one hand and coordinates on the other: one pair of coordinates for a point, several pairs for a line or polygon. \n\n\n\n\n\n\nA multi-geometry consists of several separate parts. A country with islands for example can be represented as one feature with a multipolygon geometry: one polygon for the mainland and one for each island. All parts of a multi-geometry have the same geometry type.\n\n\n\nIn an expression you can calculate various properties of a geometry, such as its area, length or number of parts.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.5 Using geometric properties"
+      "8.4 Working with expressions",
+      "8.4.5 Geometric properties in expressions"
     ]
   },
   {
     "objectID": "querying/geometric-properties.html#geometric-functionsbuilding-blocks",
     "href": "querying/geometric-properties.html#geometric-functionsbuilding-blocks",
-    "title": "8.3.5 Using geometric properties",
+    "title": "8.4.5 Geometric properties in expressions",
     "section": "Building blocks",
-    "text": "Building blocks\nTo work with geometries in an expression, QGIS provides the following elements:\n\nthe variable @geometry, which retrieves the geometry of the current feature\n$area, $length and $perimeter: three geometry functions written with a $ sign that calculate common geometric properties of the current feature without requiring any additional input\na wide range of other functions: ready-made commands that perform specific tasks. These functions require input, called arguments, which you provide between brackets after the function name. For example, distance(geometry1, geometry2) calculates the minimum distance between two geometries.\n\nBelow we discuss each of these in turn.\n\n1. The variable @geometry\n@geometry retrieves the geometry of the current feature. It works in a similar way to a field name between double quotation marks: a field name retrieves the attribute value of each feature, while @geometry retrieves its geometry.\nIn QGIS the @ sign identifies variables. You can find @geometry in the list of Variables (B) in the expression editor.\n\n\n\n2. $area, $length and $perimeter\n\n$area: the area of a polygon\n$length: the length of a line\n$perimeter: the perimeter of a polygon\n\nThese are functions, but special ones. They start with a $ sign and, unlike other functions, they need no input: they always work on the current feature. That is why they are written without brackets.\nYou can find them in the central list of the expression editor (B), under Geometry. As always, you can find more information about each of them in the panel on the right (C).\n\nThese functions take the Earth’s curvature into account by using the reference ellipsoid defined in the project properties (Project ▸ Properties… ▸ General). They also return their result in the units set there (by default square metres and metres), even when the layer uses a geographic CRS such as WGS 84, where coordinates are expressed in degrees.\nThe expression shown above, $area &gt; 300000000000, filters all states with an area larger than 300 000 000 000 m² (300 000 km²). For each feature, QGIS calculates its area using the reference ellipsoid and checks whether it exceeds this threshold. Only five states pass this filter: Alaska, Texas, California, Montana and New Mexico.\n\n\n3. Other functions\nQGIS offers a wide range of functions to query geometries, to check how they relate to each other in space, or even to create new geometries on the fly. All these functions work in the same way: you write the function name and give the input it needs as arguments between brackets. If there are several arguments, you separate them with commas, as in function_name(argument_1, argument_2). You find these functions in the central list (B), under Geometry. Most of them expect one or more geometries as arguments. In the examples below, words in italics such as geometry1 or number1 are placeholders: you replace them with actual values, such as a geometry or a number. Some examples:\n\ndistance(geometry1, geometry2): calculates the minimum distance between two geometries.\ncrosses(geometry1, geometry2): checks whether two geometries cross each other. It returns 1 if they do and 0 if they do not.\nmake_point(number1, number2), make_line(point1, point2), make_polygon(line): create a new point from a pair of coordinates, a line from two or more points or a polygon from a closed line.\nx(geometry), y(geometry): return the x or y coordinate of a point, or of the centroid (the geometric centre) of a line or polygon.\nx_max(geometry), x_min(geometry), y_max(geometry), y_min(geometry): return the largest or smallest x or y coordinate of a geometry. In a geographic CRS such as WGS 84, x is the longitude and y the latitude, both expressed in degrees. In a projected CRS such as Belgian Lambert 72, x and y are distances in metres to the east and north of a fixed origin.\narea(geometry), length(geometry), perimeter(geometry): calculate the area, length or perimeter of a geometry.\n\n\n\n\n\n\n\nThese are only a few examples. QGIS has many more geometric functions, and their possibilities are very interesting. So do not limit yourself to these: browse the group Geometry (B) and read the documentation (C) of the functions you come across.",
+    "text": "Building blocks\nTo work with geometries in an expression, QGIS provides the following elements:\n\nthe variable @geometry, which retrieves the geometry of the current feature\n$area, $length and $perimeter: three geometry functions written with a $ sign that calculate common geometric properties of the current feature without requiring any additional input\na wide range of other functions: ready-made commands that perform specific tasks. These functions require input, called arguments, which you provide between brackets after the function name. For example, distance(geometry1, geometry2) calculates the minimum distance between two geometries.\n\nBelow we discuss each of these in turn.\n\n1. The variable @geometry\n@geometry retrieves the geometry of the current feature. It works in a similar way to a field name between double quotation marks: a field name retrieves the attribute value of each feature, while @geometry retrieves its geometry.\nIn QGIS the @ sign identifies variables. You can find @geometry in the list of Variables (B) in the expression builder.\n\n\n\n2. $area, $length and $perimeter\n\n$area: the area of a polygon\n$length: the length of a line\n$perimeter: the perimeter of a polygon\n\nThese are functions, but special ones. They start with a $ sign and, unlike other functions, they need no input: they always work on the current feature. That is why they are written without brackets.\nYou can find them in the central list of the expression builder (B), under Geometry. As always, you can find more information about each of them in the panel on the right (C).\n\nThese functions take the Earth’s curvature into account by using the reference ellipsoid defined in the project properties (Project ▸ Properties… ▸ General). They also return their result in the units set there (by default square metres and metres), even when the layer uses a geographic CRS such as WGS 84, where coordinates are expressed in degrees.\nThe expression shown above, $area &gt; 300000000000, selects all states with an area larger than 300 000 000 000 m² (300 000 km²). For each feature, QGIS calculates its area using the reference ellipsoid and checks whether it exceeds this threshold. Only five states are selected: Alaska, Texas, California, Montana and New Mexico.\n\n\n3. Other functions\nQGIS offers a wide range of functions to query geometries, to check how they relate to each other in space, or even to create new geometries on the fly. All these functions work in the same way: you write the function name and give the input it needs as arguments between brackets. If there are several arguments, you separate them with commas, as in function_name(argument_1, argument_2). You find these functions in the central list (B), under Geometry. Most of them expect one or more geometries as arguments. In the examples below, words in italics such as geometry1 or number1 are placeholders: you replace them with actual values, such as a geometry or a number. Some examples:\n\ndistance(geometry1, geometry2): calculates the minimum distance between two geometries.\ncrosses(geometry1, geometry2): checks whether two geometries cross each other. It returns 1 if they do and 0 if they do not.\nmake_point(number1, number2), make_line(point1, point2), make_polygon(line): create a new point from a pair of coordinates, a line from two or more points or a polygon from a closed line.\nx(geometry), y(geometry): return the x or y coordinate of a point, or of the centroid (the geometric centre) of a line or polygon.\nx_max(geometry), x_min(geometry), y_max(geometry), y_min(geometry): return the largest or smallest x or y coordinate of a geometry. In a geographic CRS such as WGS 84, x is the longitude and y the latitude, both expressed in degrees. In a projected CRS such as Belgian Lambert 72, x and y are distances in metres to the east and north of a fixed origin.\narea(geometry), length(geometry), perimeter(geometry): calculate the area, length or perimeter of a geometry.\n\n\n\n\n\n\n\nThese are only a few examples. QGIS has many more geometric functions, and their possibilities are very interesting. So do not limit yourself to these: browse the group Geometry (B) and read the documentation (C) of the functions you come across.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.5 Using geometric properties"
+      "8.4 Working with expressions",
+      "8.4.5 Geometric properties in expressions"
     ]
   },
   {
     "objectID": "querying/geometric-properties.html#give-the-input-yourself-in-the-form-of-argumentssyntax-and-arguments",
     "href": "querying/geometric-properties.html#give-the-input-yourself-in-the-form-of-argumentssyntax-and-arguments",
-    "title": "8.3.5 Using geometric properties",
+    "title": "8.4.5 Geometric properties in expressions",
     "section": "Syntax and arguments",
-    "text": "Syntax and arguments\nFunctions differ in the input they need, and it is important to get this right. Some functions need one argument, others several. The type of argument and the order in which they must be provided also vary. For example, some functions expect a geometry followed by a number, while others require only a text string. You do not need to memorise all this information. You can always find what you need in the documentation (C).\n\nDocumentation\nFor each function the documentation shows what it does (C1), its syntax (C2), the required type of each argument (C3) and examples showing how to use it and what output to expect (C4).\n\nThree examples:\ncentroid() needs one argument, a geometry, and returns a point geometry that is the middle of the input geometry.\n\nOther functions require several arguments, separated by commas. These arguments are not necessarily geometries. For example, make_point() requires two numbers: the x-coordinate and the y-coordinate.\n\ndistance() requires two geometries and returns a number representing the minimum distance between them. For a polygon, this is the distance to its nearest edge. Between two points, it is simply the distance from one point to the other.\n\n\n\nNesting\nThe output of one function can be used as input for another. This is called nesting: one function is placed inside another. We will illustrate this with an example.\nSuppose you have a layer containing the Belgian municipalities. You want to filter only those municipalities that meet both of the following conditions:\n\ntheir area is larger than 100 km²\nthe centre of the municipality is less than 100 km from the city centre of Ghent\n\nFor the first condition you need to calculate the area of each municipality and compare it with 100 km². For the second you need to calculate the centroid of each municipality and measure the distance from that point to the centre of Ghent. You can use functions to calculate the areas and centroids, and to create a point representing the centre of Ghent. All of this can be combined in one expression:\n\nLook up the functions used here in your expression editor and read the documentation, so that you understand exactly what happens! The coordinates 105000, 194000 represent the centre of Ghent in the layer’s CRS, BD72 / Belgian Lambert 72 (EPSG:31370), which uses metres. We looked up these coordinates and use them as fixed values in the expression.\nIn this example distance() does not use the geometries of the municipalities, but their centroids and a point made with make_point(). That way it measures from the centre of each municipality and not from its nearest edge. Twenty municipalities meet both conditions:",
+    "text": "Syntax and arguments\nFunctions differ in the input they need, and it is important to get this right. Some functions need one argument, others several. The type of argument and the order in which they must be provided also vary. For example, some functions expect a geometry followed by a number, while others require only a text string. You do not need to memorise all this information. You can always find what you need in the documentation (C).\n\nDocumentation\nFor each function the documentation shows what it does (C1), its syntax (C2), the required type of each argument (C3) and examples showing how to use it and what output to expect (C4).\n\nThree examples:\ncentroid() needs one argument, a geometry, and returns a point geometry that is the middle of the input geometry.\n\nOther functions require several arguments, separated by commas. These arguments are not necessarily geometries. For example, make_point() requires two numbers: the x-coordinate and the y-coordinate.\n\ndistance() requires two geometries and returns a number representing the minimum distance between them. For a polygon, this is the distance to its nearest edge. Between two points, it is simply the distance from one point to the other.\n\n\n\nNesting\nThe output of one function can be used as input for another. This is called nesting: one function is placed inside another. We will illustrate this with an example.\nSuppose you have a layer containing the Belgian municipalities. You want to select only those municipalities that meet both of the following conditions:\n\ntheir area is larger than 100 km²\nthe centre of the municipality is less than 100 km from the city centre of Ghent\n\nFor the first condition you need to calculate the area of each municipality and compare it with 100 km². For the second you need to calculate the centroid of each municipality and measure the distance from that point to the centre of Ghent. You can use functions to calculate the areas and centroids, and to create a point representing the centre of Ghent. All of this can be combined in one expression:\n\nLook up the functions used here in your expression builder and read the documentation, so that you understand exactly what happens! The coordinates 105000, 194000 represent the centre of Ghent in the layer’s CRS, BD72 / Belgian Lambert 72 (EPSG:31370), which uses metres. We looked up these coordinates and use them as fixed values in the expression.\nIn this example distance() does not use the geometries of the municipalities, but their centroids and a point made with make_point(). That way it measures from the centre of each municipality and not from its nearest edge. Twenty municipalities meet both conditions:",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.5 Using geometric properties"
+      "8.4 Working with expressions",
+      "8.4.5 Geometric properties in expressions"
     ]
   },
   {
     "objectID": "querying/geometric-properties.html#unit-of-measurement",
     "href": "querying/geometric-properties.html#unit-of-measurement",
-    "title": "8.3.5 Using geometric properties",
+    "title": "8.4.5 Geometric properties in expressions",
     "section": "Unit of measurement",
     "text": "Unit of measurement\nWhen you use geometric functions, it is of course crucial that you know which unit you are working with and how exactly the calculations are done. In practice, this differs from function to function. The documentation (C) tells you for each function which unit it uses.\nSome functions seem to do the same thing. You may have noticed above that we gave both $area and area() as examples to calculate the area of a feature. Still, these variants can give different results, because the calculation is done differently.\nA concrete example shows the difference:\n\narea(@geometry) calculates the area with the coordinates of the geometry, in the CRS of the layer. For Belgium in a layer in WGS 84 (in degrees) this gives about 3.90: square degrees, a number that means little.\n$area calculates the area with the measurement settings of the project, on the ellipsoid. For Belgium this gives about 30 664 km².\n\nIn a projected CRS in metres the two give almost the same result. For Belgium in Lambert 72 area(@geometry) gives about 30 662 km² and $area about 30 664 km²: a difference of about 0.01%. That small difference comes from the distortion of the projection (see Projection distortions in chapter 5). The exact numbers depend on the layer you use.\nHere is a short overview of the differences:\n\n\n\n\n\n\n\n\n\n$area, $length, $perimeter\narea(@geometry), length(@geometry), perimeter(@geometry)\n\n\n\n\nCalculation method\nUses the project ellipsoid by default. If none is set, calculations are planimetric.\nAlways planimetric, using the CRS of the geometry.\n\n\nUnits\nUses the measurement units set in the project properties.\nUses the units of the geometry’s CRS (e.g. m² for a projected CRS in metres, or degrees² for WGS 84).\n\n\nSuitable for\nEllipsoidal calculations are suitable for measuring areas and distances over large regions. They also work well for smaller regions.\nSuitable for calculations over relatively small areas, provided the CRS introduces little distortion.\n\n\nTo avoid large deviations\nChoose an appropriate ellipsoid in the project properties.\nUse a suitable projected CRS with limited distortion in the region concerned.\n\n\n\n\n\n\n\n\n\nIf you calculate areas with area(), use a CRS with an equal-area projection, such as ETRS89-extended / LAEA Europe (EPSG:3035) for Europe. Such a projection keeps areas correct (see Equal-area projections in chapter 5).\n\n\n\n\n\n\n\n\n\nTry it yourself: Calculating areas",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.5 Using geometric properties"
+      "8.4 Working with expressions",
+      "8.4.5 Geometric properties in expressions"
     ]
   },
   {
     "objectID": "querying/specific-layers-features.html",
     "href": "querying/specific-layers-features.html",
-    "title": "8.3.6 Retrieving features",
+    "title": "8.4.6 Retrieving features from other layers",
     "section": "",
-    "text": "On the previous page we always applied geometric functions to the geometry of the current feature, sometimes combined with something derived from it (such as its centroid) or with a point created on the fly (such as the centre of Ghent). However, you can apply these functions to any geometry.\nWe build on the example from the previous page to show why this can be useful. There you saw how to filter all municipalities in a layer of Belgian municipalities that are larger than 100 km². We now want to make this condition relative rather than absolute: instead of using a fixed area as a threshold, we want to filter municipalities that are larger than Ghent itself. The expression therefore compares two areas:\n\nthe area of every municipality, using area(@geometry)\nthe area of one specific municipality, Ghent.\n\nTo calculate the latter, you need access to Ghent’s geometry. To do this, QGIS offers several functions and variables for retrieving specific features, including their geometry and attributes. The following sections introduce these.\n\n\nTo retrieve a specific feature, you first need to know which layer it is in. Often that is the layer you are writing the expression for, but you can also use features from any other layer loaded in your project.\n\n@layer is a variable that refers to the current layer, that is, the layer for which you are writing the expression. You find it under Variables.\nThe Map Layers section (B) lists all the layers in your project, the current layer included. If you double-click a layer name there, QGIS adds its layer ID to your expression. This layer ID is a text string between single quotation marks. It contains a unique identifier that allows QGIS to distinguish between layers, even if they have the same name.\n\n\n\n\n\nWith a layer you can retrieve a specific feature. For this you can use the following functions under Record and Attributes (B):\n\nget_feature(layer, attribute_field_name, value) retrieves the first feature in the layer that has this value in this attribute field.\nget_feature_by_id(layer, id) retrieves the feature with this ID from the layer.\n\nThe documentation of get_feature() shows what you need:\n\n\n\n\nOnce you have retrieved a feature, two functions give you access to its geometry and its attribute values:\n\ngeometry(feature) returns the geometry of the feature (under Geometry).\nattribute(feature, attribute_field_name) returns the value of the feature in this attribute field (under Record and Attributes).\n\n\n\n\n\n\n\nRemember that a feature is not the same as a geometry: a geometry describes only the location and shape of a feature. You cannot calculate the area of a feature itself; you calculate the area of its geometry.\nThe get_feature() function returns a complete feature, including its geometry and attributes. That is why you need to wrap it in geometry(): this function extracts the geometry from the feature.",
+    "text": "On the previous page, we applied geometric functions to the geometry of the current feature. Sometimes we combined it with something derived from that geometry (such as its centroid) or with a point created on the fly (such as the centre of Ghent). However, these functions can also be applied to any other geometry.\nWe build on the example from the previous page to show why this can be useful. There you saw how to select all municipalities in a layer of Belgian municipalities that are larger than 100 km². We now want to make this condition relative rather than absolute: instead of using a fixed area as a threshold, we want to select municipalities that are larger than Ghent itself. The expression therefore compares two areas:\n\nthe area of every municipality, using area(@geometry)\nthe area of one specific municipality, Ghent.\n\nTo calculate the latter, you need access to Ghent’s geometry. To do this, QGIS offers several functions and variables for retrieving specific features, including their geometry and attributes. The following sections introduce these.\n\n\nTo retrieve a specific feature, you first need to know which layer it is in. Often that is the layer you are writing the expression for, but you can also use features from any other layer loaded in your project.\n\n@layer is a variable that refers to the current layer, that is, the layer for which you are writing the expression. You find it under Variables.\nThe Map Layers section (B) lists all the layers in your project, the current layer included. If you double-click a layer name there, QGIS adds its layer ID to your expression. This ID is a text string enclosed in single quotation marks. It uniquely identifies the layer within the project, even if other layers have the same name.\n\n\n\n\n\nOnce you have identified the layer, you can retrieve a specific feature from it. For this, you can use the following functions under Record and Attributes (B):\n\nget_feature(layer, attribute_field_name, value) retrieves only the first feature in the specified layer whose attribute in the given field matches the specified value. Even if several features match, you get only one.\nget_feature_by_id(layer, id) retrieves the feature with the specified feature ID from the layer.\n\nThe documentation of get_feature() shows what you need:\n\n\n\n\nRemember that a feature is not the same as a geometry. A feature consists of a geometry and its associated attributes. The geometry describes the feature’s shape and location. Geometric functions such as area() operate on the geometry, not on the feature itself.\nOnce you have retrieved a feature, two functions give you access to its geometry and its attribute values:\n\ngeometry(feature) returns the geometry of the feature (under Geometry).\nattribute(feature, attribute_field_name) returns the value of the feature in this attribute field (under Record and Attributes).\n\n\n\n\n\n\n\nRemember that a feature is not the same as a geometry: a geometry describes only the location and shape of a feature. You cannot calculate the area of a feature itself; you calculate the area of its geometry.\nThe get_feature() function returns a complete feature, including its geometry and attributes. That is why you need to wrap it in geometry(): this function extracts the geometry from the feature.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.6 Retrieving features"
+      "8.4 Working with expressions",
+      "8.4.6 Retrieving features from other layers"
     ]
   },
   {
     "objectID": "querying/specific-layers-features.html#layers-features-and-attributes",
     "href": "querying/specific-layers-features.html#layers-features-and-attributes",
-    "title": "8.3.6 Retrieving features",
+    "title": "8.4.6 Retrieving features from other layers",
     "section": "",
-    "text": "On the previous page we always applied geometric functions to the geometry of the current feature, sometimes combined with something derived from it (such as its centroid) or with a point created on the fly (such as the centre of Ghent). However, you can apply these functions to any geometry.\nWe build on the example from the previous page to show why this can be useful. There you saw how to filter all municipalities in a layer of Belgian municipalities that are larger than 100 km². We now want to make this condition relative rather than absolute: instead of using a fixed area as a threshold, we want to filter municipalities that are larger than Ghent itself. The expression therefore compares two areas:\n\nthe area of every municipality, using area(@geometry)\nthe area of one specific municipality, Ghent.\n\nTo calculate the latter, you need access to Ghent’s geometry. To do this, QGIS offers several functions and variables for retrieving specific features, including their geometry and attributes. The following sections introduce these.\n\n\nTo retrieve a specific feature, you first need to know which layer it is in. Often that is the layer you are writing the expression for, but you can also use features from any other layer loaded in your project.\n\n@layer is a variable that refers to the current layer, that is, the layer for which you are writing the expression. You find it under Variables.\nThe Map Layers section (B) lists all the layers in your project, the current layer included. If you double-click a layer name there, QGIS adds its layer ID to your expression. This layer ID is a text string between single quotation marks. It contains a unique identifier that allows QGIS to distinguish between layers, even if they have the same name.\n\n\n\n\n\nWith a layer you can retrieve a specific feature. For this you can use the following functions under Record and Attributes (B):\n\nget_feature(layer, attribute_field_name, value) retrieves the first feature in the layer that has this value in this attribute field.\nget_feature_by_id(layer, id) retrieves the feature with this ID from the layer.\n\nThe documentation of get_feature() shows what you need:\n\n\n\n\nOnce you have retrieved a feature, two functions give you access to its geometry and its attribute values:\n\ngeometry(feature) returns the geometry of the feature (under Geometry).\nattribute(feature, attribute_field_name) returns the value of the feature in this attribute field (under Record and Attributes).\n\n\n\n\n\n\n\nRemember that a feature is not the same as a geometry: a geometry describes only the location and shape of a feature. You cannot calculate the area of a feature itself; you calculate the area of its geometry.\nThe get_feature() function returns a complete feature, including its geometry and attributes. That is why you need to wrap it in geometry(): this function extracts the geometry from the feature.",
+    "text": "On the previous page, we applied geometric functions to the geometry of the current feature. Sometimes we combined it with something derived from that geometry (such as its centroid) or with a point created on the fly (such as the centre of Ghent). However, these functions can also be applied to any other geometry.\nWe build on the example from the previous page to show why this can be useful. There you saw how to select all municipalities in a layer of Belgian municipalities that are larger than 100 km². We now want to make this condition relative rather than absolute: instead of using a fixed area as a threshold, we want to select municipalities that are larger than Ghent itself. The expression therefore compares two areas:\n\nthe area of every municipality, using area(@geometry)\nthe area of one specific municipality, Ghent.\n\nTo calculate the latter, you need access to Ghent’s geometry. To do this, QGIS offers several functions and variables for retrieving specific features, including their geometry and attributes. The following sections introduce these.\n\n\nTo retrieve a specific feature, you first need to know which layer it is in. Often that is the layer you are writing the expression for, but you can also use features from any other layer loaded in your project.\n\n@layer is a variable that refers to the current layer, that is, the layer for which you are writing the expression. You find it under Variables.\nThe Map Layers section (B) lists all the layers in your project, the current layer included. If you double-click a layer name there, QGIS adds its layer ID to your expression. This ID is a text string enclosed in single quotation marks. It uniquely identifies the layer within the project, even if other layers have the same name.\n\n\n\n\n\nOnce you have identified the layer, you can retrieve a specific feature from it. For this, you can use the following functions under Record and Attributes (B):\n\nget_feature(layer, attribute_field_name, value) retrieves only the first feature in the specified layer whose attribute in the given field matches the specified value. Even if several features match, you get only one.\nget_feature_by_id(layer, id) retrieves the feature with the specified feature ID from the layer.\n\nThe documentation of get_feature() shows what you need:\n\n\n\n\nRemember that a feature is not the same as a geometry. A feature consists of a geometry and its associated attributes. The geometry describes the feature’s shape and location. Geometric functions such as area() operate on the geometry, not on the feature itself.\nOnce you have retrieved a feature, two functions give you access to its geometry and its attribute values:\n\ngeometry(feature) returns the geometry of the feature (under Geometry).\nattribute(feature, attribute_field_name) returns the value of the feature in this attribute field (under Record and Attributes).\n\n\n\n\n\n\n\nRemember that a feature is not the same as a geometry: a geometry describes only the location and shape of a feature. You cannot calculate the area of a feature itself; you calculate the area of its geometry.\nThe get_feature() function returns a complete feature, including its geometry and attributes. That is why you need to wrap it in geometry(): this function extracts the geometry from the feature.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.6 Retrieving features"
+      "8.4 Working with expressions",
+      "8.4.6 Retrieving features from other layers"
     ]
   },
   {
-    "objectID": "querying/specific-layers-features.html#example",
-    "href": "querying/specific-layers-features.html#example",
-    "title": "8.3.6 Retrieving features",
-    "section": "Example",
-    "text": "Example\nWe first focus on the area of Ghent. To calculate it, we can use the following expression:\n\nStudy how the different functions are nested here:\n\nFirst we retrieve the feature of Ghent using get_feature(). For this we need to specify the layer (here the current layer, @layer), an attribute field and a value to search for. In this layer only one municipality has the name Gent (the Dutch name used in the data), so we use the field NAME and the value 'Gent'.\nThis gives us a feature. To calculate its area, we first need to extract its geometry using geometry().\nThen area() calculates the area of this geometry. It does so planimetrically, but because the layer is in BD72 / Belgian Lambert 72 (EPSG:31370), the result is very reliable for Belgium.\n\nFinally, we can bring this calculation into the expression we started on the previous page. This is the final result:\n\nThree municipalities whose centroid is within 100 km of Ghent’s city centre are larger than Ghent: Antwerp, Beveren-Kruibeke-Zwijndrecht and Tournai.",
+    "objectID": "querying/specific-layers-features.html#exampleexamples",
+    "href": "querying/specific-layers-features.html#exampleexamples",
+    "title": "8.4.6 Retrieving features from other layers",
+    "section": "Examples",
+    "text": "Examples\nBelow we give two extended examples of the possibilities these functions offer.\n\nExample 1: municipalities larger than Ghent\nWe first focus on the area of Ghent. To calculate it, we can use the following expression:\n\nStudy how the different functions are nested here:\n\nFirst, we retrieve the feature representing Ghent using get_feature(). We need to specify the layer (here, the current layer, @layer), an attribute field and a value to search for. In this layer, only one municipality has the name Gent (the Dutch name used in the dataset), so we use the field NAME and the value 'Gent'.\nThe function above returns a feature. To calculate its area, we first extract its geometry using geometry().\nFinally, area() calculates the area of this geometry. It uses a planimetric calculation, but because the layer uses BD72 / Belgian Lambert 72 (EPSG:31370), the result is very reliable for Belgium.\n\nFinally, we can bring this calculation into the expression we started on the previous page. This is the final result:\n\nThree municipalities with their centroid within 100 km of Ghent’s city centre have a larger area than Ghent itself: Antwerp, Beveren-Kruibeke-Zwijndrecht and Tournai.\nThe get_feature() function returns a complete feature, including its geometry and attributes. That is why you need to wrap it in geometry(): this function extracts the geometry from the feature.\n\n\n\nExample 2: cities north of the Ohio\nThe second example uses get_feature() to retrieve a geometry from a different layer than the one being used for the selection.\n\n\n\n\n\n\n\n\n\n\nThe example above selects all major cities of the United States that lie (directly) north of the Ohio River. \nHow can you identify these cities? Draw a line due south from each city and check whether it crosses the Ohio River. If it does, the city lies north of the river. The line needs a starting point (the city itself) and an endpoint far enough south to extend beyond the river. We use a point at the same longitude as the city and at the latitude of the southernmost point of the Ohio River. QGIS can do all of this in one expression:\ncrosses(geometry(get_feature('major_rivers', 'NAME', 'Ohio')), make_line(@geometry, make_point(x(@geometry), y_min(geometry(get_feature('major_rivers', 'NAME', 'Ohio'))))))\nThe expression retrieves the Ohio River from the major_rivers layer, constructs a line from the current city to a point due south of it, and checks whether this line crosses the river.\n\n\n\n\n\n\nMake sure that both layers use the same coordinate reference system, so that their geometries can be compared correctly. QGIS does not reproject the geometry that get_feature() retrieves from another layer. Here both major_cities and major_rivers are in WGS 84 (EPSG:4326).\n\n\n\n\nFor clarity, the image below shows the auxiliary lines that you create. When you apply this expression in normal circumstances, these lines remain purely virtual, so you will not see them.\n\n* In the maps on this page, the selected points have a black outline for clarity. You can change the look of selected features in Layer Properties ▸ Rendering ▸ Selections ▸ Override symbol for selected features.\n\n\n\n\n\n\nYou can now do Exercise 3, part A.",
     "crumbs": [
       "8 Querying data",
-      "8.3 Working with expressions",
-      "8.3.6 Retrieving features"
+      "8.4 Working with expressions",
+      "8.4.6 Retrieving features from other layers"
     ]
   },
   {
     "objectID": "querying/rule-based-styling.html",
     "href": "querying/rule-based-styling.html",
-    "title": "8.4 Rule-based styling",
+    "title": "8.5 Rule-based styling",
     "section": "",
     "text": "In chapter 4 you learned that labels and diagrams can be added to vector features, while the appearance of geometries can be controlled through their colour, shape and other visual properties. These styles are often linked to attribute values.\nHowever, some situations require more flexibility. A map may need labels for only the largest cities, or different colours for features that meet a combination of conditions.\nRule-based styling makes this possible: it allows you to create rules in which you define a condition and link it to a specific style. QGIS then applies that style to all features that meet the condition.\nThe following examples illustrate how rules work for both labels and symbology.",
     "crumbs": [
       "8 Querying data",
-      "8.4 Rule-based styling"
+      "8.5 Rule-based styling"
     ]
   },
   {
     "objectID": "querying/rule-based-styling.html#rules",
     "href": "querying/rule-based-styling.html#rules",
-    "title": "8.4 Rule-based styling",
+    "title": "8.5 Rule-based styling",
     "section": "",
     "text": "In chapter 4 you learned that labels and diagrams can be added to vector features, while the appearance of geometries can be controlled through their colour, shape and other visual properties. These styles are often linked to attribute values.\nHowever, some situations require more flexibility. A map may need labels for only the largest cities, or different colours for features that meet a combination of conditions.\nRule-based styling makes this possible: it allows you to create rules in which you define a condition and link it to a specific style. QGIS then applies that style to all features that meet the condition.\nThe following examples illustrate how rules work for both labels and symbology.",
     "crumbs": [
       "8 Querying data",
-      "8.4 Rule-based styling"
+      "8.5 Rule-based styling"
     ]
   },
   {
     "objectID": "querying/rule-based-styling.html#rule-based-labels-example",
     "href": "querying/rule-based-styling.html#rule-based-labels-example",
-    "title": "8.4 Rule-based styling",
+    "title": "8.5 Rule-based styling",
     "section": "Rule-based labels: example",
-    "text": "Rule-based labels: example\n\nConsider a point layer containing the major cities of the United States. The aim is to label only the most populated cities, with the label size reflecting their population. Each line below has a condition before the colon and a style after it:\n\nmore than 2 000 000 inhabitants: font size 20 pt, black\n1 000 000 to 2 000 000 inhabitants: font size 14 pt, dark grey\n500 000 to 1 000 000 inhabitants: font size 9 pt, grey\nfewer than 500 000 inhabitants: no label\n\nThis requires three rules, one for each group of cities that should receive a label. Cities outside these groups will remain unlabelled.\n\nStep 1: Open the rule-based labeling settings\nIn the layer’s Layer Properties, open the Labels tab and select Rule-based Labeling at the top (A1).\n\nThe large empty area (A2) is the rule overview. It is initially empty because no rules have been defined.\n\n\nStep 2: Define the first rule\nClick the green plus symbol at the bottom of the window (A3) to create the first rule. This opens the Edit Rule window.\n\nStart by entering a name or description in the Description field (B1). The remaining settings are organised into two main sections:\n\nthe condition that identifies the relevant features (B2)\nthe label settings that determine how these features appear on the map (B3)\n\nThe condition goes in the Filter field and takes the form of an expression. Expressions can be typed directly into this field or entered through the full expression editor, opened with the button  (B4). Make sure the result of your expression is either TRUE or FALSE, allowing QGIS to check whether each feature meets the condition or not. Typical examples include comparisons such as =, &lt; and &gt;, as well as functions such as intersects().\nIn our case we enter \"POPULATION\" &gt; 2000000. This condition gives TRUE for the cities with more than two million inhabitants.\nNext we define how the labels of these cities should look (B3). This section works in the same way as Single Labels. Select the field NAME as the label value and set the font size to 20 pt and the colour to black.\nClick OK to save the rule.\n\n\nStep 3: Repeat the previous step for every rule you need\nAfter you have created this first rule, you can create the second and third ones in the same way. As the condition (in the Filter field), enter \"POPULATION\" &gt; 1000000 AND \"POPULATION\" &lt;= 2000000 for the second rule and \"POPULATION\" &gt; 500000 AND \"POPULATION\" &lt;= 1000000 for the third. (With &lt;= cities with exactly 2 000 000 or 1 000 000 inhabitants are also included.) For the style, you again label the features based on the field NAME, but this time with a font size of 14 pt (dark grey) and 9 pt (grey). Click OK to add each rule.\n\nAll the rules you created are now shown in the rule overview (A2). To edit a rule, double-click it. You can delete a rule with the red minus symbol (A3).\nWhen you have created the rules and click OK at the bottom of the Layer Properties, you immediately see the desired result in your map canvas: the largest labels for the 4 cities above 2 000 000 inhabitants, medium-sized labels for the 6 cities between 1 000 000 and 2 000 000, small labels for the 26 cities between 500 000 and 1 000 000, and no labels for the other cities.",
+    "text": "Rule-based labels: example\n\nConsider a point layer containing the major cities of the United States. The aim is to label only the most populated cities, with the label size reflecting their population. Each line below has a condition before the colon and a style after it:\n\nmore than 2 000 000 inhabitants: font size 20 pt, black\n1 000 000 to 2 000 000 inhabitants: font size 14 pt, dark grey\n500 000 to 1 000 000 inhabitants: font size 9 pt, grey\nfewer than 500 000 inhabitants: no label\n\nThis requires three rules, one for each group of cities that should receive a label. Cities outside these groups will remain unlabelled.\n\nStep 1: Open the rule-based labeling settings\nIn the layer’s Layer Properties, open the Labels tab and select Rule-based Labeling at the top (A1).\n\nThe large empty area (A2) is the rule overview. It is initially empty because no rules have been defined.\n\n\nStep 2: Define the first rule\nClick the green plus symbol at the bottom of the window (A3) to create the first rule. This opens the Edit Rule window.\n\nStart by entering a name or description in the Description field (B1). The remaining settings are organised into two main sections:\n\nthe condition that identifies the relevant features (B2)\nthe label settings that determine how these features appear on the map (B3)\n\nThe condition goes in the Filter field and takes the form of an expression. Expressions can be typed directly into this field or entered through the full expression builder, opened with the button  (B4). Make sure the result of your expression is either TRUE or FALSE, allowing QGIS to check whether each feature meets the condition or not. Typical examples include comparisons such as =, &lt; and &gt;, as well as functions such as intersects().\nIn our case we enter \"POPULATION\" &gt; 2000000. This condition gives TRUE for the cities with more than two million inhabitants.\nNext we define how the labels of these cities should look (B3). This section works in the same way as Single Labels. Select the field NAME as the label value and set the font size to 20 pt and the colour to black.\nClick OK to save the rule.\n\n\nStep 3: Repeat the previous step for every rule you need\nAfter you have created this first rule, you can create the second and third ones in the same way. As the condition (in the Filter field), enter \"POPULATION\" &gt; 1000000 AND \"POPULATION\" &lt;= 2000000 for the second rule and \"POPULATION\" &gt; 500000 AND \"POPULATION\" &lt;= 1000000 for the third. (With &lt;= cities with exactly 2 000 000 or 1 000 000 inhabitants are also included.) For the style, you again label the features based on the field NAME, but this time with a font size of 14 pt (dark grey) and 9 pt (grey). Click OK to add each rule.\n\nAll the rules you created are now shown in the rule overview (A2). To edit a rule, double-click it. You can delete a rule with the red minus symbol (A3).\nWhen you have created the rules and click OK at the bottom of the Layer Properties, you immediately see the desired result in your map canvas: the largest labels for the 4 cities above 2 000 000 inhabitants, medium-sized labels for the 6 cities between 1 000 000 and 2 000 000, small labels for the 26 cities between 500 000 and 1 000 000, and no labels for the other cities.",
     "crumbs": [
       "8 Querying data",
-      "8.4 Rule-based styling"
+      "8.5 Rule-based styling"
     ]
   },
   {
     "objectID": "querying/rule-based-styling.html#rule-based-symbology-example",
     "href": "querying/rule-based-styling.html#rule-based-symbology-example",
-    "title": "8.4 Rule-based styling",
+    "title": "8.5 Rule-based styling",
     "section": "Rule-based symbology: example",
     "text": "Rule-based symbology: example\nRules are equally useful for controlling the symbology of geometries. The next example demonstrates how several conditions can be combined to distinguish different groups of features.\nConsider a polygon layer containing the US states. The objective is to classify the states according to two criteria:\n\nArea: is the state larger than 300 000 km²?\nPopulation: did the state have more than 10 million inhabitants in 2010?\n\nThese two criteria produce four possible groups:\n\nstates larger than 300 000 km² with more than 10 million inhabitants\nstates larger than 300 000 km² with 10 million inhabitants or fewer\nstates of 300 000 km² or less with more than 10 million inhabitants\nstates of 300 000 km² or less with 10 million inhabitants or fewer\n\nEach group requires a different colour.\nA classification based on a single attribute, such as Categorized symbology, is not well suited to this task. Rule-based symbology offers a more flexible solution because each rule can combine multiple conditions.\n\nStep 1: Open the rule-based symbology settings\nIn the layer’s Layer Properties, open the Symbology tab and select Rule-based at the top (C1).\n\n\nStep 2: Define the required rules\nAs in the previous example, you add the rules one by one with the green plus symbol. The rule overview (C2) shows the four rules of this example, each with its filter expression and its colour.",
     "crumbs": [
       "8 Querying data",
-      "8.4 Rule-based styling"
+      "8.5 Rule-based styling"
     ]
   },
   {
     "objectID": "querying/rule-based-styling.html#the-else-rule",
     "href": "querying/rule-based-styling.html#the-else-rule",
-    "title": "8.4 Rule-based styling",
+    "title": "8.5 Rule-based styling",
     "section": "The Else rule",
     "text": "The Else rule\nA feature that matches none of the rules gets no label and no symbol. That is why the fourth group of cities in the first example needs no rule of its own. If you do want to give all remaining features a style, create a rule with Else instead of a filter (Catch-all for other features).",
     "crumbs": [
       "8 Querying data",
-      "8.4 Rule-based styling"
+      "8.5 Rule-based styling"
     ]
   },
   {
     "objectID": "querying/rule-based-styling.html#features-that-meet-several-rules",
     "href": "querying/rule-based-styling.html#features-that-meet-several-rules",
-    "title": "8.4 Rule-based styling",
+    "title": "8.5 Rule-based styling",
     "section": "Features that meet several rules",
-    "text": "Features that meet several rules\nA feature that matches several rules gets the style of each of them. In that case QGIS draws the symbols of all matching rules on top of each other, in the order of the rule list. This means that the last rule in the list lies on top. If a style covers the styles below it, those are of course no longer visible.\n\nThe map of the United States above shows the combined result of the two examples.\n\n\n\n\n\n\nYou can now do Exercise 3, part A.",
+    "text": "Features that meet several rules\nA feature that matches several rules gets the style of each of them. In that case QGIS draws the symbols of all matching rules on top of each other, in the order of the rule list. This means that the last rule in the list lies on top. If a style covers the styles below it, those are of course no longer visible.\n\nThe map of the United States above shows the combined result of the two examples.\n\n\n\n\n\n\nYou can now do Exercise 3, part B.",
     "crumbs": [
       "8 Querying data",
-      "8.4 Rule-based styling"
+      "8.5 Rule-based styling"
     ]
   },
   {
     "objectID": "querying/selecting-features.html",
     "href": "querying/selecting-features.html",
-    "title": "8.5.1 Selecting features",
+    "title": "8.3.1 Selecting features",
     "section": "",
     "text": "Selecting features is a common task when working with vector layers in QGIS. By default selected features are highlighted in yellow in the map canvas and appear as blue rows in the attribute table.\n\nSelections are useful for many purposes, from highlighting specific features to using them as input for further operations. This page and the next explain how selections work, what they are used for and how to create them.",
     "crumbs": [
       "8 Querying data",
-      "8.5 Selections",
-      "8.5.1 Selecting features"
+      "8.3 Selections",
+      "8.3.1 Selecting features"
     ]
   },
   {
     "objectID": "querying/selecting-features.html#introduction",
     "href": "querying/selecting-features.html#introduction",
-    "title": "8.5.1 Selecting features",
+    "title": "8.3.1 Selecting features",
     "section": "",
     "text": "Selecting features is a common task when working with vector layers in QGIS. By default selected features are highlighted in yellow in the map canvas and appear as blue rows in the attribute table.\n\nSelections are useful for many purposes, from highlighting specific features to using them as input for further operations. This page and the next explain how selections work, what they are used for and how to create them.",
     "crumbs": [
       "8 Querying data",
-      "8.5 Selections",
-      "8.5.1 Selecting features"
+      "8.3 Selections",
+      "8.3.1 Selecting features"
     ]
   },
   {
     "objectID": "querying/selecting-features.html#why-select-features",
     "href": "querying/selecting-features.html#why-select-features",
-    "title": "8.5.1 Selecting features",
+    "title": "8.3.1 Selecting features",
     "section": "Why select features?",
     "text": "Why select features?\nYou can use a selection to:\n\nHighlighting specific features: a selection makes certain features stand out on the map, which can be useful during data exploration and analysis.\nNavigating to selected features: the map canvas can be centred on the selection using Pan Map to Selection , or zoomed in using Zoom to Selection . \nUsing selected features in tools: many QGIS tools can work on a selection instead of processing the entire layer. In most Processing tools this is controlled by the Selected features only checkbox under the input layer.\nCopying features to another layer: selected features can be copied with Edit ▸ Copy Features and pasted into another layer of the same geometry type (points, lines or polygons) with Edit ▸ Paste Features. That layer must be in edit mode. With Edit ▸ Paste Features As the copied features go to a new layer instead.\nSaving a selection as a separate layer: a selection can be exported as a new vector layer, which makes it permanent. This is useful for example to create a compact dataset with only the features you need. Loading large datasets can slow QGIS down.\nTo do this, right-click the relevant layer in the Layers panel and choose Export ▸ Save Selected Features As…. In the Save Vector Layer as… dialog, Save only selected features is already enabled.\nThe same dialog opens through Export ▸ Save Features As…, but in this case the Save only selected features option must be ticked manually.\nYou can also use the Processing tool Extract selected features (in the Processing Toolbox under Vector general). It copies the selected features to a new layer, either a temporary layer or a file.\n\n\n\n\n\n\n\n\nSelections are volatile: they are only temporarily marked in a project session and not stored anywhere. Once they are gone, there is no way to retrieve them.",
     "crumbs": [
       "8 Querying data",
-      "8.5 Selections",
-      "8.5.1 Selecting features"
+      "8.3 Selections",
+      "8.3.1 Selecting features"
     ]
   },
   {
     "objectID": "querying/automated-selections.html",
     "href": "querying/automated-selections.html",
-    "title": "8.5.2 Automated selections",
+    "title": "8.3.2 Automated selections",
     "section": "",
     "text": "You can make ad hoc selections both in your map canvas and in your attribute table, simply by clicking the features you want. You already learned this in Navigating the map canvas and The attribute table.\nThe tools for automated selections are in the Processing Toolbox, under Vector selection. Each Select by … tool there has an Extract by … variant, which puts the matching features in a new layer instead of selecting them.",
     "crumbs": [
       "8 Querying data",
-      "8.5 Selections",
-      "8.5.2 Automated selections"
+      "8.3 Selections",
+      "8.3.2 Automated selections"
     ]
   },
   {
     "objectID": "querying/automated-selections.html#selection-based-on-attribute-value",
     "href": "querying/automated-selections.html#selection-based-on-attribute-value",
-    "title": "8.5.2 Automated selections",
+    "title": "8.3.2 Automated selections",
     "section": "Selection based on attribute value",
     "text": "Selection based on attribute value\nWhen you need to select many features that share a particular attribute value, selecting them one by one is slow and error-prone. QGIS can do this automatically using the Select by attribute tool. Double-click it in the Processing Toolbox to open it.\nIn the configuration window, specify:\n\nInput layer: the layer you want to select features from.\nSelection attribute: the attribute field you want to use.\nOperator: the condition the value must meet, such as =, &gt; or is not null.\nValue: the value you want to compare the field against.\nModify current selection by: what happens to any existing selection. You can create a new selection, add the matching features to the current one, select within it or remove from it.\n\n\n\n\n\n\n\n\n\n\n\nIn the example above we select all US states that had joined the United States by the end of the Civil War. Choose the states layer and the field STATEHOOD, which contains the year in which each state joined. Then choose the operator ≤ and the value 1865. Click Run to make the selection.",
     "crumbs": [
       "8 Querying data",
-      "8.5 Selections",
-      "8.5.2 Automated selections"
+      "8.3 Selections",
+      "8.3.2 Automated selections"
     ]
   },
   {
     "objectID": "querying/automated-selections.html#selection-based-on-location",
     "href": "querying/automated-selections.html#selection-based-on-location",
-    "title": "8.5.2 Automated selections",
+    "title": "8.3.2 Automated selections",
     "section": "Selection based on location",
-    "text": "Selection based on location\nBesides attribute values, the position of features can also be a criterion: do they overlap, cross or touch features in another layer? For such spatial relationships, use Select by location, which you open in the same way.\nIn the configuration window, specify:\n\nSelect features from: the layer you want to select features from.\nWhere the features (geometric predicate): the spatial relationship, for example are within or intersect. You can choose multiple predicates at once. A feature is then selected as soon as it meets one of them.\nBy comparing to the features from: the reference layer.\nModify current selection by: what happens to any existing selection, as in Select by attribute.\n\n\n\n\n\n\n\n\n\n\n\nThe example above shows how to find the battles of the American Civil War that were not fought on land. Choose the civil_war_battles layer, the predicate disjoint (no point in common) and the reference layer states, and click Run. You will notice that most of the selected points indeed lie in harbours, bays and sounds along the coast, for example at Fort Sumter in Charleston Harbor.\n\n\n\n\n\n\nTry it yourself: see what the other predicates do in Select by location.\n\n\n\nOne setting we have not discussed yet is the Selected features only checkbox. When you tick it, QGIS only takes the selected features of the reference layer into account.\n\n\n\n\n\n\n\n\n\n\nThis time the question is which Civil War battles were fought in Kentucky. First select Kentucky by hand in the states layer. Then open Select by location again: select features from civil_war_battles, with the predicate are within and states as the reference layer, and tick Selected features only. QGIS now only selects the battles in Kentucky. Without the checkbox, it would select the battles that were fought in any state.",
+    "text": "Selection based on location\nBesides attribute values, the position of features can also be a criterion: do they overlap, cross or touch features in another layer? For such spatial relationships, use Select by location, which you open in the same way.\nIn the configuration window, specify:\n\nSelect features from: the layer you want to select features from.\nWhere the features (geometric predicate): the spatial relationship, for example are within or intersect. You can choose multiple predicates at once. A feature is then selected as soon as it meets one of them.\nBy comparing to the features from: the reference layer.\nModify current selection by: what happens to any existing selection, as in Select by attribute.\n\n\n\n\n\n\n\n\n\n\n\nThe example above shows how to find the battles of the American Civil War that were not fought on land. Choose the civil_war_battles layer, the predicate disjoint (no point in common) and the reference layer states, and click Run. You will notice that most of the selected points indeed lie in harbours, bays and sounds along the coast, for example at Fort Sumter in Charleston Harbor.\n\n\n\n\n\n\nTry it yourself: see what the other predicates do in Select by location.\n\n\n\nOne setting we have not discussed yet is the Selected features only checkbox. When you tick it, QGIS only takes the selected features of the reference layer into account.\n\n\n\n\n\n\n\n\n\n\nThis time the question is which Civil War battles were fought in Kentucky. First select Kentucky by hand in the states layer. Then open Select by location again: select features from civil_war_battles, with the predicate are within and states as the reference layer, and tick Selected features only. QGIS now only selects the battles in Kentucky. Without the checkbox, it would select the battles that were fought in any state.\n\n\n\n\n\n\nSome questions need more than one attribute value or one spatial relation. For those you can select with an expression. You will learn how in Working with expressions.\n\n\n\n* In the maps on this page, the selected points have a black outline for clarity. You can change the look of selected features in Layer Properties ▸ Rendering ▸ Selections ▸ Override symbol for selected features.",
     "crumbs": [
       "8 Querying data",
-      "8.5 Selections",
-      "8.5.2 Automated selections"
-    ]
-  },
-  {
-    "objectID": "querying/automated-selections.html#selecting-using-an-expression",
-    "href": "querying/automated-selections.html#selecting-using-an-expression",
-    "title": "8.5.2 Automated selections",
-    "section": "Selecting using an expression",
-    "text": "Selecting using an expression\nFor the greatest flexibility, you can also select features with an expression, using Select by expression. Write it so that its result is true (1) or false (0), for example a comparison. QGIS then selects the features for which it is true.\nIn the configuration window, choose the layer from which you want to select features and enter the expression. \nTo build the expression in the full expression editor, click the button . \n\n\n\n\n\n\n\n\n\n\nThe example above selects all major cities of the United States that lie (directly) north of the Ohio River. \nHow can you find these cities? Draw a line from each city straight to the south, and check whether it crosses the Ohio. If it does, the city lies north of the river. For this line you need a start point, the city itself, and an end point that lies far enough to the south: a point at the level of the southernmost point of the Ohio. QGIS can do all of this in one expression:\ncrosses(geometry(get_feature('major_rivers', 'NAME', 'Ohio')), make_line(@geometry, make_point(x(@geometry), y_min(geometry(get_feature('major_rivers', 'NAME', 'Ohio'))))))\n\nFor clarity, the image below shows the auxiliary lines that you create. When you apply this expression in normal circumstances, these lines remain purely virtual, so you will not see them.\n\n* In the maps on this page, the selected points have a black outline for clarity. You can change the look of selected features in Layer Properties ▸ Rendering ▸ Selections ▸ Override symbol for selected features.\n\n\n\n\n\n\nYou can now do Exercise 3, part B.",
-    "crumbs": [
-      "8 Querying data",
-      "8.5 Selections",
-      "8.5.2 Automated selections"
+      "8.3 Selections",
+      "8.3.2 Automated selections"
     ]
   },
   {
@@ -2632,97 +2608,97 @@
   {
     "objectID": "querying/statistical-queries.html",
     "href": "querying/statistical-queries.html",
-    "title": "8.7.1 Vector data",
+    "title": "8.7.1 Statistics of vector data",
     "section": "",
     "text": "On the previous pages, you learned how to query geodata in different ways. Most of these methods return a subset of your features based on specific criteria. You can also query your data statistically. Instead of selecting individual features, you calculate statistical values for a dataset or for groups of features. This page shows how to do this for vector data.",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.1 Vector data"
+      "8.7.1 Statistics of vector data"
     ]
   },
   {
     "objectID": "querying/statistical-queries.html#querying-attribute-data-statistically",
     "href": "querying/statistical-queries.html#querying-attribute-data-statistically",
-    "title": "8.7.1 Vector data",
+    "title": "8.7.1 Statistics of vector data",
     "section": "Querying attribute data statistically",
     "text": "Querying attribute data statistically\n\nBasic statistics for fields\nThe Basic statistics for fields tool lets you quickly calculate simple statistical values (such as mean, median, minimum, maximum, quantiles…) for a specific attribute field of a vector layer.\nYou open it via Processing Toolbox ▸ Vector analysis ▸ Basic statistics for fields. In the tool window, choose the layer and the field you want to analyse statistically, and click Run.\n\n\n\n\n\n\n\n\n\n\nYou do not see the result of the calculations immediately. Instead, a new link appears in the Results Viewer panel. Double-click it to open the report:\n\n\n\n\n\n\nStatistics by categories\nThe Statistics by categories tool calculates statistics for groups of features. It uses the values in an attribute field to divide the features into categories.\nFor example, you have a point layer containing the major cities of the United States. Its attribute table includes fields with their population and the state they belong to. You can use Statistics by categories to group the cities by state and calculate population statistics for each group. In the tool window, configure the following parameters:\n\nInput vector layer: select the layer you want to analyse (major_cities).\nField to calculate statistics on: select the field containing the values you want to analyse (POPULATION).\nField(s) with categories: select the field QGIS should use to group the features (STATE_ABBR).\n\n\n\n\n\n\n\n\n\n\n\nThe tool creates a new table with the statistics, one row per state. You can open this table via the Layers panel.\n\nIn the row of Texas, for example, you can read that the layer contains 263 Texan cities (count) with 19 772 314 inhabitants in total (sum), and that the largest has 2 304 580 inhabitants (max).",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.1 Vector data"
+      "8.7.1 Statistics of vector data"
     ]
   },
   {
     "objectID": "querying/statistical-queries.html#querying-geometries-statistically",
     "href": "querying/statistical-queries.html#querying-geometries-statistically",
-    "title": "8.7.1 Vector data",
+    "title": "8.7.1 Statistics of vector data",
     "section": "Querying geometries statistically",
-    "text": "Querying geometries statistically\nYou can calculate statistics not only for attribute fields, but also for your geometries. Below are a few of the options, all in the Processing Toolbox.\n\nYou can apply Vector analysis ▸ Nearest neighbour analysis to a vector layer with point geometries. Among other things, it calculates the mean distance from each point to its nearest neighbouring point.\nYou can apply Vector analysis ▸ Overlap analysis to a polygon layer. For each polygon, it calculates how much of its area overlaps with another layer, as an area and as a percentage.\nYou can apply Vector general ▸ Join attributes by location (summary) to two layers. It calculates statistics for the features of one layer that overlap with the features of another layer, and writes them to a new layer. Chapter 11 comes back to this tool.\n\nFor example, for the Civil War battles (in EPSG:5070, a CRS in metres), Nearest neighbour analysis gives a mean distance of about 47 km to the nearest other battle. On the map, each black line connects a battle with the nearest other battle:",
+    "text": "Querying geometries statistically\nYou can calculate statistics not only for attribute fields, but also for your geometries. Below are a few of the options, all in the Processing Toolbox.\n\nYou can apply Vector analysis ▸ Nearest neighbour analysis to a vector layer with point geometries. Among other things, it calculates the mean distance from each point to its nearest neighbouring point.\nYou can apply Vector analysis ▸ Overlap analysis to a polygon layer. For each polygon, it calculates how much of its area overlaps with another layer, as an area and as a percentage.\nYou can apply Vector general ▸ Join attributes by location (summary) to two layers. It calculates statistics for the features of one layer that overlap with the features of another layer, and writes them to a new layer. Chapter 11 comes back to this tool.\n\nFor example, for the Civil War battles (in EPSG:5070, a CRS in metres), Nearest neighbour analysis gives a mean distance of about 47 km to the nearest other battle. On the map, each black line connects a battle with the nearest other battle:\n\n\n\n\n\n\n\n\n\n\nYou can now do Exercise 3, part D.",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.1 Vector data"
+      "8.7.1 Statistics of vector data"
     ]
   },
   {
     "objectID": "querying/raster-statistics.html",
     "href": "querying/raster-statistics.html",
-    "title": "8.7.2 Raster data",
+    "title": "8.7.2 Statistics of raster data",
     "section": "",
     "text": "You can also query raster data statistically. The Processing Toolbox provides several tools for this purpose under Raster analysis.",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.2 Raster data"
+      "8.7.2 Statistics of raster data"
     ]
   },
   {
     "objectID": "querying/raster-statistics.html#raster-layer-statistics",
     "href": "querying/raster-statistics.html#raster-layer-statistics",
-    "title": "8.7.2 Raster data",
+    "title": "8.7.2 Statistics of raster data",
     "section": "Raster layer statistics",
     "text": "Raster layer statistics\nRaster layer statistics calculates basic statistical values for a raster band, such as the mean, the minimum and maximum value, and the standard deviation. Open Processing Toolbox ▸ Raster analysis ▸ Raster layer statistics to use it.\nIn the tool window, choose the layer and the Band number you want to analyse statistically, and click Run.\n\n\n\n\n\n\n\n\n\n\nAs with Basic statistics for fields on the previous page, the result appears as a link in the Results Viewer panel. Double-click it to open the report:",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.2 Raster data"
+      "8.7.2 Statistics of raster data"
     ]
   },
   {
     "objectID": "querying/raster-statistics.html#raster-minimummaximum",
     "href": "querying/raster-statistics.html#raster-minimummaximum",
-    "title": "8.7.2 Raster data",
+    "title": "8.7.2 Statistics of raster data",
     "section": "Raster minimum/maximum",
     "text": "Raster minimum/maximum\nRaster minimum/maximum finds the lowest and highest cell values in a raster band. The output is a vector layer containing two points: one at the centre of a cell with the lowest value and one at the centre of a cell with the highest value.\nApplied to a raster layer with the average global temperatures in August, the tool finds the warmest cell in the Sahara (38.4 °C) and the coldest near the South Pole (−66.5 °C):",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.2 Raster data"
+      "8.7.2 Statistics of raster data"
     ]
   },
   {
     "objectID": "querying/raster-statistics.html#raster-layer-unique-values-report",
     "href": "querying/raster-statistics.html#raster-layer-unique-values-report",
-    "title": "8.7.2 Raster data",
+    "title": "8.7.2 Statistics of raster data",
     "section": "Raster layer unique values report",
     "text": "Raster layer unique values report\nRaster layer unique values report lists all unique cell values in a raster band. For each value, it shows the number of cells and their total area. You have already used this tool in Report of unique cell values in chapter 4.",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.2 Raster data"
+      "8.7.2 Statistics of raster data"
     ]
   },
   {
     "objectID": "querying/raster-statistics.html#zonal-statistics",
     "href": "querying/raster-statistics.html#zonal-statistics",
-    "title": "8.7.2 Raster data",
+    "title": "8.7.2 Statistics of raster data",
     "section": "Zonal statistics",
-    "text": "Zonal statistics\nZonal statistics calculates statistics for the raster cells that overlap with each polygon of a vector layer. You will learn more about this tool in chapter 12.\n\n\n\n\n\n\nYou can now do Exercise 3, part D.",
+    "text": "Zonal statistics\nZonal statistics calculates statistics for the raster cells that overlap with each polygon of a vector layer. You will learn more about this tool in chapter 12.",
     "crumbs": [
       "8 Querying data",
       "8.7 Statistical queries",
-      "8.7.2 Raster data"
+      "8.7.2 Statistics of raster data"
     ]
   },
   {
@@ -2771,11 +2747,11 @@
     ]
   },
   {
-    "objectID": "exercises/exercise-beguinages.html#part-a-mapping-the-dioceses-and-the-beguinage-courts",
-    "href": "exercises/exercise-beguinages.html#part-a-mapping-the-dioceses-and-the-beguinage-courts",
+    "objectID": "exercises/exercise-beguinages.html#part-a-highlighting-and-extracting-beguinage-courts",
+    "href": "exercises/exercise-beguinages.html#part-a-highlighting-and-extracting-beguinage-courts",
     "title": "Exercise 3: Beguinages in the Low Countries",
-    "section": "Part A: Mapping the dioceses and the beguinage courts",
-    "text": "Part A: Mapping the dioceses and the beguinage courts\nYou can do this after chapter 8.\n\nAdd all layers of beguinages.gpkg to a new project. Set the project CRS to a coordinate system suitable for Belgium. Reproject all layers to this coordinate system.\nShow the seats of the bishops and the archbishops (layer seats, field type) with a different symbol: use a different marker and a larger symbol for the archbishops.\nLabel the dioceses with their name. Show the names of the archdioceses (the dioceses of the archbishops themselves) in bold capitals, and the other dioceses in smaller italics.\nUse rule-based symbology to show the beguinage courts in green if both the founding year and the closing year are exact (fields founded_accuracy and closed_accuracy). Show all other beguinage courts in orange. Put an exclamation mark in the dot of the beguinage courts whose location is not certain (field position).",
+    "section": "Part A: Highlighting and extracting beguinage courts",
+    "text": "Part A: Highlighting and extracting beguinage courts\nYou can do this after chapter 8.\n\nAdd all layers of beguinages.gpkg to a new project. Set the project CRS to a coordinate system suitable for Belgium. Reproject all layers to this coordinate system.\nUse an expression to select the beguinage courts whose dedication (field dedication) includes the exact name ‘Virgin Mary’. The name may be preceded or followed by other words. Make sure you do not include dedications to Mary Magdalen. How many are there?\nExtract the beguinage courts located within the ecclesiastical province of Reims (including the archdiocese of Reims itself) into a new layer named beguinages_reims, using a processing tool. How many are there? Save this layer: you need it in Part D.",
     "crumbs": [
       "Exercises",
       "Exercise 3: Beguinages in the Low Countries",
@@ -2783,11 +2759,11 @@
     ]
   },
   {
-    "objectID": "exercises/exercise-beguinages.html#part-b-highlighting-and-extracting-beguinage-courts",
-    "href": "exercises/exercise-beguinages.html#part-b-highlighting-and-extracting-beguinage-courts",
+    "objectID": "exercises/exercise-beguinages.html#part-b-mapping-the-dioceses-and-the-beguinage-courts",
+    "href": "exercises/exercise-beguinages.html#part-b-mapping-the-dioceses-and-the-beguinage-courts",
     "title": "Exercise 3: Beguinages in the Low Countries",
-    "section": "Part B: Highlighting and extracting beguinage courts",
-    "text": "Part B: Highlighting and extracting beguinage courts\nYou can do this after chapter 8.\n\nUse an expression to select the beguinage courts whose dedication (field dedication) includes the exact name ‘Virgin Mary’. The name may be preceded or followed by other words. Make sure you do not include dedications to Mary Magdalen. How many are there?\nExtract the beguinage courts located within the ecclesiastical province of Reims (including the archdiocese of Reims itself) into a new layer named beguinages_reims, using a processing tool. How many are there? Save this layer: you need it in Part D.",
+    "section": "Part B: Mapping the dioceses and the beguinage courts",
+    "text": "Part B: Mapping the dioceses and the beguinage courts\nYou can do this after chapter 8.\n\nShow the seats of the bishops and the archbishops (layer seats, field type) with a different symbol: use a different marker and a larger symbol for the archbishops.\nLabel the dioceses with their name. Show the names of the archdioceses (the dioceses of the archbishops themselves) in bold capitals, and the other dioceses in smaller italics.\nUse rule-based symbology to show the beguinage courts in green if both the founding year and the closing year are exact (fields founded_accuracy and closed_accuracy). Show all other beguinage courts in orange. Put an exclamation mark in the dot of the beguinage courts whose location is not certain (field position).",
     "crumbs": [
       "Exercises",
       "Exercise 3: Beguinages in the Low Countries",
@@ -2831,11 +2807,11 @@
     ]
   },
   {
-    "objectID": "exercises/solution-beguinages.html#part-a-mapping-the-dioceses-and-the-beguinage-courts",
-    "href": "exercises/solution-beguinages.html#part-a-mapping-the-dioceses-and-the-beguinage-courts",
+    "objectID": "exercises/solution-beguinages.html#part-a-highlighting-and-extracting-beguinage-courts",
+    "href": "exercises/solution-beguinages.html#part-a-highlighting-and-extracting-beguinage-courts",
     "title": "Solution 3: Beguinages in the Low Countries",
-    "section": "Part A: Mapping the dioceses and the beguinage courts",
-    "text": "Part A: Mapping the dioceses and the beguinage courts\n\n1. Layers in Belgian Lambert 72\nDrag beguinages.gpkg into QGIS and add all five layers. The data are in ETRS89-LAEA (EPSG:3035), a coordinate system for the whole of Europe. For Belgium, Belgian Lambert 72 (EPSG:31370) is a good choice (see Projected coordinate systems).\nSet the project to EPSG:31370 (bottom right in the status bar). To convert the layers themselves, open Processing Toolbox ▸ Vector general ▸ Reproject layer for each layer, choose EPSG:31370 as Target CRS and save the result in a new GeoPackage. With Run as Batch Process… you convert all five layers at once. Export ▸ Save Features As… works as well.\n\n\n\n2. Seats of bishops and archbishops\nIn the Layer Properties of seats, choose Categorized on type and click Classify. Double-click each symbol to give it its own shape and size (Simple Marker ▸ Shape, Size): in the map below a large black star for archdiocese and a small square for diocese. See Categorized symbology.\n\n\n\n3. Diocese names with rule-based labels\nOn the Labels tab of dioceses, choose Rule-based Labeling and add two rules (see Rule-based styling). The archdioceses are the dioceses whose name is the same as the value in archdiocese: Canterbury, Cologne, Mainz, Reims, Rouen and Trier.\n\nArchdiocese: rule \"name\" = \"archdiocese\", value upper(\"name\") (capitals), bold, a little larger.\nDiocese: Else rule, value \"name\", italic.\n\n\n\n\n4. How certain are the data?\nIn the Layer Properties of beguinages, choose Rule-based with three rules (see Rule-based styling):\n\nExact years (green dot): \"founded_accuracy\" = 'exact' AND \"closed_accuracy\" = 'exact'\nOther (orange dot): NOT (\"founded_accuracy\" = 'exact' AND \"closed_accuracy\" = 'exact')\nLocation not certain (an exclamation mark): \"position\" = 'approximate'. For the symbol, choose the symbol layer type Font Marker and type !.\n\n\nKeep the exclamation mark rule last, so that it lies on top of the dot. The rule for the orange dots is the opposite of the green rule, so that every beguinage court gets a dot, also when the exclamation mark rule applies to it.\n27 beguinage courts have an exact founding year and an exact closing year. 12 have a location that is not certain.\nThe map of Part A:",
+    "section": "Part A: Highlighting and extracting beguinage courts",
+    "text": "Part A: Highlighting and extracting beguinage courts\n\n1. Layers in Belgian Lambert 72\nDrag beguinages.gpkg into QGIS and add all five layers. The data are in ETRS89-LAEA (EPSG:3035), a coordinate system for the whole of Europe. For Belgium, Belgian Lambert 72 (EPSG:31370) is a good choice (see Projected coordinate systems).\nSet the project to EPSG:31370 (bottom right in the status bar). To convert the layers themselves, open Processing Toolbox ▸ Vector general ▸ Reproject layer for each layer, choose EPSG:31370 as Target CRS and save the result in a new GeoPackage. With Run as Batch Process… you convert all five layers at once. Export ▸ Save Features As… works as well.\n\n\n\n2. Dedicated to the Virgin Mary\nMany beguinage courts are dedicated to more than one saint, for example “Virgin Mary / St. Agnes / St. Catherine”. Open Select Features by Expression and use the operator LIKE with % before and after the name: % stands for any number of characters, so that you also find these combinations (see Logical operators). Search for the full name “Virgin Mary”, so that Mary Magdalen is left out:\n\"dedication\" LIKE '%Virgin Mary%'\n\n10 beguinage courts are dedicated (also) to the Virgin Mary, among them “St. John and Virgin Mary” and “Consolation of Virgin Mary”. One of them, “Virgin Mary / St. Mary Magdalen”, is dedicated to both.\n\n\n3. Beguinage courts in the ecclesiastical province of Reims\nFirst select the dioceses of the ecclesiastical province of Reims, for example with Select Features by Expression on dioceses and \"archdiocese\" = 'Reims' (12 dioceses). Then open Processing Toolbox ▸ Vector selection ▸ Extract by location: extract features from beguinages that are within the features from dioceses, with Selected features only ticked (see Automated selections). Save the result as beguinages_reims. It contains 46 beguinage courts.\n\nExtract by location makes the new layer in one step. With Select by location, you first select the beguinage courts and then save them with Export ▸ Save Selected Features As… (as in the next task).",
     "crumbs": [
       "Exercises",
       "Exercise 3: Beguinages in the Low Countries",
@@ -2843,11 +2819,11 @@
     ]
   },
   {
-    "objectID": "exercises/solution-beguinages.html#part-b-highlighting-and-extracting-beguinage-courts",
-    "href": "exercises/solution-beguinages.html#part-b-highlighting-and-extracting-beguinage-courts",
+    "objectID": "exercises/solution-beguinages.html#part-b-mapping-the-dioceses-and-the-beguinage-courts",
+    "href": "exercises/solution-beguinages.html#part-b-mapping-the-dioceses-and-the-beguinage-courts",
     "title": "Solution 3: Beguinages in the Low Countries",
-    "section": "Part B: Highlighting and extracting beguinage courts",
-    "text": "Part B: Highlighting and extracting beguinage courts\n\n1. Dedicated to the Virgin Mary\nMany beguinage courts are dedicated to more than one saint, for example “Virgin Mary / St. Agnes / St. Catherine”. Open Select Features by Expression and use the operator LIKE with % before and after the name: % stands for any number of characters, so that you also find these combinations (see Logical operators). Search for the full name “Virgin Mary”, so that Mary Magdalen is left out:\n\"dedication\" LIKE '%Virgin Mary%'\n\n10 beguinage courts are dedicated (also) to the Virgin Mary, among them “St. John and Virgin Mary” and “Consolation of Virgin Mary”. One of them, “Virgin Mary / St. Mary Magdalen”, is dedicated to both.\n\n\n2. Beguinage courts in the ecclesiastical province of Reims\nFirst select the dioceses of the ecclesiastical province of Reims, for example with Select Features by Expression on dioceses and \"archdiocese\" = 'Reims' (12 dioceses). Then open Processing Toolbox ▸ Vector selection ▸ Extract by location: extract features from beguinages that are within the features from dioceses, with Selected features only ticked (see Automated selections). Save the result as beguinages_reims. It contains 46 beguinage courts.\n\nExtract by location makes the new layer in one step. With Select by location, you first select the beguinage courts and then save them with Export ▸ Save Selected Features As… (as in the next task).",
+    "section": "Part B: Mapping the dioceses and the beguinage courts",
+    "text": "Part B: Mapping the dioceses and the beguinage courts\n\n1. Seats of bishops and archbishops\nIn the Layer Properties of seats, choose Categorized on type and click Classify. Double-click each symbol to give it its own shape and size (Simple Marker ▸ Shape, Size): in the map below a large black star for archdiocese and a small square for diocese. See Categorized symbology.\n\n\n\n2. Diocese names with rule-based labels\nOn the Labels tab of dioceses, choose Rule-based Labeling and add two rules (see Rule-based styling). The archdioceses are the dioceses whose name is the same as the value in archdiocese: Canterbury, Cologne, Mainz, Reims, Rouen and Trier.\n\nArchdiocese: rule \"name\" = \"archdiocese\", value upper(\"name\") (capitals), bold, a little larger.\nDiocese: Else rule, value \"name\", italic.\n\n\n\n\n3. How certain are the data?\nIn the Layer Properties of beguinages, choose Rule-based with three rules (see Rule-based styling):\n\nExact years (green dot): \"founded_accuracy\" = 'exact' AND \"closed_accuracy\" = 'exact'\nOther (orange dot): NOT (\"founded_accuracy\" = 'exact' AND \"closed_accuracy\" = 'exact')\nLocation not certain (an exclamation mark): \"position\" = 'approximate'. For the symbol, choose the symbol layer type Font Marker and type !.\n\n\nKeep the exclamation mark rule last, so that it lies on top of the dot. The rule for the orange dots is the opposite of the green rule, so that every beguinage court gets a dot, also when the exclamation mark rule applies to it.\n27 beguinage courts have an exact founding year and an exact closing year. 12 have a location that is not certain.\nThe map of Part B:",
     "crumbs": [
       "Exercises",
       "Exercise 3: Beguinages in the Low Countries",
