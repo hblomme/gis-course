@@ -259,7 +259,11 @@ pre.code-overflow-wrap, pre.code-overflow-wrap code { white-space: pre-wrap; ove
 /* more white space around and between screenshots placed side by side (author 2026-11-16) */
 main .quarto-layout-panel { margin: 1rem 0 1.4rem; }
 main .quarto-layout-row .quarto-layout-cell:not(:last-child) { margin-right: 2.2rem; }
+main .tight .quarto-layout-row .quarto-layout-cell:not(:last-child) { margin-right: 0.8rem; }   /* pairs that belong together (9.7, author 2026-11-23) */
 
 /* screenshots side by side at a fixed size, allowed to use the right margin (author 2026-11-16) */
 .side-by-side { display: flex; gap: 2.2rem; align-items: flex-start; flex-wrap: wrap; margin: 1rem 0 1.4rem; }
 .side-by-side > p { margin: 0; }
+
+/* long inline expressions in lists may wrap at spaces (9.7, author 2026-11-23) */
+main .wrap-code code { white-space: pre-wrap; }
