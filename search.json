@@ -3296,5 +3296,225 @@
       "9 Expressions",
       "9.8 Interactive"
     ]
+  },
+  {
+    "objectID": "georeferencing/georeferencing-intro.html",
+    "href": "georeferencing/georeferencing-intro.html",
+    "title": "10.1 Georeferencer",
+    "section": "",
+    "text": "In the chapter on coordinate systems we explained why coordinates are important in GIS. Once coordinates have been assigned to geo-information (vectors or rasters), you can visualise and analyse it spatially in a geographic information system.\nBut what if you come across interesting spatial information that does not yet have coordinates? Take for example a scanned map from a (historical) atlas or a photographed plan from an archive. Both contain cartographic information that people can interpret spatially, but for computers these image files are no different from any other scan or photo, so GIS software cannot position them correctly in space.\nFortunately, QGIS lets you assign geographic coordinates to such information and so position it within a specific coordinate system. This process is called ‘georeferencing’.\nIn the following sections we explain step by step how to georeference an image in QGIS.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.1 Georeferencer"
+    ]
+  },
+  {
+    "objectID": "georeferencing/georeferencing-intro.html#what-is-georeferencing",
+    "href": "georeferencing/georeferencing-intro.html#what-is-georeferencing",
+    "title": "10.1 Georeferencer",
+    "section": "",
+    "text": "In the chapter on coordinate systems we explained why coordinates are important in GIS. Once coordinates have been assigned to geo-information (vectors or rasters), you can visualise and analyse it spatially in a geographic information system.\nBut what if you come across interesting spatial information that does not yet have coordinates? Take for example a scanned map from a (historical) atlas or a photographed plan from an archive. Both contain cartographic information that people can interpret spatially, but for computers these image files are no different from any other scan or photo, so GIS software cannot position them correctly in space.\nFortunately, QGIS lets you assign geographic coordinates to such information and so position it within a specific coordinate system. This process is called ‘georeferencing’.\nIn the following sections we explain step by step how to georeference an image in QGIS.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.1 Georeferencer"
+    ]
+  },
+  {
+    "objectID": "georeferencing/georeferencing-intro.html#georeferencer-pluginopening-the-georeferencer",
+    "href": "georeferencing/georeferencing-intro.html#georeferencer-pluginopening-the-georeferencer",
+    "title": "10.1 Georeferencer",
+    "section": "Opening the Georeferencer",
+    "text": "Opening the Georeferencer\nGeoreferencing is an important and widely used process in GIS, especially for researchers in the humanities. That is why QGIS has a built-in tool for it, the Georeferencer.\nTo open it, choose Layer ▸ Georeferencer… in the menu bar. A new window opens.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.1 Georeferencer"
+    ]
+  },
+  {
+    "objectID": "georeferencing/georeferencing-intro.html#the-georeferencer-window",
+    "href": "georeferencing/georeferencing-intro.html#the-georeferencer-window",
+    "title": "10.1 Georeferencer",
+    "section": "The Georeferencer window",
+    "text": "The Georeferencer window\nBroadly speaking, the georeferencer interface is made up of the same building blocks as the main QGIS interface:\n\na menu bar (A)\nconfigurable toolbars (B)\na map canvas that shows the file to be georeferenced (C)\na configurable panel (D), the GCP (ground control point) table, which lists your control points\na status bar (E)",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.1 Georeferencer"
+    ]
+  },
+  {
+    "objectID": "georeferencing/georeferencing-intro.html#loading-an-image",
+    "href": "georeferencing/georeferencing-intro.html#loading-an-image",
+    "title": "10.1 Georeferencer",
+    "section": "Loading an image",
+    "text": "Loading an image\nOf course, before you can georeference an image, you first have to load it. You can do this with the button  (Open Raster), or alternatively just drag your image into the map canvas (C).\nYou can then zoom in and out on the image, just as in the main QGIS map canvas, with your mouse and/or the buttons of the navigation toolbar (  ).\n\n\n\n\n\n\nIn QGIS 4 you can also georeference a vector layer (button Open Vector). In this course we only georeference images.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.1 Georeferencer"
+    ]
+  },
+  {
+    "objectID": "georeferencing/assigning-coordinates.html",
+    "href": "georeferencing/assigning-coordinates.html",
+    "title": "10.2 Ground control points",
+    "section": "",
+    "text": "On the previous page you learned how to load an image into the Georeferencer. The next step is to position it unambiguously in geographical space by assigning coordinates to it.\nFrom a technical point of view, your scanned map is a raster image that can consist of thousands or even millions of pixels or raster cells. Of course, you are not expected to enter the geographic coordinates of each of these cells by hand. Instead, you provide the coordinates of a limited number of points on the image, called ground control points (GCPs), or simply control points. Based on these points, QGIS establishes a mathematical transformation to calculate the geographic coordinates of all other pixels automatically.\nThe accuracy of this calculation depends on how well the control points represent the actual geographical locations they refer to, and of course on the geometric quality of the map itself. Especially historical maps are often imperfect in this regard, as you will see on the next page.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.2 Ground control points"
+    ]
+  },
+  {
+    "objectID": "georeferencing/assigning-coordinates.html#creating-gcps",
+    "href": "georeferencing/assigning-coordinates.html#creating-gcps",
+    "title": "10.2 Ground control points",
+    "section": "Creating GCPs",
+    "text": "Creating GCPs\nIn the QGIS georeferencer, you add a control point by first selecting the button  (Add GCP Point) and then clicking on the image where you want to place it. A pop-up window (Enter Map Coordinates) opens in which you can enter the coordinates of this point. In this window you also choose the coordinate reference system (CRS) in which you enter these coordinates. Although this procedure might not sound too hard, it is easier said than done: unless the coordinates of the control point are stated on your image (for example if a grid is shown), you will rarely know them.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.2 Ground control points"
+    ]
+  },
+  {
+    "objectID": "georeferencing/assigning-coordinates.html#homologous-points",
+    "href": "georeferencing/assigning-coordinates.html#homologous-points",
+    "title": "10.2 Ground control points",
+    "section": "Homologous points",
+    "text": "Homologous points\nFortunately, there is a practical alternative, which is also the most widely used method: you indicate the corresponding point in the main map canvas of your QGIS project. Such corresponding points on the image and on the map are called homologous points.\n\nCreating homologous points\n\nClick the point on the map in the Georeferencer with  (Add GCP Point). The pop-up window Enter Map Coordinates opens.\nClick From Map Canvas at the bottom of the pop-up window. You are taken to the main QGIS window (if Automatically hide georeferencer window is ticked, the Georeferencer is hidden while you do this).\nClick the corresponding position in the main map canvas. Its coordinates are automatically assigned to the control point on the image. They are in the CRS of your QGIS project (the project CRS), and the CRS in the pop-up window is set to it automatically.\n\nThe screenshot below shows these steps from left to right.\n\nThe GCP IDs can be enabled in ‘Configure Georeferencer’ (Settings). Background map © OpenStreetMap contributors.\nWith the buttons  (Move GCP Point) and  (Delete GCP Point) you can move or delete a control point afterwards.\n\n\nUseful tools\nThe buttons  (Link Georeferencer to QGIS) and  (Link QGIS to Georeferencer) are a great help while defining homologous points. They link the map canvases of the Georeferencer and the main QGIS window based on the points you have already set: if you zoom in or pan in one window, the other window follows and shows the same area. That way you can quickly find the corresponding place for your next control point. Be aware that these buttons don’t work if you don’t have enough GCPs, and are even greyed out if you haven’t chosen a transformation type in the Transformation Settings yet (see Running the georeferencing).",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.2 Ground control points"
+    ]
+  },
+  {
+    "objectID": "georeferencing/assigning-coordinates.html#saving-your-gcps",
+    "href": "georeferencing/assigning-coordinates.html#saving-your-gcps",
+    "title": "10.2 Ground control points",
+    "section": "Saving your GCPs",
+    "text": "Saving your GCPs\nYou can save your control points as a.points file with  (Save GCP Points as) and load them again with  (Load GCP Points). That way you can continue working on them later. A points file stores the relationship between the pixels of the original image and the coordinates you assigned to them. It can therefore only be used with that original image: you cannot use it for another scan of the same map, or even for a cropped version of it.\n\n\n\n\n\n\nIf your points file has the same name as the original image file and is saved in the same folder, QGIS automatically loads the saved GCPs into the georeferencer when you open the image file.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.2 Ground control points"
+    ]
+  },
+  {
+    "objectID": "georeferencing/assigning-coordinates.html#gcps-in-practice",
+    "href": "georeferencing/assigning-coordinates.html#gcps-in-practice",
+    "title": "10.2 Ground control points",
+    "section": "GCPs in practice",
+    "text": "GCPs in practice\nWhen you choose homologous points, always keep the following in mind:\n\nMake sure that the two homologous points really are the same. When you georeference historical maps, this is not always obvious: over time, buildings are sometimes replaced by other buildings with different dimensions, bridges are moved, open spaces become smaller…\nBe as precise as possible. Corners of buildings and of (water)ways are usually better control points than random points in the middle of a map element. For the same reason, for small-scale maps, villages are usually more useful than large cities, where it is harder to point to exactly the same location.\nMake sure that the base map you use to indicate homologous points is itself reliable and correctly georeferenced. In QGIS you can for example use the OpenStreetMap layer (see XYZ Tiles in Services). This present-day map is detailed, covers almost the whole world and is fully georeferenced. Besides OpenStreetMap, however, almost any reliable and correctly georeferenced map can be used as a base map. \n\n\n\n\n\n\nIf your base map is itself incorrectly georeferenced, the map you are georeferencing will also be positioned wrongly in space. After all, the wrong coordinate pairs will be retrieved from the map canvas and written to the GCPs. At first sight, such a wrong georeference does not necessarily stand out: the georeferenced map will fit nicely on the (problematic) base map. However, the problem will show up when these data are combined with other geodata.\n\n\n\nMake sure that your control points are well and evenly spread over the whole map. If not, small deviations in the positioning of your control points can lead to large deviations further away from them. So also place control points near the edges and corners of the map, and avoid points that all lie (almost) on one line.\n\nCreate enough homologous points to reduce the impact of positioning errors and to better account for deviations in the map you are georeferencing. Each transformation type requires a minimum number of control points before georeferencing can be performed (see Transformation types). However, it is often wise to use more than this minimum.\nSometimes the situation shown on a historical map has changed so much that it is difficult to find homologous points on a present-day map. In such cases you can georeference in steps. First georeference an intermediate map that is closer in time to your historical map and therefore shows a more similar geographical situation. Then use this intermediate map as the base map for georeferencing your older map. You do not have to rely on a single reference map either. Because you take homologous points from the main map canvas, you can load several georeferenced layers there at the same time, for example a present-day map and one or more older maps, and place each control point on the layer where the corresponding point is easiest to recognise. In difficult cases this is good practice. Keep in mind that errors can accumulate: any inaccuracies in the reference maps will also affect the georeferencing of your older map.\n\n\n\n\n\n\n\nIf possible, use two screens when georeferencing. That way you can display the Georeferencer on one screen and the main QGIS window on the other. This makes it easier and more efficient to find and indicate homologous points.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.2 Ground control points"
+    ]
+  },
+  {
+    "objectID": "georeferencing/deviations.html",
+    "href": "georeferencing/deviations.html",
+    "title": "10.3 Transformation types",
+    "section": "",
+    "text": "When geographic coordinates are calculated automatically from control points, a complication often arises: the relative positions of the control points on the image do not perfectly match those of the given coordinates (or homologous points). This can happen, for example, because of cartographic errors or because the control points were not defined precisely.\nThe map below (left), made by Pieter van der Beke in 1538, illustrates the problem. It shows the area around Antwerp and the Waasland region (in the north of present-day Belgium). Note that north is not at the top of this map. That is why the map is strongly rotated after georeferencing in the images further down.\nWhen you connect Boechout (B), Tielrode (T), Nieuwkerken-Waas (N) and Antwerp (A) on this map with straight lines, the four places lie roughly on the corners of a rectangle. On a present-day map (right), however, the same four places are far from forming a rectangle. This means that Pieter van der Beke’s map cannot simply be overlaid on a present-day map without geometric distortion.\n\nPieter van der Beke, De Charte van Vlaendren, 1538 (detail). Bibliothèque nationale de France, Gallica, via Wikimedia Commons, public domain. Background map right © OpenStreetMap contributors.\n\n\nThe map can still be georeferenced, but you will have to accept that the control points do not all match their corresponding geographic coordinates exactly. The software positions the map so that the control points lie as close as possible to these coordinates. In practice, it calculates a transformation that minimises the overall residual error. The orange lines in the image below show the deviation of each control point. This deviation is called the residual.\n\nThe map is moved and rotated, but not distorted: the control points (blue) do not exactly match the given coordinates (red). Background map © OpenStreetMap contributors.\n\n\n\nAlternatively, you can distort the image (by stretching, bending, etc.) so that the control points exactly match their corresponding geographic coordinates. This can involve substantial deformation of the original map, or ‘warping’.\n\nThe map is distorted (‘rubber-sheeting’), so that the control points match the given coordinates exactly. Background map © OpenStreetMap contributors.\nVarious intermediate solutions between the options above are also possible, in which the image you are georeferencing is distorted to a certain extent and the positions of the control points deviate to a certain extent from the given coordinates.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nBelow we discuss the different options that QGIS offers for this.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.3 Transformation types"
+    ]
+  },
+  {
+    "objectID": "georeferencing/deviations.html#geometric-deviations",
+    "href": "georeferencing/deviations.html#geometric-deviations",
+    "title": "10.3 Transformation types",
+    "section": "",
+    "text": "When geographic coordinates are calculated automatically from control points, a complication often arises: the relative positions of the control points on the image do not perfectly match those of the given coordinates (or homologous points). This can happen, for example, because of cartographic errors or because the control points were not defined precisely.\nThe map below (left), made by Pieter van der Beke in 1538, illustrates the problem. It shows the area around Antwerp and the Waasland region (in the north of present-day Belgium). Note that north is not at the top of this map. That is why the map is strongly rotated after georeferencing in the images further down.\nWhen you connect Boechout (B), Tielrode (T), Nieuwkerken-Waas (N) and Antwerp (A) on this map with straight lines, the four places lie roughly on the corners of a rectangle. On a present-day map (right), however, the same four places are far from forming a rectangle. This means that Pieter van der Beke’s map cannot simply be overlaid on a present-day map without geometric distortion.\n\nPieter van der Beke, De Charte van Vlaendren, 1538 (detail). Bibliothèque nationale de France, Gallica, via Wikimedia Commons, public domain. Background map right © OpenStreetMap contributors.\n\n\nThe map can still be georeferenced, but you will have to accept that the control points do not all match their corresponding geographic coordinates exactly. The software positions the map so that the control points lie as close as possible to these coordinates. In practice, it calculates a transformation that minimises the overall residual error. The orange lines in the image below show the deviation of each control point. This deviation is called the residual.\n\nThe map is moved and rotated, but not distorted: the control points (blue) do not exactly match the given coordinates (red). Background map © OpenStreetMap contributors.\n\n\n\nAlternatively, you can distort the image (by stretching, bending, etc.) so that the control points exactly match their corresponding geographic coordinates. This can involve substantial deformation of the original map, or ‘warping’.\n\nThe map is distorted (‘rubber-sheeting’), so that the control points match the given coordinates exactly. Background map © OpenStreetMap contributors.\nVarious intermediate solutions between the options above are also possible, in which the image you are georeferencing is distorted to a certain extent and the positions of the control points deviate to a certain extent from the given coordinates.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nBelow we discuss the different options that QGIS offers for this.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.3 Transformation types"
+    ]
+  },
+  {
+    "objectID": "georeferencing/deviations.html#seven-transformation-types",
+    "href": "georeferencing/deviations.html#seven-transformation-types",
+    "title": "10.3 Transformation types",
+    "section": "Seven transformation types",
+    "text": "Seven transformation types\nAs you saw above, the map you are georeferencing rarely fits the base map perfectly. QGIS therefore offers different transformation types, each allowing different kinds of geometric adjustments to fit the map to its geographic reference. Each transformation type uses a different mathematical approach to establish the relationship between the map’s pixel coordinates and real-world coordinates.\nSome transformations allow only limited geometric changes, while others offer greater flexibility to accommodate discrepancies between the original map and the control points. Understanding these differences is essential for choosing an appropriate transformation type. As a general rule, the greater the allowed distortions, the more freedom the transformation has to fit the GCPs, and the smaller the residuals are likely to be.\n\nQGIS offers seven transformation types. The table below compares their main properties, the minimum number of ground control points (GCPs) required, and situations in which each transformation type may be appropriate. The visual examples illustrate the kinds of geometric changes each transformation can produce. Click an example to enlarge it.\n\nThe seven transformation types in QGIS.\n\n\n\n\n\n\n\n\n\nName\nTransformations\nMin. GCPs\nPossible use cases\nExample\n\n\n\n\nLinear\n• Two scale factors → stretching is possible through independent horizontal and vertical scaling• No rotation\n2\nMaps oriented to the north that only need to be positioned and scaled.\n\n\n\nHelmert\n• One scale factor → no stretching, the shape is preserved• Rotation\n2\nMaps that only need to be positioned and scaled, but should not be distorted. Thanks to the rotation, also suitable for maps that are not oriented to the north.\n\n\n\nPolynomial 1 (affine)\n• Two scale factors• Rotation• Skewing → squares can become parallelograms; straight lines stay straight and parallel lines stay parallel\n3\nMaps with a uniform, systematic deviation that need to be rotated and/or slightly skewed. The original map is only deformed slightly: it is not bent and its internal structure and legibility are largely preserved.\n\n\n\nPolynomial 2\n• Same as Polynomial 1• Plus curvature → a straight line can bend into a U\n6\nMaps with a systematic deviation that requires curvature, for example a photographed map with curved edges.\n\n\n\nPolynomial 3\n• Same as Polynomial 2• Plus more complex curvature → a straight line can even bend into an S\n10\nSimilar to Polynomial 2: maps with a systematic deviation. Choose this transformation type if you need more complex curvature.\n\n\n\nProjective\n• Perspective → straight lines stay straight, but parallel lines need not stay parallel\n4\nMaps and images with a systematic perspective distortion, for example a map photographed at an angle, aerial photographs and oblique images. If you use the minimum of four control points, the residuals are 0, which does not mean the result is perfect.\n\n\n\nThin plate spline\n• The transformation differs from place to place on the map• Rubber-sheeting → the image is stretched locally like a rubber sheet pinned down at the control points → the control points end up exactly on their targets\n1\nUnlike the other transformation types, Thin plate spline uses local transformations rather than a single global formula. This makes it particularly useful for maps with local and irregular geometric distortions, which are common in (older) historical maps. Be aware that this transformation type can also introduce substantial deformations, especially if control points are inaccurately positioned or unevenly distributed. Although the minimum number of control points required by QGIS may be relatively low, in practice you need many control points, well distributed across the map.\n\n\n\n\nBase map: GRB, Digitaal Vlaanderen.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.3 Transformation types"
+    ]
+  },
+  {
+    "objectID": "georeferencing/deviations.html#which-type-should-you-choose",
+    "href": "georeferencing/deviations.html#which-type-should-you-choose",
+    "title": "10.3 Transformation types",
+    "section": "Which type should you choose?",
+    "text": "Which type should you choose?\nKnowing the properties of the different transformation types is only the first step. The more important question is which one to use for a particular map.\nThere is no universally best transformation type. The appropriate choice depends on the nature of the geometric discrepancies, the quality of the control points and the purpose of the georeferencing.\nIf you know the coordinate reference system (CRS) in which the map was originally created, it is good practice to use that same CRS while georeferencing (see Running the georeferencing). This avoids introducing additional discrepancies simply because of a difference in map projection, and may reduce the need for more complex transformations.\nIf the original CRS is unknown, or if the map does not correspond to a standard projection, you will need to assess the geometric discrepancies in the map itself.\nThe following considerations can help you make an informed choice.\n\nInconsistencies in the control points\nIf your control points show clear residuals with a transformation type that distorts little (such as Helmert or Polynomial 1), consider their cause: are they mainly due to geometric errors in the original map, or to inaccuracies in how you placed the control points?\n\nIf the original map contains geometric errors, a more flexible transformation may be appropriate, as it can compensate for these distortions.\nIf the discrepancies are mainly caused by imprecise placement of control points, a less flexible transformation is usually preferable. This helps prevent small inaccuracies in individual control points from distorting the map.\n\n\n\n\n\n\n\nQGIS calculates a transformation that minimises the overall residuals. A more flexible transformation can therefore produce smaller residuals without necessarily producing a more accurate result. The residuals only reflect the average deviation between the coordinates you assigned to the control points and the positions where these points end up after georeferencing. They say nothing about the accuracy of the rest of the map.\n\n\n\n\n\nInaccuracies of the map\nIf you conclude that the residuals are mainly caused by geometric errors in the original map, the next step is to examine the nature of these errors.\n\nSystematic (global) errors follow the same pattern across the whole map. Consider the nature and size of the deformation:\n\nIs curvature needed? Then consider Polynomial 2, or Polynomial 3 for more complex curvature.\nIs there a perspective distortion, as in aerial photographs and oblique images? Then consider Projective.\n\nFor local, irregular errors, which are common in historical maps, consider Thin plate spline. Alternatively, you can accept larger residuals and choose a transformation type that introduces less distortion.\n\n\n\nAim of the georeferencing\nWhat is the aim of the georeferencing?\n\nPreserving the original appearance of the map: If the main purpose is to preserve the map’s original appearance, for example for publication or visual analysis, prefer a transformation that introduces as little geometric distortion as possible. A transformation that slightly compromises the fit of individual control points may be preferable to one that substantially changes the shape of the original map.\nAchieving geometric accuracy: If the main purpose is to align the map as closely as possible with its geographic reference, you may need a more flexible transformation. Choose the transformation type that best addresses the geometric inaccuracies in the map, while taking care not to introduce implausible deformations.\n\nWhatever your aim, always check the map after georeferencing to assess the result.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.3 Transformation types"
+    ]
+  },
+  {
+    "objectID": "georeferencing/transformation-settings.html",
+    "href": "georeferencing/transformation-settings.html",
+    "title": "10.4 Running the georeferencing",
+    "section": "",
+    "text": "Earlier in this chapter, you learned how to create homologous points (see Ground control points) and how different transformation types deal with deviations between the map and the control points (see Transformation types). On this page, you will bring these two elements together and learn how to georeference your map in QGIS.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.4 Running the georeferencing"
+    ]
+  },
+  {
+    "objectID": "georeferencing/transformation-settings.html#transformation-settings",
+    "href": "georeferencing/transformation-settings.html#transformation-settings",
+    "title": "10.4 Running the georeferencing",
+    "section": "Transformation settings",
+    "text": "Transformation settings\nBefore you run the georeferencing, you have to set a few things in the Transformation Settings window. To open it, choose Settings in the menu bar of the georeferencer and then Transformation Settings.\n\n\n\n\n\n\n\n\n\n\n\nTransformation parameters\nIn the window that appears, you can choose the transformation type.\nIn the same group, you choose the Target CRS, the CRS in which you want to save the georeferenced map. This is not necessarily the same as the project CRS, because QGIS converts the coordinates if needed. If you know the CRS in which the map was originally made, consider using that one (see Transformation types).\n\n\nOutput settings\nBy default, when you georeference an image, you create a new file rather than adapting the original. In Output file you therefore set where you want to store it and what you want to call it. By default, QGIS saves it as a GeoTIFF file in the folder of the original image, with *_modified* added to the file name.\nTo create this new file, QGIS first creates a new raster structure with empty cells, and then calculates a value for each cell. This is not always straightforward, among other things because the distortions of the transformation can ‘compress’ some cells and ‘stretch’ others. There are different ways to deal with this, and you choose one under Resampling method.\n\nThe default is nearest neighbour. It is the easiest and fastest method. Each new cell simply takes over the value of the nearest cell in the original image. No other closely located values are taken into account, so no averages are calculated. This is well suited for thematic or categorical data. However, the result can look blocky, especially when you zoom in.\nIn particular cases, you might want to deviate from this default. The other methods calculate the value of each new cell based on several neighbouring cells in the original image. They differ in their interpolation method and in the number of cells they take into account. Effects include softening transitions. This is useful for continuous data such as temperature or elevation. They can also prevent the blocky effect of nearest neighbour. Cubic, for example, produces a smoother result. It does require more calculation time, though.\n\n\nThe fact that a new raster starts from an empty structure of horizontal rows and vertical columns of cells has another consequence. The georeferencing can rotate the original image, but the rectangular grid of the new raster remains aligned with its coordinate axes. As a result, some cells in the corners of the new raster remain empty. These cells receive no value from the original image. If you tick the checkbox Use 0 for transparency when needed, these cells are displayed as transparent instead of black.\n\n\n\n\n\n\n\n\n\n\nThe georeferenced map (detail) without (left) and with (right) Use 0 for transparency when needed. Background map © OpenStreetMap contributors.\nIn Set target resolution, you set the size of the cells of the new raster, in the units of the target CRS, and therefore how many rows and columns it will have. If the cells are smaller than in the original, several new cells may be calculated from one original cell (sometimes also including its neighbouring cells, depending on the resampling method). If you leave it unticked, QGIS calculates a suitable resolution. This is often the safest choice, because a wrong value can result in an unusable result.\nTo conclude this section, we highlight a special option: Create world file only (linear transforms). With Linear and Helmert transformations, it is not necessary to generate a completely new file as explained above. It can be enough to attach a small file to the original image that describes how it should be placed in space: a so-called world file. QGIS and other GIS programs read the world file automatically when the image is loaded.\n\n\nSome other options\nFinally, at the bottom of the window, you can tick Save GCP points to also save your control points as a.points file (see Saving your GCPs). With Load in project when done, the georeferenced image is added to your QGIS project automatically.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.4 Running the georeferencing"
+    ]
+  },
+  {
+    "objectID": "georeferencing/transformation-settings.html#previewing-the-georeferencing",
+    "href": "georeferencing/transformation-settings.html#previewing-the-georeferencing",
+    "title": "10.4 Running the georeferencing",
+    "section": "Previewing the georeferencing",
+    "text": "Previewing the georeferencing\nOnce you have set the transformation settings, the georeferencer gives you various tools and parameters that help you assess the result of the georeferencing in advance.\nIn the map canvas, the georeferencer shows the residuals of all control points as displacement links. These are red lines connecting the position specified by each control point to the position where the transformation would place it.\n\n\n\n\n\n\nRemember that lower residuals do not necessarily mean a better georeferencing (see Transformation types). The residuals tell you how well the transformation fits the control points, not how accurately the rest of the map is positioned. With Thin plate spline, for example, the residuals are always zero. Tiny values such as 0.0000000001 are rounding errors.\n\n\n\nYou can also read these residuals in the GCP table, the panel at the bottom of the georeferencer: besides the total deviation (Residual), it also shows the horizontal (dX) and vertical (dY) deviation. The status bar at the bottom shows the Mean error of all the active GCPs. If you change the transformation type, the red lines, the GCP table and the mean error change immediately.\nIf the residual of one control point is much higher than that of the others, it is best to double-check whether you placed this control point correctly. If you suspect that a control point is inaccurate, you can temporarily deactivate it by unticking its checkbox (the first column, Enabled). This allows you to see how the transformation changes without that point. To remove a control point permanently from the GCP table, you can right-click the row and choose Remove.\n\n\n\n\n\n\n\n\n\n\nLeft: control point 3 was placed about 430 m from its correct position. Its red line is clearly longer than the others, and it also increases the residuals of the other control points and the mean error (32.8). Right: the same control point is unticked, and the mean error drops to 5.7.\n\n\n\n\n\n\nBy default, the deviations are shown in pixels. You can change the unit via Settings ▸ Configure Georeferencer in the menu bar of the Georeferencer.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.4 Running the georeferencing"
+    ]
+  },
+  {
+    "objectID": "georeferencing/transformation-settings.html#performing-the-georeferencing",
+    "href": "georeferencing/transformation-settings.html#performing-the-georeferencing",
+    "title": "10.4 Running the georeferencing",
+    "section": "Performing the georeferencing",
+    "text": "Performing the georeferencing\nFinally, once you have created enough control points, configured the transformation settings and checked the residuals, click  (Start Georeferencing) to run the georeferencing.\n\n\n\n\n\n\nYou can now do Exercise 4.",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.4 Running the georeferencing"
+    ]
+  },
+  {
+    "objectID": "georeferencing/interactive-georeferencing.html",
+    "href": "georeferencing/interactive-georeferencing.html",
+    "title": "10.5 Interactive",
+    "section": "",
+    "text": "Try out what you learned in this chapter. Drag, click and change the settings as much as you like, you can’t break anything!",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.5 Interactive"
+    ]
+  },
+  {
+    "objectID": "georeferencing/interactive-georeferencing.html#transformation-types",
+    "href": "georeferencing/interactive-georeferencing.html#transformation-types",
+    "title": "10.5 Interactive",
+    "section": "Transformation types",
+    "text": "Transformation types\nGeoreference an old town plan with control points. Compare the transformation types and watch the residuals. See the theory: Transformation types.\n\nOpen the tool full screen",
+    "crumbs": [
+      "10 Georeferencing",
+      "10.5 Interactive"
+    ]
   }
 ]

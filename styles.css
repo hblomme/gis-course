@@ -100,8 +100,8 @@ div.del img { opacity: 0.4; }
 
 body.final-view .del, body.final-view div.del { display: none; }
 /* a heading whose whole text is deleted would stay as an empty heading (and an empty TOC entry) in the student view */
-body.final-view :is(h2, h3, h4, h5):has(> .del):not(:has(> :not(.del, .anchorjs-link))) { display: none; }
-body.final-view #TOC li:has(> a > .del):not(:has(> a > :not(.del))) { display: none; }
+/* (CSS cannot see plain text nodes, so changes.html marks those headings and TOC entries with .all-del; 2026-11-24) */
+body.final-view .all-del { display: none; }
 body.final-view .add, body.final-view div.add { color: inherit; background: none; border: none; padding: 0; margin: 0; }
 body.final-view .check { text-decoration: none; }
 body.final-view .check::after { content: none; }
@@ -267,3 +267,9 @@ main .tight .quarto-layout-row .quarto-layout-cell:not(:last-child) { margin-rig
 
 /* long inline expressions in lists may wrap at spaces (9.7, author 2026-11-23) */
 main .wrap-code code { white-space: pre-wrap; }
+
+/* bullet points inside a table cell, wrapped lines indented under the text (10.3, author 2026-11-23) */
+.tbl-bullet { display: block; padding-left: 0.62em; text-indent: -0.62em; }
+
+/* images side by side (layout) followed by an italic caption: no extra gap between images and caption (2026-11-24) */
+main .quarto-layout-panel:has(+ p > em:first-child) { margin-bottom: 0; }
