@@ -3511,7 +3511,7 @@
     "href": "georeferencing/interactive-georeferencing.html#transformation-types",
     "title": "10.5 Interactive",
     "section": "Transformation types",
-    "text": "Transformation types\nGeoreference an old town plan with control points. Compare the transformation types and watch the residuals. See the theory: Transformation types.\n\nOpen the tool full screen",
+    "text": "Transformation types\nGeoreference an old town plan or a modern campus map with control points. Compare the transformation types and watch the residuals. Move the control points, or add your own. See the theory: Transformation types.\n\nOpen the tool full screen",
     "crumbs": [
       "10 Georeferencing",
       "10.5 Interactive"
