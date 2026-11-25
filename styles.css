@@ -273,3 +273,13 @@ main .wrap-code code { white-space: pre-wrap; }
 
 /* images side by side (layout) followed by an italic caption: no extra gap between images and caption (2026-11-24) */
 main .quarto-layout-panel:has(+ p > em:first-child) { margin-bottom: 0; }
+
+/* a numbered list whose numbers match red numbers on a screenshot (2026-11-24) */
+main .reflist > ol > li::marker { color: #e02020; font-weight: 600; }
+main .reflist > ol > li { margin-bottom: 0.35rem; }
+
+/* 11.2.1 Drawing table: the type column only as wide as icon + name (2026-11-24) */
+main table.drawtbl td:first-child, main table.drawtbl th:first-child { white-space: nowrap; }
+
+/* images inside a table cell (11.3) */
+main table img.tbl-img { display: block; max-width: 100%; margin-top: .4rem; }

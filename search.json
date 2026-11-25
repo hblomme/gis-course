@@ -3516,5 +3516,251 @@
       "10 Georeferencing",
       "10.5 Interactive"
     ]
+  },
+  {
+    "objectID": "data-creation/data-creation-intro.html",
+    "href": "data-creation/data-creation-intro.html",
+    "title": "11.1 Vectorising: introduction",
+    "section": "",
+    "text": "You do not always have to work with existing spatial data: sometimes, you may want to create new data yourself. You already learned how to create a new GeoPackage and add new (empty) layers to it (see Working with GeoPackages). You also already know how to edit the attribute table of a vector layer (see Editing the attribute table). Now we take the next step: adding new vector geometries by drawing them yourself and reshaping existing ones.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.1 Vectorising: introduction"
+    ]
+  },
+  {
+    "objectID": "data-creation/data-creation-intro.html#new-vector-data",
+    "href": "data-creation/data-creation-intro.html#new-vector-data",
+    "title": "11.1 Vectorising: introduction",
+    "section": "",
+    "text": "You do not always have to work with existing spatial data: sometimes, you may want to create new data yourself. You already learned how to create a new GeoPackage and add new (empty) layers to it (see Working with GeoPackages). You also already know how to edit the attribute table of a vector layer (see Editing the attribute table). Now we take the next step: adding new vector geometries by drawing them yourself and reshaping existing ones.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.1 Vectorising: introduction"
+    ]
+  },
+  {
+    "objectID": "data-creation/data-creation-intro.html#from-raster-data-to-vector-data",
+    "href": "data-creation/data-creation-intro.html#from-raster-data-to-vector-data",
+    "title": "11.1 Vectorising: introduction",
+    "section": "From raster data to vector data",
+    "text": "From raster data to vector data\nA lot of spatial information is only available as raster data: think of scanned (historical) maps, aerial photographs, satellite images… However, raster data offer limited possibilities for analysis, editing and visualisation (see also Raster model versus vector model). In addition, these raster images are often protected by copyright, which prevents their free use. So there are several good reasons why you may want to convert information found on raster images into vectors. This process is called ‘vectorising’.\nVectorising is still mostly manual work: you redraw what you see on the map with the drawing tools of QGIS, much like copying a map onto tracing paper (see Manual vectorising). Only in specific situations can you automate it (see Automatic vectorising).\n\nBackground map: P. Gérard (after plans by L. Gérard), engraved by V. Corvillain, Plan parcellaire de la ville de Gand, 1855–1857, scale 1:2500 (Ghent University Library, BRKZ.KRT.0972), public domain; georeferenced in Belgian Lambert 72. The red polygons are buildings vectorised from it.\n\n\n\n\n\n\nRemember that all features within one vector layer always have the same geometry type. If you want to draw both lines and polygons, you need a separate layer for each.\n\n\n\nYou can also create new data with processing tools, which calculate new layers from existing ones. That is the subject of the next two chapters: Vector processing tools and Raster processing tools.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.1 Vectorising: introduction"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising.html",
+    "href": "data-creation/vectorising.html",
+    "title": "11.2.1 Digitizing basics",
+    "section": "",
+    "text": "The principle is simple: you enable editing for a layer and use the digitizing tools to draw geometries in the map canvas. In practice, you often follow these steps:\n\n\nIf applicable, collect the source data you want to base your work on, such as an old map. Georeference it if necessary and load it into your QGIS project (here Gérard-1855).\nChoose the appropriate geometry type (point, line or polygon) and decide whether you want to add new features to an existing layer or create a new layer from scratch. In the latter case, create a new, empty vector layer (e.g. in a GeoPackage, see Working with GeoPackages).\nAdd the layer to your project (here Buildings Gérard).\nSelect the layer in the Layers panel and enable editing by clicking  (Toggle Editing).\nSelect the appropriate digitizing tool. To add new features, you can use  (Add Point Feature),  (Add Line Feature) and  (Add Polygon Feature). QGIS only shows the tool that matches the geometry type of the layer, here Add Polygon Feature.\nDigitize the geometries in the map canvas (see Drawing below). If you are working from a source map, you redraw its elements on top of it.\nWhen you finish a feature, QGIS opens the Feature Attributes window: enter the attribute values and click OK.\nClick  (Save Layer Edits) regularly to save your work. When you are done, click Toggle Editing again to exit editing mode.\n\n\n\nBackground map: Gérard, 1855–1857 (see Vectorising: introduction).\n\n\n\n\n\n\nYou always edit the layer that is selected in the Layers panel. If several layers are in editing mode, make sure the right one is selected before you start digitizing.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.1 Digitizing basics"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising.html#steps",
+    "href": "data-creation/vectorising.html#steps",
+    "title": "11.2.1 Digitizing basics",
+    "section": "",
+    "text": "The principle is simple: you enable editing for a layer and use the digitizing tools to draw geometries in the map canvas. In practice, you often follow these steps:\n\n\nIf applicable, collect the source data you want to base your work on, such as an old map. Georeference it if necessary and load it into your QGIS project (here Gérard-1855).\nChoose the appropriate geometry type (point, line or polygon) and decide whether you want to add new features to an existing layer or create a new layer from scratch. In the latter case, create a new, empty vector layer (e.g. in a GeoPackage, see Working with GeoPackages).\nAdd the layer to your project (here Buildings Gérard).\nSelect the layer in the Layers panel and enable editing by clicking  (Toggle Editing).\nSelect the appropriate digitizing tool. To add new features, you can use  (Add Point Feature),  (Add Line Feature) and  (Add Polygon Feature). QGIS only shows the tool that matches the geometry type of the layer, here Add Polygon Feature.\nDigitize the geometries in the map canvas (see Drawing below). If you are working from a source map, you redraw its elements on top of it.\nWhen you finish a feature, QGIS opens the Feature Attributes window: enter the attribute values and click OK.\nClick  (Save Layer Edits) regularly to save your work. When you are done, click Toggle Editing again to exit editing mode.\n\n\n\nBackground map: Gérard, 1855–1857 (see Vectorising: introduction).\n\n\n\n\n\n\nYou always edit the layer that is selected in the Layers panel. If several layers are in editing mode, make sure the right one is selected before you start digitizing.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.1 Digitizing basics"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising.html#drawing",
+    "href": "data-creation/vectorising.html#drawing",
+    "title": "11.2.1 Digitizing basics",
+    "section": "Drawing",
+    "text": "Drawing\nThe table below explains how to draw points, lines and polygons using the default digitizing tools, and introduces some alternative drawing methods.\n\nDrawing with the Add Feature tools.\n\n\n\n\n\n\n\nType\nDefault\nAlternatives\n\n\n\n\n Point\nLeft-click where you want the point.\n-\n\n\n Line\nLeft-click to start. Each subsequent click adds a vertex, which is connected to the previous one by a straight segment. Right-click to finish.\n• Curves:  Digitize with Curve (circular arcs), Digitize with Bézier Curve or Digitize with NURBS Curve• Freehand: Stream Digitizing adds vertices as you move the mouse• Digitize Shape for regular shapes such as circles and rectangles\n\n\n Polygon\nDraw in the same way as a line. A dashed line indicates how QGIS will close the polygon.\nSame alternatives as for lines\n\n\n\nWhile drawing, Backspace removes the last vertex and Esc cancels the entire feature. You can find the alternative tools in the drop-down menu next to  Digitize with Segment on the Digitizing Toolbar. To use Digitize Shape, also enable the Shape Digitizing Toolbar via View ▸ Toolbars.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.1 Digitizing basics"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising.html#vertex-tool",
+    "href": "data-creation/vectorising.html#vertex-tool",
+    "title": "11.2.1 Digitizing basics",
+    "section": "Vertex Tool",
+    "text": "Vertex Tool\nOnce you have finished digitizing a feature, you can still modify its geometry. The easiest way to do so is with the  Vertex Tool on the Digitizing Toolbar. With this tool enabled, you can move, add and delete vertices.\nWhen you right-click a feature, all its vertices are displayed as red circles, and the Vertex Editor, which displays their coordinates, appears in the left sidebar by default. To move a vertex, click and drag it to the desired position. Alternatively, you can enter its coordinates directly in the Vertex Editor. When you hover over the middle of a segment, a plus symbol (+) appears. Click it to add a vertex at that position. To delete a vertex, select it and press the Delete key.\n\n\n\n\n\n\n\n Save Layer Edits only saves the layer that is selected in the Layers panel. Do not forget to save all layers you have edited before closing your project.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.1 Digitizing basics"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-snapping.html",
+    "href": "data-creation/vectorising-snapping.html",
+    "title": "11.2.2 Snapping tools",
+    "section": "",
+    "text": "When vectorising, you often want to draw features that lie exactly next to each other or flow into one another. However carefully you try, it is virtually impossible to achieve this by hand. If you zoom in far enough, features will overlap, cross or leave gaps. You obviously want to avoid this, so QGIS offers several tools to help. You can find them all on the Snapping Toolbar.\nAt the station on the Gérard map, the railway tracks seem to meet neatly (left). Zoomed in on a switch (red frame), the branching track drawn by hand runs a little too far (middle) or stops just short (right).",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.2 Snapping tools"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-snapping.html#snapping",
+    "href": "data-creation/vectorising-snapping.html#snapping",
+    "title": "11.2.2 Snapping tools",
+    "section": "Snapping",
+    "text": "Snapping\nThis is where snapping comes in. When you move your cursor close to another feature while vectorising, QGIS can pull it exactly onto that feature (or, for polygons, onto its boundary). That is snapping.\nTo enable snapping, click the magnet icon on the Snapping Toolbar. If you do not see this toolbar, enable it via View ▸ Toolbars ▸ Snapping Toolbar.\n\nQGIS lets you configure snapping very precisely. The Advanced Configuration provides the clearest overview (1). Open it from the drop-down menu next to the magnet by clicking Edit advanced configuration, or open the same settings window via Project ▸ Snapping Options…. There you can set the snapping independently for each layer:\n\nEnable or disable snapping for each individual layer using the checkboxes (2).\nChoose what to snap to on that layer (3). This is particularly relevant for lines and polygons. By default, QGIS only snaps to vertices. You can change this setting to also snap to the segments between them for example.\nSet the Tolerance and its Units (4). These determine how close the cursor must come to a feature before QGIS pulls it onto that feature. In the example below, the tolerance is set to 12 pixels for each layer.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.2 Snapping tools"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-snapping.html#avoid-overlap",
+    "href": "data-creation/vectorising-snapping.html#avoid-overlap",
+    "title": "11.2.2 Snapping tools",
+    "section": "Avoid overlap",
+    "text": "Avoid overlap\nIf you want to draw a polygon next to an existing one, snapping alone still requires you to click every vertex along the shared boundary to make the two polygons fit together. You can make this much easier by changing one setting in the Advanced Configuration. With Avoid Overlap enabled for the appropriate layer(s), you simply draw over the neighbouring polygon, and QGIS removes the overlapping part when you finish. The new polygon then fits exactly against the existing one.\nTo enable it, tick Avoid Overlap for the layer in the Project Snapping Settings (5). This only works if the overlap drop-down (6) is set to Follow Advanced Configuration. This is not the default setting, so make sure to change it.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.2 Snapping tools"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-snapping.html#tracing",
+    "href": "data-creation/vectorising-snapping.html#tracing",
+    "title": "11.2.2 Snapping tools",
+    "section": "Tracing",
+    "text": "Tracing\nAnother tool on the Snapping Toolbar worth highlighting is Tracing: you click somewhere on the boundary of a polygon, then click another point further along the same boundary. QGIS then does not connect these two points with a straight line, but uses the part of the boundary between them, including all its vertices.\nTracing can be used for both lines and polygons. It only works if you click exactly on the line or boundary, so snapping needs to be enabled to use it. To enable tracing, switch on snapping and then click Enable Tracing on the toolbar.\n\nTracing is enabled (framed). The red circles show where was clicked. Between the last two clicks (the last one at the cursor), QGIS drew the jagged boundary of the neighbouring house by itself.\n\n\n\n\n\n\nTry it yourself: Helpful tools for vectorising",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.2 Snapping tools"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-advanced.html",
+    "href": "data-creation/vectorising-advanced.html",
+    "title": "11.2.3 Advanced digitizing",
+    "section": "",
+    "text": "In the previous sections you learned to draw geometries. You also saw how to edit them afterwards by dragging, deleting or adding vertices. These are important basics, but there are many situations that you cannot handle (easily) with these tools alone: adding an inner courtyard to a building, adding a new wing to an existing building, dividing an existing parcel into two smaller ones… The Advanced Digitizing Toolbar (not to be confused with the Advanced Digitizing panel) has tools for exactly these tasks. If this toolbar is not yet visible in your interface, you can find it under View ▸ Toolbars ▸ Advanced Digitizing Toolbar. This page covers some of the tools you will use most often.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.3 Advanced digitizing"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-advanced.html#moving-rotating-scaling",
+    "href": "data-creation/vectorising-advanced.html#moving-rotating-scaling",
+    "title": "11.2.3 Advanced digitizing",
+    "section": "Moving, rotating and scaling",
+    "text": "Moving, rotating and scaling\nThese three tools work similarly: left-click the feature, move the mouse and left-click again to confirm.\n\n\n\n\n\n\n\n\nTool\nWhat it changes\nHow you move the mouse\n\n\n\n\n Move Feature(s)\nPosition\nTo the new position\n\n\n Rotate Feature(s)\nOrientation\nAround the feature, in the direction you want to rotate it\n\n\n Scale Feature(s)\nSize\nAway from the centre to enlarge it, towards the centre to make it smaller\n\n\n\nIn practice, you will often use these tools after copying and pasting a feature, for example to draw several identical buildings. You draw one, paste copies of it and move or rotate each copy into place.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.3 Advanced digitizing"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-advanced.html#reshape-features",
+    "href": "data-creation/vectorising-advanced.html#reshape-features",
+    "title": "11.2.3 Advanced digitizing",
+    "section": "Reshape features",
+    "text": "Reshape features\n Reshape Features changes the outline of an existing polygon with the line you draw across it. You draw it just like any other line. In this case, if you start inside the polygon, go out of it and come back in, the area enclosed by the line is added to the polygon. If you start outside, cross the polygon and come out on the other side, the part cut off by your line is removed. Right-click to finish the line.\n\n\n\n\n\n\n\n\n\n\nLeft: the part at the bottom left is missing. The line starts inside the building, goes out around that part and comes back in, so the part is added. Right: the notch at the bottom right is filled in. The line crosses that corner, so it is cut off again.\nBy default, all features in your layer that are crossed by the line are reshaped. If specific features are selected, however, only these are reshaped, even if the line crosses others as well.\n\n\n\n\n\n\nBefore you start reshaping, make sure no features are left selected in your layer by accident. Otherwise, QGIS can only reshape those selected, and your line has no effect on the others.\n\n\n\nThis tool is very handy for making more substantial changes to existing geometries: redrawing an inaccurate part of a large geometry, or adding a bulge or an indentation. In principle, you could also do this with the Vertex Tool, but then you would have to create a new vertex in the middle of a segment each time and drag it into place.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.3 Advanced digitizing"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-advanced.html#rings",
+    "href": "data-creation/vectorising-advanced.html#rings",
+    "title": "11.2.3 Advanced digitizing",
+    "section": "Rings",
+    "text": "Rings\nSo far, all the polygons you have drawn have been completely filled. In practice, you sometimes need openings in them, called rings. Above, we already mentioned inner courtyards, but think also of enclaves, or a lake with islands.\nWith  Add Ring, you draw such an opening inside an existing polygon. You draw this opening just like the polygon itself, only in this case the area you draw is cut out of the polygon. To delete a ring, just select  Delete Ring and click inside it.\n\nIn chapter 12 you will also see the Delete holes processing tool, which can remove all holes in a layer at once.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.3 Advanced digitizing"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-advanced.html#splitting",
+    "href": "data-creation/vectorising-advanced.html#splitting",
+    "title": "11.2.3 Advanced digitizing",
+    "section": "Splitting",
+    "text": "Splitting\nWith  Split Features, you can divide a line or polygon into separate features: draw a line across it, and QGIS splits it wherever the line crosses the geometry. Each resulting part becomes a feature of its own, with the same attributes as the original. Afterwards, you can of course adapt the attributes of each part in the attribute table.\nSplitting features is useful when you already have a geometry that should be divided, for example a parcel that was later distributed among several heirs. In certain contexts, it also speeds up vectorising. Think of a row of houses: instead of drawing all the adjoining houses one by one, you first draw the whole row and then split it. An extra advantage is that the shared front and back walls then form one perfectly straight line.\n\n\n\n\n\n\n\nTo split many polygons at once along the lines of another layer, use the Split with lines tool in the Processing Toolbox (Vector overlay).",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.3 Advanced digitizing"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-advanced.html#merging",
+    "href": "data-creation/vectorising-advanced.html#merging",
+    "title": "11.2.3 Advanced digitizing",
+    "section": "Merging",
+    "text": "Merging\nMerge Selected Features does the opposite of the tool above: it combines multiple features into a single ‘large’ one. To use it, first select all the relevant features in the layer, and then click the  button.\nMerging features affects both the geometry and the attributes:\n\nQGIS fuses the geometries into one. For adjoining polygons, for example, it creates a new shape based on the outer boundaries of the originals. Former in-between boundaries disappear.\nThe attributes cannot be combined in that way. After you click Merge Selected Features, the Merge Features window pops up. Here you can choose which of the originals’ attributes are kept. Several options are provided. To keep those of a specific feature, select its row in the list and click Take attributes from selected feature.\n\nThis tool has many practical applications too. For example, data providers often supply their river or road data in pieces, such as river parts rather than one large feature per river. In certain cases you want to turn those into one feature per river. Likewise, think of the fusion of several municipalities.\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeft: the abbey and the church are selected. Middle: in the Merge Features window, the abbey’s row is selected. Right: the merged feature, without the dividing line.\nIn chapter 12 you will also see the Dissolve processing tool, which merges features of a whole layer at once, for example all features with the same value in a field.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.3 Advanced digitizing"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-advanced.html#multipart-features",
+    "href": "data-creation/vectorising-advanced.html#multipart-features",
+    "title": "11.2.3 Advanced digitizing",
+    "section": "Multipart features",
+    "text": "Multipart features\nYou already came across multipart features in chapter 9. A multipart feature is a single feature that consists of several separate geometries, called parts. It has only one row in the attribute table.\n\n\n\n\n\n\n\n\nTool\nWhat it does\nHow\n\n\n\n\n Add Part\nAdds a new part to an existing feature.\nSelect the feature, click Add Part and draw the new part as a normal polygon.\n\n\n Split Parts\nSplits a part into several adjoining parts that remain one feature.\nDraw a line through the part, as with Split Features.\n\n\n Delete Part\nRemoves one part of a feature.\nClick the part you want to remove.\n\n\n\nIn practice, multipart features are used for exclaves or for countries with islands, among other things. Another use case is a layer of large landowners, in which each feature represents a patchwork of parcels.\n\nTo turn the parts of multipart features into separate features again, use the Multipart to singleparts processing tool, which you will see in chapter 12. It creates a new layer in which every part is a feature of its own, with the attributes of the original feature.\n\n\n\n\n\n\nYou can now do Exercise 5.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.2 Manual vectorising",
+      "11.2.3 Advanced digitizing"
+    ]
+  },
+  {
+    "objectID": "data-creation/vectorising-automatic.html",
+    "href": "data-creation/vectorising-automatic.html",
+    "title": "11.3 Automatic vectorising",
+    "section": "",
+    "text": "In specific situations, you can convert raster data to vector data automatically with a few processing tools. These tools cannot interpret symbols or several layers of meaning on a map. They are only useful for rasters in which the cell values have one clear meaning, such as an elevation model or a land-use map such as the example below.\n\n\n\n\n\n\nAutomatically vectorising maps with several layers of meaning, such as a historical map, is much harder. Applications for this exist for specific kinds of maps, but they are still of limited use. With the strong rise of AI applications, this is an area that may take big leaps in the future.\n\n\n\n\nBelow, three tools are presented that can help with automated digitising. For each of these tools, we show how it processes our land-use map.\n\n\n\n\n\n\n\n\n\nTool\nToolbox section\nResult\nExample\n\n\n\n\nRaster pixels to points\nVector creation\nOne point per cell, at the centre of the cell, with the cell value as attribute.\n\n\n\nRaster pixels to polygons\nVector creation\nOne square polygon per cell, with the cell value as attribute.\n\n\n\nPolygonize (raster to vector)\nGDAL ▸ Raster conversion\nAdjacent cells with the same value merged into one polygon. Only useful for rasters with few different values.",
+    "crumbs": [
+      "11 Vectorising",
+      "11.3 Automatic vectorising"
+    ]
+  },
+  {
+    "objectID": "data-creation/interactive-data-creation.html",
+    "href": "data-creation/interactive-data-creation.html",
+    "title": "11.4 Interactive",
+    "section": "",
+    "text": "Try out what you learned in this chapter. Drag, click and change the settings as much as you like, you can’t break anything!",
+    "crumbs": [
+      "11 Vectorising",
+      "11.4 Interactive"
+    ]
+  },
+  {
+    "objectID": "data-creation/interactive-data-creation.html#editing-polygons",
+    "href": "data-creation/interactive-data-creation.html#editing-polygons",
+    "title": "11.4 Interactive",
+    "section": "Helpful tools for vectorising",
+    "text": "Helpful tools for vectorising\nDraw new polygons next to and over existing ones, and move them. Compare what snapping, tracing and avoid overlap do. See the theory: Snapping tools.\n\nOpen the tool full screen",
+    "crumbs": [
+      "11 Vectorising",
+      "11.4 Interactive"
+    ]
   }
 ]
