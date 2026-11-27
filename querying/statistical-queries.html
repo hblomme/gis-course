@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8.4.1 Statistics of vector data – Learning Path QGIS</title>
+<title>8.4.1 Attribute-based statistics – Learning Path QGIS</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,8 +36,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../querying/raster-statistics.html" rel="next">
-<link href="../querying/filtering-attribute-table.html" rel="prev">
+<link href="../querying/geometry-statistics.html" rel="next">
+<link href="../querying/layer-filter.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4 Statistical queries</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4.1 Statistics of vector data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4 Vector statistics</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4.1 Attribute-based statistics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -613,52 +613,75 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../querying/filtering-attribute-table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.3 Filtering the attribute table</span></a>
-  </div>
-</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true">
- <span class="menu-text">8.4 Statistical queries</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+ <span class="menu-text">8.3 Filtering</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../querying/statistical-queries.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">8.4.1 Statistics of vector data</span></a>
+  <a href="../querying/filtering-attribute-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3.1 Filtering the attribute table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../querying/raster-statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.4.2 Statistics of raster data</span></a>
+  <a href="../querying/layer-filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3.2 Filtering a layer as a whole</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true">
+ <span class="menu-text">8.4 Vector statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../querying/statistical-queries.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">8.4.1 Attribute-based statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../querying/geometry-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.4.2 Location-based statistics</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../querying/raster-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.5 Raster statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../querying/interactive-querying.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.5 Interactive</span></a>
+ <span class="menu-text">8.6 Interactive</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true">
  <span class="menu-text">9 Expressions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/expressions-intro.html" class="sidebar-item-text sidebar-link">
@@ -667,13 +690,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
  <span class="menu-text">9.2 Querying and calculating</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/building-expressions.html" class="sidebar-item-text sidebar-link">
@@ -690,13 +713,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
  <span class="menu-text">9.3 Fields and values</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/numeric-fields.html" class="sidebar-item-text sidebar-link">
@@ -731,13 +754,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false">
  <span class="menu-text">9.5 Geometric properties</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/geometric-properties.html" class="sidebar-item-text sidebar-link">
@@ -780,13 +803,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true">
  <span class="menu-text">10 Georeferencing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../georeferencing/georeferencing-intro.html" class="sidebar-item-text sidebar-link">
@@ -821,13 +844,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="true">
  <span class="menu-text">11 Vectorising</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-creation/data-creation-intro.html" class="sidebar-item-text sidebar-link">
@@ -836,13 +859,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false">
  <span class="menu-text">11.2 Manual vectorising</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-creation/vectorising.html" class="sidebar-item-text sidebar-link">
@@ -879,22 +902,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 1: Map the Roman Empire</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-roman-empire.html" class="sidebar-item-text sidebar-link">
@@ -911,13 +934,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 2: Transport in Belgium (1770–1880)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-railways.html" class="sidebar-item-text sidebar-link">
@@ -934,13 +957,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 3: Beguinages in the Low Countries</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-beguinages.html" class="sidebar-item-text sidebar-link">
@@ -957,13 +980,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 4: Historical city plans of Ghent</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-ghent-georeferencing.html" class="sidebar-item-text sidebar-link">
@@ -980,13 +1003,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 5: The Spanish Castle in Ghent</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-spanish-castle.html" class="sidebar-item-text sidebar-link">
@@ -1005,13 +1028,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendix: Datasets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-32" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../datasets/beguinages.html" class="sidebar-item-text sidebar-link">
@@ -1048,24 +1071,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#querying-attribute-data-statistically" id="toc-querying-attribute-data-statistically" class="nav-link active" data-scroll-target="#querying-attribute-data-statistically">Querying attribute data statistically</a>
-  <ul class="collapse">
-  <li><a href="#basic-statistics-for-fields" id="toc-basic-statistics-for-fields" class="nav-link" data-scroll-target="#basic-statistics-for-fields">Basic statistics for fields</a></li>
+  <li><a href="#basic-statistics-for-fields" id="toc-basic-statistics-for-fields" class="nav-link active" data-scroll-target="#basic-statistics-for-fields">Basic statistics for fields</a></li>
   <li><a href="#statistics-by-categories" id="toc-statistics-by-categories" class="nav-link" data-scroll-target="#statistics-by-categories">Statistics by categories</a></li>
-  </ul></li>
-  <li><a href="#querying-geometries-statistically" id="toc-querying-geometries-statistically" class="nav-link" data-scroll-target="#querying-geometries-statistically">Querying geometries statistically</a>
-  <ul class="collapse">
-  <li><a href="#join-summary" id="toc-join-summary" class="nav-link" data-scroll-target="#join-summary">Join attributes by location (summary)</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4 Statistical queries</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4.1 Statistics of vector data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4 Vector statistics</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4.1 Attribute-based statistics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">8.4.1 Statistics of vector data</h1>
+<h1 class="title">8.4.1 Attribute-based statistics</h1>
 </div>
 
 
@@ -1082,11 +1098,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>So far you have explored different ways to query geodata and focus on specific features. You can also query your data through statistical analysis. Rather than identifying specific features, statistical tools help you summarise and analyse data by calculating statistical values for an entire dataset or for groups of features. This page introduces statistical tools for vector data.</p>
-<section id="querying-attribute-data-statistically" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="querying-attribute-data-statistically">Querying attribute data statistically</h2>
-<section id="basic-statistics-for-fields" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="basic-statistics-for-fields">Basic statistics for fields</h3>
+<p>So far you have explored different ways to query geodata and focus on specific features. You can also query your data through statistical analysis. Rather than identifying specific features, statistical tools help you summarise and analyse data by calculating statistical values for an entire dataset or for groups of features. This section introduces statistical tools for vector data.</p>
+<section id="basic-statistics-for-fields" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="basic-statistics-for-fields">Basic statistics for fields</h2>
 <p>The <em>Basic statistics for fields</em> tool lets you quickly calculate simple statistical values (such as mean, median, minimum, maximum, quantiles…) for a specific attribute field of a vector layer.</p>
 <p>You open it via <span class="menu-path"><em>Processing Toolbox ▸ Vector analysis ▸ Basic statistics for fields</em></span>. In the tool window, choose the layer and the field you want to analyse statistically, and click <em>Run</em>.</p>
 <div class="same-height quarto-layout-panel" data-layout="[586,1704]">
@@ -1102,11 +1116,11 @@ ul.task-list li input[type="checkbox"] {
 <p>You do not see the result of the calculations immediately. Instead, a new link appears in the <em>Results Viewer</em> panel. Double-click it to open the report:</p>
 <div class="side-by-side column-page-right">
 <p><a href="../images-v4/querying/statistical-queries-01c.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images-v4/querying/statistical-queries-01c.png" class="img-fluid" width="300"></a></p>
-<p><a href="../images-v4/querying/statistical-queries-01d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images-v4/querying/statistical-queries-01d.png" class="img-fluid" width="342"></a></p>
+<p><a href="../images-v4/querying/statistical-queries-01d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images-v4/querying/statistical-queries-01d.png" class="img-fluid" width="375"></a></p>
 </div>
 </section>
-<section id="statistics-by-categories" class="level3">
-<h3 class="anchored" data-anchor-id="statistics-by-categories">Statistics by categories</h3>
+<section id="statistics-by-categories" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-by-categories">Statistics by categories</h2>
 <p>The <em>Statistics by categories</em> tool calculates statistics for groups of features. It uses the values in an attribute field to divide the features into categories.</p>
 <p>For example, you have a point layer containing the major cities of the United States. Its attribute table includes fields with their population and the state they belong to. You can use <em>Statistics by categories</em> to group the cities by state and calculate population statistics for each group. In the tool window, configure the following parameters:</p>
 <ul>
@@ -1127,38 +1141,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The tool creates a new table with the statistics, one row per state. You can open this table via the <em>Layers</em> panel.</p>
 <p><a href="../images-v4/querying/statistical-queries-03.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images-v4/querying/statistical-queries-03.png" class="img-fluid"></a></p>
 <p>In the row of Texas, for example, you can read that the layer contains 263 Texan cities (<em>count</em>) with 19 772 314 inhabitants in total (<em>sum</em>), and that the largest has 2 304 580 inhabitants (<em>max</em>).</p>
-</section>
-</section>
-<section id="querying-geometries-statistically" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="querying-geometries-statistically">Querying geometries statistically</h2>
-<p>You can calculate statistics not only for attribute fields, but also for your geometries. Below are a few of the options, all in the <em>Processing Toolbox</em>.</p>
-<ul>
-<li><p>You can apply <span class="menu-path"><em>Vector analysis ▸ Nearest neighbour analysis</em></span> to a vector layer with point geometries. Among other things, it calculates the mean distance from each point to its nearest neighbouring point.</p></li>
-<li><p>You can apply <span class="menu-path"><em>Vector analysis ▸ Distance to nearest hub (points)</em></span> or <em>(line to hub)</em> to two layers. For each feature of one layer, it finds the nearest feature (the <em>hub</em>) of another layer and calculates the distance to it. The <em>line to hub</em> variant also draws a line to that hub.</p></li>
-<li><p>You can apply <span class="menu-path"><em>Vector analysis ▸ Overlap analysis</em></span> to a polygon layer. For each polygon, it calculates how much of its area overlaps with another layer, as an area and as a percentage.</p></li>
-<li><p>You can apply <span class="menu-path"><em>Vector general ▸ Join attributes by location (summary)</em></span> to two layers. It calculates statistics for the features of one layer that overlap with the features of another layer, and writes them to a new layer. It works like <em>Join attributes by location</em> (<a href="../data-import/joins-location.html">chapter 7</a>), see below.</p></li>
-</ul>
-<section id="join-summary" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="join-summary">Join attributes by location (summary)</h3>
-<p>QGIS also offers the related <em>Join Attributes by Location (Summary)</em> function (also in the <em>Processing Toolbox</em>, group <em>Vector general</em>), a statistical variant of the tool above. Like that tool, it checks for each feature of a layer which features of another layer have the spatial relationship you choose. Unlike the tool above, however, it does not copy the attributes of these related features, but <strong>calculates statistics</strong> about them, such as the number of matching features and the minimum, maximum and mean values of selected attributes.</p>
-<p>For example, for the Civil War battles (in EPSG:5070, a CRS in metres), <em>Nearest neighbour analysis</em> gives a mean distance of about 47 km to the nearest other battle. On the map, each black line connects a battle with the nearest other battle:</p>
-<div class="side-by-side column-page-right">
-<p><a href="../images-v4/querying/statistical-queries-04map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images-v4/querying/statistical-queries-04map.png" class="img-fluid" width="405"></a></p>
-<p><a href="../images-v4/querying/statistical-queries-04.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="../images-v4/querying/statistical-queries-04.png" class="img-fluid" width="342"></a></p>
-</div>
-<div class="exercise callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You can now do <a href="../exercises/exercise-beguinages.html">Exercise 3</a>, part A.</p>
-</div>
-</div>
-</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1595,13 +1579,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../querying/filtering-attribute-table.html" class="pagination-link" aria-label="8.3 Filtering the attribute table">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8.3 Filtering the attribute table</span>
+      <a href="../querying/layer-filter.html" class="pagination-link" aria-label="8.3.2 Filtering a layer as a whole">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8.3.2 Filtering a layer as a whole</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../querying/raster-statistics.html" class="pagination-link" aria-label="8.4.2 Statistics of raster data">
-        <span class="nav-page-text">8.4.2 Statistics of raster data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../querying/geometry-statistics.html" class="pagination-link" aria-label="8.4.2 Location-based statistics">
+        <span class="nav-page-text">8.4.2 Location-based statistics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

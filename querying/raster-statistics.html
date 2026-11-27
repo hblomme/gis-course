@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8.4.2 Statistics of raster data – Learning Path QGIS</title>
+<title>8.5 Raster statistics – Learning Path QGIS</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../querying/interactive-querying.html" rel="next">
-<link href="../querying/statistical-queries.html" rel="prev">
+<link href="../querying/geometry-statistics.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4 Statistical queries</a></li><li class="breadcrumb-item"><a href="../querying/raster-statistics.html">8.4.2 Statistics of raster data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/raster-statistics.html">8.5 Raster statistics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -613,52 +613,75 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../querying/filtering-attribute-table.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.3 Filtering the attribute table</span></a>
-  </div>
-</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true">
- <span class="menu-text">8.4 Statistical queries</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+ <span class="menu-text">8.3 Filtering</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../querying/statistical-queries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.4.1 Statistics of vector data</span></a>
+  <a href="../querying/filtering-attribute-table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3.1 Filtering the attribute table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../querying/raster-statistics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">8.4.2 Statistics of raster data</span></a>
+  <a href="../querying/layer-filter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.3.2 Filtering a layer as a whole</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false">
+ <span class="menu-text">8.4 Vector statistics</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../querying/statistical-queries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.4.1 Attribute-based statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../querying/geometry-statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8.4.2 Location-based statistics</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../querying/raster-statistics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">8.5 Raster statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../querying/interactive-querying.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">8.5 Interactive</span></a>
+ <span class="menu-text">8.6 Interactive</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true">
  <span class="menu-text">9 Expressions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/expressions-intro.html" class="sidebar-item-text sidebar-link">
@@ -667,13 +690,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
  <span class="menu-text">9.2 Querying and calculating</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/building-expressions.html" class="sidebar-item-text sidebar-link">
@@ -690,13 +713,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
  <span class="menu-text">9.3 Fields and values</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/numeric-fields.html" class="sidebar-item-text sidebar-link">
@@ -731,13 +754,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false">
  <span class="menu-text">9.5 Geometric properties</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/geometric-properties.html" class="sidebar-item-text sidebar-link">
@@ -780,13 +803,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true">
  <span class="menu-text">10 Georeferencing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../georeferencing/georeferencing-intro.html" class="sidebar-item-text sidebar-link">
@@ -821,13 +844,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="true">
  <span class="menu-text">11 Vectorising</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-creation/data-creation-intro.html" class="sidebar-item-text sidebar-link">
@@ -836,13 +859,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false">
  <span class="menu-text">11.2 Manual vectorising</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-creation/vectorising.html" class="sidebar-item-text sidebar-link">
@@ -879,22 +902,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 1: Map the Roman Empire</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-roman-empire.html" class="sidebar-item-text sidebar-link">
@@ -911,13 +934,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 2: Transport in Belgium (1770–1880)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-railways.html" class="sidebar-item-text sidebar-link">
@@ -934,13 +957,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 3: Beguinages in the Low Countries</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-beguinages.html" class="sidebar-item-text sidebar-link">
@@ -957,13 +980,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 4: Historical city plans of Ghent</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-ghent-georeferencing.html" class="sidebar-item-text sidebar-link">
@@ -980,13 +1003,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 5: The Spanish Castle in Ghent</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-spanish-castle.html" class="sidebar-item-text sidebar-link">
@@ -1005,13 +1028,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendix: Datasets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-32" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../datasets/beguinages.html" class="sidebar-item-text sidebar-link">
@@ -1050,7 +1073,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#raster-layer-statistics" id="toc-raster-layer-statistics" class="nav-link active" data-scroll-target="#raster-layer-statistics">Raster layer statistics</a></li>
   <li><a href="#raster-minimummaximum" id="toc-raster-minimummaximum" class="nav-link" data-scroll-target="#raster-minimummaximum">Raster minimum/maximum</a></li>
-  <li><a href="#raster-layer-unique-values-report" id="toc-raster-layer-unique-values-report" class="nav-link" data-scroll-target="#raster-layer-unique-values-report">Raster layer unique values report</a></li>
   <li><a href="#zonal-statistics" id="toc-zonal-statistics" class="nav-link" data-scroll-target="#zonal-statistics">Zonal statistics</a></li>
   </ul>
 </nav>
@@ -1058,9 +1080,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/statistical-queries.html">8.4 Statistical queries</a></li><li class="breadcrumb-item"><a href="../querying/raster-statistics.html">8.4.2 Statistics of raster data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../querying/querying-intro.html">8 Querying data</a></li><li class="breadcrumb-item"><a href="../querying/raster-statistics.html">8.5 Raster statistics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">8.4.2 Statistics of raster data</h1>
+<h1 class="title">8.5 Raster statistics</h1>
 </div>
 
 
@@ -1077,7 +1099,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>You can also query raster data statistically. The <em>Processing Toolbox</em> provides several tools for this purpose under <em>Raster analysis</em>.</p>
+<p>You can also query raster data statistically. The <em>Processing Toolbox</em> provides several tools for this purpose under <em>Raster analysis</em>. You already used one of them in <a href="../visualisation/raster-cell-values.html#report-of-unique-cell-values">chapter 4</a>: <em>Raster layer unique values report</em> lists all unique cell values of a raster band, with the number of cells and their total area. Here we discuss three more tools.</p>
 <section id="raster-layer-statistics" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="raster-layer-statistics">Raster layer statistics</h2>
 <p><em>Raster layer statistics</em> calculates basic statistical values for a raster band, such as the mean, the minimum and maximum value, and the standard deviation. Open <span class="menu-path"><em>Processing Toolbox ▸ Raster analysis ▸ Raster layer statistics</em></span> to use it.</p>
@@ -1092,10 +1114,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>As with <em>Basic statistics for fields</em> on the <a href="../querying/statistical-queries.html#basic-statistics-for-fields">previous page</a>, the result appears as a link in the <em>Results Viewer</em> panel. Double-click it to open the report:</p>
+<p>As with <em>Basic statistics for fields</em> on <a href="../querying/statistical-queries.html#basic-statistics-for-fields">page 8.4.1</a>, the result appears as a link in the <em>Results Viewer</em> panel. Double-click it to open the report:</p>
 <div class="side-by-side column-page-right">
-<p><a href="../images-v4/querying/statistical-queries-05c.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images-v4/querying/statistical-queries-05c.png" class="img-fluid" width="300"></a></p>
-<p><a href="../images-v4/querying/statistical-queries-05d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images-v4/querying/statistical-queries-05d.png" class="img-fluid" width="371"></a></p>
+<p><a href="../images-v4/querying/statistical-queries-05c.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="../images-v4/querying/statistical-queries-05c.png" class="img-fluid" width="398"></a></p>
+<p><a href="../images-v4/querying/statistical-queries-05d.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="../images-v4/querying/statistical-queries-05d.png" class="img-fluid" width="415"></a></p>
 </div>
 </section>
 <section id="raster-minimummaximum" class="level2">
@@ -1104,14 +1126,23 @@ ul.task-list li input[type="checkbox"] {
 <p>Applied to a raster layer with the average global temperatures in August, the tool finds the warmest cell in the Sahara (38.4 °C) and the coldest near the South Pole (−66.5 °C):</p>
 <p><a href="../images-v4/querying/statistical-queries-06.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="../images-v4/querying/statistical-queries-06.png" class="img-fluid"></a></p>
 </section>
-<section id="raster-layer-unique-values-report" class="level2">
-<h2 class="anchored" data-anchor-id="raster-layer-unique-values-report">Raster layer unique values report</h2>
-<p><em>Raster layer unique values report</em> lists all unique cell values in a raster band. For each value, it shows the number of cells and their total area. You have already used this tool in <a href="../visualisation/raster-cell-values.html#report-of-unique-cell-values">Report of unique cell values</a> in chapter 4.</p>
-</section>
 <section id="zonal-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="zonal-statistics">Zonal statistics</h2>
-<p><em>Zonal statistics</em> (<span class="menu-path"><em>Processing Toolbox ▸ Raster analysis</em></span>) calculates statistics of a raster for each polygon of a vector layer: for example the mean, the minimum and the maximum of all the cells that lie inside the polygon. Choose the polygon layer, the raster and the statistics you want. The result is a new layer: the polygons with an extra column per statistic.</p>
-<p>This answers questions such as: what was the mean temperature in August in each country?</p>
+<p>As the name suggests, <em>Zonal statistics</em> (<span class="menu-path"><em>Processing Toolbox ▸ Raster analysis</em></span>) calculates statistics for different zones within a raster, rather than for the raster as a whole. These zones are defined by the polygons of an overlapping vector layer.</p>
+<p>In the example below, we have a raster with the average temperature in August and a vector layer with the national boundaries. With this tool, we can calculate temperature statistics for each country.</p>
+<p><a href="../images-v4/querying/raster-statistics-zonal-ui.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="../images-v4/querying/raster-statistics-zonal-ui.png" class="img-fluid"></a></p>
+<p>You have already seen all the settings of this tool window in other tools. We fill it in as shown below. As statistical measures we choose the mean, the minimum, the maximum and the range (the difference between the highest and the lowest value).</p>
+<div class="same-height tight quarto-layout-panel" data-layout="[927,1194]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 43.7%;justify-content: center;">
+<p><a href="../images-v4/querying/raster-statistics-zonal-dialog.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="../images-v4/querying/raster-statistics-zonal-dialog.png" class="img-fluid"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 56.3%;justify-content: center;">
+<p><a href="../images-v4/querying/raster-statistics-zonal-table.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="../images-v4/querying/raster-statistics-zonal-table.png" class="img-fluid"></a></p>
+</div>
+</div>
+</div>
+<p>The new layer has four extra columns: <code>aug_mean</code>, <code>aug_min</code>, <code>aug_max</code> and <code>aug_range</code>. When sorted by <code>aug_mean</code>, Kuwait appears to have the highest average temperature in August, followed by the United Arab Emirates and Qatar.</p>
 
 
 </section>
@@ -1550,13 +1581,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../querying/statistical-queries.html" class="pagination-link" aria-label="8.4.1 Statistics of vector data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8.4.1 Statistics of vector data</span>
+      <a href="../querying/geometry-statistics.html" class="pagination-link" aria-label="8.4.2 Location-based statistics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">8.4.2 Location-based statistics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../querying/interactive-querying.html" class="pagination-link" aria-label="8.5 Interactive">
-        <span class="nav-page-text">8.5 Interactive</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../querying/interactive-querying.html" class="pagination-link" aria-label="8.6 Interactive">
+        <span class="nav-page-text">8.6 Interactive</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
