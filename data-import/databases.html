@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7.3.2 Databases – Learning Path QGIS</title>
+<title>7.5.2 Databases – Learning Path QGIS</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">7 Data in GIS (part 2)</li><li class="breadcrumb-item"><a href="../data-import/services.html">7.3 Server-based data sources</a></li><li class="breadcrumb-item"><a href="../data-import/databases.html">7.3.2 Databases</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Managing data</a></li><li class="breadcrumb-item"><a href="../data-import/services.html">7.5 Server-based data sources</a></li><li class="breadcrumb-item"><a href="../data-import/databases.html">7.5.2 Databases</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">2 Data in GIS (part 1)</span></a>
+ <span class="menu-text">2 Data in GIS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-models/vector-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.2 Vector model</span></a>
+ <span class="menu-text">2.2 The vector model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -485,16 +485,28 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true">
- <span class="menu-text">7 Data in GIS (part 2)</span></a>
+ <span class="menu-text">7 Managing data</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/geopackage.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1 Managing layers in GeoPackages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/multipart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2 Multipart features</span></a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
- <span class="menu-text">7.1 Vector data management</span></a>
+ <span class="menu-text">7.3 Tables in GIS</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -502,60 +514,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../data-import/geopackage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7.1.1 Working with GeoPackages</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../data-import/editing-attribute-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7.1.2 Editing the attribute table</span></a>
+ <span class="menu-text">7.3.1 Editing the attribute table</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false">
- <span class="menu-text">7.2 Alternative vector formats</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-import/delimited-text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7.2.1 Delimited text files (CSV)</span></a>
+ <span class="menu-text">7.3.2 Tabular data (CSV and spreadsheets)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../data-import/web-formats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7.2.2 Web formats</span></a>
+  <a href="../data-import/joins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3.3 Joining by field value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/joins-location.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3.4 Joining by location</span></a>
   </div>
 </li>
       </ul>
   </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../data-import/web-formats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4 Common GIS formats for the web</span></a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
- <span class="menu-text">7.3 Server-based data sources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true">
+ <span class="menu-text">7.5 Server-based data sources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-import/services.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7.3.1 Services</span></a>
+ <span class="menu-text">7.5.1 Services</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-import/databases.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">7.3.2 Databases</span></a>
+ <span class="menu-text">7.5.2 Databases</span></a>
   </div>
 </li>
       </ul>
@@ -563,20 +570,20 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-import/interactive-data-import.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">7.4 Interactive</span></a>
+ <span class="menu-text">7.6 Interactive</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true">
  <span class="menu-text">8 Querying data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/querying-intro.html" class="sidebar-item-text sidebar-link">
@@ -585,13 +592,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false">
  <span class="menu-text">8.2 Selections</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/selecting-features.html" class="sidebar-item-text sidebar-link">
@@ -614,13 +621,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false">
  <span class="menu-text">8.4 Statistical queries</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../querying/statistical-queries.html" class="sidebar-item-text sidebar-link">
@@ -645,13 +652,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true">
  <span class="menu-text">9 Expressions</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/expressions-intro.html" class="sidebar-item-text sidebar-link">
@@ -660,13 +667,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false">
  <span class="menu-text">9.2 Querying and calculating</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/building-expressions.html" class="sidebar-item-text sidebar-link">
@@ -683,13 +690,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false">
  <span class="menu-text">9.3 Fields and values</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/numeric-fields.html" class="sidebar-item-text sidebar-link">
@@ -724,13 +731,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false">
  <span class="menu-text">9.5 Geometric properties</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../expressions/geometric-properties.html" class="sidebar-item-text sidebar-link">
@@ -773,13 +780,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true">
  <span class="menu-text">10 Georeferencing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../georeferencing/georeferencing-intro.html" class="sidebar-item-text sidebar-link">
@@ -814,13 +821,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true">
  <span class="menu-text">11 Vectorising</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-creation/data-creation-intro.html" class="sidebar-item-text sidebar-link">
@@ -829,13 +836,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false">
  <span class="menu-text">11.2 Manual vectorising</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../data-creation/vectorising.html" class="sidebar-item-text sidebar-link">
@@ -872,22 +879,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="true">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 1: Map the Roman Empire</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-roman-empire.html" class="sidebar-item-text sidebar-link">
@@ -904,13 +911,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 2: Transport in Belgium (1770–1880)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-railways.html" class="sidebar-item-text sidebar-link">
@@ -927,13 +934,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 3: Beguinages in the Low Countries</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-beguinages.html" class="sidebar-item-text sidebar-link">
@@ -950,13 +957,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 4: Historical city plans of Ghent</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-ghent-georeferencing.html" class="sidebar-item-text sidebar-link">
@@ -973,13 +980,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false">
  <span class="menu-text">Exercise 5: The Spanish Castle in Ghent</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/exercise-spanish-castle.html" class="sidebar-item-text sidebar-link">
@@ -998,13 +1005,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendix: Datasets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-32" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../datasets/beguinages.html" class="sidebar-item-text sidebar-link">
@@ -1049,9 +1056,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">7 Data in GIS (part 2)</li><li class="breadcrumb-item"><a href="../data-import/services.html">7.3 Server-based data sources</a></li><li class="breadcrumb-item"><a href="../data-import/databases.html">7.3.2 Databases</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../data-import/geopackage.html">7 Managing data</a></li><li class="breadcrumb-item"><a href="../data-import/services.html">7.5 Server-based data sources</a></li><li class="breadcrumb-item"><a href="../data-import/databases.html">7.5.2 Databases</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">7.3.2 Databases</h1>
+<h1 class="title">7.5.2 Databases</h1>
 </div>
 
 
@@ -1070,7 +1077,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="databasesdatabase-servers" class="level2">
 <h2 class="anchored" data-anchor-id="databasesdatabase-servers">Database servers</h2>
-<p>You already know one kind of spatial database: the GeoPackage, a single file on your computer (see <a href="../data-import/geopackage.html">Working with GeoPackages</a>). This page is about something else: <strong>database servers</strong>. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.</p>
+<p>You already know one kind of spatial database: the GeoPackage, a single file on your computer (see <a href="../data-import/geopackage.html">Managing layers in GeoPackages</a>). This page is about something else: <strong>database servers</strong>. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.</p>
 <p>Using databases has several <strong>advantages</strong> for data management. For example, it is much easier to work on the same dataset as a team. Moreover, the data are easier to use in a wide range of applications other than specialised GIS software. A database also makes it easier to integrate your geodata into a more advanced data model. On the other hand, setting up and maintaining a database system requires some <strong>technical knowledge</strong>.</p>
 <p>There are several <strong>database systems</strong> that are suitable for processing geographic data, such as</p>
 <ul>
@@ -1535,13 +1542,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../data-import/services.html" class="pagination-link" aria-label="7.3.1 Services">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7.3.1 Services</span>
+      <a href="../data-import/services.html" class="pagination-link" aria-label="7.5.1 Services">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7.5.1 Services</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../data-import/interactive-data-import.html" class="pagination-link" aria-label="7.4 Interactive">
-        <span class="nav-page-text">7.4 Interactive</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../data-import/interactive-data-import.html" class="pagination-link" aria-label="7.6 Interactive">
+        <span class="nav-page-text">7.6 Interactive</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

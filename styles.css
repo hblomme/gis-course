@@ -283,3 +283,10 @@ main table.drawtbl td:first-child, main table.drawtbl th:first-child { white-spa
 
 /* images inside a table cell (11.3) */
 main table img.tbl-img { display: block; max-width: 100%; margin-top: .4rem; }
+
+/* skeleton phase (2026-11-25): placeholders for screenshots and exercise links, dev only */
+main .callout.shot-todo { border-left-color: #9ca3af !important; background: #f6f7f9; }
+main .callout.skeleton { border-left-color: #6b21a8 !important; }
+
+/* group-wise stripes for tables with merged cells (author 2026-11-26; see group-stripes.lua) */
+main table.group-stripes td.band-a { --bs-table-bg-type: var(--bs-table-striped-bg); background-color: var(--bs-table-striped-bg); }

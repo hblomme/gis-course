@@ -126,7 +126,7 @@
     "section": "",
     "text": "In GIS, you work with information that has both a spatial component (defined by coordinates) and a non-spatial component (attribute data). This information can be structured technically in different ways. The two most commonly used data models in GIS are the raster model and the vector model. They differ in how they store the spatial component and in what kind of attribute data can be linked to it. We start with the raster model.\nRasters define geographic information by means of a grid of cells (or pixels) organised in rows and columns. Below, we take a short look at some characteristics and give some examples.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.1 Raster model"
     ]
   },
@@ -137,7 +137,7 @@
     "section": "Grid of cells",
     "text": "Grid of cells\nIn a raster file, geographic space is divided into a matrix of cells, each covering a small part of that space. Each cell is implicitly given coordinates. The real-world size of one cell (e.g. 10 by 10 metres) is called the spatial resolution; it differs from raster file to raster file. Within one raster, however, all cells always have the same size and shape.\n\nData: SRTM shaded relief, USGS (public domain).\nRaster files are easy to recognise: at first sight you cannot always see the individual cells, but if you zoom in far enough, the matrix of cells becomes clearly visible.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.1 Raster model"
     ]
   },
@@ -148,7 +148,7 @@
     "section": "Numeric values",
     "text": "Numeric values\nEach cell can be given one or more numeric values, which apply to the whole area covered by the cell. The unit of these values differs from raster to raster, and the options are almost unlimited. Common examples are rasters in which each cell contains the elevation or the temperature.\nAlthough the values of raster cells are always numeric, you can also use a raster file to show textual data, by means of a code system and a legend. Take the example of the official land use map of the Flemish government. Each cell of this raster map contains a number as its value. The legend that comes with it explains that a cell with value 1 corresponds to ‘urban core buildings’, 2 to ‘other buildings’, 3 to ‘industrial and commercial infrastructure’, etc. In this way, the values in the cells are numeric, but their meaning is not.\nThe example below makes the logic of this system clear:\n\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nHow to look up the values of raster cells in QGIS is explained on Cell values: histogram and unique values.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.1 Raster model"
     ]
   },
@@ -159,7 +159,7 @@
     "section": "Single-band and multi-band",
     "text": "Single-band and multi-band\nIn the example above, we looked at a simple raster file in which each pixel was given at most one numeric value. Such images are also called single-band images.\nHowever, a raster image can also consist of several image layers (image bands). In that case, each pixel has one value per image band. All bands of one raster share exactly the same grid: the same number of rows and columns, the same cell size and the same position. You can picture them as sheets stacked on top of each other, in which every cell lies exactly above the corresponding cell in the other bands; only the values stored in the cells differ from band to band. Colour scans (e.g. a scanned historical map) and digital colour photos (e.g. aerial photos) are examples of such multi-band raster files. When an image is scanned or photographed, it is converted into a digital raster of pixels, and the scanner or camera gives each pixel a colour in the form of a numeric code. There are different ways to express colour numerically. A common one is ‘RGB’ (red - green - blue): here each pixel is given not one value but three, containing the amounts of red, green and blue that together form the colour.\n\n\n\n\n\n\nA scanned map contains colours, not the values the map shows. If you scan a paper elevation map, for example, the cells of your digital raster will not contain the elevations themselves (a scanner cannot know these), but the numeric codes of the colours used on the original map.\n\n\n\n\nAn aerial photo (orthophoto) is a typical multi-band raster: three bands with the red, green and blue values of each cell together form the colour image. Orthophoto: Digitaal Vlaanderen, orthophoto mosaic 2025 (Ghent, Gravensteen).\n\n\n\n\n\n\nTry it yourself: RGB bands",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.1 Raster model"
     ]
   },
@@ -170,7 +170,7 @@
     "section": "Continuous and discrete data",
     "text": "Continuous and discrete data\n\nContinuous data\nThe raster model is very suitable for representing continuous data. Continuous data are data that have no clear geographic boundaries, or only vague ones, such as air quality, temperature or elevation. If you look at the temperature map of Europe below, you will see that it contains different ‘temperature zones’. This is of course a simplification: in reality, the temperature does not jump at a sharp line from exactly 17°C in one zone to 18°C in the next. Phenomena such as temperature change gradually across space and therefore cannot be delimited precisely.\nThe raster model offers a good way of dealing with this difficulty. Space is systematically divided into equal parts and so simplified into a set of small, indivisible cells. This creates a predefined spatial framework in which information can be recorded. In this simplified representation of space, each cell is given a measured or estimated value that applies to the whole cell.\n\nMean temperature in August (1970–2000). Each cell (10 × 10 km) has one value. Data: WorldClim 2.1 (Fick & Hijmans 2017), CC BY 4.0; borders: Natural Earth.\n\n\nDiscrete data\nBesides continuous data, rasters can also contain discrete data. These are data that can be clearly delimited, such as buildings, roads, water bodies… Think, for example, of the buildings and roads you can see on an aerial photo. In raster images, the accuracy of discrete data depends on the spatial resolution. The higher the resolution (the smaller the cells), the more detail can be shown and the more accurately boundaries can be drawn.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.1 Raster model"
     ]
   },
@@ -181,63 +181,63 @@
     "section": "Simple, but large files",
     "text": "Simple, but large files\nBecause the raster model is a very simple data structure, many analyses can be carried out quickly. On the other hand, the files are often large, because information has to be stored for each individual cell.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.1 Raster model"
     ]
   },
   {
     "objectID": "data-models/vector-model.html",
     "href": "data-models/vector-model.html",
-    "title": "2.2 Vector model",
+    "title": "2.2 The vector model",
     "section": "",
     "text": "The second commonly used data model in GIS is the vector model. It describes geographic information as separate geometric objects (features): points, lines and areas – called polygons. The shape and position of each object are defined by coordinates: a point by one coordinate pair, a line or a polygon by the coordinates of its (corner) points – called vertices. Below, we take a short look at the main characteristics of the vector model and give some examples.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
-      "2.2 Vector model"
+      "2 Data in GIS",
+      "2.2 The vector model"
     ]
   },
   {
     "objectID": "data-models/vector-model.html#points-lines-and-polygons",
     "href": "data-models/vector-model.html#points-lines-and-polygons",
-    "title": "2.2 Vector model",
+    "title": "2.2 The vector model",
     "section": "Points, lines and polygons",
     "text": "Points, lines and polygons\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nThe raster model is discussed on Raster model. A comparison of both models is on Rasters vs. vectors.\n\n\n\n\nPoints consist of one coordinate.\nLines consist of at least two coordinates (a start point and an end point).\nAll points of a line, including the start and end points, are called vertices. The parts of the line between two successive vertices are called segments.\nPolygons consist of a line whose start point and end point are the same.\nThe whole area enclosed by this line also belongs to the polygon. A polygon needs at least four coordinates (a triangle): three different points, plus the first point repeated as the end point.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
-      "2.2 Vector model"
+      "2 Data in GIS",
+      "2.2 The vector model"
     ]
   },
   {
     "objectID": "data-models/vector-model.html#very-accurate",
     "href": "data-models/vector-model.html#very-accurate",
-    "title": "2.2 Vector model",
+    "title": "2.2 The vector model",
     "section": "Very accurate",
     "text": "Very accurate\nAs you learned on the previous page, data in the raster model are positioned in space by means of a grid of cells. Vector objects, on the other hand, are positioned in space by means of exact coordinates. So, unlike with rasters, there is no generalisation to a grid of cells. In other words, vectors are not resolution-dependent. This also has visual consequences: no matter how far you zoom in on a vector object, the object will always be shown sharply. Technically, there is no limit to the level of detail you can work with. In practice, of course, the accuracy depends on how precisely the data were drawn.\nBecause vector objects have exact positions and sharp boundaries, they are very suitable for storing discrete data, but less suitable for continuous data.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
-      "2.2 Vector model"
+      "2 Data in GIS",
+      "2.2 The vector model"
     ]
   },
   {
     "objectID": "data-models/vector-model.html#attribute-data",
     "href": "data-models/vector-model.html#attribute-data",
-    "title": "2.2 Vector model",
+    "title": "2.2 The vector model",
     "section": "Attribute data",
     "text": "Attribute data\nAnother important difference from the raster model is that a variety of attribute data can be linked to vector objects. Besides numbers (whole or decimal), these can also be text or dates, for example. Moreover, while a raster cell in practice usually holds only one value (or a few), vector objects often have many attribute fields.\nThe example below shows a vector file with point objects that represent cities. Each vector object – also called a feature – contains several attribute fields: the city’s name (text), the number of inhabitants (a whole number), the area of its territory (decimal number), and the region it belongs to (text).\n\nIn QGIS and similar programs, you can consult the attribute data of a single feature directly in the map. You can also view the attribute data of all features of a layer at once, in the form of a table. This attribute table has one row per feature and one column per attribute field, and you will use it a lot when working in GIS.\n\n\n\n\n\n\n\nNoteSee also\n\n\n\nHow to open and use the attribute table in QGIS is explained on The attribute table.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
-      "2.2 Vector model"
+      "2 Data in GIS",
+      "2.2 The vector model"
     ]
   },
   {
     "objectID": "data-models/vector-model.html#complex-but-small-files",
     "href": "data-models/vector-model.html#complex-but-small-files",
-    "title": "2.2 Vector model",
+    "title": "2.2 The vector model",
     "section": "Complex, but small files",
     "text": "Complex, but small files\nVector files are usually small in size. After all, only the coordinates of the vertices and the attribute data have to be stored. On the other hand, the vector model is a fairly complex data structure. As a result, some spatial analyses may take a lot of computing power and time.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
-      "2.2 Vector model"
+      "2 Data in GIS",
+      "2.2 The vector model"
     ]
   },
   {
@@ -247,7 +247,7 @@
     "section": "",
     "text": "A lot of spatial data can be represented as vector data as well as raster data. The choice between the two types depends on the use case.\nA map with, for example, a boundary stone (point), a road (line) and a lake (polygon) would look like this as vector data (left) and as raster data (right):\n\n\n\n\n\n\n\n\n\n\nRASTER\nVECTOR\n\n\nSpatial definition\nBased on a matrix of cells\nBased on geometric objects\n\n\nSpatial positioning\nEach raster cell is implicitly given coordinates. This is based on the coordinates of the origin, the spatial resolution (real-world size of each cell) and the position of each cell in the matrix (row and column number).\nCoordinates are explicitly stored for each point (or vertex).\n\n\nFile size\nUsually larger files\nUsually smaller files\n\n\nAccuracy\nResolution-dependent, generalisation at cell level (loss of information)\nNo technical limits on accuracy\n\n\nSuitable for\nContinuous and discrete data\nDiscrete data (continuous data only in a simplified form, e.g. contour lines)\n\n\nAttribute information\nRaster cells can only contain numeric values. The number of values per cell is limited to one per image band.\nEach object can have many attribute fields: text, numbers, dates…\n\n\nSpatial analyses\nOften faster because of the simple data structure\nOften slower because of the more complex data structure\n\n\n\n\n\n\n\n\n\nTry it yourself: Raster vs. vector",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.3 Rasters vs. vectors"
     ]
   },
@@ -258,7 +258,7 @@
     "section": "",
     "text": "Geodata (both raster and vector data) can be kept on your own computer, or on a server that you reach through a network or the internet. Below we give an overview of the data sources available in both cases.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.4 Data sources"
     ]
   },
@@ -269,7 +269,7 @@
     "section": "Where to find and store geodata",
     "text": "Where to find and store geodata\n\nLocal files\nWith local files you have your own copy of the data, which you can edit and adjust as much as you like. Because the data are on your computer, you do not need an internet connection. The downside is that this setup is not well suited for several people working on the same dataset at the same time.\n\nLayer files\nIn the introduction you learned that geodata are stored in thematic layers. In its simplest form, a layer is saved as a file (or a group of files) on your computer, for example an image or a simple text file that defines vector objects. When you load such a file into QGIS, you get access to the layer it contains.\n\n\nDatabase files\nA database file can contain multiple layers and tables at once. It allows more complex data models, in which tables are linked to each other. When you load a database file into QGIS, you get access to all the layers it contains.\n\n\nFile formats\nTechnically, layer files and database files exist in several file formats, for both rasters and vectors. These formats are explained on the next page, Common file formats in QGIS. How to open them in QGIS is explained in Importing data.\n\n\n\nServers\nGeodata are often stored on external servers: computers that share data over a network or the internet. Governments and national institutions commonly publish large datasets this way. Many people can use the same data without each downloading their own copy. You can load such data directly into your GIS.\n\nImage and feature providers\nRaster and vector data can be stored on a server and made available to users from there. From QGIS, you can connect to these providers and use their data in your map canvas, without downloading them first. The technical way in which these providers deliver their data is called a service. There are several types of services, which all deliver data but work in different ways. As a GIS user, you don’t need to know the technical details. It is enough to know that services exist and how to use them in QGIS.\nImage services send ready-made map images from the data provider to your computer. Commonly used services for this are WMS (Web Map Service), WMTS (Web Map Tile Service) and XYZ tiles. Services for vector data send the vector objects themselves to your computer, together with their attributes. A widely used vector service is WFS (Web Feature Service).\nAlthough services have clear advantages, as an end user you are limited to the permissions the provider gives you. Most providers only let you view and request data, but some also let you update them.\nYou will learn how to create these connections in practice in the chapter Services.\n\n\nRelational databases\nAs explained above, a database can hold several layers and tables that can be linked to each other: this is called a relational database. A database on a server has extra advantages: many users can work in the same database at the same time, which is useful for teams and for large datasets. Such databases are also often used by web applications. How to connect to a remote database is explained in Databases.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.4 Data sources"
     ]
   },
@@ -280,7 +280,7 @@
     "section": "",
     "text": "A format is the way in which geodata are stored in a file or database. You can usually recognise the format of a file by the file extension: the letters after the last dot in the file name (.gpkg, .shp, .tif…).\nThere are many formats for geodata. This page explains four of the formats you will meet most often in QGIS and in this learning path.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.5 Common file formats in QGIS"
     ]
   },
@@ -289,9 +289,9 @@
     "href": "data-models/file-formats.html#GeoPackage",
     "title": "2.5 Common file formats in QGIS",
     "section": "GeoPackage: the default for vector data",
-    "text": "GeoPackage: the default for vector data\nQGIS uses the GeoPackage format (.gpkg) as its default format for vector data. A GeoPackage is a single file that can hold several layers (for example the points, lines and polygons of one project), and even rasters and plain tables. You can store not only the data themselves (for example the locations of points), but also how they are shown in GIS (for example as red stars). Because everything is in one file, a GeoPackage is easy to copy or send.\nHow you save several layers in one GeoPackage, convert shapefiles and save how your layers are shown is explained later, in Working with GeoPackages.",
+    "text": "GeoPackage: the default for vector data\nQGIS uses the GeoPackage format (.gpkg) as its default format for vector data. A GeoPackage is a single file that can hold several layers (for example the points, lines and polygons of one project), and even rasters and plain tables. You can store not only the data themselves (for example the locations of points), but also how they are shown in GIS (for example as red stars). Because everything is in one file, a GeoPackage is easy to copy or send.\nHow you save several layers in one GeoPackage, convert shapefiles and save how your layers are shown is explained later, in Managing layers in GeoPackages.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.5 Common file formats in QGIS"
     ]
   },
@@ -302,7 +302,7 @@
     "section": "Shapefile: older, but still everywhere",
     "text": "Shapefile: older, but still everywhere\nThe shapefile (or Esri shapefile) dates from the 1990s, but it is still one of the most widely used vector formats: almost every GIS program can read it, and a lot of existing data are offered in it. In this learning path you will often open shapefiles, but when you save or export your own data, we use GeoPackage.\nA shapefile is a combination of several files (at least three).\n\nA shapefile always consists of:\n\nSHP file: spatial data component\nDBF file: attribute information\nSHX file: an index of the geometries in the SHP file\n\nA shapefile can also include several extra files, such as:\n\nPRJ file: information about the coordinate reference system used\nSHP.XML file: metadata\nCPG file: information about character encoding\n\n\n\n\n\n\n\nThe files that form a shapefile must always be stored in the same folder with the same file name (only the extension differs, e.g. us_states.shp, us_states.dbf, us_states.shx). When you copy, move or rename a shapefile, always do it with all its files.\n\n\n\nCompared with a GeoPackage, a shapefile has some limits:\n\nOne shapefile holds only one layer with one geometry type (only points, only lines or only polygons).\nIt stores only the data, not how they are shown in GIS.\n\n\nGeoPackage vs shapefile\n\n\n\n\n\n\n\n\n\nGeoPackage\nShapefile\n\n\n\n\nFiles\none .gpkg file\nseveral files that must stay together\n\n\nLayers\nseveral per file\none per shapefile\n\n\nHow the data are shown\ncan be stored in the file\nnot stored\n\n\nRaster data\nyes\nno\n\n\nCompatibility\nmost modern GIS software\nalmost all GIS software",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.5 Common file formats in QGIS"
     ]
   },
@@ -313,7 +313,7 @@
     "section": "Raster files: GeoTIFF and JPEG 2000",
     "text": "Raster files: GeoTIFF and JPEG 2000\nGeoTIFF (.tif or .tiff) is the most common format for raster data. Besides the pixel values, a GeoTIFF stores where on earth the image belongs: the coordinates of the image and its coordinate system. That is why QGIS places a GeoTIFF in the right position at once.\n\n\n\n\n\n\nNot every .tif file is a georeferenced raster. A scan of an old map saved as TIFF is just an image, without coordinates. You first have to give it a position on the earth yourself; this is explained in the chapter Georeferencing.\n\n\n\nJPEG 2000 (.jp2) files have similar properties to GeoTIFFs for storing raster data, but they are compressed, so the files are smaller. On the other hand, JPEG 2000 is generally less compatible with GIS software than GeoTIFF.",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.5 Common file formats in QGIS"
     ]
   },
@@ -324,7 +324,7 @@
     "section": "Other formats",
     "text": "Other formats\nThis page discussed the formats you will meet most often, but there are many more. Some of them, such as CSV, GeoJSON and KML, are explained in the chapter Data in GIS (part 2).",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.5 Common file formats in QGIS"
     ]
   },
@@ -1038,7 +1038,7 @@
     "href": "before-you-start.html",
     "title": "Before you start",
     "section": "",
-    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS. The examples and exercises focus mainly on use cases from history and the humanities, but anyone who wants to learn QGIS can use it.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
+    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS. The examples and exercises focus mainly on use cases from history and the humanities, but anyone who wants to learn QGIS can use it.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, the basics of spatial data come early on (Data in GIS), while working with tables and other formats follows in a later chapter (Managing data). It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
     "crumbs": [
       "Before you start"
     ]
@@ -1048,7 +1048,7 @@
     "href": "before-you-start.html#a-learning-path-not-documentation",
     "title": "Before you start",
     "section": "",
-    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS. The examples and exercises focus mainly on use cases from history and the humanities, but anyone who wants to learn QGIS can use it.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, ‘Data in GIS’ is covered in two parts: the basics early on, and other kinds of data in a later chapter. It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
+    "text": "This is an interactive learning path for beginners and intermediate users of QGIS. It starts from zero: you don’t need any prior knowledge of GIS. The examples and exercises focus mainly on use cases from history and the humanities, but anyone who wants to learn QGIS can use it.\nThe learning path builds up your skills step by step, instead of covering each topic in full detail at once. For example, the basics of spatial data come early on (Data in GIS), while working with tables and other formats follows in a later chapter (Managing data). It is advised to follow the chapters in order.\nThe learning path is not documentation: it does not explain every button or option of QGIS. For that, we refer to the QGIS documentation.",
     "crumbs": [
       "Before you start"
     ]
@@ -1110,7 +1110,7 @@
     "section": "",
     "text": "Try out what you learned in this chapter. Drag, click and change the settings as much as you like, you can’t break anything!",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.6 Interactive"
     ]
   },
@@ -1121,7 +1121,7 @@
     "section": "RGB bands",
     "text": "RGB bands\nThe colour photo below is a raster with three bands: red, green and blue. Pull the bands apart to see them as separate layers, and click a pixel to read its three values. See the theory: Single-band and multi-band.\n\nOpen the tool full screen",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.6 Interactive"
     ]
   },
@@ -1132,7 +1132,7 @@
     "section": "Raster vs. vector",
     "text": "Raster vs. vector\nThe same map as vector data and as raster cells. Change the number of cells across the map and see what happens to the lake, the road and the villages. See the theory: Rasters vs. vectors.\n\nOpen the tool full screen",
     "crumbs": [
-      "2 Data in GIS (part 1)",
+      "2 Data in GIS",
       "2.6 Interactive"
     ]
   },
@@ -1295,7 +1295,7 @@
     "href": "crs/project-crs.html#changing-the-coordinate-system",
     "title": "5.2.1 Coordinate system of the QGIS project",
     "section": "Changing the coordinate system",
-    "text": "Changing the coordinate system\nTo change the coordinate system of your project, choose Project ▸ Properties…. You can also click the CRS code at the right end of the status bar (EPSG:31370, for example).\nIn the Project Properties window, open the CRS tab (A).\nSelect the coordinate system you want in the list (C). If it is not visible, type its name or ID in the Filter box (B).\n\n\n\n\n\n\n\nMost coordinate systems have a unique code, the EPSG code. Choosing a system by its code is safer than choosing it by its name: some systems have almost the same name but are not interchangeable, for example BD72 / Belgian Lambert 72 (EPSG:31370) and BD72 / Belge Lambert 72 (EPSG:31300, an older variant with slightly different parameters).\n\n\n\nSome widely used projected systems include:\n\nFor Belgium: BD72 / Belgian Lambert 72 (EPSG:31370) and the newer ETRS89 / Belgian Lambert 2008 (EPSG:3812)\nFor the Netherlands: Amersfoort / RD New (EPSG:28992)\nFor France: RGF93 v1 / Lambert-93 (EPSG:2154)\nFor the United Kingdom: OSGB36 / British National Grid (EPSG:27700)\nFor Europe: ETRS89-extended / LCC Europe (EPSG:3034), a conformal system, and ETRS89-extended / LAEA Europe (EPSG:3035), an equal-area system\nFor the world: WGS 84 / Pseudo-Mercator (EPSG:3857), as in Google Maps and OpenStreetMap. It is almost conformal and strongly enlarges areas towards the poles, so do not use it to compare or measure areas.\nFor a region anywhere in the world: a UTM zone. In the UTM (Universal Transverse Mercator) system, the world is divided into 60 zones of 6° of longitude, each with its own projection that has little distortion within the zone. Every zone has two coordinate systems: one for the northern hemisphere (N) and one for the southern hemisphere (S). For Belgium, the most suitable is zone 31N (in QGIS: WGS 84 / UTM zone 31N, EPSG:32631).\n\nThe most widely used geographic systems are WGS 84 (EPSG:4326) for the world, as used by GPS, and ETRS89 (EPSG:4258) for Europe.\nOn epsg.io you can look up a coordinate system by its code, its name or a country. For each system, the website shows the area it is meant for, its unit and its parameters. The codes themselves come from the official EPSG registry (epsg.org). epsg.io makes this registry easier to search.",
+    "text": "Changing the coordinate system\nTo change the coordinate system of your project, choose Project ▸ Properties…. You can also click the CRS code at the right end of the status bar (EPSG:31370, for example).\nIn the Project Properties window, open the CRS tab (A).\nSelect the coordinate system you want in the list (C). If it is not visible, type its name or ID in the Filter box (B).\n\n\n\n\n\n\n\nMost coordinate systems have a unique code, the EPSG code. Choosing a system by its code is safer than choosing it by its name: some systems have almost the same name but are not interchangeable, for example BD72 / Belgian Lambert 72 (EPSG:31370) and BD72 / Belge Lambert 72 (EPSG:31300, an older variant with slightly different parameters).\n\n\n\nSome widely used projected systems include:\n\n\n\n\n\n\n\n\n\nArea\nCoordinate system\nEPSG code\nNote\n\n\n\n\nBelgium\nBD72 / Belgian Lambert 72\n31370\n\n\n\nETRS89 / Belgian Lambert 2008\n3812\nThe newer system\n\n\nThe Netherlands\nAmersfoort / RD New\n28992\n\n\n\nFrance\nRGF93 v1 / Lambert-93\n2154\n\n\n\nUnited Kingdom\nOSGB36 / British National Grid\n27700\n\n\n\nUnited States (contiguous)\nNAD83 / Conus Albers\n5070\nEqual-area\n\n\nEurope\nETRS89-extended / LCC Europe\n3034\nConformal\n\n\nETRS89-extended / LAEA Europe\n3035\nEqual-area\n\n\nWorld\nWGS 84 / Pseudo-Mercator\n3857\nAs in Google Maps and OpenStreetMap. Almost conformal, but strongly enlarges areas towards the poles, so do not use it to compare or measure areas\n\n\nAny region\nWGS 84 / UTM zone …\none per zone\n60 zones of 6° of longitude, each with little distortion within the zone, for the northern (N) and southern (S) hemisphere. For Belgium: zone 31N (EPSG:32631)\n\n\n\nThe most widely used geographic systems are WGS 84 (EPSG:4326) for the world, as used by GPS, and ETRS89 (EPSG:4258) for Europe.\nOn epsg.io you can look up a coordinate system by its code, its name or a country. For each system, the website shows the area it is meant for, its unit and its parameters. The codes themselves come from the official EPSG registry (epsg.org). epsg.io makes this registry easier to search.",
     "crumbs": [
       "5 Coordinate systems",
       "5.2 Coordinate systems in practice",
@@ -1757,251 +1757,243 @@
   {
     "objectID": "data-import/geopackage.html",
     "href": "data-import/geopackage.html",
-    "title": "7.1.1 Working with GeoPackages",
+    "title": "7.1 Managing layers in GeoPackages",
     "section": "",
-    "text": "On Common file formats in QGIS you learned what a GeoPackage is: a single database file that can hold several layers. This section shows how to use a GeoPackage in practice:\nThe image below shows where you find most of these options in QGIS. The letters are used in the text below.",
+    "text": "On Common file formats in QGIS you learned what a GeoPackage is: a single database file that can hold several layers. This page shows how to use a GeoPackage in practice:\nThe image below shows where you find most of these options in QGIS. The letters are used in the text below.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.1 Working with GeoPackages"
+      "7 Managing data",
+      "7.1 Managing layers in GeoPackages"
     ]
   },
   {
     "objectID": "data-import/geopackage.html#creating-a-geopackage",
     "href": "data-import/geopackage.html#creating-a-geopackage",
-    "title": "7.1.1 Working with GeoPackages",
+    "title": "7.1 Managing layers in GeoPackages",
     "section": "Creating a GeoPackage",
     "text": "Creating a GeoPackage\nYou already know how to save a layer as a GeoPackage. This is the default format in QGIS when creating a new vector layer. In fact, when you do this, you create not only a new layer but also an entirely new database that stores it.\nYou can also start with an empty GeoPackage database and add layers to it later. One way to do this is to right-click GeoPackage in the Browser panel (B) and choose Create Database….",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.1 Working with GeoPackages"
+      "7 Managing data",
+      "7.1 Managing layers in GeoPackages"
     ]
   },
   {
     "objectID": "data-import/geopackage.html#saving-layers-in-a-geopackage",
     "href": "data-import/geopackage.html#saving-layers-in-a-geopackage",
-    "title": "7.1.1 Working with GeoPackages",
+    "title": "7.1 Managing layers in GeoPackages",
     "section": "Saving layers in a GeoPackage",
     "text": "Saving layers in a GeoPackage\n\nNew layers\nYou can add a new, empty layer to a GeoPackage with the New GeoPackage Layer button  on the Data Source Manager Toolbar (A) (or Layer ▸ Create Layer ▸ New GeoPackage Layer…). Next to File name, select your existing GeoPackage and give the layer a name under Table name. Then click OK and choose Add New Layer. You will learn how to fill a new empty layer from scratch in Manual vectorising.\n\n\nExisting layers\nThere are several ways to save existing layers in a GeoPackage.\n\nGeoPackage section in the Browser panel\nThe easiest method is to drag one or more layers onto your GeoPackage in the Browser panel (B). Alternatively, you can right-click your GeoPackage there and choose Import Vector Layer…. An import window will pop up where you can set the Table name, the Output CRS and the fields to include.\n\n\nSave Features As…\nAnother option is to export an existing layer into a GeoPackage. Right-click it in the Layers panel (C) and choose Export ▸ Save Features As… (vector) or Export ▸ Save As… (raster). Pay attention: for rasters, GeoPackage is not the default export format.\n\n\nUnder Format, select GeoPackage.\nNext to File name, click the … button and select your existing GeoPackage, or type a name for a new one.\nUnder Layer name, type a new name for this layer.\nClick OK. QGIS adds the layer to the existing file. Only if a layer with the same name already exists in the file does QGIS ask what to do (for vector layers, the options are Overwrite File, Overwrite Layer or Append to Layer).\n\n\n\n\n\n\n\n\nBe careful when choosing Overwrite File: QGIS deletes the entire GeoPackage, including all its layers, and creates a new one containing only the layer you are saving. Overwrite Layer, on the other hand, replaces only the layer with the same name. Append to Layer adds all features of the layer as new features. QGIS does not check whether they are already in the layer, so appending twice gives duplicates.\n\n\n\n\n\nPackage layers\nWith the processing tool Package layers, you can store one or more layers at once in a new or an existing GeoPackage, together with their active style. This tool only works for vector layers.\n\nLoad the layers into your project.\nOpen the Processing Toolbox (D) (Processing ▸ Toolbox) and choose Database ▸ Package layers (or type package in the search box).\nUnder Input layers, click the … button and select all the layers you want to store.\nLeave Overwrite existing GeoPackage unticked if you want to add the layers to an existing GeoPackage. If a layer with the same name already exists, it will be replaced. If you do tick this option, QGIS first deletes the existing database, including all the layers it contains.\nLeave Save layer styles into GeoPackage ticked to store the active style of each layer along with its data. Only the active style is packed, the others are not stored with it.\nUnder Destination GeoPackage, choose Save to File… and select a new or an existing GeoPackage.\nClick Run.\n\n\n\n\n\nUsing the GeoPackage layers in your project\nQGIS does not change your original layers. It only makes copies of them in GeoPackage format. If one of the originals was loaded in your QGIS project, it stays there. The copies are not loaded, unless Add saved file to map was ticked in the export window.\nIf you want to use your newly created GeoPackage layers in your project, you have to replace the originals:\n\nRemove the original layers from the Layers panel and add the corresponding layers from the GeoPackage in the Browser panel (B).\nAlternatively, right-click the original layer and choose Change Data Source… to point it to the corresponding layer in the GeoPackage. This preserves the layer’s style and other settings.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.1 Working with GeoPackages"
+      "7 Managing data",
+      "7.1 Managing layers in GeoPackages"
     ]
   },
   {
     "objectID": "data-import/geopackage.html#storing-styles-in-a-geopackage",
     "href": "data-import/geopackage.html#storing-styles-in-a-geopackage",
-    "title": "7.1.1 Working with GeoPackages",
+    "title": "7.1 Managing layers in GeoPackages",
     "section": "Storing styles in a GeoPackage",
     "text": "Storing styles in a GeoPackage\nNormally, how a layer is styled is stored in your project file, not with the data itself. If you add a GeoPackage layer to another project, or send the GeoPackage to someone else, the layer appears with a random default style. You can avoid this by storing the style inside the GeoPackage.\nFor any layer in your GeoPackage, you can do this as follows (see also Saving and reusing styles):\n\nRight-click the layer in the Layers panel and choose Styles ▸ Save Style….\nUnder Save style, choose In datasource database.\nGive the style a name. Optionally, tick Use as default style for this layer if you want QGIS to use this style when the layer is imported. Then click OK.\n\nYou can save several styles for the same layer in your GeoPackage.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.1 Working with GeoPackages"
+      "7 Managing data",
+      "7.1 Managing layers in GeoPackages"
     ]
   },
   {
     "objectID": "data-import/geopackage.html#renaming-and-deleting-layers-in-a-geopackage",
     "href": "data-import/geopackage.html#renaming-and-deleting-layers-in-a-geopackage",
-    "title": "7.1.1 Working with GeoPackages",
+    "title": "7.1 Managing layers in GeoPackages",
     "section": "Renaming and deleting layers in a GeoPackage",
     "text": "Renaming and deleting layers in a GeoPackage\nIn the Browser panel (B), open the GeoPackage (small arrow in front of it) and right-click a layer. Under Manage, you find the options to rename and to delete the layer. You can rename fields there too: open the layer and its Fields, and right-click a field. \n\n\n\n\n\n\nA layer that you delete from a GeoPackage cannot be recovered, so be careful.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.1 Working with GeoPackages"
+      "7 Managing data",
+      "7.1 Managing layers in GeoPackages"
     ]
   },
   {
     "objectID": "data-import/delimited-text.html",
     "href": "data-import/delimited-text.html",
-    "title": "7.2.1 Delimited text files (CSV)",
+    "title": "7.3.2 Tabular data (CSV and spreadsheets)",
     "section": "",
     "text": "Geographic information is not always available as a GIS file. It is often provided in the form of a table, such as an Excel spreadsheet containing place names and coordinates. This page explains how to load these tables into QGIS using delimited text files.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.2 Alternative vector formats",
-      "7.2.1 Delimited text files (CSV)"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.2 Tabular data (CSV and spreadsheets)"
     ]
   },
   {
     "objectID": "data-import/delimited-text.html#delimited-text-fileswhat-is-a-delimited-text-file",
     "href": "data-import/delimited-text.html#delimited-text-fileswhat-is-a-delimited-text-file",
-    "title": "7.2.1 Delimited text files (CSV)",
+    "title": "7.3.2 Tabular data (CSV and spreadsheets)",
     "section": "What is a delimited text file?",
     "text": "What is a delimited text file?\nA delimited text file is a simple and widely used file format for storing tabular data. The principle is straightforward: each line in the file represents one table row, and the columns are separated by a specific character. This is usually a comma or a semicolon, but it can also be a tab, a space or another character.\n\n\n\n\n\n\n\n\n\n\nThe same table of battles of the American Revolutionary War, in Excel (left) and as a delimited text file in a text editor (right).\nPopular programs for working with tabular data, such as MS Excel, can easily read and create such delimited text files. By default, however, Excel uses its own format. When saving a spreadsheet, you can choose a different file format from the Save as type list. To create a delimited text file, select CSV (comma-separated values). It is advisable to choose the UTF-8 version, CSV UTF-8 (Comma delimited), as this is the default encoding in QGIS. This ensures that accents and other special characters (é, ë, ç, etc.) are preserved correctly.\n\n\n\n\n\n\n\nDespite their name, CSV files do not always use a comma as the delimiter. In fact, if your computer’s regional settings are set to Belgium, the default delimiter is usually a semicolon. This is because Belgian settings use a comma as the decimal separator (51,05 rather than 51.05).\n\n\n\n\n\n\n\n\n\nAlthough QGIS can also open Excel files directly, using a delimited text file is particularly useful when your table contains spatial information: QGIS can turn its coordinates into geometries straight away.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.2 Alternative vector formats",
-      "7.2.1 Delimited text files (CSV)"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.2 Tabular data (CSV and spreadsheets)"
     ]
   },
   {
     "objectID": "data-import/delimited-text.html#importing-delimited-text-files",
     "href": "data-import/delimited-text.html#importing-delimited-text-files",
-    "title": "7.2.1 Delimited text files (CSV)",
+    "title": "7.3.2 Tabular data (CSV and spreadsheets)",
     "section": "Importing delimited text files",
     "text": "Importing delimited text files\nTo add a delimited text file in QGIS, open the Data Source Manager (menu Layer ▸ Data Source Manager, or Ctrl+L) on the Delimited Text tab. A large configuration window opens.\n\nFirst, select the file you want to load (A). Next, indicate the delimiter (B). By default, CSV (comma separated values) is selected. If you select Custom delimiters, QGIS shows checkboxes for common alternatives (Semicolon, Tab, Space…). Simply select the delimiter your file uses. If it is not in the list, you can enter it yourself next to Others.\nAt the bottom, under Sample Data (E), you can preview how QGIS interprets your data with the current import settings. This preview is useful throughout the configuration process, as it shows whether the data are split into columns correctly.\nThe image below shows what happens when you choose the wrong delimiter. The comma has been selected, although the file uses semicolons. As a result, several fields end up in a single column. The decimal commas, on the other hand, split numbers across two columns.\n\nUnder Record and Fields Options (C), you specify various properties of the file you want to load. For example:\n\nAre there any lines at the top of the file that should be skipped? If so, enter the number under Number of header lines to discard.\nDoes the first row contain column names?\nAre decimal numbers written with a comma or a point? If they use a comma, tick Decimal separator is comma. In that case, the delimiter is usually a semicolon, as in our example.\nShould spaces before and after text strings be removed? If so, tick Trim fields.\nDo you want to remove empty fields?\n\nIt is best to go through the available checkboxes to make sure the import is correct. Here too, the Sample Data (E) section is very useful.\n\n\n\n\n\n\nIf you select Discard empty fields, empty fields are removed completely and all following fields in the row move one column to the left. As a result, they can end up under the wrong column name. In many cases, you therefore do not want to turn this on.\n\n\n\nUnder Geometry Definition (D) you describe the spatial component of your data.\n\nIf your file contains no coordinates and only attributes, choose No geometry (attribute only table).\nIf your file contains point coordinates and the X and Y values are stored in separate columns, choose Point coordinates. In our example, the X field is LONGITUDE and the Y field is LATITUDE. If the coordinates are written as degrees, minutes and seconds (DMS), tick DMS coordinates. Pay attention: if, as in our example, the coordinates are in degrees but written as decimal numbers, do not tick this box. For example, 51° 3’ 0’’ is a DMS coordinate, whereas 51.05° is not.\nIf the geometries in your text file are described using a Well known text notation (WKT), choose this option. WKT is a standard notation for describing vector geometries. It specifies the geometry type, followed by the coordinates in brackets. Some examples:\nPOINT (-71.06 42.36)\nLINESTRING (-71.06 42.36, -74.01 40.71, -77.04 38.90)\nPOLYGON ((-109.05 41.00, -102.05 41.00, -102.05 37.00, -109.05 37.00, -109.05 41.00))\nSet the Geometry CRS (if applicable): the coordinate reference system in which the coordinates in your file are written. If you choose the wrong CRS, your data end up in the wrong place. See Coordinate system of your geodata.\n\n\n\n\n\n\n\nTry it yourself: From map to text\n\n\n\nWe already mentioned the Sample Data section (E). Don’t forget to check whether QGIS has detected the correct field type for each column. If not, adjust it in the drop-down list above the column.\nOnce you have configured all the settings, you can add the text file to your QGIS project.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.2 Alternative vector formats",
-      "7.2.1 Delimited text files (CSV)"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.2 Tabular data (CSV and spreadsheets)"
     ]
   },
   {
     "objectID": "data-import/delimited-text.html#converting-a-csv-file-to-a-shapefileconverting-a-csv-file-to-a-geopackage",
     "href": "data-import/delimited-text.html#converting-a-csv-file-to-a-shapefileconverting-a-csv-file-to-a-geopackage",
-    "title": "7.2.1 Delimited text files (CSV)",
+    "title": "7.3.2 Tabular data (CSV and spreadsheets)",
     "section": "Converting a CSV file to a GeoPackage",
     "text": "Converting a CSV file to a GeoPackage\n\n\n\n\n\n\nCSV files offer far fewer possibilities in QGIS than GIS files such as GeoPackages or shapefiles. For example, you cannot simply edit the data from a CSV file. It is therefore usually a good idea to convert the imported CSV file to a GeoPackage.\n\n\n\nHow to do this is explained in Working with GeoPackages.\nThe list of battles was derived from Wikipedia, List of American Revolutionary War battles, October 2026 (CC BY-SA 4.0).",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.2 Alternative vector formats",
-      "7.2.1 Delimited text files (CSV)"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.2 Tabular data (CSV and spreadsheets)"
     ]
   },
   {
     "objectID": "data-import/web-formats.html",
     "href": "data-import/web-formats.html",
-    "title": "7.2.2 Web formats",
+    "title": "7.4 Common GIS formats for the web",
     "section": "",
     "text": "Some GIS formats are mainly used in a web context. They are not the first choice for working in QGIS, but QGIS can import and use them. This comes in handy because some data providers only offer their data in this way. Two of them are used particularly often: GeoJSON and KML. Both are text files describing geographic datasets using a certain syntax. Unlike CSV files, these are real GIS files: the geometry is already described in the file, so QGIS can show it on the map at once.\nAnother related format that you have probably heard of is GPX (GPS Exchange Format). It also describes geographic data, but it has a different purpose: exchanging GPS data between devices and apps.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.2 Alternative vector formats",
-      "7.2.2 Web formats"
+      "7 Managing data",
+      "7.4 Common GIS formats for the web"
     ]
   },
   {
     "objectID": "data-import/web-formats.html#geojson-and-kml",
     "href": "data-import/web-formats.html#geojson-and-kml",
-    "title": "7.2.2 Web formats",
+    "title": "7.4 Common GIS formats for the web",
     "section": "GeoJSON and KML",
-    "text": "GeoJSON and KML\n\nCharacteristics\nGeoJSON (.geojson) and KML (Keyhole Markup Language, .kml) share the following characteristics:\n\nThey work with the geometry types you already know, such as points, lines and polygons.\nA file contains a collection of features. It may contain different geometry types (for example points and polygons). QGIS shows them as separate layers when you import the file and asks which ones you want to add.\nThey use longitude and latitude in WGS 84 (EPSG:4326).\nThey are text files, so working with large files in QGIS can be slow.\n\nThe main difference is the syntax: GeoJSON uses JSON, while KML uses XML. A compressed KML file is called a KMZ file (.kmz).\nThis is what a file with a point (Ghent) and a polygon (the Vrijdagmarkt, a square in Ghent) looks like in GeoJSON:\n{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [3.7174, 51.0543]\n      },\n      \"properties\": { \"name\": \"Ghent\" }\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [[[3.7250, 51.0569], [3.7259, 51.0565], [3.7266, 51.0570], [3.7257, 51.0574], [3.7250, 51.0569]]]\n      },\n      \"properties\": { \"name\": \"Vrijdagmarkt\" }\n    }\n  ]\n}\n\n\n\n\n\n\nTry it yourself: From map to text\n\n\n\n\n\nIn QGIS\nYou open these files in exactly the same way as a shapefile or a GeoPackage: drag the file into QGIS, or use the Vector tab of the Data Source Manager (see Importing data into QGIS).\n\n\n\n\n\n\nAs with a CSV file, it is a good idea to save the layer as a GeoPackage before you start working with it (Export ▸ Save Features As…, see Working with GeoPackages). Editing is then faster and safer, and you can store a style with the layer.\n\n\n\nSometimes you need GeoJSON or KML yourself. QGIS can also export to them: right-click the layer, choose Export ▸ Save Features As… and under Format choose GeoJSON or Keyhole Markup Language [KML]. Set the CRS to EPSG:4326 - WGS 84, the coordinate system these formats expect.",
+    "text": "GeoJSON and KML\n\nCharacteristics\nGeoJSON (.geojson) and KML (Keyhole Markup Language, .kml) share the following characteristics:\n\nThey work with the geometry types you already know, such as points, lines and polygons.\nA file contains a collection of features. It may contain different geometry types (for example points and polygons). QGIS shows them as separate layers when you import the file and asks which ones you want to add.\nThey use longitude and latitude in WGS 84 (EPSG:4326).\nThey are text files, so working with large files in QGIS can be slow.\n\nThe main difference is the syntax: GeoJSON uses JSON, while KML uses XML. A compressed KML file is called a KMZ file (.kmz).\nThis is what a file with a point (Ghent) and a polygon (the Vrijdagmarkt, a square in Ghent) looks like in GeoJSON:\n{\n  \"type\": \"FeatureCollection\",\n  \"features\": [\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [3.7174, 51.0543]\n      },\n      \"properties\": { \"name\": \"Ghent\" }\n    },\n    {\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Polygon\",\n        \"coordinates\": [[[3.7250, 51.0569], [3.7259, 51.0565], [3.7266, 51.0570], [3.7257, 51.0574], [3.7250, 51.0569]]]\n      },\n      \"properties\": { \"name\": \"Vrijdagmarkt\" }\n    }\n  ]\n}\n\n\n\n\n\n\nTry it yourself: From map to text\n\n\n\n\n\nIn QGIS\nYou open these files in exactly the same way as a shapefile or a GeoPackage: drag the file into QGIS, or use the Vector tab of the Data Source Manager (see Importing data into QGIS).\n\n\n\n\n\n\nAs with a CSV file, it is a good idea to save the layer as a GeoPackage before you start working with it (Export ▸ Save Features As…, see Managing layers in GeoPackages). Editing is then faster and safer, and you can store a style with the layer.\n\n\n\nSometimes you need GeoJSON or KML yourself. QGIS can also export to them: right-click the layer, choose Export ▸ Save Features As… and under Format choose GeoJSON or Keyhole Markup Language [KML]. Set the CRS to EPSG:4326 - WGS 84, the coordinate system these formats expect.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.2 Alternative vector formats",
-      "7.2.2 Web formats"
+      "7 Managing data",
+      "7.4 Common GIS formats for the web"
     ]
   },
   {
     "objectID": "data-import/web-formats.html#gpx",
     "href": "data-import/web-formats.html#gpx",
-    "title": "7.2.2 Web formats",
+    "title": "7.4 Common GIS formats for the web",
     "section": "GPX",
     "text": "GPX\n\nCharacteristics\nGPX (.gpx) is meant for storing and exchanging GPS data: what a GPS device or app records or needs for navigation. It is not suitable for describing complex geographic features. A GPX file consists of three main elements:\n\nwaypoints (wpt): single points, for example the places you marked.\nroutes (rte): a planned route.\ntracks (trk): the path that you covered and that was recorded by your GPS device.\n\nEvery point, including the points of routes and tracks, can also store an elevation and a time. Like KML, GPX is a text file in XML, with longitude and latitude in WGS 84.\n\n\nIn QGIS\nQGIS opens a GPX file like any other vector file: drag it into the map canvas. QGIS first shows a list of the layers in the file, including the empty ones. Choose the ones you need. Waypoints are loaded as a point layer, routes and tracks as line layers.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.2 Alternative vector formats",
-      "7.2.2 Web formats"
+      "7 Managing data",
+      "7.4 Common GIS formats for the web"
     ]
   },
   {
     "objectID": "data-import/services.html",
     "href": "data-import/services.html",
-    "title": "7.3.1 Services",
+    "title": "7.5.1 Services",
     "section": "",
     "text": "So far, you have always imported local files into QGIS: data that you had on your own computer. You often get such files as a download from a data provider, such as a government.\nHowever, geodata (especially raster data) can be large files that you do not always want to store on your computer (imagine, for example, that you had to download the whole of Google Maps). Moreover, data providers are sometimes willing to make their information available for (restricted) use, but not for download. For these reasons, among others, it is sometimes useful or necessary to load data into your QGIS project from the servers of data providers. Technically, there are several services that make this possible, including:\n\nWMS (Web Map Service)\nWMTS (Web Map Tile Service)\nXYZ Tile Service\n\nAs already mentioned in Data sources, you do not need to know exactly how these services work to use them well, but this is the main difference:\nWMTS and XYZ services tend to be faster than WMS. They send tiles, small square pieces of the map that fit together and can be pre-rendered on the provider’s servers. A WMS, on the other hand, generates a new image each time you pan or zoom and sends this custom map to your computer. With all three, what you receive is an image (a raster), even if the server made it from vector data. You can look at it, but you cannot edit the features on it or use them in analyses.\n\n\n\n\n\n\nEach zoom level of a tiled map has its own tiles, which can show different information: when you are zoomed out, you see only countries and major cities; when you zoom in, you see streets and buildings. The provider can pre-render all these tiles. When you look at a map, your computer only receives the tiles it needs for that zoom level and that area. Both make loading the map fast.\n\n\n\nIn fact, ‘loading’ data from external servers is not fundamentally different from importing local files. You already learned earlier that data are never stored in QGIS itself: when you import data, QGIS only creates a connection to the data source. In principle, it does not matter whether this source is on your computer or elsewhere. In practice, having your own copy often gives you more freedom, because data providers usually limit what you can do with their data.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.3 Server-based data sources",
-      "7.3.1 Services"
+      "7 Managing data",
+      "7.5 Server-based data sources",
+      "7.5.1 Services"
     ]
   },
   {
     "objectID": "data-import/services.html#external-data-providerswhat-are-services",
     "href": "data-import/services.html#external-data-providerswhat-are-services",
-    "title": "7.3.1 Services",
+    "title": "7.5.1 Services",
     "section": "",
     "text": "So far, you have always imported local files into QGIS: data that you had on your own computer. You often get such files as a download from a data provider, such as a government.\nHowever, geodata (especially raster data) can be large files that you do not always want to store on your computer (imagine, for example, that you had to download the whole of Google Maps). Moreover, data providers are sometimes willing to make their information available for (restricted) use, but not for download. For these reasons, among others, it is sometimes useful or necessary to load data into your QGIS project from the servers of data providers. Technically, there are several services that make this possible, including:\n\nWMS (Web Map Service)\nWMTS (Web Map Tile Service)\nXYZ Tile Service\n\nAs already mentioned in Data sources, you do not need to know exactly how these services work to use them well, but this is the main difference:\nWMTS and XYZ services tend to be faster than WMS. They send tiles, small square pieces of the map that fit together and can be pre-rendered on the provider’s servers. A WMS, on the other hand, generates a new image each time you pan or zoom and sends this custom map to your computer. With all three, what you receive is an image (a raster), even if the server made it from vector data. You can look at it, but you cannot edit the features on it or use them in analyses.\n\n\n\n\n\n\nEach zoom level of a tiled map has its own tiles, which can show different information: when you are zoomed out, you see only countries and major cities; when you zoom in, you see streets and buildings. The provider can pre-render all these tiles. When you look at a map, your computer only receives the tiles it needs for that zoom level and that area. Both make loading the map fast.\n\n\n\nIn fact, ‘loading’ data from external servers is not fundamentally different from importing local files. You already learned earlier that data are never stored in QGIS itself: when you import data, QGIS only creates a connection to the data source. In principle, it does not matter whether this source is on your computer or elsewhere. In practice, having your own copy often gives you more freedom, because data providers usually limit what you can do with their data.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.3 Server-based data sources",
-      "7.3.1 Services"
+      "7 Managing data",
+      "7.5 Server-based data sources",
+      "7.5.1 Services"
     ]
   },
   {
     "objectID": "data-import/services.html#openstreetmapexample-xyz-tiles",
     "href": "data-import/services.html#openstreetmapexample-xyz-tiles",
-    "title": "7.3.1 Services",
+    "title": "7.5.1 Services",
     "section": "Example: XYZ Tiles",
     "text": "Example: XYZ Tiles\nSeveral organisations have created base maps and provide access to them. Some of these are governments, others are commercial companies, such as Google or Esri. Others again are open, community-driven projects, such as OpenStreetMap: a detailed, up-to-date map of the world, created and maintained by volunteers.\nSuch base maps are usually provided via one of the services we discussed above. Creating a connection to them in QGIS is easy: all it takes is often just a URL. Data providers publish these URLs in their documentation. Take OpenStreetMap as an example. Its wiki has a list of raster tile providers, each with its own URL to make the connection:\n\nPart of the table of base maps on the OpenStreetMap wiki page ‘Raster tile providers’ (consulted 16 October 2026; OpenStreetMap Wiki, CC BY-SA 2.0; map tiles © OpenStreetMap contributors). The red box shows the tile URL of the standard OpenStreetMap map.\nIn the documentation, you see that the tile URL of OpenStreetMap’s standard layer is:\nhttps://tile.openstreetmap.org/{z}/{x}/{y}.png\nThe structure of the URL clearly shows that this is an XYZ service. To create such a connection in your QGIS window, right-click XYZ Tiles in the Browser panel, choose New Connection…, give the connection a name (e.g. OpenStreetMap), paste the URL you’ve found in the documentation and click OK.\n\n\n\n\n\n\n{z} stands for the zoom level, {x} and {y} for the column and row of a tile. QGIS fills these in automatically.\n\n\n\nOnce you have created the connection, the layer becomes available under XYZ Tiles in the Browser panel. In the case of an XYZ service there is always just one layer, but other services can contain more. All you need to do is drag it into your project.\n\n\n\n\n\n\n\n\n\n\nThe OpenStreetMap layer is not stored in the software itself, nor is it on your computer: a connection is made to the data on the OpenStreetMap servers through the XYZ Tiles service. Background map © OpenStreetMap contributors.\n\n\n\n\n\n\nDepending on the version and your settings, QGIS may already have a predefined connection to OpenStreetMap under XYZ Tiles in the Browser panel. This connection is no different from the one we made manually above.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.3 Server-based data sources",
-      "7.3.1 Services"
+      "7 Managing data",
+      "7.5 Server-based data sources",
+      "7.5.1 Services"
     ]
   },
   {
     "objectID": "data-import/services.html#other-examplesexample-wms",
     "href": "data-import/services.html#other-examplesexample-wms",
-    "title": "7.3.1 Services",
+    "title": "7.5.1 Services",
     "section": "Example: WMS",
     "text": "Example: WMS\nFor the second example, we use open data provided by the Flemish government. Its metadata catalogue lists, among others, hundreds of WMS, WMTS and WFS services. The record of each of these services gives its address.\nWe open the record of the service for historical cartography. The following link is listed as its WMS access point:\nhttps://geo.api.vlaanderen.be/histcart/wms\nTo use it, right-click WMS/WMTS in the Browser panel, choose New Connection…, give the connection a name, paste the address and click OK.\n\n\n\n\n\n\n\n\n\n\nYour Browser panel now shows a connection to the data on the server of the Flemish government. You can browse through several folders containing various layers with geographic information. Drag the layers you want to add into your project (or double-click them). \n\n\n\n\n\n\n\nQGIS remembers service connections for future projects. To remove a connection, right-click it in the Browser panel and choose Remove Connection….\n\n\n\nThe examples above show XYZ and WM(T)S services, but you create WFS, WCS and ArcGIS REST connections in a similar way. A WFS is different in one respect: you receive the features themselves, not an image.\n\n\n\n\n\n\nYou can now do Exercise 2.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.3 Server-based data sources",
-      "7.3.1 Services"
+      "7 Managing data",
+      "7.5 Server-based data sources",
+      "7.5.1 Services"
     ]
   },
   {
     "objectID": "data-import/databases.html",
     "href": "data-import/databases.html",
-    "title": "7.3.2 Databases",
+    "title": "7.5.2 Databases",
     "section": "",
-    "text": "You already know one kind of spatial database: the GeoPackage, a single file on your computer (see Working with GeoPackages). This page is about something else: database servers. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.\nUsing databases has several advantages for data management. For example, it is much easier to work on the same dataset as a team. Moreover, the data are easier to use in a wide range of applications other than specialised GIS software. A database also makes it easier to integrate your geodata into a more advanced data model. On the other hand, setting up and maintaining a database system requires some technical knowledge.\nThere are several database systems that are suitable for processing geographic data, such as\n\nPostgreSQL (with the PostGIS extension, which adds support for geographic data)\nMS SQL (Structured Query Language) Server\nOracle\n…\n\nIn QGIS you can easily connect to one of these systems through the Browser panel or the Data Source Manager. Although each database type has its own configuration window, the connection process is similar for all of them.",
+    "text": "You already know one kind of spatial database: the GeoPackage, a single file on your computer (see Managing layers in GeoPackages). This page is about something else: database servers. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.\nUsing databases has several advantages for data management. For example, it is much easier to work on the same dataset as a team. Moreover, the data are easier to use in a wide range of applications other than specialised GIS software. A database also makes it easier to integrate your geodata into a more advanced data model. On the other hand, setting up and maintaining a database system requires some technical knowledge.\nThere are several database systems that are suitable for processing geographic data, such as\n\nPostgreSQL (with the PostGIS extension, which adds support for geographic data)\nMS SQL (Structured Query Language) Server\nOracle\n…\n\nIn QGIS you can easily connect to one of these systems through the Browser panel or the Data Source Manager. Although each database type has its own configuration window, the connection process is similar for all of them.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.3 Server-based data sources",
-      "7.3.2 Databases"
+      "7 Managing data",
+      "7.5 Server-based data sources",
+      "7.5.2 Databases"
     ]
   },
   {
     "objectID": "data-import/databases.html#databasesdatabase-servers",
     "href": "data-import/databases.html#databasesdatabase-servers",
-    "title": "7.3.2 Databases",
+    "title": "7.5.2 Databases",
     "section": "",
-    "text": "You already know one kind of spatial database: the GeoPackage, a single file on your computer (see Working with GeoPackages). This page is about something else: database servers. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.\nUsing databases has several advantages for data management. For example, it is much easier to work on the same dataset as a team. Moreover, the data are easier to use in a wide range of applications other than specialised GIS software. A database also makes it easier to integrate your geodata into a more advanced data model. On the other hand, setting up and maintaining a database system requires some technical knowledge.\nThere are several database systems that are suitable for processing geographic data, such as\n\nPostgreSQL (with the PostGIS extension, which adds support for geographic data)\nMS SQL (Structured Query Language) Server\nOracle\n…\n\nIn QGIS you can easily connect to one of these systems through the Browser panel or the Data Source Manager. Although each database type has its own configuration window, the connection process is similar for all of them.",
+    "text": "You already know one kind of spatial database: the GeoPackage, a single file on your computer (see Managing layers in GeoPackages). This page is about something else: database servers. The data are then not in a file that you open, but in a database system that runs as a separate program, usually on a server. To reach it, you need connection details.\nUsing databases has several advantages for data management. For example, it is much easier to work on the same dataset as a team. Moreover, the data are easier to use in a wide range of applications other than specialised GIS software. A database also makes it easier to integrate your geodata into a more advanced data model. On the other hand, setting up and maintaining a database system requires some technical knowledge.\nThere are several database systems that are suitable for processing geographic data, such as\n\nPostgreSQL (with the PostGIS extension, which adds support for geographic data)\nMS SQL (Structured Query Language) Server\nOracle\n…\n\nIn QGIS you can easily connect to one of these systems through the Browser panel or the Data Source Manager. Although each database type has its own configuration window, the connection process is similar for all of them.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.3 Server-based data sources",
-      "7.3.2 Databases"
+      "7 Managing data",
+      "7.5 Server-based data sources",
+      "7.5.2 Databases"
     ]
   },
   {
     "objectID": "data-import/databases.html#exampleconnecting-to-postgresql",
     "href": "data-import/databases.html#exampleconnecting-to-postgresql",
-    "title": "7.3.2 Databases",
+    "title": "7.5.2 Databases",
     "section": "Connecting to PostgreSQL",
     "text": "Connecting to PostgreSQL\nAs an example, we connect to a PostgreSQL database called USA. In the Browser panel, right-click PostgreSQL and choose New Connection….\nA new window opens in which you have to enter some connection details, such as a name for the connection, the host, the port, the name of the database, your user name and your password… After you have filled in all the necessary details, click OK.\n\n\n\n\n\n\n\n\n\n\nThe connection now appears under PostgreSQL in the Browser panel. Open it to see the tables that contain geometries, and drag the ones you want into your project.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.3 Server-based data sources",
-      "7.3.2 Databases"
+      "7 Managing data",
+      "7.5 Server-based data sources",
+      "7.5.2 Databases"
     ]
   },
   {
     "objectID": "data-import/interactive-data-import.html",
     "href": "data-import/interactive-data-import.html",
-    "title": "7.4 Interactive",
+    "title": "7.6 Interactive",
     "section": "",
     "text": "Try out what you learned in this chapter. Drag, click and change the settings as much as you like, you can’t break anything!",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.4 Interactive"
+      "7 Managing data",
+      "7.6 Interactive"
     ]
   },
   {
     "objectID": "data-import/interactive-data-import.html#text-formats",
     "href": "data-import/interactive-data-import.html#text-formats",
-    "title": "7.4 Interactive",
+    "title": "7.6 Interactive",
     "section": "From map to text",
-    "text": "From map to text\nDraw points, lines or polygons on the map and see how they are written as text in GeoJSON, in KML and in a CSV file with WKT. You can download the result and open it in QGIS. A file can hold points, lines and polygons together, but a layer in QGIS holds only one geometry type:\n\nGeoJSON and KML: QGIS asks which types you want to add and makes one layer per type.\nCSV: choose WGS 84 as Geometry CRS and pick one Geometry type. QGIS loads only the features of that type, the rest are left out.\n\nSee the theory: Delimited text files and Web formats.\n\nOpen the tool full screen",
+    "text": "From map to text\nDraw points, lines or polygons on the map and see how they are written as text in GeoJSON, in KML and in a CSV file with WKT. You can download the result and open it in QGIS. A file can hold points, lines and polygons together, but a layer in QGIS holds only one geometry type:\n\nGeoJSON and KML: QGIS asks which types you want to add and makes one layer per type.\nCSV: choose WGS 84 as Geometry CRS and pick one Geometry type. QGIS loads only the features of that type, the rest are left out.\n\nSee the theory: Tabular data (CSV and spreadsheets) and Common GIS formats for the web.\n\nOpen the tool full screen",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.4 Interactive"
+      "7 Managing data",
+      "7.6 Interactive"
     ]
   },
   {
@@ -2045,7 +2037,7 @@
     "href": "exercises/solution-railways.html#transport-in-belgium-around-1880",
     "title": "Solution 2: Transport in Belgium (1770–1880)",
     "section": "Transport in Belgium around 1880",
-    "text": "Transport in Belgium around 1880\n\n1. All vector data on the map\nRailways. QGIS cannot read WKT from an Excel sheet. In Excel, choose File ▸ Save As with file type CSV UTF-8 and save the sheet as railways_1880.csv. Then open the Data Source Manager ▸ Delimited Text. WKT always uses a point as the decimal separator, whatever your settings.\n\nStations. The file uses a semicolon between the columns and a comma as the decimal separator. About 100 stations have no coordinates. They are in the attribute table, but not on the map.\n\nCanals, docks and seaports. Drag waterways_1880.geojson into QGIS. The file holds lines (canals and docks) and points (the seaports), and a layer can only hold one geometry type. QGIS therefore asks which layers to add. Add both.\n\nRivers and Belgium. Drag navigable_rivers.kml and belgium.gpkg into QGIS. Show Belgium with an outline only (Simple Fill ▸ Fill style No Brush).\nSee Delimited text files (CSV) and Web formats.\n\n\n2. Stations opened between 1832 and 1880\nChoose a Graduated style on opened with 2 classes, and change the values of the classes by hand (double-click them). Untick the second class. QGIS has no separate manual mode: after you change the values by hand, Mode still shows the method you started from. Stations without a year in opened belong to no class and are not shown either: for those, the year is not known. See Graduated symbology.\n\n\n\n3. Everything in one GeoPackage\nThe CSV files, the GeoJSON and the KML are good for exchanging data, but less suitable for working with them.\n\nIn the Browser panel, right-click GeoPackage ▸ Create Database… and create transport_1880.gpkg.\nIn the Processing Toolbox, open Database ▸ Package layers, select the five layers and the new GeoPackage, and click Run. Save layer styles into GeoPackage stores the style of each layer as well.\nReplace the original layers in your project by the layers from the GeoPackage.\n\n\nOther ways work as well, for example Export ▸ Save Features As… per layer, followed by Styles ▸ Save Style… ▸ In datasource database. See Working with GeoPackages.\n\n\n4. Vandermaelen map for Flanders and Wallonia\nThe map exists as two services, one per region (see Services):\n\nFlanders: search for Vandermaelen in the metadata catalogue of the Flemish government (https://metadata.vlaanderen.be). The record of the service for historical cartography gives the address https://geo.api.vlaanderen.be/histcart/wms. Add the layer Topografische kaart Vandermaelen (1846-1854), Vlaanderen.\nWallonia: search for Vandermaelen on the Géoportail de la Wallonie (https://geoportail.wallonie.be). The record of Cartes de Vandermaelen (1846-1854) gives the address https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/VDML/MapServer/WMSServer.\n\nFor each, create a connection (Browser ▸ right-click WMS/WMTS ▸ New Connection…) and drag the map into your project, at the bottom of the Layers panel.",
+    "text": "Transport in Belgium around 1880\n\n1. All vector data on the map\nRailways. QGIS cannot read WKT from an Excel sheet. In Excel, choose File ▸ Save As with file type CSV UTF-8 and save the sheet as railways_1880.csv. Then open the Data Source Manager ▸ Delimited Text. WKT always uses a point as the decimal separator, whatever your settings.\n\nStations. The file uses a semicolon between the columns and a comma as the decimal separator. About 100 stations have no coordinates. They are in the attribute table, but not on the map.\n\nCanals, docks and seaports. Drag waterways_1880.geojson into QGIS. The file holds lines (canals and docks) and points (the seaports), and a layer can only hold one geometry type. QGIS therefore asks which layers to add. Add both.\n\nRivers and Belgium. Drag navigable_rivers.kml and belgium.gpkg into QGIS. Show Belgium with an outline only (Simple Fill ▸ Fill style No Brush).\nSee Tabular data (CSV and spreadsheets) and Common GIS formats for the web.\n\n\n2. Stations opened between 1832 and 1880\nChoose a Graduated style on opened with 2 classes, and change the values of the classes by hand (double-click them). Untick the second class. QGIS has no separate manual mode: after you change the values by hand, Mode still shows the method you started from. Stations without a year in opened belong to no class and are not shown either: for those, the year is not known. See Graduated symbology.\n\n\n\n3. Everything in one GeoPackage\nThe CSV files, the GeoJSON and the KML are good for exchanging data, but less suitable for working with them.\n\nIn the Browser panel, right-click GeoPackage ▸ Create Database… and create transport_1880.gpkg.\nIn the Processing Toolbox, open Database ▸ Package layers, select the five layers and the new GeoPackage, and click Run. Save layer styles into GeoPackage stores the style of each layer as well.\nReplace the original layers in your project by the layers from the GeoPackage.\n\n\nOther ways work as well, for example Export ▸ Save Features As… per layer, followed by Styles ▸ Save Style… ▸ In datasource database. See Managing layers in GeoPackages.\n\n\n4. Vandermaelen map for Flanders and Wallonia\nThe map exists as two services, one per region (see Services):\n\nFlanders: search for Vandermaelen in the metadata catalogue of the Flemish government (https://metadata.vlaanderen.be). The record of the service for historical cartography gives the address https://geo.api.vlaanderen.be/histcart/wms. Add the layer Topografische kaart Vandermaelen (1846-1854), Vlaanderen.\nWallonia: search for Vandermaelen on the Géoportail de la Wallonie (https://geoportail.wallonie.be). The record of Cartes de Vandermaelen (1846-1854) gives the address https://geoservices.wallonie.be/arcgis/services/CARTES_ANCIENNES/VDML/MapServer/WMSServer.\n\nFor each, create a connection (Browser ▸ right-click WMS/WMTS ▸ New Connection…) and drag the map into your project, at the bottom of the Layers panel.",
     "crumbs": [
       "Exercises",
       "Exercise 2: Transport in Belgium (1770–1880)",
@@ -2227,7 +2219,7 @@
     "href": "querying/automated-selections.html#selection-based-on-location",
     "title": "8.2.2 Automated selections & extractions",
     "section": "Based on location",
-    "text": "Based on location\nBesides attribute values, the position of features can also be a criterion: do they overlap, cross or touch features in another layer? For such spatial relationships, use Select by location or Extract by location, which you open in the same way.\nIn the configuration window, specify:\n\nSelect features from: the layer you want to select features from.\nWhere the features (geometric predicate): the spatial relationship, for example are within or intersect. You can choose multiple predicates at once. A feature is then selected as soon as it meets one of them.\nBy comparing to the features from: the reference layer.\nModify current selection by: what happens to any existing selection, as in Select by attribute.\n\n\n\n\n\n\n\n\n\n\n\nThe example above shows how to find the battles of the American Civil War that were not fought on land. Choose the civil_war_battles layer, the predicate disjoint (no point in common) and the reference layer states, and click Run. You will notice that most of the selected points indeed lie in harbours, bays and sounds along the coast, for example at Fort Sumter in Charleston Harbor.\n\n\n\n\n\n\nTry it yourself: see what the other predicates do in Select by location.\n\n\n\nOne setting we have not discussed yet is the Selected features only checkbox. When you tick it, QGIS only takes the selected features of the reference layer into account.\n\n\n\n\n\n\n\n\n\n\nThis time the question is which Civil War battles were fought in Kentucky. First select Kentucky by hand in the states layer. Then open Select by location again: select features from civil_war_battles, with the predicate are within and states as the reference layer, and tick Selected features only. QGIS now only selects the battles in Kentucky. Without the checkbox, it would select the battles that were fought in any state.\n\n\n\n\n\n\nSome questions need more than one attribute value or one spatial relation. For those you can select with an expression. You will learn how in chapter 9 Expressions.\n\n\n\n* In the maps on this page, the selected points have a black outline for clarity. You can change the look of selected features in Layer Properties ▸ Rendering ▸ Selections ▸ Override symbol for selected features.",
+    "text": "Based on location\nBesides attribute values, the position of features can also be a criterion: do they overlap, cross or touch features in another layer? For such spatial relationships, use Select by location or Extract by location, which you open in the same way.\nIn the configuration window, specify:\n\nSelect features from: the layer you want to select features from.\nWhere the features (geometric predicate): the spatial relationship, for example are within or intersect. You can choose multiple predicates at once. A feature is then selected as soon as it meets one of them. What each predicate means is explained in Joining by location. Select by location has one extra predicate: disjoint, for features that have no point in common.\nBy comparing to the features from: the reference layer.\nModify current selection by: what happens to any existing selection, as in Select by attribute.\n\n\n\n\n\n\n\n\n\n\n\nThe example above shows how to find the battles of the American Civil War that were not fought on land. Choose the civil_war_battles layer, the predicate disjoint (no point in common) and the reference layer states, and click Run. You will notice that most of the selected points indeed lie in harbours, bays and sounds along the coast, for example at Fort Sumter in Charleston Harbor.\n\n\n\n\n\n\nTry it yourself: see what the other predicates do in Select by location.\n\n\n\nOne setting we have not discussed yet is the Selected features only checkbox. When you tick it, QGIS only takes the selected features of the reference layer into account.\n\n\n\n\n\n\n\n\n\n\nThis time the question is which Civil War battles were fought in Kentucky. First select Kentucky by hand in the states layer. Then open Select by location again: select features from civil_war_battles, with the predicate are within and states as the reference layer, and tick Selected features only. QGIS now only selects the battles in Kentucky. Without the checkbox, it would select the battles that were fought in any state.\n\n\n\n\n\n\nSome questions need more than one attribute value or one spatial relation. For those you can select with an expression. You will learn how in chapter 9 Expressions.\n\n\n\n* In the maps on this page, the selected points have a black outline for clarity. You can change the look of selected features in Layer Properties ▸ Rendering ▸ Selections ▸ Override symbol for selected features.",
     "crumbs": [
       "8 Querying data",
       "8.2 Selections",
@@ -2263,7 +2255,7 @@
     "href": "querying/statistical-queries.html#querying-geometries-statistically",
     "title": "8.4.1 Statistics of vector data",
     "section": "Querying geometries statistically",
-    "text": "Querying geometries statistically\nYou can calculate statistics not only for attribute fields, but also for your geometries. Below are a few of the options, all in the Processing Toolbox.\n\nYou can apply Vector analysis ▸ Nearest neighbour analysis to a vector layer with point geometries. Among other things, it calculates the mean distance from each point to its nearest neighbouring point.\nYou can apply Vector analysis ▸ Overlap analysis to a polygon layer. For each polygon, it calculates how much of its area overlaps with another layer, as an area and as a percentage.\nYou can apply Vector general ▸ Join attributes by location (summary) to two layers. It calculates statistics for the features of one layer that overlap with the features of another layer, and writes them to a new layer. Chapter 12 comes back to this tool.\n\nFor example, for the Civil War battles (in EPSG:5070, a CRS in metres), Nearest neighbour analysis gives a mean distance of about 47 km to the nearest other battle. On the map, each black line connects a battle with the nearest other battle:\n\n\n\n\n\n\n\n\n\n\nYou can now do Exercise 3, part A.",
+    "text": "Querying geometries statistically\nYou can calculate statistics not only for attribute fields, but also for your geometries. Below are a few of the options, all in the Processing Toolbox.\n\nYou can apply Vector analysis ▸ Nearest neighbour analysis to a vector layer with point geometries. Among other things, it calculates the mean distance from each point to its nearest neighbouring point.\nYou can apply Vector analysis ▸ Distance to nearest hub (points) or (line to hub) to two layers. For each feature of one layer, it finds the nearest feature (the hub) of another layer and calculates the distance to it. The line to hub variant also draws a line to that hub.\nYou can apply Vector analysis ▸ Overlap analysis to a polygon layer. For each polygon, it calculates how much of its area overlaps with another layer, as an area and as a percentage.\nYou can apply Vector general ▸ Join attributes by location (summary) to two layers. It calculates statistics for the features of one layer that overlap with the features of another layer, and writes them to a new layer. It works like Join attributes by location (chapter 7), see below.\n\n\nJoin attributes by location (summary)\nQGIS also offers the related Join Attributes by Location (Summary) function (also in the Processing Toolbox, group Vector general), a statistical variant of the tool above. Like that tool, it checks for each feature of a layer which features of another layer have the spatial relationship you choose. Unlike the tool above, however, it does not copy the attributes of these related features, but calculates statistics about them, such as the number of matching features and the minimum, maximum and mean values of selected attributes.\nFor example, for the Civil War battles (in EPSG:5070, a CRS in metres), Nearest neighbour analysis gives a mean distance of about 47 km to the nearest other battle. On the map, each black line connects a battle with the nearest other battle:\n\n\n\n\n\n\n\n\n\n\nYou can now do Exercise 3, part A.",
     "crumbs": [
       "8 Querying data",
       "8.4 Statistical queries",
@@ -2323,7 +2315,7 @@
     "href": "querying/raster-statistics.html#zonal-statistics",
     "title": "8.4.2 Statistics of raster data",
     "section": "Zonal statistics",
-    "text": "Zonal statistics\nZonal statistics calculates statistics for the raster cells that overlap with each polygon of a vector layer. You will learn more about this tool in chapter 13.",
+    "text": "Zonal statistics\nZonal statistics (Processing Toolbox ▸ Raster analysis) calculates statistics of a raster for each polygon of a vector layer: for example the mean, the minimum and the maximum of all the cells that lie inside the polygon. Choose the polygon layer, the raster and the statistics you want. The result is a new layer: the polygons with an extra column per statistic.\nThis answers questions such as: what was the mean temperature in August in each country?",
     "crumbs": [
       "8 Querying data",
       "8.4 Statistical queries",
@@ -2659,49 +2651,49 @@
   {
     "objectID": "data-import/editing-attribute-data.html",
     "href": "data-import/editing-attribute-data.html",
-    "title": "7.1.2 Editing the attribute table",
+    "title": "7.3.1 Editing the attribute table",
     "section": "",
     "text": "In The attribute table you learned how to view attribute data. Often you need to do more than just consult them: you may want to change individual values, add or delete fields (columns), or update many values at once. QGIS provides tools for all of these tasks.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.2 Editing the attribute table"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.1 Editing the attribute table"
     ]
   },
   {
     "objectID": "data-import/editing-attribute-data.html#editing-the-attribute-table",
     "href": "data-import/editing-attribute-data.html#editing-the-attribute-table",
-    "title": "7.1.2 Editing the attribute table",
+    "title": "7.3.1 Editing the attribute table",
     "section": "Editing the attribute table",
     "text": "Editing the attribute table\n\nWhen you open the attribute table, you will notice that you cannot edit individual cells straight away. First you need to activate editing mode with Toggle editing mode  (A1).\n\nFeatures\nOnce editing mode is active, you can edit individual cell values directly in the table: just click the cell you want to update and overwrite its content. Remember that each field has a type. You cannot enter text in a number field, for example.\nYou can also add, delete or copy whole features (rows). The buttons for this are grouped above the table (A5): Add feature via attribute table , Delete selected features , Cut selected rows to clipboard , Copy selected rows to clipboard  and Paste features from clipboard . The usual keyboard shortcuts work as well: Ctrl+X (cut), Ctrl+C (copy), Ctrl+V (paste) and Delete.\nIf you want to edit several features at once, you can use multi edit mode. Suppose you add a new field RESULT to the layer civil_war_battles and want to fill in Union victory for a few clear Union victories, such as the battles of Gettysburg, Fort Donelson and Five Forks:\n\nSelect the features you want to update (here these three battles).\nClick Toggle multi edit mode  (A2). You can still adapt your selection in the list on the left.\nEnter the new value in the box of the right field (here Union victory in RESULT). The icon next to it turns red.\nClick apply changes in the yellow bar at the top of the form.\n\n\nQGIS applies the values you entered to all selected features.\n\n\nAttribute fields\nBesides values and features, you can also add or delete attribute fields: with New field  (A7) and Delete field  (A8).\n\nWhen adding a field, you need to specify its properties in the Add Field window:\n\nName: the name of the new field. In a shapefile, field names are limited to 10 characters. GeoPackages allow longer names.\nType: the type of data the field will contain, such as text, integer or decimal number.\nLength: the maximum number of characters or digits the field can store.\nPrecision: for decimal fields, the number of digits after the decimal point.\n\nRemember that the precision is included in the total field length. For example, if you set Length to 4 and Precision to 3, the field can store one digit before and three digits after the decimal point.\n\n\n\n\n\n\nOnce you have created a column, you cannot simply change the field type or the length. So always think carefully before you create a field!\n\n\n\n\n\nReloading data\nIf other users or programs edit the same data source at the same time, Reload the table  (A4) shows the latest version.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.2 Editing the attribute table"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.1 Editing the attribute table"
     ]
   },
   {
     "objectID": "data-import/editing-attribute-data.html#saving-your-edits",
     "href": "data-import/editing-attribute-data.html#saving-your-edits",
-    "title": "7.1.2 Editing the attribute table",
+    "title": "7.3.1 Editing the attribute table",
     "section": "Saving your edits",
     "text": "Saving your edits\nAlways remember to save your edits with Save edits  (A3). Saving the project is not enough: as you learned in QGIS project, a project only stores a link to its data sources, not the data themselves. If you have edited several layers, save each of them separately. Otherwise your edits can be lost.",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.2 Editing the attribute table"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.1 Editing the attribute table"
     ]
   },
   {
     "objectID": "data-import/editing-attribute-data.html#managing-field-structure",
     "href": "data-import/editing-attribute-data.html#managing-field-structure",
-    "title": "7.1.2 Editing the attribute table",
+    "title": "7.3.1 Editing the attribute table",
     "section": "Managing field structure",
     "text": "Managing field structure\nIn the attribute table itself, you cannot change the name or the type of an existing field. Via a detour, though, you can achieve both.\nYou can rename an existing field in the Layer Properties. Open the Fields tab, activate editing mode and double-click the field name.\nChanging a field’s type or length is in principle impossible. You can, however, create a copy of your layer with adjusted settings for specific attribute fields. For this you use the Refactor fields tool, which you find in the Processing Toolbox under Vector table. Its window lists all attribute fields of the layer with their current settings. Adjust the settings you want to change and click Run. The tool leaves the original layer unchanged and creates a new layer with the adjusted fields. This new layer is a full copy: it contains all features of the original layer, with their geometries and attribute values.\n\n\n\n\n\n\nBecause the data are copied as well, every existing value must fit the new field type. A text field that only contains numbers, such as 31, can become a number field. A text field with names, such as Nebraska, cannot. So make sure you clean or empty the fields you want to change before you use the tool.\n\n\n\n\n\n\n\n\n\n\n\n\n\nAs with other Processing tools, Refactor fields creates a temporary layer by default. If you want to keep working with it, save it as a permanent file, for example a GeoPackage layer (Save to GeoPackage… under Refactored).",
     "crumbs": [
-      "7 Data in GIS (part 2)",
-      "7.1 Vector data management",
-      "7.1.2 Editing the attribute table"
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.1 Editing the attribute table"
     ]
   },
   {
@@ -3027,7 +3019,7 @@
     "href": "expressions/geometric-properties.html",
     "title": "9.5.1 Using a geometry in expressions",
     "section": "",
-    "text": "On the previous pages you learned how to query features by their attribute values. In this section, we look at how to query features based on their geometry.\nBefore we begin, let’s clarify what we mean by a geometry in GIS. A geometry describes the location and shape of a feature. It consists of two elements: a geometry type ((multi-)point, line or polygon) and a set of coordinates. A point has one pair of coordinates, a line or polygon several pairs. \n\n\n\n\n\n\nA multi-geometry consists of several separate parts. For example, a country with islands can be represented as one feature with a multipolygon geometry: one polygon for the mainland and one for each island. All parts of a multi-geometry have the same geometry type.\n\n\n\nIn an expression you can calculate various properties of a geometry, such as its area, length or number of parts.\nTo work with geometries in expressions, QGIS provides the following elements:\n\nThe variable @geometry, which retrieves the geometry of the current feature.\nThe geometry functions $area, $length and $perimeter, which calculate common geometric properties of the current feature without requiring any additional input.\nA wide range of other functions for working with geometries. Most of these take one or more geometries as arguments. For example, distance(geometry1, geometry2) calculates the minimum distance between two geometries.",
+    "text": "On the previous pages you learned how to query features by their attribute values. In this section, we look at how to query features based on their geometry.\nBefore we begin, let’s clarify what we mean by a geometry in GIS. A geometry describes the location and shape of a feature. It consists of two elements: a geometry type ((multi-)point, line or polygon) and a set of coordinates. A point has one pair of coordinates; lines and polygons have several pairs. For multipart features, this applies to each part. \nIn an expression you can calculate various properties of a geometry, such as its area, length or number of parts.\nTo work with geometries in expressions, QGIS provides the following elements:\n\nThe variable @geometry, which retrieves the geometry of the current feature.\nThe geometry functions $area, $length and $perimeter, which calculate common geometric properties of the current feature without requiring any additional input.\nA wide range of other functions for working with geometries. Most of these take one or more geometries as arguments. For example, distance(geometry1, geometry2) calculates the minimum distance between two geometries.",
     "crumbs": [
       "9 Expressions",
       "9.5 Geometric properties",
@@ -3039,7 +3031,7 @@
     "href": "expressions/geometric-properties.html#geometric-propertieswhat-is-a-geometry",
     "title": "9.5.1 Using a geometry in expressions",
     "section": "",
-    "text": "On the previous pages you learned how to query features by their attribute values. In this section, we look at how to query features based on their geometry.\nBefore we begin, let’s clarify what we mean by a geometry in GIS. A geometry describes the location and shape of a feature. It consists of two elements: a geometry type ((multi-)point, line or polygon) and a set of coordinates. A point has one pair of coordinates, a line or polygon several pairs. \n\n\n\n\n\n\nA multi-geometry consists of several separate parts. For example, a country with islands can be represented as one feature with a multipolygon geometry: one polygon for the mainland and one for each island. All parts of a multi-geometry have the same geometry type.\n\n\n\nIn an expression you can calculate various properties of a geometry, such as its area, length or number of parts.\nTo work with geometries in expressions, QGIS provides the following elements:\n\nThe variable @geometry, which retrieves the geometry of the current feature.\nThe geometry functions $area, $length and $perimeter, which calculate common geometric properties of the current feature without requiring any additional input.\nA wide range of other functions for working with geometries. Most of these take one or more geometries as arguments. For example, distance(geometry1, geometry2) calculates the minimum distance between two geometries.",
+    "text": "On the previous pages you learned how to query features by their attribute values. In this section, we look at how to query features based on their geometry.\nBefore we begin, let’s clarify what we mean by a geometry in GIS. A geometry describes the location and shape of a feature. It consists of two elements: a geometry type ((multi-)point, line or polygon) and a set of coordinates. A point has one pair of coordinates; lines and polygons have several pairs. For multipart features, this applies to each part. \nIn an expression you can calculate various properties of a geometry, such as its area, length or number of parts.\nTo work with geometries in expressions, QGIS provides the following elements:\n\nThe variable @geometry, which retrieves the geometry of the current feature.\nThe geometry functions $area, $length and $perimeter, which calculate common geometric properties of the current feature without requiring any additional input.\nA wide range of other functions for working with geometries. Most of these take one or more geometries as arguments. For example, distance(geometry1, geometry2) calculates the minimum distance between two geometries.",
     "crumbs": [
       "9 Expressions",
       "9.5 Geometric properties",
@@ -3544,7 +3536,7 @@
     "href": "data-creation/data-creation-intro.html#from-raster-data-to-vector-data",
     "title": "11.1 Vectorising: introduction",
     "section": "From raster data to vector data",
-    "text": "From raster data to vector data\nA lot of spatial information is only available as raster data: think of scanned (historical) maps, aerial photographs, satellite images… However, raster data offer limited possibilities for analysis, editing and visualisation (see also Raster model versus vector model). In addition, these raster images are often protected by copyright, which prevents their free use. So there are several good reasons why you may want to convert information found on raster images into vectors. This process is called ‘vectorising’.\nVectorising is still mostly manual work: you redraw what you see on the map with the drawing tools of QGIS, much like copying a map onto tracing paper (see Manual vectorising). Only in specific situations can you automate it (see Automatic vectorising).\n\nBackground map: P. Gérard (after plans by L. Gérard), engraved by V. Corvillain, Plan parcellaire de la ville de Gand, 1855–1857, scale 1:2500 (Ghent University Library, BRKZ.KRT.0972), public domain; georeferenced in Belgian Lambert 72. The red polygons are buildings vectorised from it.\n\n\n\n\n\n\nRemember that all features within one vector layer always have the same geometry type. If you want to draw both lines and polygons, you need a separate layer for each.\n\n\n\nYou can also create new data with processing tools, which calculate new layers from existing ones. That is the subject of the next two chapters: Vector processing tools and Raster processing tools.",
+    "text": "From raster data to vector data\nA lot of spatial information is only available as raster data: think of scanned (historical) maps, aerial photographs, satellite images… However, raster data offer limited possibilities for analysis, editing and visualisation (see also Raster model versus vector model). In addition, these raster images are often protected by copyright, which prevents their free use. So there are several good reasons why you may want to convert information found on raster images into vectors. This process is called ‘vectorising’.\nVectorising is still mostly manual work: you redraw what you see on the map with the drawing tools of QGIS, much like copying a map onto tracing paper (see Manual vectorising). Only in specific situations can you automate it (see Automatic vectorising).\n\nBackground map: P. Gérard (after plans by L. Gérard), engraved by V. Corvillain, Plan parcellaire de la ville de Gand, 1855–1857, scale 1:2500 (Ghent University Library, BRKZ.KRT.0972), public domain; georeferenced in Belgian Lambert 72. The red polygons are buildings vectorised from it.\n\n\n\n\n\n\nRemember that all features within one vector layer always have the same geometry type. If you want to draw both lines and polygons, you need a separate layer for each.\n\n\n\nYou can also create new data with processing tools, which calculate new layers from existing ones. That is the subject of the next two chapters: Geoprocessing vectors and Geoprocessing rasters.",
     "crumbs": [
       "11 Vectorising",
       "11.1 Vectorising: introduction"
@@ -3711,7 +3703,7 @@
     "href": "data-creation/vectorising-advanced.html#merging",
     "title": "11.2.3 Advanced digitizing",
     "section": "Merging",
-    "text": "Merging\nMerge Selected Features does the opposite of the tool above: it combines multiple features into a single ‘large’ one. To use it, first select all the relevant features in the layer, and then click the  button.\nMerging features affects both the geometry and the attributes:\n\nQGIS fuses the geometries into one. For adjoining polygons, for example, it creates a new shape based on the outer boundaries of the originals. Former in-between boundaries disappear.\nThe attributes cannot be combined in that way. After you click Merge Selected Features, the Merge Features window pops up. Here you can choose which of the originals’ attributes are kept. Several options are provided. To keep those of a specific feature, select its row in the list and click Take attributes from selected feature.\n\nThis tool has many practical applications too. For example, data providers often supply their river or road data in pieces, such as river parts rather than one large feature per river. In certain cases you want to turn those into one feature per river. Likewise, think of the fusion of several municipalities.\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeft: the abbey and the church are selected. Middle: in the Merge Features window, the abbey’s row is selected. Right: the merged feature, without the dividing line.\nIn chapter 12 you will also see the Dissolve processing tool, which merges features of a whole layer at once, for example all features with the same value in a field.",
+    "text": "Merging\nMerge Selected Features does the opposite of the tool above: it combines multiple features into a single ‘large’ one. To use it, first select all the relevant features in the layer, and then click the  button.\nMerging features affects both the geometry and the attributes:\n\nQGIS fuses the geometries into one. For adjoining polygons, for example, it creates a new shape based on the outer boundaries of the originals. Former in-between boundaries disappear. If the selected features do not touch, the result is one multipart feature.\nThe attributes cannot be combined in that way. After you click Merge Selected Features, the Merge Features window pops up. Here you can choose which of the originals’ attributes are kept. Several options are provided. To keep those of a specific feature, select its row in the list and click Take attributes from selected feature.\n\n\n\n\n\n\n\nMerging unconnected geometries only works if your layer is a multi-type layer. If not, you will get an error message and the merge will fail.\n\n\n\nThis tool has many practical applications too. For example, data providers often supply their river or road data in pieces, such as river parts rather than one large feature per river. In certain cases you want to turn those into one feature per river. Likewise, think of the fusion of several municipalities.\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeft: the abbey and the church are selected. Middle: in the Merge Features window, the abbey’s row is selected. Right: the merged feature, without the dividing line.\nIn chapter 12 you will also see the Dissolve processing tool, which merges features of a whole layer at once, for example all features with the same value in a field.",
     "crumbs": [
       "11 Vectorising",
       "11.2 Manual vectorising",
@@ -3722,8 +3714,8 @@
     "objectID": "data-creation/vectorising-advanced.html#multipart-features",
     "href": "data-creation/vectorising-advanced.html#multipart-features",
     "title": "11.2.3 Advanced digitizing",
-    "section": "Multipart features",
-    "text": "Multipart features\nYou already came across multipart features in chapter 9. A multipart feature is a single feature that consists of several separate geometries, called parts. It has only one row in the attribute table.\n\n\n\n\n\n\n\n\nTool\nWhat it does\nHow\n\n\n\n\n Add Part\nAdds a new part to an existing feature.\nSelect the feature, click Add Part and draw the new part as a normal polygon.\n\n\n Split Parts\nSplits a part into several adjoining parts that remain one feature.\nDraw a line through the part, as with Split Features.\n\n\n Delete Part\nRemoves one part of a feature.\nClick the part you want to remove.\n\n\n\nIn practice, multipart features are used for exclaves or for countries with islands, among other things. Another use case is a layer of large landowners, in which each feature represents a patchwork of parcels.\n\nTo turn the parts of multipart features into separate features again, use the Multipart to singleparts processing tool, which you will see in chapter 12. It creates a new layer in which every part is a feature of its own, with the attributes of the original feature.\n\n\n\n\n\n\nYou can now do Exercise 5.",
+    "section": "Parts",
+    "text": "Parts\nThe Advanced Digitizing Toolbar also provides tools that are specifically meant for working with multipart features.\n\n\n\n\n\n\n\n\nTool\nWhat it does\nHow\n\n\n\n\n Add Part\nAdds a new part to an existing feature.\nSelect the feature, click Add Part and draw the new part as a normal polygon.\n\n\n Split Parts\nSplits a part into several adjoining parts that remain one feature.\nDraw a line through the part, as with Split Features.\n\n\n Delete Part\nRemoves one part of a feature.\nClick the part you want to remove.\n\n\n\n\nTo turn the parts of multipart features into separate features again, use the Multipart to singleparts processing tool, which you will see in chapter 12. It creates a new layer in which every part is a feature of its own, with the attributes of the original feature.\n\n\n\n\n\n\nYou can now do Exercise 5.",
     "crumbs": [
       "11 Vectorising",
       "11.2 Manual vectorising",
@@ -3761,6 +3753,111 @@
     "crumbs": [
       "11 Vectorising",
       "11.4 Interactive"
+    ]
+  },
+  {
+    "objectID": "data-import/multipart.html",
+    "href": "data-import/multipart.html",
+    "title": "7.2 Multipart features",
+    "section": "",
+    "text": "In chapter 2, you learned about the three basic geometry types: points, lines and polygons. Examples included capital cities, streets and countries, respectively. However, there are situations in which a single point, line or polygon is not sufficient to represent a geographical entity. Think of the following examples:\nYou could create a separate feature for each part, but this would mean that the parts are represented as separate records, even when they belong to the same geographical entity. For a country with hundreds of thousands of islands, the same information would have to be repeated across many records. This can make the attribute table unnecessarily large and complicate updates.",
+    "crumbs": [
+      "7 Managing data",
+      "7.2 Multipart features"
+    ]
+  },
+  {
+    "objectID": "data-import/multipart.html#types",
+    "href": "data-import/multipart.html#types",
+    "title": "7.2 Multipart features",
+    "section": "Multipart geometry types",
+    "text": "Multipart geometry types\nYou can therefore also create multipart geometries: features whose geometry can consist of more than one part. All parts of a multipart geometry belong to the same basic geometry type: points, lines or polygons. Multipart geometries are geometry types of their own: MultiPoint, MultiLineString and MultiPolygon, alongside the single-part geometry types Point, LineString and Polygon.\nThe table below visualises the examples we listed above. In each case, one feature is selected. \n\n\n\n\n\n\n\n\nMultiPolygon\nMultiLineString\nMultiPoint\n\n\n\n\nMalaysia (9 polygon parts)\nBij Sint-Jacobs (16 line parts)\nSouth Africa (3 capitals)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMultipart geometries have their own geometry types. A MultiPolygon, for example, is a different geometry type from a Polygon.\nAs you learned, a single vector layer can only contain features with the same geometry type. A Polygon layer therefore cannot store MultiPolygon features. Conversely, a MultiPolygon layer can contain features with any number of polygon parts, including just one. The geometry type is determined by how the geometry is stored, not by the number of parts it contains.",
+    "crumbs": [
+      "7 Managing data",
+      "7.2 Multipart features"
+    ]
+  },
+  {
+    "objectID": "data-import/multipart.html#working",
+    "href": "data-import/multipart.html#working",
+    "title": "7.2 Multipart features",
+    "section": "Checking the geometry type",
+    "text": "Checking the geometry type\nYou cannot always tell from the map whether a layer uses single-part or multipart geometries. To check a layer’s geometry type, open its Layer Properties and go to the Information tab.\n\nHow to convert a single-part layer into a multipart layer is explained in chapter 12.",
+    "crumbs": [
+      "7 Managing data",
+      "7.2 Multipart features"
+    ]
+  },
+  {
+    "objectID": "data-import/joins.html",
+    "href": "data-import/joins.html",
+    "title": "7.3.3 Joining by field value",
+    "section": "",
+    "text": "Earlier in this chapter, you learned how to load tabular data into QGIS. You saw that this is also possible for tables that contain no geometries. This may seem unusual in a GIS context. Yet it is logical that not all datasets include coordinates. In such cases, you have to create the geometries yourself. Sometimes, however, there is a much easier solution. If a vector layer representing the same entities already exists, you can join your table to it: each row is attached to the matching feature, and so is linked to that feature’s geometry.\nOn this page you will learn how to join two tables together if both have a field that contains the same information, such as a name or a code that identifies the entity. If you want to join every row in the first table to exactly one row in the second, the shared field should ideally contain a unique identifier, allowing each record to be matched unambiguously.\nIn the example above, we have a vector layer of the US states containing census data for 1990, 2000 and 2010 (left). We also downloaded a table from the US Census Bureau with the corresponding data for 2020 (right). The latter, however, does not contain geometries.\nIf you study both tables, you notice that they both have a field with the standardised abbreviation of each state. In the vector layer, this field is called STUSPS; in the census table, it is called STATE. Although the field names are different, both fields use the same code for each state.\nWe can use this shared attribute information to join the census table to the existing vector layer. QGIS lets you do this in two different ways: by creating a new layer or by adding a virtual link to the existing layer.",
+    "crumbs": [
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.3 Joining by field value"
+    ]
+  },
+  {
+    "objectID": "data-import/joins.html#join-by-field",
+    "href": "data-import/joins.html#join-by-field",
+    "title": "7.3.3 Joining by field value",
+    "section": "Join attributes by field value",
+    "text": "Join attributes by field value\nThe first method is the processing tool Join attributes by field value (Processing Toolbox ▸ Vector general). It goes through the features of an input layer one by one and looks for matching rows in a second table. It does so by comparing the values in two fields, one in each table. If a match is found, the input feature gets the attribute values of the matching row. The result is saved as a new layer, leaving the original layer unchanged. \n\n\n\n\n\n\n\n\n\n\nIn the configuration window, first select the input layer and the field you want to use for the join (Table field). Then choose the second table (Input layer 2) and the field you want to match with the first field (Table field 2).\nOnce the layers and fields are set, you still have to tell the tool how to handle certain situations. Do you want to add all fields of the second table, or only some of them (Layer 2 fields to copy)? And what should happen if a value in your input layer matches several rows (Join type), or no row at all (Discard records which could not be joined)?\nThe two join types are:\n\n\n\n\n\n\n\n\nJoin type\nWhat QGIS does\nUse case\n\n\n\n\nTake attributes of the first matching feature only (one-to-one)\nAdds the attributes of the first matching record only; other matches are ignored\nAdding newly released census data to an existing layer of states\n\n\nCreate separate feature for each matching feature (one-to-many)\nCreates a separate output feature for each matching record, so the result can contain more features than the input layer\nLinking archaeological finds to excavation sites when each site may have multiple associated finds\n\n\n\nTo make clear in the result layer which fields have been added, you can give them a prefix (Joined field prefix). In the result below, we used census_.\n\n\n\n\n\n\n\nThe join values must match, and the field types must be compatible. Watch out for differences in spelling, leading or trailing spaces, leading zeros and data types. For example, the text value 01 may not match the number 1.\nIf the join does not work as expected, check the values and data types in both fields. Always open the attribute table of the result and look for unexpected NULL values: they usually mean that some records did not match.\n\n\n\nFeatures without a matching record can be left out by checking the Discard records which could not be joined option. Otherwise, they are included in the result layer, but receive a NULL value in all the joined fields.",
+    "crumbs": [
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.3 Joining by field value"
+    ]
+  },
+  {
+    "objectID": "data-import/joins.html#join-in-layer",
+    "href": "data-import/joins.html#join-in-layer",
+    "title": "7.3.3 Joining by field value",
+    "section": "Joining in the layer properties",
+    "text": "Joining in the layer properties\nA second way to create joins in QGIS is through the Layer Properties. Open the Joins tab and click the green + button to add a new join. The configuration window (Add Vector Join) works in a similar way to the processing tool described above, but offers fewer options. You cannot change the default join type (one-to-one) or exclude features without a matching record.\n\n\n\n\n\n\n\n\n\n\nThese differences in options are due to the fundamentally different way in which the join is made here: unlike the tool above, this method does not copy the attributes, but creates a virtual link. You see the joined fields in the attribute table, but they are not stored in it. Both the input layer and the join layer remain separate data sources, which can be edited independently of each other. However, keep in mind that if you edit the values in one of the join fields, this affects the join.\nYou can join multiple tables to one layer, and a single table to multiple layers. This is useful when several layers share the same attribute information, as it allows you to manage these attributes in one place. \nFor example, imagine a series of historical maps showing the same lordships at different points in time. Their boundaries change, so using a single vector layer for all maps is not practical. However, attribute information such as their names and history of origin is shared across the different maps. If you store this information separately in each layer, any change would require you to update every layer individually. This is where joins come in handy: you can store the shared information in a separate table and join it to each map layer using a shared identifier.\n\n\n\n\n\n\nThe join configuration is stored in your QGIS project and depends on the joined table being available. If the joined table’s data source is renamed, moved or deleted, its fields will no longer be available in your layer. If you want to store the joined attributes permanently, export the layer while the join is active (Export ▸ Save Features As…), or use the processing tool above.\n\n\n\nUse the processing tool when you want to create a new dataset with the joined attributes. Use a layer join when you want to keep the original layer and link it to a table within your QGIS project.",
+    "crumbs": [
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.3 Joining by field value"
+    ]
+  },
+  {
+    "objectID": "data-import/joins-location.html",
+    "href": "data-import/joins-location.html",
+    "title": "7.3.4 Joining by location",
+    "section": "",
+    "text": "On the previous page, you joined two tables through their attribute values. The tool discussed here follows a similar principle, but uses a different criterion: a spatial relationship.",
+    "crumbs": [
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.4 Joining by location"
+    ]
+  },
+  {
+    "objectID": "data-import/joins-location.html#join-by-location",
+    "href": "data-import/joins-location.html#join-by-location",
+    "title": "7.3.4 Joining by location",
+    "section": "Join attributes by location",
+    "text": "Join attributes by location\nThis tool is easiest to understand through an example. Consider a layer containing the battles of the American Civil War (civil_war_battles). Its attribute table has three fields, containing the name, date and year of each battle. We also have a layer containing the US states (states). Below you can see both layers in QGIS, with their attribute tables.\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe want to know in which state each battle was fought, but there is no shared field to join this information. There is, however, a spatial link between the battle points and the state polygons: most battle points lie inside a state polygon. It is this relationship that Join attributes by location can use.\nAfter applying the tool discussed below, each battle gets the name and code of the state it lies in. Battles whose points do not fall within any state polygon receive NULL values in these fields.\n\n\nUsing the tool\nYou can find Join attributes by location in the Processing Toolbox, under Vector general. Double-click it to open the configuration window.\n\n\n\n\n\n\n\n\n\n\nAs with Join attributes by field value, first select the input layer (Join to features in) and the layer to compare it with (By comparing to). Most of the other settings are similar as well, and the result is again saved as a new layer, leaving the original layer unchanged. What is distinctive is discussed below.\n\n\nSpatial relationship\nThe key setting here is the spatial relationship, or geometric predicate (Features they (geometric predicate) in the configuration window). It describes how a feature in the input layer relates to features in the join layer:\n\n\n\n\n\n\n\n\nPredicate\nThe input feature…\nExample\n\n\n\n\nintersect\nhas at least one point in common with it\na river that flows through a state\n\n\ncontain\ncontains it fully\na state that contains a battle\n\n\nare within\nlies completely inside it\na battle within a state\n\n\nequal\nhas exactly the same geometry\nthe same state in two different layers\n\n\ntouch\ntouches its boundary, but their interiors do not intersect\ntwo neighbouring states\n\n\noverlap\noverlaps it partially, without either feature containing the other (for lines or polygons of the same dimension)\ntwo overlapping dioceses\n\n\ncross\ncrosses it, with parts of their interiors intersecting\na railway that crosses a river\n\n\n\nIntersect is a broad relationship: it includes features that are inside, touch, cross or overlap one another. Are within is more specific: the input feature must lie inside the join feature.\nYou can tick several predicates at once. An input feature is joined if it satisfies at least one of them.\n\n\n\n\n\n\nTry it yourself: see what each geometric predicate does in Select by location.\n\n\n\n\n\nJoin type\nThe Join type was already discussed on the previous page: it determines what happens when an input feature matches several features in the join layer. You learned that the one-to-one option only takes the first matching feature and ignores the others. Here, an extra one-to-one option is available: Take attributes of the feature with largest overlap only (one-to-one). This option selects the matching feature with the largest geometric overlap.\nConsider the Arkansas River (in yellow), which flows through four states: Colorado, Kansas, Oklahoma and Arkansas.\n\n\n\n\n\n\n\n\n\n\nThe table below compares the results of joining major_rivers to states with intersect, using each of the three join types.\n\n\n\n\n\n\n\n\nOne-to-many\nOne-to-one (first match)\nOne-to-one (largest overlap)\n\n\n\n\nThe output layer contains four copies of the river, one for each state it overlaps with. They have identical geometries and differ only in their state attributes. One input feature can thus produce several output features.\nIn the output layer, the river is joined to Oklahoma, the first state QGIS found. This is not a meaningful geographical criterion. This option is useful when each input feature has only one match, or when it does not matter which match is selected.\nOf the four states the Arkansas River flows through, the largest part lies in Kansas. The river is therefore joined to this state. For lines, QGIS compares the lengths of the overlapping sections; for polygons, it compares their areas.",
+    "crumbs": [
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.4 Joining by location"
+    ]
+  },
+  {
+    "objectID": "data-import/joins-location.html#join-by-nearest",
+    "href": "data-import/joins-location.html#join-by-nearest",
+    "title": "7.3.4 Joining by location",
+    "section": "Join attributes by nearest",
+    "text": "Join attributes by nearest\nUnlike Join attributes by location, which requires a specific spatial relationship, Join attributes by nearest (Processing Toolbox ▸ Vector general) joins each input feature to its nearest feature in a second layer and adds the distance between them.\n\n\n\n\n\n\n\n\n\n\nBy default, this tool joins each input feature to the nearest feature in the second layer. You can increase this number if you want (Maximum nearest neighbors). You can also add a distance limit (Maximum distance): if no feature lies within this distance, no join is made. Regardless of these settings, if several features lie at exactly the same distance, all of them are included, and a join is made for each of them.\n\n\n\n\n\n\nThe distance is measured in the units of the input layer’s CRS. If the input layer uses a geographic CRS such as EPSG:4326, these units are degrees, not metres. For meaningful distance measurements, use a suitable projected CRS with linear units such as metres. In this example, we use NAD83 / Conus Albers (EPSG:5070), which uses metres as its coordinate units.\n\n\n\nIn the output layer, you find not only the joined attributes. QGIS also creates a few extra fields with information about the spatial side of the join, such as the distance to the nearest feature (distance, in the units of the input layer’s CRS, here metres).\nThe map below displays each battle in and around Virginia together with its nearest major city. The attribute table next to it shows the output layer of the Join attributes by nearest tool.\n\n\n\n\n\n\n\n\n\n\nIn chapter 8, you will see a closely related tool, Join attributes by location (summary). Instead of joining attributes, it calculates statistics based on the spatial relationship, such as the number of battles in each state.",
+    "crumbs": [
+      "7 Managing data",
+      "7.3 Tables in GIS",
+      "7.3.4 Joining by location"
     ]
   }
 ]
